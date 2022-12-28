@@ -1,0 +1,9 @@
+/* This page is just standard setup, nothing really to see here */
+
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#1B1B67",
+        "titleBar.activeBackground": "#262691",
+        "titleBar.activeForeground": "#FAFAFE"
+    }
+}
