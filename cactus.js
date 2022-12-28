@@ -38,12 +38,55 @@ export function updateCactus(delta, speedScale) {
 }
 
 // GET ALL OBSTACLE BOUNDARIES
+let boundaryBox = []
 export function getCactusRects() {
+
+  document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
+
   // gives us all of the rectangles for all of the obstacles on the screen
-  return [...document.querySelectorAll("[data-cactus]")].map((cactus) => {
-    return cactus.getBoundingClientRect();
+  const obMap = [...document.querySelectorAll("[data-cactus]")].map((cactus) => {
+
+    const obRect = cactus.getBoundingClientRect();
+    let tempBox = document.createElement('div');
+
+
+    // obRect.width = obRect.width * 0.5;
+    // obRect.height = obRect.height * 0.60;
+
+    tempBox.className = "tempBox"
+    tempBox.style = "border: 2px solid red; position: absolute;";
+    tempBox.style.left = obRect.left + 'px';
+    tempBox.style.top = obRect.top + 'px';
+    tempBox.style.width = obRect.width + 'px';
+    tempBox.style.height = obRect.height + 'px';
+
+    boundaryBox.push(tempBox)
+  
+    return obRect
   });
+
+
+  boundaryBox.forEach(obstacle => document.body.appendChild(obstacle));
+  boundaryBox = []
+
+  return obMap
 }
+
+
+/*
+if(boundaryBox) boundaryBox.remove()
+
+  const dinoRect = player.getBoundingClientRect();
+
+  boundaryBox = document.createElement('div');
+  boundaryBox.style = "border: 2px solid red; position: absolute;";
+  boundaryBox.style.left = dinoRect.left + 'px';
+  boundaryBox.style.top = dinoRect.top + 'px';
+  boundaryBox.style.width = dinoRect.width + 'px';
+  boundaryBox.style.height = dinoRect.height + 'px';
+
+  document.body.appendChild(boundaryBox);
+*/
 
 // CREATE CACTUS
 function createCactus() {
@@ -52,6 +95,7 @@ function createCactus() {
   cactus.src = "imgs/cactus.png"; // selects the correct image from files
   cactus.classList.add("cactus"); // adds CSS styles to obstacle
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
+  setCustomProperty(cactus, "--top", 0); 
   worldElem.append(cactus); // this adds our obstacle to the world
 }
 

@@ -30,7 +30,7 @@ body {
 .start-screen {
     position: absolute;
     font-size: 4vmin;
-    top: 50%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -49,10 +49,12 @@ body {
 }
 
 .dino {
-    --bottom: 0;
     position: absolute;
-    left: 1%;
-    height: 30%;
+    left: 2%;
+    height: 20%; /* Dino size */
+    
+    /* Height Setup */
+    --bottom: 25;
     bottom: calc(var(--bottom) * 1%);
 }
 
@@ -60,8 +62,11 @@ body {
     --left: 0;
     position: absolute;
     left: calc(var(--left) * 1%);
-    height: 30%;
-    bottom: 0;
+    height: 20%; /* Item size */
+
+    /* Height Setup */
+    --bottom: 25;
+    bottom: calc(var(--bottom) * 1%);
 }
 
 

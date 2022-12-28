@@ -5,8 +5,9 @@ import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
-const WORLD_WIDTH = 100;
-const WORLD_HEIGHT = 30;
+const WORLD_WIDTH = 200;
+const WORLD_HEIGHT = 65;
+let gameGoing = false;
 
 //   UI ELEMENTS   //
 const worldElem = document.querySelector("[data-world]");
@@ -20,9 +21,11 @@ const SPEED_SCALE_INCREASE = 0.00001; // Rate of player speed increase // Works 
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-document.addEventListener("keydown", handleStart, { once: true }); // On key down: start game: only do once
+document.addEventListener("keydown", handleStart, { once: true }); // On key down: start game: only do once 
+document.addEventListener("mousedown", handleStart, { once: true }); // On key down: start game: only do once
 
 setPixelToWorldScale();
+
 
 // FRAMERATE LOOP SETUP //
 let lastTime;
@@ -82,16 +85,19 @@ function updateScore(delta) {
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
 function handleStart() {
-  lastTime = null;
-  speedScale = 1; // sets speedscale
-  score = 0;
-
-  setupGround(); // places 2 starting ground pieces in order
-  setupDino();
-  setupCactus();
-  startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
-
-  window.requestAnimationFrame(update); // start infinite play loop
+  if(!gameGoing){
+    gameGoing = true;
+    lastTime = null;
+    speedScale = 1; // sets speedscale
+    score = 0;
+  
+    setupGround(); // places 2 starting ground pieces in order
+    setupDino();
+    setupCactus();
+    startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
+  
+    window.requestAnimationFrame(update); // start infinite play loop
+  } 
 }
 
 // HANDLE LOSE
@@ -100,9 +106,20 @@ function handleLose() {
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
     document.addEventListener("keydown", handleStart, { once: true }); // on space: restart game
+    document.addEventListener("mousedown", handleStart, { once: true }); // on space: restart game
     startScreenElem.classList.remove("hide"); // show start screen again
-  }, 100);
+    gameGoing = false;
+  }, 200);
 }
+
+
+const groundElem = document.querySelector("[data-ground]");
+// temp variables:
+function getGroundSize(){
+  return groundElem.getBoundingClientRect().height;
+}
+
+console.log("Groundsize: " + getGroundSize())
 
 function setPixelToWorldScale() {
   let worldToPixelScale;
@@ -110,6 +127,6 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
-  worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
+  worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale / 1.5}px`;
+  worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale / 1.5}px`;
 }
