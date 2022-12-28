@@ -1,0 +1,31 @@
+<!-- This is where everything starts! The basic setup for any webpage -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Items in the head set up the internal stuff such as the tab name and where the JavaScript and CSS is going to come from -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand New Game</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Most of the visual aspects and page layout come from the styles.css file -->
+    <script src="script.js" type="module"></script> <!-- All the JavaScript code starts with the script.js file, you can go to script.js to follow the JavaScript -->
+</head>
+
+<!-- Body is where everything you see on the page is hosted. The whole game is right here! -->
+<body>
+    <div class="world" data-world>
+        <!-- Text -->
+        <div class="score" data-score>0</div>
+        <div class="start-screen" data-start-screen>Press Space To Jump And Start</div>
+
+        <!-- Sprites -->
+        <img src="imgs/dino-stationary.png" class="dino" data-dino>
+
+        <!-- 2 ground sprites for the endless effect -->
+        <img src="imgs/ground.png" class="ground" data-ground>
+        <img src="imgs/ground.png" class="ground" data-ground>
+    </div>
+</body>
+</html>
