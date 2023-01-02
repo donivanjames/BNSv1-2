@@ -5,19 +5,27 @@
     user-select: none;
 }
 
-body {
+/* body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
+}   */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Press Start 2P', cursive;
+    color: yellow;
+  }
 
 .world {
     overflow: hidden;
     position: relative;
     width: 100%;
     height: 200px;
+    color: black;
 }
 
 .score {
@@ -59,17 +67,24 @@ body {
 }
 
 .cactus {
-    --left: 0;
     position: absolute;
+    --left: 0;
     left: calc(var(--left) * 1%);
-    height: 20%; /* Item size */
+    height: 20%; /* size */
 
-    /* Height Setup */
-    --bottom: 25;
+    --bottom: 25; /* position height */
+    bottom: calc(var(--bottom) * 1%);
+} 
+
+.apple {
+    position: absolute;
+    --left: 0;
+    left: calc(var(--left) * 1%);
+    height: 10%; /* size */
+
+    --bottom: 50; /* position height */
     bottom: calc(var(--bottom) * 1%);
 }
-
-
 
 
 
