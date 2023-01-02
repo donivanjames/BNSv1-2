@@ -1,6 +1,7 @@
 import { updateGround, setupGround } from "./ground.js";
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
+import { updateApple, setupApple, getAppleRects, removeAllApples } from "./apple.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -21,11 +22,10 @@ const SPEED_SCALE_INCREASE = 0.00001; // Rate of player speed increase // Works 
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-document.addEventListener("keydown", handleStart, { once: true }); // On key down: start game: only do once 
+document.addEventListener("keydown", handleStart, { once: true }); // On key down: start game: only do once
 document.addEventListener("mousedown", handleStart, { once: true }); // On key down: start game: only do once
 
 setPixelToWorldScale();
-
 
 // FRAMERATE LOOP SETUP //
 let lastTime;
@@ -47,9 +47,11 @@ function update(time) {
   updateGround(delta, speedScale);
   updateDino(delta, speedScale);
   updateCactus(delta, speedScale);
+  updateApple(delta, speedScale);
   updateSpeedScale(delta);
   updateScore(delta);
   if (checkLose()) return handleLose(); // if checkLose is true then end the game
+  if (checkApple()) collectApple();
 
   lastTime = time;
   window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
@@ -59,6 +61,20 @@ function update(time) {
 function checkLose() {
   const dinoRect = getDinoRect();
   return getCactusRects().some((rect) => isCollision(rect, dinoRect)); // if any of the obstacles are touching the player: lose the game
+}
+
+// CHECK FOR GAME OVER
+function checkApple() {
+  const dinoRect = getDinoRect();
+  return getAppleRects().some((rect) => isCollision(rect, dinoRect)); // if any of the apples touch player, add to score
+}
+
+function collectApple() {
+  console.log("Apple Grabbed");
+  // add to score
+  // remove apple
+  removeAllApples();
+  // make sure count is only +1 per apple
 }
 
 // COLLISION CHECKER
@@ -77,27 +93,28 @@ function updateSpeedScale(delta) {
   speedScale += delta * SPEED_SCALE_INCREASE;
 }
 
-// INCREASE SCORE BASED ON DELTA TIME   //  
+// INCREASE SCORE BASED ON DELTA TIME   //
 function updateScore(delta) {
   score += delta * 0.01;
-  scoreElem.textContent = Math.floor(score);
+  scoreElem.textContent = `Score: ${Math.floor(score)}`;
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
 function handleStart() {
-  if(!gameGoing){
+  if (!gameGoing) {
     gameGoing = true;
     lastTime = null;
     speedScale = 1; // sets speedscale
     score = 0;
-  
+
     setupGround(); // places 2 starting ground pieces in order
     setupDino();
     setupCactus();
+    setupApple();
     startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
-  
+
     window.requestAnimationFrame(update); // start infinite play loop
-  } 
+  }
 }
 
 // HANDLE LOSE
@@ -112,14 +129,12 @@ function handleLose() {
   }, 200);
 }
 
-
+// Get Ground Dimensions
 const groundElem = document.querySelector("[data-ground]");
-// temp variables:
-function getGroundSize(){
-  return groundElem.getBoundingClientRect().height;
-}
-
-console.log("Groundsize: " + getGroundSize())
+const getGroundHeight = () => groundElem.getBoundingClientRect().height;
+const getGroundWidth = () => groundElem.getBoundingClientRect().width;
+console.log("GroundHeight: " + getGroundHeight());
+console.log("Groundwidth: " + getGroundWidth());
 
 function setPixelToWorldScale() {
   let worldToPixelScale;
@@ -127,6 +142,6 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale / 1.5}px`;
-  worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale / 1.5}px`;
+  worldElem.style.width = `${(WORLD_WIDTH * worldToPixelScale) / 1.5}px`;
+  worldElem.style.height = `${(WORLD_HEIGHT * worldToPixelScale) / 1.5}px`;
 }
