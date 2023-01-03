@@ -9,7 +9,7 @@ import { updateApple, setupApple, getAppleRects, removeAllApples, collect } from
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
 let gameGoing = false;
-
+let applesCollected = 0
 
 
 //   UI ELEMENTS   //
@@ -21,7 +21,7 @@ const startScreenElem = document.querySelector("[data-start-screen]");
 let score = 0;
 let highScore = 0;
 let speedScale = 1; // Gets multiplied by speed to increase player speed over time
-const SPEED_SCALE_INCREASE = 0.00001; // Rate of player speed increase // Works with updateSpeedScale()
+const SPEED_SCALE_INCREASE = 0.000005; // Rate of player speed increase // Works with updateSpeedScale()
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
@@ -75,9 +75,9 @@ function checkApple() {
 function collectApple() {
   console.log("Apple Grabbed");
   // add to score
+  applesCollected += 1
   // remove apple
   collect();
-  // make sure count is only +1 per apple
 }
 
 // COLLISION CHECKER
@@ -98,9 +98,9 @@ function updateSpeedScale(delta) {
 
 // INCREASE SCORE BASED ON DELTA TIME //
 function updateScore(delta) {
-  score += delta * 0.01;
+  score += delta * 0.01 * (applesCollected * 0.1 + 1);
   if(score >= highScore) highScore = score;
-  scoreElem.textContent = `High Score: ${Math.floor(highScore)}  |  Score: ${Math.floor(score)}`;
+  scoreElem.textContent = `High Score: ${Math.floor(highScore)}  | Apple Bonus: ${applesCollected}0% |  Score: ${Math.floor(score)}`;
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
@@ -110,6 +110,7 @@ function handleStart() {
     lastTime = null;
     speedScale = 1; // sets speedscale
     score = 0;
+    applesCollected = 0;
 
     setupGround(); // places 2 starting ground pieces in order
     setupDino();

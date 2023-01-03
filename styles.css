@@ -5,6 +5,13 @@
     user-select: none;
 }
 
+/* an attempt to reduce mobile input lag */
+a, button, html, .myelements
+{
+	-ms-touch-action: manipulation;	/* IE10  */
+	touch-action: manipulation;		/* IE11+ */
+}
+
 /* body {
     margin: 0;
     display: flex;
@@ -29,9 +36,20 @@ body {
     font-size: small;
 }
 
+.button {
+    background-color: yellow;
+    border: none;
+    color: rgb(19, 74, 78);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
 .score {
     position: absolute;
-    font-size: 3vmin;
+    font-size: 2vmin;
     right: 1vmin;
     top: 1vmin;
 }
@@ -52,7 +70,7 @@ body {
     --left: 0;
     position: absolute;
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
-    width: 300%;
+    width: 301%;
     bottom: 0%;
     left: calc(var(--left) * 1%);
 }
@@ -76,6 +94,16 @@ body {
     --bottom: 25; /* position height */
     bottom: calc(var(--bottom) * 1%);
 } 
+
+.puddle {
+    position: absolute;
+    --left: 0;
+    left: calc(var(--left) * 1%);
+    height: 5%; /* size */
+
+    --bottom: 21; /* position height */
+    bottom: calc(var(--bottom) * 1%);
+}
 
 .apple {
     position: absolute;

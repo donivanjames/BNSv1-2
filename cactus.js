@@ -66,8 +66,9 @@ export function getCactusRects() {
   });
 
 
-  boundaryBox.forEach(obstacle => document.body.appendChild(obstacle));
-  boundaryBox = []
+  // Red Box
+  //boundaryBox.forEach(obstacle => document.body.appendChild(obstacle));
+  //boundaryBox = []
 
   return obMap
 }
@@ -92,8 +93,8 @@ if(boundaryBox) boundaryBox.remove()
 function createCactus() {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
-  cactus.src = "imgs/cactus.png"; // selects the correct image from files
-  cactus.classList.add("cactus"); // adds CSS styles to obstacle
+  cactus.src = "imgs/Puddle.png"; // selects the correct image from files
+  cactus.classList.add("puddle"); // adds CSS styles to obstacle
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); 
   worldElem.append(cactus); // this adds our obstacle to the world

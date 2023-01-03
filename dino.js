@@ -46,8 +46,9 @@ export function getDinoRect() {
 
   const dinoRect = player.getBoundingClientRect();
 
-  dinoRect.width = dinoRect.width * 0.70;
-  dinoRect.height = dinoRect.height * 0.60;
+  dinoRect.width = dinoRect.width * 0.6;
+  dinoRect.height = dinoRect.height * 1;
+
 
   boundaryBox = document.createElement('div');
   boundaryBox.style = "border: 2px solid red; position: absolute;";
@@ -56,7 +57,8 @@ export function getDinoRect() {
   boundaryBox.style.width = dinoRect.width + 'px';
   boundaryBox.style.height = dinoRect.height + 'px';
 
-  document.body.appendChild(boundaryBox);
+  // Red Box
+  // document.body.appendChild(boundaryBox);
 
   return dinoRect
 }
@@ -68,21 +70,21 @@ export function setDinoLose() {
     loseSound.play()
     stopJumpSound = true;
     // set the sprite of the player do the loss image
-    player.src = "imgs/dino-lose.png"
+    player.src = "imgs/Player-lose.png" 
 }
 
 // HANDLE RUN
 function handleRun(delta, speedScale) {
   if (isJumping) {
     // if isJumping: set animation to stationary
-    player.src = `imgs/dino-stationary.png`;
+    player.src = `imgs/Player-run-0.png`;
     return;
   }
 
   if (currentFrameTime >= FRAME_TIME) {
     // swaps animation frames when currentFrameTime is above frameTime
     dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT; // will cycle animation frames no matter how many there are
-    player.src = `imgs/dino-run-${dinoFrame}.png`; // picks an image from the current dino frame
+    player.src = `imgs/Player-run-${dinoFrame}.png`; // picks an image from the current dino frame
     currentFrameTime -= FRAME_TIME; // reset currentFrameTime back to 0
   }
 
@@ -99,6 +101,7 @@ function handleJump(delta) {
   if (getCustomProperty(player, "--bottom") <= 25) {
     // if dino is back on the ground: continue running
     setCustomProperty(player, "--bottom", 25); // make sure dino position is zero
+    dinoFrame = 0
     isJumping = false;
   }
 
