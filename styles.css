@@ -40,23 +40,23 @@ body {
     background-color: yellow;
     border: none;
     color: rgb(19, 74, 78);
-    padding: 15px 32px;
+    padding: 10px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1.5vw;
   }
 
 .score {
     position: absolute;
-    font-size: 2vmin;
+    font-size: 1.0vw;
     right: 1vmin;
     top: 1vmin;
 }
 
 .start-screen {
     position: absolute;
-    font-size: 3vmin;
+    font-size: 1.5vw;
     top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -65,6 +65,38 @@ body {
 .hide {
     display: none;
 }
+
+/* @media (max-width: 800px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */ /*
+    .start-screen {
+        position: absolute;
+        overflow: hidden;
+        font-size: 1.5vmin;
+        top: 27%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .score {
+        position: absolute;
+        font-size: 1vmin;
+        right: 1vmin;
+        top: 1vmin;
+    }
+
+    .button {
+        background-color: yellow;
+        border: none;
+        color: rgb(19, 74, 78);
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+      }
+  } */
+
+
 
 .ground {
     --left: 0;
