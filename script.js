@@ -96,7 +96,7 @@ function updateSpeedScale(delta) {
   speedScale += delta * SPEED_SCALE_INCREASE;
 }
 
-// INCREASE SCORE BASED ON DELTA TIME   //
+// INCREASE SCORE BASED ON DELTA TIME //
 function updateScore(delta) {
   score += delta * 0.01;
   if(score >= highScore) highScore = score;
