@@ -11,6 +11,10 @@ const GRAVITY = 0.0015;
 const DINO_FRAME_COUNT = 2; // amount of animation frames
 const FRAME_TIME = 160; // how long each animation frame should last (in milliseconds)
 
+let jumpSound = new Audio("sounds/Jump.mp3")
+let loseSound = new Audio("sounds/Game-Lose-2.mp3")
+let stopJumpSound = false; // stops jumping sound from playing on restart
+
 // PLAYER SETUP
 let isJumping;
 let dinoFrame;
@@ -61,6 +65,8 @@ export function getDinoRect() {
 
 // SET LOSING SPRITE
 export function setDinoLose() {
+    loseSound.play()
+    stopJumpSound = true;
     // set the sprite of the player do the loss image
     player.src = "imgs/dino-lose.png"
 }
@@ -87,6 +93,7 @@ function handleRun(delta, speedScale) {
 function handleJump(delta) {
   if (!isJumping) return; // if not jumping then exit out
 
+  
   incrementCustomProperty(player, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
 
   if (getCustomProperty(player, "--bottom") <= 25) {
@@ -100,7 +107,12 @@ function handleJump(delta) {
 
 function onJump(event) {
   if (event.code != "Space" && event.button !== 0 || isJumping) return; // if the key pressed is not space or the player is jumping then dont do anything
-
+  
+  if(!stopJumpSound){
+    jumpSound.play()
+  }
+  
+  stopJumpSound = false;  
   yVelocity = JUMP_SPEED;
   isJumping = true;
 }

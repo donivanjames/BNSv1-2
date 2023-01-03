@@ -1,7 +1,7 @@
 import { updateGround, setupGround } from "./ground.js";
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
-import { updateApple, setupApple, getAppleRects, removeAllApples } from "./apple.js";
+import { updateApple, setupApple, getAppleRects, removeAllApples, collect } from "./apple.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -10,6 +10,8 @@ const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
 let gameGoing = false;
 
+
+
 //   UI ELEMENTS   //
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelector("[data-score]");
@@ -17,6 +19,7 @@ const startScreenElem = document.querySelector("[data-start-screen]");
 
 //   SPEED AND SCORE   //
 let score = 0;
+let highScore = 0;
 let speedScale = 1; // Gets multiplied by speed to increase player speed over time
 const SPEED_SCALE_INCREASE = 0.00001; // Rate of player speed increase // Works with updateSpeedScale()
 
@@ -73,7 +76,7 @@ function collectApple() {
   console.log("Apple Grabbed");
   // add to score
   // remove apple
-  removeAllApples();
+  collect();
   // make sure count is only +1 per apple
 }
 
@@ -96,7 +99,8 @@ function updateSpeedScale(delta) {
 // INCREASE SCORE BASED ON DELTA TIME   //
 function updateScore(delta) {
   score += delta * 0.01;
-  scoreElem.textContent = `Score: ${Math.floor(score)}`;
+  if(score >= highScore) highScore = score;
+  scoreElem.textContent = `High Score: ${Math.floor(highScore)}  |  Score: ${Math.floor(score)}`;
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
