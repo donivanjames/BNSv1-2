@@ -11,6 +11,8 @@ const GRAVITY = 0.0015;
 const DINO_FRAME_COUNT = 2; // amount of animation frames
 const FRAME_TIME = 160; // how long each animation frame should last (in milliseconds)
 
+const heightFromGround = 15 // also change css --bottom to match
+
 let jumpSound = new Audio("sounds/Jump.mp3")
 let loseSound = new Audio("sounds/Game-Lose-2.mp3")
 let stopJumpSound = false; // stops jumping sound from playing on restart
@@ -26,7 +28,7 @@ export function setupDino() {
   currentFrameTime = 0;
   yVelocity = 0;
   player.src = `imgs/Player-run-0.png`;
-  setCustomProperty(player, "--bottom", 25);
+  setCustomProperty(player, "--bottom", heightFromGround);
   document.removeEventListener("keydown", onJump); // this removes any extra eventListeners from the game before we add a new one
   document.removeEventListener("mousedown", onJump); // this removes any extra eventListeners from the game before we add a new one
   document.addEventListener("keydown", onJump); // this adds a listener to the player that waits for any key press, then it executes the onJump function
@@ -99,9 +101,9 @@ function handleJump(delta) {
   
   incrementCustomProperty(player, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
 
-  if (getCustomProperty(player, "--bottom") <= 25) {
+  if (getCustomProperty(player, "--bottom") <= heightFromGround) {
     // if dino is back on the ground: continue running
-    setCustomProperty(player, "--bottom", 25); // make sure dino position is zero
+    setCustomProperty(player, "--bottom", heightFromGround); // make sure dino position is zero
     dinoFrame = 0
     isJumping = false;
   }

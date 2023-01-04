@@ -19,7 +19,7 @@ export function setupCactus() {
 }
 
 // UPDATE OBSTACLE
-export function updateCactus(delta, speedScale) {
+export function updateCactus(delta, speedScale, environment) {
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
     incrementCustomProperty(cactus, "--left", delta * speedScale * SPEED * -1);
     if (getCustomProperty(cactus, "--left") <= -100) {
@@ -29,7 +29,7 @@ export function updateCactus(delta, speedScale) {
 
   if (nextCactusTime <= 0) {
     // when obstacle time reaches zero: summon a new obstacle
-    createCactus();
+    createCactus(environment);
     nextCactusTime =
       randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX) /
       speedScale; // divide by speedscale so obstacles speed up over time
@@ -77,13 +77,13 @@ export function getCactusRects() {
 
 
 // CREATE CACTUS
-function createCactus() {
+function createCactus(environment) {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
   
   // Set this based on environment
-  cactus.src = "imgs/Puddle.png"; // selects the correct image from files
-  cactus.classList.add("puddle"); // adds CSS styles to obstacle
+  cactus.src = `imgs/obstacle-${environment}.png`; // selects the correct image from files
+  cactus.classList.add(`obstacle${environment}`); // adds CSS styles to obstacle
   
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); 

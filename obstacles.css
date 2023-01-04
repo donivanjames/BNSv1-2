@@ -1,29 +1,44 @@
-.cactus {
-    position: absolute;
-    --left: 0;
-    left: calc(var(--left) * 1%);
-    height: 20%; /* size */
-
-    --bottom: 25; /* position height */
-    bottom: calc(var(--bottom) * 1%);
-} 
-
-.puddle {
-    position: absolute;
-    --left: 0;
-    left: calc(var(--left) * 1%);
-    height: 5%; /* size */
-
-    --bottom: 21; /* position height */
-    bottom: calc(var(--bottom) * 1%);
-}
+/*    height = object size
+    --bottom = object height from ground  */
 
 .apple {
+    height: 10%;
+    --bottom: 50;
+}   
+
+/* Rocks */
+.obstacle1 {
+    height: 10%;
+    --bottom: 15;
+}
+
+/* Puddle */
+.obstacle2 {
+    height: 5%;
+    --bottom: 15;
+}
+
+.obstacle3 {
+    height: 10%;
+    --bottom: 15;
+}
+
+/* Books */
+.obstacle4 {
+    height: 10%;
+    --bottom: 15;
+}
+
+/* Basketball */
+.obstacle5 {
+    height: 10%;
+    --bottom: 15;
+}
+
+/* Some CSS that covers all obstacles */
+.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .apple, .cactus {
     position: absolute;
     --left: 0;
     left: calc(var(--left) * 1%);
-    height: 10%; /* size */
-
-    --bottom: 50; /* position height */
     bottom: calc(var(--bottom) * 1%);
 }

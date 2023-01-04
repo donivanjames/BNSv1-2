@@ -2,6 +2,7 @@ import { updateGround, setupGround } from "./ground.js";
 import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 import { updateApple, setupApple, getAppleRects, removeAllApples, collect } from "./apple.js";
+import { giveRandomFact } from "./BNS_Facts.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -17,6 +18,7 @@ let environment = 2
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelector("[data-score]");
 const startScreenElem = document.querySelector("[data-start-screen]");
+let randomFact = document.querySelector("[data-fact]")
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -41,6 +43,7 @@ function handleGameStart() {
     score = 0;
     applesCollected = 0;
 
+    randomFact.textContent = giveRandomFact()
     setupGround(environment); // places 2 starting ground pieces in order
     setupDino();
     setupCactus();
@@ -66,31 +69,33 @@ function chooseEnvironment(){
 // FRAMERATE LOOP SETUP //
 let lastTime;
 function update(time) {
-  // BEFORE GAME RUNS //
+  if(!document.hidden) {
+    // BEFORE GAME RUNS //
 
-  // if lastTime is null then only call this block
-  if (lastTime == null) {
-    lastTime = time;
-    window.requestAnimationFrame(update);
-    return;
+      // if lastTime is null then only call this block
+      if (lastTime == null) {
+        lastTime = time;
+        window.requestAnimationFrame(update);
+        return;
+      }
+
+      // DURING GAME RUN //
+
+      // Set deltatime for constant update speed regardless of framerate
+      const delta = time - lastTime;
+
+      updateGround(delta, speedScale);
+      updateDino(delta, speedScale);
+      updateCactus(delta, speedScale, environment);
+      updateApple(delta, speedScale);
+      updateSpeedScale(delta);
+      updateScore(delta);
+      if (checkLose()) return handleLose(); // if checkLose is true then end the game
+      if (checkApple()) collectApple();
+
+      lastTime = time;
+      window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
   }
-
-  // DURING GAME RUN //
-
-  // Set deltatime for constant update speed regardless of framerate
-  const delta = time - lastTime;
-
-  updateGround(delta, speedScale);
-  updateDino(delta, speedScale);
-  updateCactus(delta, speedScale);
-  updateApple(delta, speedScale);
-  updateSpeedScale(delta);
-  updateScore(delta);
-  if (checkLose()) return handleLose(); // if checkLose is true then end the game
-  if (checkApple()) collectApple();
-
-  lastTime = time;
-  window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
 }
 
 // CHECK FOR GAME OVER
