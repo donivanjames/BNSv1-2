@@ -25,6 +25,7 @@ export function setupDino() {
   dinoFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
+  player.src = `imgs/Player-run-0.png`;
   setCustomProperty(player, "--bottom", 25);
   document.removeEventListener("keydown", onJump); // this removes any extra eventListeners from the game before we add a new one
   document.removeEventListener("mousedown", onJump); // this removes any extra eventListeners from the game before we add a new one
@@ -42,14 +43,16 @@ export function updateDino(delta, speedScale) {
 let boundaryBox
 export function getDinoRect() {
 
-  if(boundaryBox) boundaryBox.remove()
+  
 
   const dinoRect = player.getBoundingClientRect();
 
   dinoRect.width = dinoRect.width * 0.6;
   dinoRect.height = dinoRect.height * 1;
 
-
+  // Red Box Code, Leave For Testing 
+  /*
+  if(boundaryBox) boundaryBox.remove()
   boundaryBox = document.createElement('div');
   boundaryBox.style = "border: 2px solid red; position: absolute;";
   boundaryBox.style.left = dinoRect.left + 'px';
@@ -57,13 +60,11 @@ export function getDinoRect() {
   boundaryBox.style.width = dinoRect.width + 'px';
   boundaryBox.style.height = dinoRect.height + 'px';
 
-  // Red Box
-  // document.body.appendChild(boundaryBox);
+  document.body.appendChild(boundaryBox);
+  */
 
   return dinoRect
 }
-
-
 
 // SET LOSING SPRITE
 export function setDinoLose() {

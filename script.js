@@ -10,6 +10,7 @@ const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
 let gameGoing = false;
 let applesCollected = 0
+let environment = 2
 
 
 //   UI ELEMENTS   //
@@ -25,10 +26,42 @@ const SPEED_SCALE_INCREASE = 0.000005; // Rate of player speed increase // Works
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-document.addEventListener("keydown", handleStart, { once: true }); // On key down: start game: only do once
-document.addEventListener("mousedown", handleStart, { once: true }); // On key down: start game: only do once
+document.addEventListener("keydown", handleGameStart, { once: true }); // On key down: start game: only do once
+document.addEventListener("mousedown", handleGameStart, { once: true }); // On key down: start game: only do once
 
 setPixelToWorldScale();
+
+// HANDLES GAME START WHEN SPACE IS PRESSED
+function handleGameStart() {
+  if (!gameGoing) {
+
+    gameGoing = true;
+    lastTime = null;
+    speedScale = 1; // sets speedscale
+    score = 0;
+    applesCollected = 0;
+
+    setupGround(environment); // places 2 starting ground pieces in order
+    setupDino();
+    setupCactus();
+    setupApple();
+    startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
+
+    window.requestAnimationFrame(update); // start infinite play loop
+  }
+}
+
+function handleRestart(){
+  if (!gameGoing) {
+    chooseEnvironment()
+    handleGameStart()
+  }
+}
+
+function chooseEnvironment(){
+  //Randomly assigns one of the 5 environments
+  environment = Math.floor(Math.random() * 5) + 1; 
+}
 
 // FRAMERATE LOOP SETUP //
 let lastTime;
@@ -103,32 +136,15 @@ function updateScore(delta) {
   scoreElem.textContent = `High Score: ${Math.floor(highScore)}  | Apple Bonus: ${applesCollected}0% |  Score: ${Math.floor(score)}`;
 }
 
-// HANDLES GAME START WHEN SPACE IS PRESSED
-function handleStart() {
-  if (!gameGoing) {
-    gameGoing = true;
-    lastTime = null;
-    speedScale = 1; // sets speedscale
-    score = 0;
-    applesCollected = 0;
 
-    setupGround(); // places 2 starting ground pieces in order
-    setupDino();
-    setupCactus();
-    setupApple();
-    startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
-
-    window.requestAnimationFrame(update); // start infinite play loop
-  }
-}
 
 // HANDLE LOSE
 function handleLose() {
   setDinoLose(); // set player to losing sprite
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
-    document.addEventListener("keydown", handleStart, { once: true }); // on space: restart game
-    document.addEventListener("mousedown", handleStart, { once: true }); // on space: restart game
+    document.addEventListener("keydown", handleRestart, { once: true }); // on space: restart game
+    document.addEventListener("mousedown", handleRestart, { once: true }); // on space: restart game
     startScreenElem.classList.remove("hide"); // show start screen again
     gameGoing = false;
   }, 200);

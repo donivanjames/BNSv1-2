@@ -1,0 +1,29 @@
+.cactus {
+    position: absolute;
+    --left: 0;
+    left: calc(var(--left) * 1%);
+    height: 20%; /* size */
+
+    --bottom: 25; /* position height */
+    bottom: calc(var(--bottom) * 1%);
+} 
+
+.puddle {
+    position: absolute;
+    --left: 0;
+    left: calc(var(--left) * 1%);
+    height: 5%; /* size */
+
+    --bottom: 21; /* position height */
+    bottom: calc(var(--bottom) * 1%);
+}
+
+.apple {
+    position: absolute;
+    --left: 0;
+    left: calc(var(--left) * 1%);
+    height: 10%; /* size */
+
+    --bottom: 50; /* position height */
+    bottom: calc(var(--bottom) * 1%);
+}

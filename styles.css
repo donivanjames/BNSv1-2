@@ -1,5 +1,7 @@
 /* This page handles a lot of the visual aspects of the game, including the display borders of the game itself */
 
+@import "obstacles.css";
+
 *, *::before, *::after {
     box-sizing: border-box;
     user-select: none;
@@ -11,14 +13,6 @@ a, button, html, .myelements
 	-ms-touch-action: manipulation;	/* IE10  */
 	touch-action: manipulation;		/* IE11+ */
 }
-
-/* body {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}   */
 
 body {
     margin: 0;
@@ -66,38 +60,6 @@ body {
     display: none;
 }
 
-/* @media (max-width: 800px) {
-    /* CSS that should be displayed if width is equal to or less than 800px goes here */ /*
-    .start-screen {
-        position: absolute;
-        overflow: hidden;
-        font-size: 1.5vmin;
-        top: 27%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .score {
-        position: absolute;
-        font-size: 1vmin;
-        right: 1vmin;
-        top: 1vmin;
-    }
-
-    .button {
-        background-color: yellow;
-        border: none;
-        color: rgb(19, 74, 78);
-        padding: 10px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 12px;
-      }
-  } */
-
-
-
 .ground {
     --left: 0;
     position: absolute;
@@ -117,35 +79,6 @@ body {
     bottom: calc(var(--bottom) * 1%);
 }
 
-.cactus {
-    position: absolute;
-    --left: 0;
-    left: calc(var(--left) * 1%);
-    height: 20%; /* size */
-
-    --bottom: 25; /* position height */
-    bottom: calc(var(--bottom) * 1%);
-} 
-
-.puddle {
-    position: absolute;
-    --left: 0;
-    left: calc(var(--left) * 1%);
-    height: 5%; /* size */
-
-    --bottom: 21; /* position height */
-    bottom: calc(var(--bottom) * 1%);
-}
-
-.apple {
-    position: absolute;
-    --left: 0;
-    left: calc(var(--left) * 1%);
-    height: 10%; /* size */
-
-    --bottom: 50; /* position height */
-    bottom: calc(var(--bottom) * 1%);
-}
 
 
 

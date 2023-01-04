@@ -13,7 +13,7 @@ const worldElem = document.querySelector("[data-world]"); // grabs the world ele
 
 
 let collectSound = new Audio("sounds/Coin-Collect.mp3")
-collectSound.volume = 0.15
+collectSound.volume = 0.1
   
 // SETUP OBSTACLE
 let nextAppleTime;
