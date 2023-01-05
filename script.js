@@ -39,12 +39,14 @@ let environment = 1;
 let firstClick = false; // to set up first screen
 
 //   UI ELEMENTS   //
-const worldElem = document.querySelector("[data-world]");
-const scoreElem = document.querySelector("[data-score]");
-const startScreenElem = document.querySelector("[data-start-screen]");
-const gameOverElem = document.querySelector("[data-game-over-screen]");
-const preGameScreen = document.querySelector("[data-pregame-screen]");
-let randomFact = document.querySelector("[data-fact]");
+const elements = {
+  worldElem: document.querySelector("[data-world]"),
+  scoreElem: document.querySelector("[data-score]"),
+  startScreenElem: document.querySelector("[data-start-screen]"),
+  gameOverElem: document.querySelector("[data-game-over-screen]"),
+  preGameScreen: document.querySelector("[data-pregame-screen]"),
+  randomFact: document.querySelector("[data-fact]"),
+}
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -74,8 +76,8 @@ export function handleInput(event) {
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   if (!firstClick) {
-    preGameScreen.classList.add("hide"); // get rid of title
-    startScreenElem.classList.remove("hide"); // add the other
+    elements.preGameScreen.classList.add("hide"); // get rid of title
+    elements.startScreenElem.classList.remove("hide"); // add the other
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
@@ -98,15 +100,15 @@ export function handleGameStart() {
     stopTitleSong();
     playRunSong();
 
-    randomFact.textContent = giveRandomFact();
+    elements.randomFact.textContent = giveRandomFact();
     //setupGround(environment); // places 2 starting ground pieces in order
     setupDino(environment);
     setupCactus();
     setupApple();
     resetGround();
-    scoreElem.classList.remove("hide");
-    startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
-    gameOverElem.classList.add("hide");
+    elements.scoreElem.classList.remove("hide");
+    elements.startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
+    elements.gameOverElem.classList.add("hide");
 
     window.requestAnimationFrame(update); // start infinite play loop
   }
@@ -189,7 +191,7 @@ function updateSpeedScale(delta) {
 function updateScore(delta) {
   score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
   if (score >= highScore) highScore = score;
-  scoreElem.textContent = `High Score: ${Math.floor(
+  elements.scoreElem.textContent = `High Score: ${Math.floor(
     highScore
   )}  | Apple Bonus: ${applesCollected}0% |  Score: ${Math.floor(score)}`;
 }
@@ -204,10 +206,10 @@ function handleLose() {
 
   chooseEnvironment();
   changeGround(environment);
-  gameOverElem.classList.remove("hide"); // show start screen again
-  scoreElem.classList.add("hide");
+  elements.gameOverElem.classList.remove("hide"); // show start screen again
+  elements.scoreElem.classList.add("hide");
 
-  gameOverElem.textContent = `Game Over
+  elements.gameOverElem.textContent = `Game Over
   \r\n\r\nScore: ${Math.floor(score)} | High Score: ${Math.floor(highScore)}
   \r\nApples Collected: ${applesCollected}
   \r\n\r\nTap Or Space To Start Again`;
@@ -228,7 +230,7 @@ function handleLose() {
       break;
   }
 
-  scoreElem.style.color = fontColor;
+  elements.scoreElem.style.color = fontColor;
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
@@ -250,6 +252,6 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  worldElem.style.width = `${(WORLD_WIDTH * worldToPixelScale) / 1.5}px`;
-  worldElem.style.height = `${(WORLD_HEIGHT * worldToPixelScale) / 1.5}px`;
+  elements.worldElem.style.width = `${(WORLD_WIDTH * worldToPixelScale) / 1.5}px`;
+  elements.worldElem.style.height = `${(WORLD_HEIGHT * worldToPixelScale) / 1.5}px`;
 }
