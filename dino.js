@@ -22,17 +22,31 @@ let isJumping;
 let dinoFrame;
 let currentFrameTime;
 let yVelocity;
-export function setupDino() {
+export function setupDino(environment) {
   isJumping = false; // Reset all past values
   dinoFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
   player.src = `imgs/Player-run-0.png`;
+
+  // Need a different zindex for the school so player falls into puddle and not behind it
+  player.classList.remove("zindex-top")
+  player.classList.add("zindex-default")
+  if(environment == 2){
+    player.classList.add("zindex-top")
+    player.classList.remove("zindex-default")
+  }
+
+
   setCustomProperty(player, "--bottom", heightFromGround);
   document.removeEventListener("keydown", onJump); // this removes any extra eventListeners from the game before we add a new one
   document.removeEventListener("mousedown", onJump); // this removes any extra eventListeners from the game before we add a new one
   document.addEventListener("keydown", onJump); // this adds a listener to the player that waits for any key press, then it executes the onJump function
   document.addEventListener("mousedown", onJump); // this adds a listener to the player that waits for click, then it executes the onJump function
+}
+
+export function showPlayer(){
+  player.classList.remove("hide-img")
 }
 
 // UPDATE PLAYER
@@ -114,11 +128,13 @@ function handleJump(delta) {
 function onJump(event) {
   if (event.code != "Space" && event.button !== 0 || isJumping) return; // if the key pressed is not space or the player is jumping then dont do anything
   
+
   if(!stopJumpSound){
     jumpSound.play()
   }
-  
-  stopJumpSound = false;  
+
+  stopJumpSound = false; 
+ 
   yVelocity = JUMP_SPEED;
   isJumping = true;
 }

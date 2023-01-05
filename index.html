@@ -27,6 +27,8 @@
 
   <!-- Body is where everything you see on the page is hosted. The whole game is right here! -->
   <body style="background-color: #36454f">
+    <audio src="sounds/Music/run-song.wav" id="runSong" loop="loop" autoplay="autoplay" muted="muted"></audio>
+
     <div
       style="
         display: flex;
@@ -45,16 +47,36 @@
 
       <div class="world" data-world>
         <!-- 2 ground sprites for the endless effect -->
-        <img src="imgs/L2_environment_loop_v1.png" class="ground" data-ground />
-        <img src="imgs/L2_environment_loop_v1.png" class="ground" data-ground />
+        <img src="imgs/L1_environment_loop_v1.png" class="ground hide-img" data-ground />
+        <img src="imgs/L1_environment_loop_v1.png" class="ground hide-img" data-ground />
 
-        <!-- Text -->
-        <div class="score" data-score>High Score: 0 | Apple Bonus: 00% | Score: 0</div>
+        <!-- Game Text -->
+        <div class="score hide" data-score>High Score: 0 | Apple Bonus: 00% | Score: 0</div>
 
-        <div class="start-screen" data-start-screen>Tap Or Space To Jump</div>
+        <!-- Pre Game Screen -->
+        <div class="start-screen pregame-screen" data-pregame-screen>
+            <h2 style="top: 50%; text-shadow: 7px 7px 0px #000000">Click To Enter</h2>
+        </div>
+
+        <!-- Start Screen Text -->
+        <div class="start-screen hide" data-start-screen>
+          <!-- <img src="imgs/Title Screen.png" class="ground" style="position: relative;"> -->
+            <h1 style="text-shadow: 7px 7px 0px #000000">Brand New Game</h1>
+            A Brand New School Production  <br><br><br>
+            Tap Or Space To Jump
+        </div>
+
+        <!-- Game Over Screen Text -->
+        <div class="game-over-screen hide" data-game-over-screen>
+          <!-- <img src="imgs/Title Screen.png" class="ground" style="position: relative;"> -->
+            <h1 style="text-shadow: 7px 7px 0px #000000">Game Over</h1>
+            High Score: 50  <br>
+            Apples Collected: 3 <br><br>
+            Tap Or Space To Start Again
+        </div>
 
         <!-- Sprites -->
-        <img src="imgs/Player-run-0.png" class="dino" data-dino />
+        <img src="imgs/Player-run-0.png" class="dino hide-img" data-dino />
       </div>
       <br />
 
