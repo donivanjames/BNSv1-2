@@ -10,3 +10,9 @@ I would start in index.html and follow the code from there, everything else flow
 ### Game Notes:
 
 No cookies can be saved, so all data is "session based" and dissapears when you leave the page
+
+Next:
+  Priority: Get mobile version working properly
+  Need to clean up all the code
+  Allow player to jump slightly before touching the ground
+  Need to fix first jump 'no sound' bug
