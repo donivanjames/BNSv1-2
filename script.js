@@ -1,3 +1,6 @@
+// Working on cleaning up this file,
+// the process was very experimental so I havent been able to move functions to their own files yet
+
 import {
   updateGround,
   changeGround,
@@ -39,14 +42,14 @@ let environment = 1;
 let firstClick = false; // to set up first screen
 
 //   UI ELEMENTS   //
-const elements = {
+let elements = {
   worldElem: document.querySelector("[data-world]"),
   scoreElem: document.querySelector("[data-score]"),
   startScreenElem: document.querySelector("[data-start-screen]"),
   gameOverElem: document.querySelector("[data-game-over-screen]"),
   preGameScreen: document.querySelector("[data-pregame-screen]"),
   randomFact: document.querySelector("[data-fact]"),
-}
+};
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -58,10 +61,11 @@ setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-const addInputListeners = () => {
+export function addInputListeners() {
+  console.log("Input");
   document.addEventListener("keydown", handleInput, { once: true }); // On key down: start game: only do once
   document.addEventListener("mousedown", handleInput, { once: true }); // On key down: start game: only do once
-};
+}
 addInputListeners();
 
 // Handles Start Game Input (eventually hopefully all input)
@@ -75,16 +79,17 @@ export function handleInput(event) {
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
+  console.log("Here");
   if (!firstClick) {
     elements.preGameScreen.classList.add("hide"); // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
-    console.log("Working");
     addInputListeners();
     firstClick = true;
   }
+  console.log("End");
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
@@ -252,6 +257,10 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  elements.worldElem.style.width = `${(WORLD_WIDTH * worldToPixelScale) / 1.5}px`;
-  elements.worldElem.style.height = `${(WORLD_HEIGHT * worldToPixelScale) / 1.5}px`;
+  elements.worldElem.style.width = `${
+    (WORLD_WIDTH * worldToPixelScale) / 1.5
+  }px`;
+  elements.worldElem.style.height = `${
+    (WORLD_HEIGHT * worldToPixelScale) / 1.5
+  }px`;
 }
