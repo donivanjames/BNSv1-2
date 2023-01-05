@@ -1,8 +1,5 @@
-import {
-  getCustomProperty,
-  setCustomProperty,
-  incrementCustomProperty,
-} from "./updateCustomProperty.js";
+import { getCustomProperty, setCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
+import { jumpSound, loseSound } from "./audioManager.js";
 
 const player = document.querySelector("[data-dino]");
 const world = document.querySelector('[data-world]');
@@ -13,8 +10,6 @@ const FRAME_TIME = 160; // how long each animation frame should last (in millise
 
 const heightFromGround = 15 // also change css --bottom to match
 
-let jumpSound = new Audio("sounds/Jump.mp3")
-let loseSound = new Audio("sounds/Game-Lose-2.mp3")
 let stopJumpSound = false; // stops jumping sound from playing on restart
 
 // PLAYER SETUP
@@ -84,7 +79,7 @@ export function getDinoRect() {
 
 // SET LOSING SPRITE
 export function setDinoLose() {
-    loseSound.play()
+    loseSound()
     stopJumpSound = true;
     // set the sprite of the player do the loss image
     player.src = "imgs/Player-lose.png" 
@@ -130,7 +125,7 @@ function onJump(event) {
   
 
   if(!stopJumpSound){
-    jumpSound.play()
+    jumpSound()
   }
 
   stopJumpSound = false; 

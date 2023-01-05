@@ -1,7 +1,31 @@
-import { updateGround, changeGround, resetGround, showGround, hideGround } from "./ground.js";
-import { updateDino, setupDino, getDinoRect, setDinoLose, showPlayer } from "./dino.js";
+import {
+  updateGround,
+  changeGround,
+  resetGround,
+  showGround,
+  hideGround,
+} from "./ground.js";
+import {
+  updateDino,
+  setupDino,
+  getDinoRect,
+  setDinoLose,
+  showPlayer,
+} from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
-import { updateApple, setupApple, getAppleRects, removeAllApples, collect } from "./apple.js";
+import {
+  updateApple,
+  setupApple,
+  getAppleRects,
+  removeAllApples,
+  collect,
+} from "./apple.js";
+import {
+  playTitleSong,
+  stopTitleSong,
+  playRunSong,
+  stopRunSong,
+} from "./audioManager.js";
 import { giveRandomFact } from "./BNS_Facts.js";
 
 /////////////////////
@@ -10,18 +34,17 @@ import { giveRandomFact } from "./BNS_Facts.js";
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
 let gameGoing = false;
-let applesCollected = 0
-let environment = 1
+let applesCollected = 0;
+let environment = 1;
 let firstClick = false; // to set up first screen
 
 //   UI ELEMENTS   //
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelector("[data-score]");
-const player = document.querySelector("[data-dino]");
 const startScreenElem = document.querySelector("[data-start-screen]");
-const gameOverElem = document.querySelector("[data-game-over-screen]")
-const preGameScreen = document.querySelector("[data-pregame-screen]")
-let randomFact = document.querySelector("[data-fact]")
+const gameOverElem = document.querySelector("[data-game-over-screen]");
+const preGameScreen = document.querySelector("[data-pregame-screen]");
+let randomFact = document.querySelector("[data-fact]");
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -29,111 +52,100 @@ let highScore = 0;
 let speedScale = 1; // Gets multiplied by speed to increase player speed over time
 const SPEED_SCALE_INCREASE = 0.000005; // Rate of player speed increase // Works with updateSpeedScale()
 
+setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
 const addInputListeners = () => {
   document.addEventListener("keydown", handleInput, { once: true }); // On key down: start game: only do once
   document.addEventListener("mousedown", handleInput, { once: true }); // On key down: start game: only do once
-}
-addInputListeners()
-
+};
+addInputListeners();
 
 // Handles Start Game Input (eventually hopefully all input)
 export function handleInput(event) {
   if (event.code != "Space" && event.button !== 0) {
-    addInputListeners()
+    addInputListeners();
     return;
-  } else if(!firstClick) setupGame()
-  else handleGameStart()
+  } else if (!firstClick) setupGame();
+  else handleGameStart();
 }
 
 // Removes Black Screen And Reveals Game
-export function setupGame(){
-  if(!firstClick) {
-    preGameScreen.classList.add("hide") // get rid of title
-    startScreenElem.classList.remove("hide") // add the other
-    titleSong.play()// play music
-    showPlayer() // show player
-    showGround() // show scene
-    console.log("Working")
-    addInputListeners()
-    firstClick = true
+export function setupGame() {
+  if (!firstClick) {
+    preGameScreen.classList.add("hide"); // get rid of title
+    startScreenElem.classList.remove("hide"); // add the other
+    playTitleSong();
+    showPlayer(); // show player
+    showGround(); // show scene
+    console.log("Working");
+    addInputListeners();
+    firstClick = true;
   }
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
 export function handleGameStart() {
-    if (!gameGoing) {
-      showGround()
-      gameGoing = true;
-      lastTime = null;
-      speedScale = 1; // sets speedscale
-      score = 0;
-      applesCollected = 0;
-  
-      titleSong.pause()
-      runSong.play()
-  
-      randomFact.textContent = giveRandomFact()
-      //setupGround(environment); // places 2 starting ground pieces in order
-      setupDino(environment);
-      setupCactus();
-      setupApple();
-      resetGround()
-      scoreElem.classList.remove("hide")
-      startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
-      gameOverElem.classList.add("hide")
-  
-      window.requestAnimationFrame(update); // start infinite play loop
-    }
+  if (!gameGoing) {
+    showGround();
+    gameGoing = true;
+    lastTime = null;
+    speedScale = 1; // sets speedscale
+    score = 0;
+    applesCollected = 0;
+
+    stopTitleSong();
+    playRunSong();
+
+    randomFact.textContent = giveRandomFact();
+    //setupGround(environment); // places 2 starting ground pieces in order
+    setupDino(environment);
+    setupCactus();
+    setupApple();
+    resetGround();
+    scoreElem.classList.remove("hide");
+    startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
+    gameOverElem.classList.add("hide");
+
+    window.requestAnimationFrame(update); // start infinite play loop
   }
+}
 
-
-setPixelToWorldScale();
-let titleSong = new Audio("sounds/Music/title-song.wav")
-let runSong = new Audio("sounds/Music/run-song.wav")
-titleSong.volume = 0.3  
-runSong.volume = 0.1  
-titleSong.loop = true 
-runSong.loop = true 
-
-
-
-function chooseEnvironment(){
+function chooseEnvironment() {
   //Randomly assigns one of the 5 environments
-  environment = Math.floor(Math.random() * 5) + 1; 
+  environment = Math.floor(Math.random() * 5) + 1;
 }
 
 // FRAMERATE LOOP SETUP //
 let lastTime;
 function update(time) {
-  if(!document.hidden) {
+  if (!document.hidden) {
     // BEFORE GAME RUNS //
 
-      // if lastTime is null then only call this block
-      if (lastTime == null) {
-        lastTime = time;
-        window.requestAnimationFrame(update);
-        return;
-      }
-
-      // DURING GAME RUN //
-
-      // Set deltatime for constant update speed regardless of framerate
-      const delta = time - lastTime;
-
-      updateGround(delta, speedScale);
-      updateDino(delta, speedScale);
-      updateCactus(delta, speedScale, environment);
-      updateApple(delta, speedScale);
-      updateSpeedScale(delta);
-      updateScore(delta);
-      if (checkLose()) return handleLose(); // if checkLose is true then end the game
-      if (checkApple()) collectApple();
-
+    // if lastTime is null then only call this block
+    if (lastTime == null) {
       lastTime = time;
-      window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
+      window.requestAnimationFrame(update);
+      return;
+    }
+
+    // DURING GAME RUN //
+
+    // Set deltatime for constant update speed regardless of framerate
+    const delta = time - lastTime;
+
+    updateGround(delta, speedScale);
+    updateDino(delta, speedScale);
+    updateCactus(delta, speedScale, environment);
+    updateApple(delta, speedScale);
+    updateSpeedScale(delta);
+    updateScore(delta);
+    if (checkLose()) return handleLose(); // if checkLose is true then end the game
+    if (checkApple()) collectApple();
+
+    lastTime = time;
+    window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
   }
 }
 
@@ -152,7 +164,7 @@ function checkApple() {
 function collectApple() {
   console.log("Apple Grabbed");
   // add to score
-  applesCollected += 1
+  applesCollected += 1;
   // remove apple
   collect();
 }
@@ -176,54 +188,52 @@ function updateSpeedScale(delta) {
 // INCREASE SCORE BASED ON DELTA TIME //
 function updateScore(delta) {
   score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
-  if(score >= highScore) highScore = score;
-  scoreElem.textContent = `High Score: ${Math.floor(highScore)}  | Apple Bonus: ${applesCollected}0% |  Score: ${Math.floor(score)}`;
+  if (score >= highScore) highScore = score;
+  scoreElem.textContent = `High Score: ${Math.floor(
+    highScore
+  )}  | Apple Bonus: ${applesCollected}0% |  Score: ${Math.floor(score)}`;
 }
-
-
 
 // HANDLE LOSE
 function handleLose() {
   setDinoLose(); // set player to losing sprite
 
-  runSong.pause();
-  runSong.currentTime = 0;
+  stopRunSong();
 
-  hideGround()
+  hideGround();
 
-  chooseEnvironment()
+  chooseEnvironment();
   changeGround(environment);
   gameOverElem.classList.remove("hide"); // show start screen again
-  scoreElem.classList.add("hide")
+  scoreElem.classList.add("hide");
 
-  gameOverElem.textContent 
-  = `Game Over
+  gameOverElem.textContent = `Game Over
   \r\n\r\nScore: ${Math.floor(score)} | High Score: ${Math.floor(highScore)}
   \r\nApples Collected: ${applesCollected}
-  \r\n\r\nTap Or Space To Start Again`
+  \r\n\r\nTap Or Space To Start Again`;
 
   // Need To Change Score Font Color For Each Environment
-  let fontColor = "Yellow"
-  switch(environment) {
+  let fontColor = "Yellow";
+  switch (environment) {
     case 1: // Outside
     case 3: // Lab
     case 4: // Library
-    fontColor = "Yellow"
-    break;
+      fontColor = "Yellow";
+      break;
     case 2: // School
-    fontColor = "Red"
-    break;
+      fontColor = "Red";
+      break;
     case 5: // Gym
-    fontColor = "#C53A99"
-    break;
+      fontColor = "#C53A99";
+      break;
   }
 
-  scoreElem.style.color = fontColor
+  scoreElem.style.color = fontColor;
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
     gameGoing = false;
-    addInputListeners()
+    addInputListeners();
   }, 200);
 }
 

@@ -6,15 +6,13 @@ import {
   getCustomProperty,
 } from "./updateCustomProperty.js";
 
+import { collectSound } from "./audioManager.js";
+
 const SPEED = 0.05; // needs to be the same speed as the ground, might consolodate them both into a "groundSpeed" variable
 const APPLE_INTERVAL_MIN = 3000;
 const APPLE_INTERVAL_MAX = 10000; // speed of obstacles appearing in milliseconds
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
 
-
-let collectSound = new Audio("sounds/Coin-Collect.mp3")
-collectSound.volume = 0.1
-  
 // SETUP OBSTACLE
 let nextAppleTime;
 export function setupApple() {
@@ -24,7 +22,7 @@ export function setupApple() {
 
 export function collect(){
   removeAllApples()
-  collectSound.play()
+  collectSound()
 }
 
 export function removeAllApples(){
