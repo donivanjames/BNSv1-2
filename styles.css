@@ -81,6 +81,7 @@ body {
     font-weight: 600;
     font-size: 1.25vw;
     white-space: pre;
+    z-index: 2;
 }
 
 .text-shadow, .score {

@@ -53,9 +53,6 @@ export function updateDino(delta, speedScale) {
 
 let boundaryBox
 export function getDinoRect() {
-
-  
-
   const dinoRect = player.getBoundingClientRect();
 
   dinoRect.width = dinoRect.width * 0.6;
