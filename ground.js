@@ -29,32 +29,6 @@ export function resetGround(){
 
 // Move ground left (speedScale) = accellerates player speed over time
 export function updateGround(delta, speedScale) {
-
-// Temp solution to reduce ground lag, delete if there is no more ground lag
-
-//   if(getCustomProperty(groundElems[1], "--left") > getCustomProperty(groundElems[0], "--left")){
-//     console.log("Ground 2 greater")
-//     for(let i = groundElems.length - 1; i >= 0; i--){
-//       incrementCustomProperty(groundElems[i], "--left", delta * speedScale * SPEED * -1);
-  
-//       // Has ground 1 moved all the way off screen? Loop it around to the back
-//       if (getCustomProperty(groundElems[i], "--left") <= -300)
-//         incrementCustomProperty(groundElems[i], "--left", 600); // width x 2
-//     }
-//   }
-//   else {
-//     console.log("Ground 1 greater")
-//     for(let i = 0; i < groundElems.length; i++){
-//     incrementCustomProperty(groundElems[i], "--left", delta * speedScale * SPEED * -1);
-
-//     // Has ground 1 moved all the way off screen? Loop it around to the back
-//     if (getCustomProperty(groundElems[i], "--left") <= -300)
-//       incrementCustomProperty(groundElems[i], "--left", 600); // width x 2
-//   }
-// }
-
-  
-
   groundElems.forEach((ground) => {
     incrementCustomProperty(ground, "--left", delta * speedScale * SPEED * -1);
 

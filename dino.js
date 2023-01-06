@@ -32,12 +32,8 @@ export function setupDino(environment) {
     player.classList.remove("zindex-default")
   }
 
-
   setCustomProperty(player, "--bottom", heightFromGround);
-  document.removeEventListener("keydown", onJump); // this removes any extra eventListeners from the game before we add a new one
-  document.removeEventListener("mousedown", onJump); // this removes any extra eventListeners from the game before we add a new one
-  document.addEventListener("keydown", onJump); // this adds a listener to the player that waits for any key press, then it executes the onJump function
-  document.addEventListener("mousedown", onJump); // this adds a listener to the player that waits for click, then it executes the onJump function
+
 }
 
 export function showPlayer(){
@@ -117,9 +113,8 @@ function handleJump(delta) {
   yVelocity -= GRAVITY * delta; // jump velovity slows down and goes negative while in the air to pull player back to ground
 }
 
-function onJump(event) {
-  if (event.code != "Space" && event.button !== 0 || isJumping) return; // if the key pressed is not space or the player is jumping then dont do anything
-  
+export function onJump(event) {
+  if(isJumping) return
 
   if(!stopJumpSound){
     jumpSound()

@@ -14,6 +14,7 @@ import {
   getDinoRect,
   setDinoLose,
   showPlayer,
+  onJump,
 } from "./dino.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 import {
@@ -40,6 +41,7 @@ let gameGoing = false;
 let applesCollected = 0;
 let environment = 1;
 let firstClick = false; // to set up first screen
+let pause = false
 
 //   UI ELEMENTS   //
 let elements = {
@@ -61,35 +63,68 @@ setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-export function addInputListeners() {
-  console.log("Input");
-  document.addEventListener("keydown", handleInput, { once: true }); // On key down: start game: only do once
-  document.addEventListener("mousedown", handleInput, { once: true }); // On key down: start game: only do once
+export function addStartGameInputListeners() {
+  document.addEventListener("keydown", handleFirstInput, { once: true }); // On key down: start game: only do once
+  document.addEventListener("mousedown", handleFirstInput, { once: true }); // On key down: start game: only do once
 }
-addInputListeners();
+addStartGameInputListeners();
+
+function addPlayerInputListeners() {
+  document.removeEventListener("keydown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
+  document.removeEventListener("mousedown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
+  document.addEventListener("keydown", handleGameInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
+  document.addEventListener("mousedown", handleGameInput); // this adds a listener to the player that waits for click, then it executes the onJump function
+}
+
+window.onblur = function(){ pauseGame() }
+
+
 
 // Handles Start Game Input (eventually hopefully all input)
-export function handleInput(event) {
-  if (event.code != "Space" && event.button !== 0) {
-    addInputListeners();
+export function handleFirstInput(event) {
+  if (event.code !== "Space" && event.button !== 0) {
+
+    addStartGameInputListeners(); 
     return;
   } else if (!firstClick) setupGame();
   else handleGameStart();
 }
 
+function handleGameInput(event) {
+  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return; // if the key pressed is not space or escape then dont do anything
+
+  if(event.code === "Escape") {
+    if(pause) unpauseGame()
+    else pauseGame()
+    return
+  }
+
+  onJump()
+}
+
+function pauseGame(){
+  pause = true
+  stopRunSong()
+  console.log("Pause: ", pause)
+}
+
+function unpauseGame(){
+  pause = false
+  playRunSong()
+  console.log("Pause: ", pause)
+}
+
 // Removes Black Screen And Reveals Game
 export function setupGame() {
-  console.log("Here");
   if (!firstClick) {
     elements.preGameScreen.classList.add("hide"); // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
-    addInputListeners();
+    addStartGameInputListeners();
     firstClick = true;
   }
-  console.log("End");
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
@@ -107,6 +142,7 @@ export function handleGameStart() {
 
     elements.randomFact.textContent = giveRandomFact();
     //setupGround(environment); // places 2 starting ground pieces in order
+    addPlayerInputListeners()
     setupDino(environment);
     setupCactus();
     setupApple();
@@ -114,7 +150,6 @@ export function handleGameStart() {
     elements.scoreElem.classList.remove("hide");
     elements.startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
     elements.gameOverElem.classList.add("hide");
-
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }
@@ -127,33 +162,39 @@ function chooseEnvironment() {
 // FRAMERATE LOOP SETUP //
 let lastTime;
 function update(time) {
-  if (!document.hidden) {
+
+
+  if(!pause) {
     // BEFORE GAME RUNS //
-
-    // if lastTime is null then only call this block
-    if (lastTime == null) {
-      lastTime = time;
-      window.requestAnimationFrame(update);
-      return;
-    }
-
-    // DURING GAME RUN //
-
-    // Set deltatime for constant update speed regardless of framerate
-    const delta = time - lastTime;
-
-    updateGround(delta, speedScale);
-    updateDino(delta, speedScale);
-    updateCactus(delta, speedScale, environment);
-    updateApple(delta, speedScale);
-    updateSpeedScale(delta);
-    updateScore(delta);
-    if (checkLose()) return handleLose(); // if checkLose is true then end the game
-    if (checkApple()) collectApple();
-
-    lastTime = time;
-    window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
+  
+      // if lastTime is null then only call this block
+      if (lastTime == null) {
+        lastTime = time;
+        window.requestAnimationFrame(update);
+        return;
+      }
+  
+      // DURING GAME RUN //
+  
+      // Set deltatime for constant update speed regardless of framerate
+      const delta = time - lastTime;
+  
+      updateGround(delta, speedScale);
+      updateDino(delta, speedScale);
+      updateCactus(delta, speedScale, environment);
+      updateApple(delta, speedScale);
+      updateSpeedScale(delta);
+      updateScore(delta);
+      if (checkLose()) return handleLose(); // if checkLose is true then end the game
+      if (checkApple()) collectApple();
+  
+      lastTime = time;  
   }
+  else {
+    lastTime = time // keeps refreshing lastTime so deltaTime doesn't think pause is a framerate drop (causes huge time jumps)
+  }   
+
+  window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
 }
 
 // CHECK FOR GAME OVER
@@ -240,7 +281,7 @@ function handleLose() {
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
     gameGoing = false;
-    addInputListeners();
+    addStartGameInputListeners();
   }, 200);
 }
 

@@ -103,6 +103,7 @@ body {
     width: 301%;
     bottom: 0%;
     left: calc(var(--left) * 1%);
+    will-change: transform;
 }
 
 .dino {
@@ -115,6 +116,7 @@ body {
     bottom: calc(var(--bottom) * 1%);
 
     filter: drop-shadow(1px 1px 1px black);
+    will-change: transform;
 }
 
 .zindex-default{

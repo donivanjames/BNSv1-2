@@ -41,6 +41,7 @@
     --left: 0;
     left: calc(var(--left) * 1%);
     bottom: calc(var(--bottom) * 1%);
+    will-change: transform;
 }
 
 /* Some CSS that covers just obstacles */
