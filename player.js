@@ -1,11 +1,11 @@
 import { getCustomProperty, setCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
-import { jumpSound, loseSound } from "./audioManager.js";
+import { jumpSound, loseSound } from "./scripts/audioManager.js";
 
-const player = document.querySelector("[data-dino]");
+const player = document.querySelector("[data-player]");
 const world = document.querySelector('[data-world]');
 const JUMP_SPEED = 0.35;
 const GRAVITY = 0.0015;
-const DINO_FRAME_COUNT = 2; // amount of animation frames
+const PLAYER_FRAME_COUNT = 2; // amount of animation frames
 const FRAME_TIME = 160; // how long each animation frame should last (in milliseconds)
 
 const heightFromGround = 15 // also change css --bottom to match
@@ -14,12 +14,12 @@ let stopJumpSound = false; // stops jumping sound from playing on restart
 
 // PLAYER SETUP
 let isJumping;
-let dinoFrame;
+let playerFrame;
 let currentFrameTime;
 let yVelocity;
-export function setupDino(environment) {
+export function setupPlayer(environment) {
   isJumping = false; // Reset all past values
-  dinoFrame = 0;
+  playerFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
   player.src = `imgs/Player-run-0.png`;
@@ -41,37 +41,37 @@ export function showPlayer(){
 }
 
 // UPDATE PLAYER
-export function updateDino(delta, speedScale) {
+export function updatePlayer(delta, speedScale) {
   handleRun(delta, speedScale);
   handleJump(delta);
 }
 
 
 let boundaryBox
-export function getDinoRect() {
-  const dinoRect = player.getBoundingClientRect();
+export function getPlayerRect() {
+  const playerRect = player.getBoundingClientRect();
 
-  dinoRect.width = dinoRect.width * 0.6;
-  dinoRect.height = dinoRect.height * 1;
+  playerRect.width = playerRect.width * 0.6;
+  playerRect.height = playerRect.height * 1;
 
   // Red Box Code, Leave For Testing 
   /*
   if(boundaryBox) boundaryBox.remove()
   boundaryBox = document.createElement('div');
   boundaryBox.style = "border: 2px solid red; position: absolute;";
-  boundaryBox.style.left = dinoRect.left + 'px';
-  boundaryBox.style.top = dinoRect.top + 'px';
-  boundaryBox.style.width = dinoRect.width + 'px';
-  boundaryBox.style.height = dinoRect.height + 'px';
+  boundaryBox.style.left = playerRect.left + 'px';
+  boundaryBox.style.top = playerRect.top + 'px';
+  boundaryBox.style.width = playerRect.width + 'px';
+  boundaryBox.style.height = playerRect.height + 'px';
 
   document.body.appendChild(boundaryBox);
   */
 
-  return dinoRect
+  return playerRect
 }
 
 // SET LOSING SPRITE
-export function setDinoLose() {
+export function setPlayerLose() {
     loseSound()
     stopJumpSound = true;
     // set the sprite of the player do the loss image
@@ -88,8 +88,8 @@ function handleRun(delta, speedScale) {
 
   if (currentFrameTime >= FRAME_TIME) {
     // swaps animation frames when currentFrameTime is above frameTime
-    dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT; // will cycle animation frames no matter how many there are
-    player.src = `imgs/Player-run-${dinoFrame}.png`; // picks an image from the current dino frame
+    playerFrame = (playerFrame + 1) % PLAYER_FRAME_COUNT; // will cycle animation frames no matter how many there are
+    player.src = `imgs/Player-run-${playerFrame}.png`; // picks an image from the current player frame
     currentFrameTime -= FRAME_TIME; // reset currentFrameTime back to 0
   }
 
@@ -104,9 +104,9 @@ function handleJump(delta) {
   incrementCustomProperty(player, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
 
   if (getCustomProperty(player, "--bottom") <= heightFromGround) {
-    // if dino is back on the ground: continue running
-    setCustomProperty(player, "--bottom", heightFromGround); // make sure dino position is zero
-    dinoFrame = 0
+    // if player is back on the ground: continue running
+    setCustomProperty(player, "--bottom", heightFromGround); // make sure player position is zero
+    playerFrame = 0
     isJumping = false;
   }
 

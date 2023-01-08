@@ -1,8 +1,8 @@
-import { updateGround } from "./ground.js";
-import { updateDino } from "./dino.js";
-import { updateCactus } from "./cactus.js";
+import { updateGround } from "../ground.js";
+import { updatePlayer } from "../player.js";
+import { updateCactus } from "../cactus.js";
 import { updateApple } from "./apple.js";
-import { updateScore, handleLose, collectApple, checkApple, checkLose } from "./script.js";
+import { updateScore, handleLose, collectApple, checkApple, checkLose } from "../script.js";
 
 let pause = false;
 const speed = 0.04
@@ -39,7 +39,7 @@ export function update(time) {
       const delta = time - lastTime;
   
       updateGround(delta, speed, speedScale);
-      updateDino(delta, speedScale);
+      updatePlayer(delta, speedScale);
       updateCactus(delta, speed, speedScale, environment);
       updateApple(delta, speed, speedScale);
       // updateSpeedScale(delta);

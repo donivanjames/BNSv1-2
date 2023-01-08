@@ -9,13 +9,13 @@ import {
   hideGround,
 } from "./ground.js";
 import {
-  updateDino,
-  setupDino,
-  getDinoRect,
-  setDinoLose,
+  updatePlayer,
+  setupPlayer,
+  getPlayerRect,
+  setPlayerLose,
   showPlayer,
   onJump,
-} from "./dino.js";
+} from "./player.js";
 import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 import {
   updateApple,
@@ -23,15 +23,15 @@ import {
   getAppleRects,
   removeAllApples,
   collect,
-} from "./apple.js";
+} from "./scripts/apple.js";
 import {
   playTitleSong,
   stopTitleSong,
   playRunSong,
   stopRunSong,
-} from "./audioManager.js";
+} from "./scripts/audioManager.js";
 import { giveRandomFact } from "./BNS_Facts.js";
-import { update, pauseUpdate, unPauseUpdate } from "./update.js";
+import { update, pauseUpdate, unPauseUpdate } from "./scripts/update.js";
 console.log("here")
 /////////////////////
 //   WORLD SETUP   //
@@ -157,7 +157,7 @@ export function handleGameStart() {
     elements.randomFact.textContent = giveRandomFact();
     //setupGround(environment); // places 2 starting ground pieces in order
     addPlayerInputListeners()
-    setupDino(environment);
+    setupPlayer(environment);
     setupCactus();
     setupApple();
     resetGround();
@@ -175,14 +175,14 @@ function chooseEnvironment() {
 
 // CHECK FOR GAME OVER
 export function checkLose() {
-  const dinoRect = getDinoRect();
-  return getCactusRects().some((rect) => isCollision(rect, dinoRect)); // if any of the obstacles are touching the player: lose the game
+  const playerRect = getPlayerRect();
+  return getCactusRects().some((rect) => isCollision(rect, playerRect)); // if any of the obstacles are touching the player: lose the game
 }
 
 // CHECK FOR GAME OVER
 export function checkApple() {
-  const dinoRect = getDinoRect();
-  return getAppleRects().some((rect) => isCollision(rect, dinoRect)); // if any of the apples touch player, add to score
+  const playerRect = getPlayerRect();
+  return getAppleRects().some((rect) => isCollision(rect, playerRect)); // if any of the apples touch player, add to score
 }
 
 export function collectApple() {
@@ -218,7 +218,7 @@ export function updateScore(delta) {
 
 // HANDLE LOSE
 export function handleLose() {
-  setDinoLose(); // set player to losing sprite
+  setPlayerLose(); // set player to losing sprite
 
   stopRunSong();
 
@@ -234,7 +234,7 @@ export function handleLose() {
   \r\nApples Collected: ${applesCollected}
   \r\n\r\nTap Or Space To Start Again`;
 
-  // Need To Change Score Font Color For Each Environment
+  // Need To Change Score Font Color And Background CSS For Each Environment
   let fontColor = "Yellow";
   switch (environment) {
     case 1: // Outside
@@ -273,9 +273,9 @@ function setPixelToWorldScale() {
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
   elements.worldElem.style.width = `${
-    (WORLD_WIDTH * worldToPixelScale) / 1.5
+    (WORLD_WIDTH * worldToPixelScale)
   }px`;
   elements.worldElem.style.height = `${
-    (WORLD_HEIGHT * worldToPixelScale) / 1.5
+    (WORLD_HEIGHT * worldToPixelScale)
   }px`;
 }

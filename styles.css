@@ -106,10 +106,10 @@ body {
     will-change: transform;
 }
 
-.dino {
+.player {
     position: absolute;
     left: 2%;
-    height: 20%; /* Dino size */
+    height: 20%; /* Player size */
     
     /* Height Setup */
     --bottom: 15;

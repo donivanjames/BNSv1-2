@@ -4,7 +4,7 @@ import {
   setCustomProperty,
   incrementCustomProperty,
   getCustomProperty,
-} from "./updateCustomProperty.js";
+} from "../updateCustomProperty.js";
 
 import { collectSound } from "./audioManager.js";
 
