@@ -31,7 +31,8 @@ import {
   stopRunSong,
 } from "./audioManager.js";
 import { giveRandomFact } from "./BNS_Facts.js";
-
+import { update, pauseUpdate, unPauseUpdate } from "./update.js";
+console.log("here")
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
@@ -113,6 +114,7 @@ function pauseGame(){
   if(gameGoing){
     pause = true
     stopRunSong()
+    pauseUpdate()
     elements.pauseElem.classList.remove("hide")
     console.log("Pause: ", pause)
   }
@@ -121,12 +123,14 @@ function pauseGame(){
 function unpauseGame(){
   pause = false
   playRunSong()
+  unPauseUpdate()
   elements.pauseElem.classList.add("hide")
   console.log("Pause: ", pause)
 }
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
+  console.log("here")
   if (!firstClick) {
     elements.preGameScreen.classList.add("hide"); // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
@@ -143,7 +147,6 @@ export function handleGameStart() {
   if (!gameGoing) {
     showGround();
     gameGoing = true;
-    lastTime = null;
     speedScale = 1; // sets speedscale
     score = 0;
     applesCollected = 0;
@@ -170,57 +173,19 @@ function chooseEnvironment() {
   environment = Math.floor(Math.random() * 5) + 1;
 }
 
-// FRAMERATE LOOP SETUP //
-let lastTime;
-function update(time) {
-
-
-  if(!pause) {
-    // BEFORE GAME RUNS //
-  
-      // if lastTime is null then only call this block
-      if (lastTime == null) {
-        lastTime = time;
-        window.requestAnimationFrame(update);
-        return;
-      }
-  
-      // DURING GAME RUN //
-  
-      // Set deltatime for constant update speed regardless of framerate
-      const delta = time - lastTime;
-  
-      updateGround(delta, speed, speedScale);
-      updateDino(delta, speedScale);
-      updateCactus(delta, speed, speedScale, environment);
-      updateApple(delta, speed, speedScale);
-      updateSpeedScale(delta);
-      updateScore(delta);
-      if (checkLose()) return handleLose(); // if checkLose is true then end the game
-      if (checkApple()) collectApple();
-  
-      lastTime = time;  
-  }
-  else {
-    lastTime = time // keeps refreshing lastTime so deltaTime doesn't think pause is a framerate drop (causes huge time jumps)
-  }   
-
-  window.requestAnimationFrame(update); // calls itself infinitly to create framerate loop
-}
-
 // CHECK FOR GAME OVER
-function checkLose() {
+export function checkLose() {
   const dinoRect = getDinoRect();
   return getCactusRects().some((rect) => isCollision(rect, dinoRect)); // if any of the obstacles are touching the player: lose the game
 }
 
 // CHECK FOR GAME OVER
-function checkApple() {
+export function checkApple() {
   const dinoRect = getDinoRect();
   return getAppleRects().some((rect) => isCollision(rect, dinoRect)); // if any of the apples touch player, add to score
 }
 
-function collectApple() {
+export function collectApple() {
   console.log("Apple Grabbed");
   // add to score
   applesCollected += 1;
@@ -239,13 +204,13 @@ function isCollision(rect1, rect2) {
   );
 }
 
-// SLOWLY INCREASE SPEED OVER TIME   //
-function updateSpeedScale(delta) {
-  speedScale += delta * SPEED_SCALE_INCREASE;
-}
+// SLOWLY INCREASE SPEED OVER TIME - NO LONGER SPEEDING UP GAME  //
+// function updateSpeedScale(delta) {
+//   speedScale += delta * SPEED_SCALE_INCREASE;
+// }
 
 // INCREASE SCORE BASED ON DELTA TIME //
-function updateScore(delta) {
+export function updateScore(delta) {
   score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
   if (score >= highScore) highScore = score;
   elements.scoreElem.textContent = `High Score: ${Math.floor(
@@ -254,7 +219,7 @@ function updateScore(delta) {
 }
 
 // HANDLE LOSE
-function handleLose() {
+export function handleLose() {
   setDinoLose(); // set player to losing sprite
 
   stopRunSong();
