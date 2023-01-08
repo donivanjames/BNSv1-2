@@ -4,7 +4,7 @@ import {
   getCustomProperty,
 } from "./updateCustomProperty.js";
 
-const SPEED = 0.05; // needs to be the same speed as the ground, might consolodate them both into a "groundSpeed" variable
+//const SPEED = 0.02; // needs to be the same speed as the ground, might consolodate them both into a "groundSpeed" variable
 const CACTUS_INTERVAL_MIN = 500;
 const CACTUS_INTERVAL_MAX = 2000; // speed of obstacles appearing in milliseconds
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
@@ -19,9 +19,9 @@ export function setupCactus() {
 }
 
 // UPDATE OBSTACLE
-export function updateCactus(delta, speedScale, environment) {
+export function updateCactus(delta, speed, speedScale, environment) {
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
-    incrementCustomProperty(cactus, "--left", delta * speedScale * SPEED * -1);
+    incrementCustomProperty(cactus, "--left", delta * speedScale * speed * -1);
     if (getCustomProperty(cactus, "--left") <= -100) {
       cactus.remove();
     }
@@ -41,7 +41,8 @@ export function updateCactus(delta, speedScale, environment) {
 let boundaryBox = []
 export function getCactusRects() {
 
-  document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
+  // Red Box Code, Leave For Testing
+  // document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
 
   // gives us all of the rectangles for all of the obstacles on the screen
   const obMap = [...document.querySelectorAll("[data-cactus]")].map((cactus) => {

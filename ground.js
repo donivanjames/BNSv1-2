@@ -4,7 +4,7 @@ import {
   getCustomProperty,
 } from "./updateCustomProperty.js";
 
-const SPEED = 0.05;
+// const SPEED = 0.02;
 const groundElems = document.querySelectorAll("[data-ground]");
 
 export function showGround(){
@@ -28,9 +28,9 @@ export function resetGround(){
 
 
 // Move ground left (speedScale) = accellerates player speed over time
-export function updateGround(delta, speedScale) {
+export function updateGround(delta, speed, speedScale) {
   groundElems.forEach((ground) => {
-    incrementCustomProperty(ground, "--left", delta * speedScale * SPEED * -1);
+    incrementCustomProperty(ground, "--left", delta * speedScale * speed * -1);
 
     // Has ground 1 moved all the way off screen? Loop it around to the back
     if (getCustomProperty(ground, "--left") <= -300)

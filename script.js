@@ -49,6 +49,7 @@ let elements = {
   scoreElem: document.querySelector("[data-score]"),
   startScreenElem: document.querySelector("[data-start-screen]"),
   gameOverElem: document.querySelector("[data-game-over-screen]"),
+  pauseElem: document.querySelector("[data-pause]"),
   preGameScreen: document.querySelector("[data-pregame-screen]"),
   randomFact: document.querySelector("[data-fact]"),
 };
@@ -56,8 +57,9 @@ let elements = {
 //   SPEED AND SCORE   //
 let score = 0;
 let highScore = 0;
+const speed = 0.04;
 let speedScale = 1; // Gets multiplied by speed to increase player speed over time
-const SPEED_SCALE_INCREASE = 0.000005; // Rate of player speed increase // Works with updateSpeedScale()
+const SPEED_SCALE_INCREASE = 0.0000; // Rate of player speed increase // Works with updateSpeedScale()
 
 setPixelToWorldScale();
 
@@ -93,6 +95,11 @@ export function handleFirstInput(event) {
 function handleGameInput(event) {
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return; // if the key pressed is not space or escape then dont do anything
 
+  if(pause) {
+    unpauseGame()
+    return
+  }
+
   if(event.code === "Escape") {
     if(pause) unpauseGame()
     else pauseGame()
@@ -103,14 +110,18 @@ function handleGameInput(event) {
 }
 
 function pauseGame(){
-  pause = true
-  stopRunSong()
-  console.log("Pause: ", pause)
+  if(gameGoing){
+    pause = true
+    stopRunSong()
+    elements.pauseElem.classList.remove("hide")
+    console.log("Pause: ", pause)
+  }
 }
 
 function unpauseGame(){
   pause = false
   playRunSong()
+  elements.pauseElem.classList.add("hide")
   console.log("Pause: ", pause)
 }
 
@@ -179,10 +190,10 @@ function update(time) {
       // Set deltatime for constant update speed regardless of framerate
       const delta = time - lastTime;
   
-      updateGround(delta, speedScale);
+      updateGround(delta, speed, speedScale);
       updateDino(delta, speedScale);
-      updateCactus(delta, speedScale, environment);
-      updateApple(delta, speedScale);
+      updateCactus(delta, speed, speedScale, environment);
+      updateApple(delta, speed, speedScale);
       updateSpeedScale(delta);
       updateScore(delta);
       if (checkLose()) return handleLose(); // if checkLose is true then end the game
