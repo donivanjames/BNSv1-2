@@ -6,5 +6,5 @@ const bnsFacts = [
 ]
 
 export function giveRandomFact(){
-    return bnsFacts[Math.floor(Math.random()*bnsFacts.length)];
+    return bnsFacts[~~(Math.random()*bnsFacts.length)];
 }

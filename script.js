@@ -170,7 +170,7 @@ export function handleGameStart() {
 
 function chooseEnvironment() {
   //Randomly assigns one of the 5 environments
-  environment = Math.floor(Math.random() * 5) + 1;
+  environment = ~~(Math.random() * 5) + 1;
 }
 
 // CHECK FOR GAME OVER
@@ -213,9 +213,7 @@ function isCollision(rect1, rect2) {
 export function updateScore(delta) {
   score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
   if (score >= highScore) highScore = score;
-  elements.scoreElem.textContent = `High Score: ${Math.floor(
-    highScore
-  )}  | Apple Bonus: ${applesCollected}0% |  Score: ${Math.floor(score)}`;
+  elements.scoreElem.textContent = `High Score: ${~~(highScore)}  | Apple Bonus: ${applesCollected}0% |  Score: ${~~(score)}`;
 }
 
 // HANDLE LOSE
@@ -232,7 +230,7 @@ export function handleLose() {
   elements.scoreElem.classList.add("hide");
 
   elements.gameOverElem.textContent = `Game Over
-  \r\n\r\nScore: ${Math.floor(score)} | High Score: ${Math.floor(highScore)}
+  \r\n\r\nScore: ${~~(score)} | High Score: ${~~(highScore)}
   \r\nApples Collected: ${applesCollected}
   \r\n\r\nTap Or Space To Start Again`;
 
