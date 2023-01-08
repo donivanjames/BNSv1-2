@@ -11,16 +11,16 @@ No cookies can be saved, so all data is "session based" and dissapears when you 
 
 **Big Tasks:**
 - [ ] Priority: Get mobile version working properly
+- [ ] Audio toggle option
 - [ ] Need to clean up all the code
 - [ ] Make apples the only point system
 - [ ] Chloe really wants werewolves involved
 - [x] Make game fullscreen
-- [ ] Change sky and background color based on level
+- [x] Change sky and background color based on level
 - [ ] Allow player to jump slightly before touching the ground
 - [ ] Need to fix first jump 'no sound' bug
 
 **Current Tasks**
-- Audio toggle option
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
@@ -37,6 +37,7 @@ No cookies can be saved, so all data is "session based" and dissapears when you 
 ## Update Log
 
 **Update v1-2**
+- Webpage background colors change based on environment
 - Made game fullscreen
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
 - Added pause function that activates when player leaves screen
