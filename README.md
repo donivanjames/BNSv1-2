@@ -7,7 +7,9 @@ I would start in index.html and follow the code from there, everything else flow
 
 
 **Game Notes**
-No cookies can be saved, so all data is "session based" and dissapears when you leave the page
+- No cookies can be saved, so all data is "session based" and dissapears when you leave the page
+
+---
 
 **Big Tasks:**
 - [ ] Priority: Get mobile version working properly
@@ -19,6 +21,8 @@ No cookies can be saved, so all data is "session based" and dissapears when you 
 - [x] Change sky and background color based on level
 - [ ] Allow player to jump slightly before touching the ground
 - [ ] Need to fix first jump 'no sound' bug
+
+---
 
 **Current Tasks**
 - Every frame we're querying ALL obstacles, could slow down system
