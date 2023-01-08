@@ -1,0 +1,49 @@
+.outside {
+  background: linear-gradient(
+    to bottom,
+    #fe5000 0%,
+    #fe5000 50%,
+    #084616 50%,
+    #084616 100%
+  );
+}
+
+.hallway {
+  background: linear-gradient(
+    to bottom,
+    #FFDE69 0%,
+    #FFDE69 50%,
+    #FFC700 50%,
+    #FFC700 100%
+  );
+}
+
+.library {
+  background: linear-gradient(
+    to bottom,
+    #BB5E4A 0%,
+    #BB5E4A 50%,
+    #3C4043 50%,
+    #3C4043 100%
+  );
+}
+
+.lab {
+  background: linear-gradient(
+    to bottom,
+    #61A9FF 0%,
+    #61A9FF 50%,
+    #95A5B9 50%,
+    #95A5B9 100%
+  );
+}
+
+.gym {
+    background: linear-gradient(
+    to bottom,
+    #77A687 0%,
+    #77A687 50%,
+    #CEFFDE 50%,
+    #CEFFDE 100%
+  );
+}

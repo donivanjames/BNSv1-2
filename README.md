@@ -20,6 +20,7 @@ No cookies can be saved, so all data is "session based" and dissapears when you 
 - [ ] Need to fix first jump 'no sound' bug
 
 **Current Tasks**
+- Audio toggle option
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)

@@ -32,7 +32,7 @@ import {
 } from "./scripts/audioManager.js";
 import { giveRandomFact } from "./scripts/BNS_Facts.js";
 import { update, pauseUpdate, unPauseUpdate } from "./scripts/update.js";
-console.log("here")
+console.log("here");
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
@@ -42,7 +42,7 @@ let gameGoing = false;
 let applesCollected = 0;
 let environment = 1;
 let firstClick = false; // to set up first screen
-let pause = false
+let pause = false;
 
 //   UI ELEMENTS   //
 let elements = {
@@ -60,7 +60,7 @@ let score = 0;
 let highScore = 0;
 const speed = 0.04;
 let speedScale = 1; // Gets multiplied by speed to increase player speed over time
-const SPEED_SCALE_INCREASE = 0.0000; // Rate of player speed increase // Works with updateSpeedScale()
+const SPEED_SCALE_INCREASE = 0.0; // Rate of player speed increase // Works with updateSpeedScale()
 
 setPixelToWorldScale();
 
@@ -79,58 +79,58 @@ function addPlayerInputListeners() {
   document.addEventListener("mousedown", handleGameInput); // this adds a listener to the player that waits for click, then it executes the onJump function
 }
 
-window.onblur = function(){ pauseGame() }
-
-
+window.onblur = function () {
+  pauseGame();
+};
 
 // Handles Start Game Input (eventually hopefully all input)
 export function handleFirstInput(event) {
   if (event.code !== "Space" && event.button !== 0) {
-
-    addStartGameInputListeners(); 
+    addStartGameInputListeners();
     return;
   } else if (!firstClick) setupGame();
   else handleGameStart();
 }
 
 function handleGameInput(event) {
-  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return; // if the key pressed is not space or escape then dont do anything
+  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
+    return; // if the key pressed is not space or escape then dont do anything
 
-  if(pause) {
-    unpauseGame()
-    return
+  if (pause) {
+    unpauseGame();
+    return;
   }
 
-  if(event.code === "Escape") {
-    if(pause) unpauseGame()
-    else pauseGame()
-    return
+  if (event.code === "Escape") {
+    if (pause) unpauseGame();
+    else pauseGame();
+    return;
   }
 
-  onJump()
+  onJump();
 }
 
-function pauseGame(){
-  if(gameGoing){
-    pause = true
-    stopRunSong()
-    pauseUpdate()
-    elements.pauseElem.classList.remove("hide")
-    console.log("Pause: ", pause)
+function pauseGame() {
+  if (gameGoing) {
+    pause = true;
+    stopRunSong();
+    pauseUpdate();
+    elements.pauseElem.classList.remove("hide");
+    console.log("Pause: ", pause);
   }
 }
 
-function unpauseGame(){
-  pause = false
-  playRunSong()
-  unPauseUpdate()
-  elements.pauseElem.classList.add("hide")
-  console.log("Pause: ", pause)
+function unpauseGame() {
+  pause = false;
+  playRunSong();
+  unPauseUpdate();
+  elements.pauseElem.classList.add("hide");
+  console.log("Pause: ", pause);
 }
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
-  console.log("here")
+  console.log("here");
   if (!firstClick) {
     elements.preGameScreen.classList.add("hide"); // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
@@ -138,6 +138,7 @@ export function setupGame() {
     showPlayer(); // show player
     showGround(); // show scene
     addStartGameInputListeners();
+    document.body.classList.add("outside")
     firstClick = true;
   }
 }
@@ -156,7 +157,7 @@ export function handleGameStart() {
 
     elements.randomFact.textContent = giveRandomFact();
     //setupGround(environment); // places 2 starting ground pieces in order
-    addPlayerInputListeners()
+    addPlayerInputListeners();
     setupPlayer(environment);
     setupCactus();
     setupApple();
@@ -213,7 +214,7 @@ function isCollision(rect1, rect2) {
 export function updateScore(delta) {
   score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
   if (score >= highScore) highScore = score;
-  elements.scoreElem.textContent = `High Score: ${~~(highScore)}  | Apple Bonus: ${applesCollected}0% |  Score: ${~~(score)}`;
+  elements.scoreElem.textContent = `High Score: ${~~highScore}  | Apple Bonus: ${applesCollected}0% |  Score: ${~~score}`;
 }
 
 // HANDLE LOSE
@@ -230,24 +231,44 @@ export function handleLose() {
   elements.scoreElem.classList.add("hide");
 
   elements.gameOverElem.textContent = `Game Over
-  \r\n\r\nScore: ${~~(score)} | High Score: ${~~(highScore)}
+  \r\n\r\nScore: ${~~score} | High Score: ${~~highScore}
   \r\nApples Collected: ${applesCollected}
   \r\n\r\nTap Or Space To Start Again`;
 
   // Need To Change Score Font Color And Background CSS For Each Environment
   let fontColor = "Yellow";
+  removeAllBodyStyles()
   switch (environment) {
     case 1: // Outside
+      fontColor = "Yellow";
+      document.body.classList.add("outside")
+      break;
+    case 2: // Hallway
+      fontColor = "Red";
+      document.body.classList.add("hallway")
+      break;
     case 3: // Lab
+      fontColor = "Yellow";
+      document.body.classList.add("lab")
+      break;
     case 4: // Library
       fontColor = "Yellow";
+      document.body.classList.add("library")
       break;
-    case 2: // School
-      fontColor = "Red";
-      break;
+
     case 5: // Gym
       fontColor = "#C53A99";
+      document.body.classList.add("gym")
       break;
+  }
+
+
+  function removeAllBodyStyles() {
+    document.body.classList.remove("outside")
+    document.body.classList.remove("hallway")
+    document.body.classList.remove("library")
+    document.body.classList.remove("lab")
+    document.body.classList.remove("gym")
   }
 
   elements.scoreElem.style.color = fontColor;
@@ -272,10 +293,6 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  elements.worldElem.style.width = `${
-    (WORLD_WIDTH * worldToPixelScale)
-  }px`;
-  elements.worldElem.style.height = `${
-    (WORLD_HEIGHT * worldToPixelScale)
-  }px`;
+  elements.worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
+  elements.worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
 }
