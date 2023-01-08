@@ -14,7 +14,7 @@ No cookies can be saved, so all data is "session based" and dissapears when you 
 - [ ] Need to clean up all the code
 - [ ] Make apples the only point system
 - [ ] Chloe really wants werewolves involved
-- [ ] Make game fullscreen
+- [x] Make game fullscreen
 - [ ] Change sky and background color based on level
 - [ ] Allow player to jump slightly before touching the ground
 - [ ] Need to fix first jump 'no sound' bug
@@ -36,6 +36,7 @@ No cookies can be saved, so all data is "session based" and dissapears when you 
 ## Update Log
 
 **Update v1-2**
+- Made game fullscreen
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
 - Added pause function that activates when player leaves screen
 - Fixed deltaTime bug that happened when focus wasnt on the window

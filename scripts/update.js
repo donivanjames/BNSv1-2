@@ -1,6 +1,6 @@
-import { updateGround } from "../ground.js";
-import { updatePlayer } from "../player.js";
-import { updateCactus } from "../cactus.js";
+import { updateGround } from "./ground.js";
+import { updatePlayer } from "./player.js";
+import { updateCactus } from "./cactus.js";
 import { updateApple } from "./apple.js";
 import { updateScore, handleLose, collectApple, checkApple, checkLose } from "../script.js";
 

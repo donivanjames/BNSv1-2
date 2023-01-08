@@ -1,5 +1,5 @@
 import { getCustomProperty, setCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
-import { jumpSound, loseSound } from "./scripts/audioManager.js";
+import { jumpSound, loseSound } from "./audioManager.js";
 
 const player = document.querySelector("[data-player]");
 const world = document.querySelector('[data-world]');

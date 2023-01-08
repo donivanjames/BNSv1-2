@@ -7,7 +7,7 @@ import {
   resetGround,
   showGround,
   hideGround,
-} from "./ground.js";
+} from "./scripts/ground.js";
 import {
   updatePlayer,
   setupPlayer,
@@ -15,8 +15,8 @@ import {
   setPlayerLose,
   showPlayer,
   onJump,
-} from "./player.js";
-import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
+} from "./scripts/player.js";
+import { updateCactus, setupCactus, getCactusRects } from "./scripts/cactus.js";
 import {
   updateApple,
   setupApple,
@@ -30,7 +30,7 @@ import {
   playRunSong,
   stopRunSong,
 } from "./scripts/audioManager.js";
-import { giveRandomFact } from "./BNS_Facts.js";
+import { giveRandomFact } from "./scripts/BNS_Facts.js";
 import { update, pauseUpdate, unPauseUpdate } from "./scripts/update.js";
 console.log("here")
 /////////////////////
