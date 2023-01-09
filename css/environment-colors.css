@@ -1,3 +1,16 @@
+:root {
+  --outside-top-color: #fe5000;
+  --outside-bottom-color: #084616;
+  --hallway-top-color: #FFDE69;
+  --hallway-bottom-color: #FFC700;
+  --library-top-color: #BB5E4A;
+  --library-bottom-color: #3C4043;
+  --lab-top-color: #61A9FF;
+  --lab-bottom-color: #95A5B9;
+  --gym-top-color: #77A687;
+  --gym-bottom-color: #CEFFDE;
+}
+
 .black {
   background-color: black;
 }
@@ -5,49 +18,67 @@
 .outside {
   background: linear-gradient(
     to bottom,
-    #fe5000 0%,
-    #fe5000 50%,
-    #084616 50%,
-    #084616 100%
+    var(--outside-top-color) 0%,
+    var(--outside-top-color) 50%,
+    var(--outside-bottom-color) 50%,
+    var(--outside-bottom-color) 100%
   );
 }
 
 .hallway {
   background: linear-gradient(
     to bottom,
-    #FFDE69 0%,
-    #FFDE69 50%,
-    #FFC700 50%,
-    #FFC700 100%
+    var(--hallway-top-color) 0%,
+    var(--hallway-top-color) 50%,
+    var(--hallway-bottom-color) 50%,
+    var(--hallway-bottom-color) 100%
   );
 }
 
 .library {
   background: linear-gradient(
     to bottom,
-    #BB5E4A 0%,
-    #BB5E4A 50%,
-    #3C4043 50%,
-    #3C4043 100%
+    var(--library-top-color) 0%,
+    var(--library-top-color) 50%,
+    var(--library-bottom-color) 50%,
+    var(--library-bottom-color) 100%
   );
 }
 
 .lab {
   background: linear-gradient(
     to bottom,
-    #61A9FF 0%,
-    #61A9FF 50%,
-    #95A5B9 50%,
-    #95A5B9 100%
+    var(--lab-top-color) 0%,
+    var(--lab-top-color) 50%,
+    var(--lab-bottom-color) 50%,
+    var(--lab-bottom-color) 100%
   );
 }
 
 .gym {
     background: linear-gradient(
     to bottom,
-    #77A687 0%,
-    #77A687 50%,
-    #CEFFDE 50%,
-    #CEFFDE 100%
+    var(--gym-top-color) 0%,
+    var(--gym-top-color) 50%,
+    var(--gym-bottom-color) 50%,
+    var(--gym-bottom-color) 100%
   );
+}
+
+  @media (max-width : 1000px) {
+    .outside {
+      background: var(--outside-bottom-color);
+    }
+    .hallway {
+      background: var(--hallway-bottom-color);
+    }
+    .library {
+      background: var(--library-bottom-color);
+    }
+    .lab {
+      background: var(--lab-bottom-color);
+    }
+    .gym {
+      background: var(--gym-bottom-color);
+    }
 }

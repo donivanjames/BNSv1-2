@@ -24,7 +24,7 @@ I would start in index.html and follow the code from there, everything else flow
 ---
 
 **Current Tasks**
-- Move game to 1/3rd of screen height for mobile fix
+- Next: Rework score ui and system
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
@@ -43,7 +43,7 @@ I would start in index.html and follow the code from there, everything else flow
 **Update v1-2**
 - Webpage background colors change based on environment
 - Made game fullscreen
-- Vertically centered game
+- Vertically centered game (pinned to top on mobile)
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
 - Added pause function that activates when player leaves screen
 - Fixed deltaTime bug that happened when focus wasnt on the window
@@ -57,3 +57,8 @@ I would start in index.html and follow the code from there, everything else flow
 - Tried batch renderinig update functions but it didn't look right
 - Fixed an amination bug where the player's legs would move really fast after a while
 - Bug fix: dying and leaving then coming back and restarting would result in player frame stutter for a few seconds
+- Changed player position
+- Bug fix: obstacles weren't changing with environment
+- Custom layout css for mobile
+- Experimenting with new "Back To BNS" button
+- Reworked score UI

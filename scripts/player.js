@@ -3,10 +3,10 @@ import { jumpSound, loseSound } from "./audioManager.js";
 
 const player = document.querySelector("[data-player]");
 const world = document.querySelector('[data-world]');
-const JUMP_SPEED = 0.35;
+const JUMP_SPEED = 0.30;
 const GRAVITY = 0.0015;
 const PLAYER_FRAME_COUNT = 2; // amount of animation frames
-const FRAME_TIME = 160; // how long each animation frame should last (in milliseconds)
+const FRAME_TIME = 140; // how long each animation frame should last (in milliseconds)
 
 const heightFromGround = 15 // also change css --bottom to match
 
@@ -107,7 +107,7 @@ function handleJump(delta) {
   if (getCustomProperty(player, "--bottom") <= heightFromGround) {
     // if player is back on the ground: continue running
     setCustomProperty(player, "--bottom", heightFromGround); // make sure player position is zero
-    playerFrame = 0
+    playerFrame = 0 
     isJumping = false;
   }
 

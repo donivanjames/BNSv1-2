@@ -20,9 +20,9 @@ a, button, html, .myelements
 
 body {
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+/*  flex-direction: column; // for adding flex before/after  */
     margin: 0;
     min-height: 100vh;
     font-family: 'Press Start 2P', cursive;
@@ -30,12 +30,18 @@ body {
     background-color: black;
   }
 
+  @media (max-width : 1000px) {
+    body {
+        display: block;
+    }
+}
+/* 
   body::before {
     flex: 1;
   }
   body::after {
     flex:3
-  }
+  } */
 
 .world {
     background-color: #000;
@@ -51,23 +57,40 @@ body {
     opacity: 0.0;
 }
 
-.button {
-    background-color: yellow;
-    border: none;
-    color: rgb(19, 74, 78);
-    padding: 10px 25px;
+  .button{
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.5vw;
-  }
+	display: inline-block;
+    font-size: 1vw;
+	margin:5px;
+    font-weight: bold;
+    padding: 1.25vw 1.25vw 1.25vw 1.25vw ;
+    background-color: rgb(255, 255, 55);
+    text-shadow: -1px -1px black, 1px 1px rgb(0, 0, 0);
+    color: rgb(64, 64, 64);
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em rgb(145, 148, 0); 
+    cursor: pointer;
+
+}
+.button:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
 
 .score {
     position: absolute;
     color: rgb(238, 255, 0);
     font-size: 1.0vw;
+    left: 25vmin;
+    bottom: 3vmin;
+}
+
+.high-score {
     right: 1vmin;
-    top: 1vmin;
 }
 
 .start-screen, .game-over-screen {
@@ -76,7 +99,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     font-size: 1.5vw;
-    color: yellow;
+    color: rgb(255, 255, 255);
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -115,14 +138,14 @@ body {
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
     /* width is 1% bigger to cover boundary glitches */
     width: 301%;
-    bottom: 0%;
+    bottom: -1%;
     left: calc(var(--left) * 1%);
     will-change: transform;
 }
 
 .player {
     position: absolute;
-    left: 2%;
+    left: 20%;
     height: 20%; /* Player size */
     
     /* Height Setup */

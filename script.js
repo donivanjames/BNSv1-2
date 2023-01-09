@@ -23,12 +23,13 @@ import {
   stopRunSong,
 } from "./scripts/audioManager.js";
 import { giveRandomFact } from "./scripts/BNS_Facts.js";
-import { update, pauseUpdate, unPauseUpdate } from "./scripts/update.js";
+import { update, pauseUpdate, unPauseUpdate, updateEnvironment } from "./scripts/update.js";
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
+document.documentElement.style.setProperty('--doc-height', `${window.innerHeight}px`)
 let gameGoing = false;
 let applesCollected = 0;
 let environment = 1;
@@ -121,7 +122,6 @@ function unpauseGame() {
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
-  console.log("here");
   if (!firstClick) {
     elements.preGameScreen.classList.add("hide"); // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
@@ -165,7 +165,6 @@ export function handleGameStart() {
         fontColor = "Yellow";
         document.body.classList.add("library");
         break;
-  
       case 5: // Gym
         fontColor = "#C53A99";
         document.body.classList.add("gym");
@@ -178,6 +177,7 @@ export function handleGameStart() {
     //setupGround(environment); // places 2 starting ground pieces in order
     addPlayerInputListeners();
     setupPlayer(environment);
+    updateEnvironment(environment);
     setupCactus();
     setupApple();
     resetGround();
@@ -233,7 +233,7 @@ function isCollision(rect1, rect2) {
 export function updateScore(delta) {
   score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
   if (score >= highScore) highScore = score;
-  elements.scoreElem.textContent = `High Score: ${~~highScore}  | Apple Bonus: ${applesCollected}0% |  Score: ${~~score}`;
+  elements.scoreElem.textContent = `Score: ${~~score} | High Score: ${~~highScore}`;
 }
 
 // HANDLE LOSE
@@ -258,8 +258,6 @@ export function handleLose() {
   
   removeAllBodyStyles();
   document.body.classList.add("black");
-
-
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {

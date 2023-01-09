@@ -24,6 +24,10 @@ export function unPauseUpdate() {
   pause = false;
 }
 
+export function updateEnvironment(env){
+  environment = env
+}
+
 // FRAMERATE LOOP SETUP //
 let lastTime = null;
 export function update(time) {
