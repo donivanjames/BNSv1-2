@@ -20,11 +20,11 @@ I would start in index.html and follow the code from there, everything else flow
 - [x] Make game fullscreen
 - [x] Change sky and background color based on level
 - [ ] Allow player to jump slightly before touching the ground
-- [ ] Need to fix first jump 'no sound' bug
 
 ---
 
 **Current Tasks**
+- Move game to 1/3rd of screen height for mobile fix
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
@@ -35,7 +35,7 @@ I would start in index.html and follow the code from there, everything else flow
 - Returning a variable/object could solve variable transfer problem
 - Randomize apple height
 - Center player between middle and start of screen
-- Bug: dying and leaving then coming back and restarting will result in player frame stutter for a few seconds, could be related to deltaTime
+- Need to fix first jump 'no sound' bug
 
 
 ## Update Log
@@ -55,4 +55,5 @@ I would start in index.html and follow the code from there, everything else flow
 - Bug fix: if you jump while paused you'll jump when you unpause
 - Replaced the word 'dino' with 'player' in Code
 - Tried batch renderinig update functions but it didn't look right
-- Fixed an amination bug
+- Fixed an amination bug where the player's legs would move really fast after a while
+- Bug fix: dying and leaving then coming back and restarting would result in player frame stutter for a few seconds
