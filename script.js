@@ -146,6 +146,34 @@ export function handleGameStart() {
     stopTitleSong();
     playRunSong();
 
+    let fontColor = "Yellow";
+    removeAllBodyStyles();
+    switch (environment) {
+      case 1: // Outside
+        fontColor = "Yellow";
+        document.body.classList.add("outside");
+        break;
+      case 2: // Hallway
+        fontColor = "Red";
+        document.body.classList.add("hallway");
+        break;
+      case 3: // Lab
+        fontColor = "Yellow";
+        document.body.classList.add("lab");
+        break;
+      case 4: // Library
+        fontColor = "Yellow";
+        document.body.classList.add("library");
+        break;
+  
+      case 5: // Gym
+        fontColor = "#C53A99";
+        document.body.classList.add("gym");
+        break;
+    }
+
+    elements.scoreElem.style.color = fontColor;
+
     elements.randomFact.textContent = giveRandomFact();
     //setupGround(environment); // places 2 starting ground pieces in order
     addPlayerInputListeners();
@@ -227,41 +255,11 @@ export function handleLose() {
   \r\n\r\nTap Or Space To Start Again`;
 
   // Need To Change Score Font Color And Background CSS For Each Environment
-  let fontColor = "Yellow";
+  
   removeAllBodyStyles();
-  switch (environment) {
-    case 1: // Outside
-      fontColor = "Yellow";
-      document.body.classList.add("outside");
-      break;
-    case 2: // Hallway
-      fontColor = "Red";
-      document.body.classList.add("hallway");
-      break;
-    case 3: // Lab
-      fontColor = "Yellow";
-      document.body.classList.add("lab");
-      break;
-    case 4: // Library
-      fontColor = "Yellow";
-      document.body.classList.add("library");
-      break;
+  document.body.classList.add("black");
 
-    case 5: // Gym
-      fontColor = "#C53A99";
-      document.body.classList.add("gym");
-      break;
-  }
 
-  function removeAllBodyStyles() {
-    document.body.classList.remove("outside");
-    document.body.classList.remove("hallway");
-    document.body.classList.remove("library");
-    document.body.classList.remove("lab");
-    document.body.classList.remove("gym");
-  }
-
-  elements.scoreElem.style.color = fontColor;
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
@@ -270,12 +268,21 @@ export function handleLose() {
   }, 200);
 }
 
+function removeAllBodyStyles() {
+  document.body.classList.remove("black");
+  document.body.classList.remove("outside");
+  document.body.classList.remove("hallway");
+  document.body.classList.remove("library");
+  document.body.classList.remove("lab");
+  document.body.classList.remove("gym");
+}
+
 // Get Ground Dimensions
 const groundElem = document.querySelector("[data-ground]");
 const getGroundHeight = () => groundElem.getBoundingClientRect().height;
 const getGroundWidth = () => groundElem.getBoundingClientRect().width;
-console.log("GroundHeight: " + getGroundHeight());
-console.log("Groundwidth: " + getGroundWidth());
+console.log("GroundHeight: ", getGroundHeight());
+console.log("Groundwidth: ", getGroundWidth());
 
 function setPixelToWorldScale() {
   let worldToPixelScale;

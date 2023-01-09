@@ -25,6 +25,7 @@ I would start in index.html and follow the code from there, everything else flow
 ---
 
 **Current Tasks**
+- Make screen go black on death
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
