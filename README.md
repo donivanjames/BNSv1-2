@@ -25,7 +25,6 @@ I would start in index.html and follow the code from there, everything else flow
 ---
 
 **Current Tasks**
-- Make screen go black on death
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
@@ -44,6 +43,7 @@ I would start in index.html and follow the code from there, everything else flow
 **Update v1-2**
 - Webpage background colors change based on environment
 - Made game fullscreen
+- Vertically centered game
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
 - Added pause function that activates when player leaves screen
 - Fixed deltaTime bug that happened when focus wasnt on the window
