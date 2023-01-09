@@ -27,7 +27,6 @@ export function unPauseUpdate() {
 // FRAMERATE LOOP SETUP //
 let lastTime = null;
 export function update(time) {
-  console.log("here");
   if (!pause) {
     // BEFORE GAME RUNS //
 

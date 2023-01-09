@@ -53,4 +53,5 @@ I would start in index.html and follow the code from there, everything else flow
 - Bug fix: If you died and left the game then when you come back and restarted it would be paused
 - Bug fix: if you jump while paused you'll jump when you unpause
 - Replaced the word 'dino' with 'player' in Code
-- Tried batch renderinig functions but it didn't look right
+- Tried batch renderinig update functions but it didn't look right
+- Fixed an amination bug

@@ -21,8 +21,14 @@ export function setupApple() {
 }
 
 export function collect(){
+  // push apple off screen
   removeAllApples()
+  moveApple()
   collectSound()
+}
+
+function moveApple() {
+
 }
 
 export function removeAllApples(){
@@ -34,12 +40,20 @@ export function removeAllApples(){
 
 // UPDATE OBSTACLE
 export function updateApple(delta, speed, speedScale) {
-  document.querySelectorAll("[data-apple]").forEach((apple) => {
+  // document.querySelectorAll("[data-apple]").forEach((apple) => {
+  //   incrementCustomProperty(apple, "--left", delta * speedScale * speed * -1);
+  //   if (getCustomProperty(apple, "--left") <= -100) {
+  //     apple.remove();
+  //   }
+  // });
+
+  let apple = document.querySelector("[data-apple]")
+  if(apple) {
     incrementCustomProperty(apple, "--left", delta * speedScale * speed * -1);
-    if (getCustomProperty(apple, "--left") <= -100) {
+    if (getCustomProperty(apple, "--left") <= -100)
       apple.remove();
-    }
-  });
+  }
+
 
   if (nextAppleTime <= 0) {
     // when obstacle time reaches zero: summon a new obstacle
