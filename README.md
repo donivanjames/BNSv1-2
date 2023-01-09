@@ -28,7 +28,7 @@ I would start in index.html and follow the code from there, everything else flow
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
-- Priority: Get mobile version working properly (could maybe batch render alternate batches of commands with deltaTime)
+- Priority: Get mobile version working properly
 - Need to clean up all the code
 - Allow player to jump slightly before touching the ground
 - Need to fix first jump 'no sound' bug
@@ -53,3 +53,4 @@ I would start in index.html and follow the code from there, everything else flow
 - Bug fix: If you died and left the game then when you come back and restarted it would be paused
 - Bug fix: if you jump while paused you'll jump when you unpause
 - Replaced the word 'dino' with 'player' in Code
+- Tried batch renderinig functions but it didn't look right

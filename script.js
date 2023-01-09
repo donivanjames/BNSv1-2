@@ -2,28 +2,20 @@
 // the process was very experimental so I havent been able to move functions to their own files yet
 
 import {
-  updateGround,
   changeGround,
   resetGround,
   showGround,
   hideGround,
 } from "./scripts/ground.js";
 import {
-  updatePlayer,
   setupPlayer,
   getPlayerRect,
   setPlayerLose,
   showPlayer,
   onJump,
 } from "./scripts/player.js";
-import { updateCactus, setupCactus, getCactusRects } from "./scripts/cactus.js";
-import {
-  updateApple,
-  setupApple,
-  getAppleRects,
-  removeAllApples,
-  collect,
-} from "./scripts/apple.js";
+import { setupCactus, getCactusRects } from "./scripts/cactus.js";
+import { setupApple, getAppleRects, collect } from "./scripts/apple.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -32,7 +24,6 @@ import {
 } from "./scripts/audioManager.js";
 import { giveRandomFact } from "./scripts/BNS_Facts.js";
 import { update, pauseUpdate, unPauseUpdate } from "./scripts/update.js";
-console.log("here");
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
@@ -138,7 +129,7 @@ export function setupGame() {
     showPlayer(); // show player
     showGround(); // show scene
     addStartGameInputListeners();
-    document.body.classList.add("outside")
+    document.body.classList.add("outside");
     firstClick = true;
   }
 }
@@ -237,38 +228,37 @@ export function handleLose() {
 
   // Need To Change Score Font Color And Background CSS For Each Environment
   let fontColor = "Yellow";
-  removeAllBodyStyles()
+  removeAllBodyStyles();
   switch (environment) {
     case 1: // Outside
       fontColor = "Yellow";
-      document.body.classList.add("outside")
+      document.body.classList.add("outside");
       break;
     case 2: // Hallway
       fontColor = "Red";
-      document.body.classList.add("hallway")
+      document.body.classList.add("hallway");
       break;
     case 3: // Lab
       fontColor = "Yellow";
-      document.body.classList.add("lab")
+      document.body.classList.add("lab");
       break;
     case 4: // Library
       fontColor = "Yellow";
-      document.body.classList.add("library")
+      document.body.classList.add("library");
       break;
 
     case 5: // Gym
       fontColor = "#C53A99";
-      document.body.classList.add("gym")
+      document.body.classList.add("gym");
       break;
   }
 
-
   function removeAllBodyStyles() {
-    document.body.classList.remove("outside")
-    document.body.classList.remove("hallway")
-    document.body.classList.remove("library")
-    document.body.classList.remove("lab")
-    document.body.classList.remove("gym")
+    document.body.classList.remove("outside");
+    document.body.classList.remove("hallway");
+    document.body.classList.remove("library");
+    document.body.classList.remove("lab");
+    document.body.classList.remove("gym");
   }
 
   elements.scoreElem.style.color = fontColor;
