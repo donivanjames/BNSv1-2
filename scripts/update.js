@@ -53,7 +53,7 @@ export function update(time) {
     lastTime = time;
 
     // updateSpeedScale(delta);
-    updateScore(delta);
+    // updateScore(delta);
     if (checkLose()) return handleLose(); // if checkLose is true then end the game
     if (checkApple()) collectApple();
 

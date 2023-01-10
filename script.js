@@ -108,7 +108,6 @@ function pauseGame() {
     stopRunSong();
     pauseUpdate();
     elements.pauseElem.classList.remove("hide");
-    console.log("Pause: ", pause);
   }
 }
 
@@ -117,7 +116,6 @@ function unpauseGame() {
   playRunSong();
   unPauseUpdate();
   elements.pauseElem.classList.add("hide");
-  console.log("Pause: ", pause);
 }
 
 // Removes Black Screen And Reveals Game
@@ -181,6 +179,7 @@ export function handleGameStart() {
     setupCactus();
     setupApple();
     resetGround();
+    updateScore()
     elements.scoreElem.classList.remove("hide");
     elements.startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
     elements.gameOverElem.classList.add("hide");
@@ -206,11 +205,9 @@ export function checkApple() {
 }
 
 export function collectApple() {
-  console.log("Apple Grabbed");
-  // add to score
-  applesCollected += 1;
-  // remove apple
-  collect();
+  applesCollected += 1; // add to score
+  updateScore()
+  collect(); // remove apple
 }
 
 // COLLISION CHECKER
@@ -231,7 +228,9 @@ function isCollision(rect1, rect2) {
 
 // INCREASE SCORE BASED ON DELTA TIME //
 export function updateScore(delta) {
-  score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0
+  // score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0 // OLD SCORE METHOD
+
+  score = applesCollected * 1000
   if (score >= highScore) highScore = score;
   elements.scoreElem.textContent = `Score: ${~~score} | High Score: ${~~highScore}`;
 }

@@ -6,7 +6,7 @@ import {
 
 // const SPEED = 0.02;
 const groundElems = document.querySelectorAll("[data-ground]");
-console.log(groundElems)
+
 export function showGround(){
   groundElems.forEach(ground => { ground.classList.remove("hide-img") })
 }

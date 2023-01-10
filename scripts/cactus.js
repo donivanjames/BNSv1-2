@@ -38,22 +38,21 @@ export function updateCactus(delta, speed, speedScale, environment) {
 }
 
 // GET ALL OBSTACLE BOUNDARIES
-let boundaryBox = []
+let boundaryBox = [];
 export function getCactusRects() {
-
   // Red Box Code, Leave For Testing
   // document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
 
   // gives us all of the rectangles for all of the obstacles on the screen
-  const obMap = [...document.querySelectorAll("[data-cactus]")].map((cactus) => {
+  const obMap = [...document.querySelectorAll("[data-cactus]")].map(
+    (cactus) => {
+      const obRect = cactus.getBoundingClientRect();
 
-    const obRect = cactus.getBoundingClientRect();
+      obRect.width = obRect.width * 0.6;
+      // obRect.height = obRect.height * 0.60;
 
-    obRect.width = obRect.width * 0.6;
-    // obRect.height = obRect.height * 0.60;
-
-    // Red Box Code, Leave For Testing 
-    /*
+      // Red Box Code, Leave For Testing
+      /*
     let tempBox = document.createElement('div');
     tempBox.className = "tempBox"
     tempBox.style = "border: 2px solid red; position: absolute;";
@@ -63,31 +62,29 @@ export function getCactusRects() {
     tempBox.style.height = obRect.height + 'px';
     boundaryBox.push(tempBox)
     */
-  
-    return obRect
-  });
 
+      return obRect;
+    }
+  );
 
   // Red Box
-  boundaryBox.forEach(obstacle => document.body.appendChild(obstacle));
-  boundaryBox = []
+  boundaryBox.forEach((obstacle) => document.body.appendChild(obstacle));
+  boundaryBox = [];
 
-  return obMap
+  return obMap;
 }
-
-
 
 // CREATE CACTUS
 function createCactus(environment) {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
-  
+
   // Set this based on environment
   cactus.src = `imgs/obstacle-${environment}.png`; // selects the correct image from files
   cactus.classList.add(`obstacle${environment}`); // adds CSS styles to obstacle
-  
+
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
-  setCustomProperty(cactus, "--top", 0); 
+  setCustomProperty(cactus, "--top", 0);
   worldElem.append(cactus); // this adds our obstacle to the world
 }
 

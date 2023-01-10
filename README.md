@@ -15,7 +15,7 @@ I would start in index.html and follow the code from there, everything else flow
 - [ ] Priority: Get mobile version working properly
 - [ ] Audio toggle option
 - [ ] Need to clean up all the code
-- [ ] Make apples the only point system
+- [x] Make apples the only point system
 - [ ] Chloe really wants werewolves involved
 - [x] Make game fullscreen
 - [x] Change sky and background color based on level
@@ -24,6 +24,7 @@ I would start in index.html and follow the code from there, everything else flow
 ---
 
 **Current Tasks**
+- slowly increasing sound
 - Next: Rework score ui and system
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
@@ -38,9 +39,13 @@ I would start in index.html and follow the code from there, everything else flow
 - Need to fix first jump 'no sound' bug
 
 
+**Next Task**:
+
+
 ## Update Log
 
 **Update v1-2**
+- Made apples the only point system
 - Webpage background colors change based on environment
 - Made game fullscreen
 - Vertically centered game (pinned to top on mobile)
