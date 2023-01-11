@@ -41,10 +41,10 @@ let pause = false;
 let elements = {
   worldElem: document.querySelector("[data-world]"),
   scoreElem: document.querySelector("[data-score]"),
-  startScreenElem: document.querySelector("[data-start-screen]"),
+  startScreenElem: document.querySelector("[data-title-screen]"),
   gameOverElem: document.querySelector("[data-game-over-screen]"),
   pauseElem: document.querySelector("[data-pause]"),
-  preGameScreen: document.querySelector("[data-pregame-screen]"),
+  preGameScreen: document.querySelectorAll("[data-start-screen]"),
   randomFact: document.querySelector("[data-fact]"),
 };
 
@@ -130,7 +130,7 @@ function unpauseGame() {
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   if (!firstClick) {
-    elements.preGameScreen.classList.add("hide"); // get rid of title
+    elements.preGameScreen.forEach(item => item.classList.add("hide")) // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
     playTitleSong();
     showPlayer(); // show player
@@ -180,7 +180,6 @@ export function handleGameStart() {
 
     elements.scoreElem.style.color = fontColor;
 
-    elements.randomFact.textContent = giveRandomFact();
     //setupGround(environment); // places 2 starting ground pieces in order
     addPlayerInputListeners();
     setupPlayer(environment);
@@ -264,6 +263,7 @@ export function handleLose() {
 
   // Need To Change Score Font Color And Background CSS For Each Environment
   
+  elements.randomFact.textContent = giveRandomFact();
   removeAllBodyStyles();
   document.body.classList.add("black");
 

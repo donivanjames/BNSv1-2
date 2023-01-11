@@ -1,44 +1,7 @@
 ﻿# Brand-New-Game
-Hey Team! This is the code repository for Brand New Game (the development name, you can change it!)
+Hey Team! This is the code repository for Brand New Game
 
-I'm working on heavily notating a lot of the code so everyone can take a look under the hood.
-
-I would start in index.html and follow the code from there, everything else flows down from the index file
-
-
-**Game Notes**
-- No cookies can be saved, so all data is "session based" and dissapears when you leave the page
-
----
-
-**Big Tasks:**
-- [ ] Priority: Get mobile version working properly
-- [ ] Audio toggle option
-- [x] Make apples the only point system
-- [ ] Chloe really wants werewolves involved
-- [x] Make game fullscreen
-- [x] Change sky and background color based on level
-- [ ] Redo backgrounds so they feed into each other
-- [ ] Allow player to jump slightly before touching the ground for better response time
-- [ ] Leaderboard
-
----
-
-**Current Tasks**
-- Too much HTML can slow down page, try to reduce amount of divs to just a couple
-- slowly increasing sound
-- Next: Rework score ui and system
-- Every frame we're querying ALL obstacles, could slow down system
-- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
-- We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
-- Priority: Get mobile version working properly
-- Allow player to jump slightly before touching the ground
-- Need to fix first jump 'no sound' bug
-- Returning a variable/object could solve variable transfer problem
-- Randomize apple height
-- Need to fix first jump 'no sound' bug
-
----
+# Updates
 
 ## Update v1-2
 **Features**
@@ -48,6 +11,7 @@ I would start in index.html and follow the code from there, everything else flow
 - Removed speed increase over time and slowed down player
 
 **Design**
+- Redid Landing Page
 - Centered player between middle and start of screen
 - Made game fullscreen
 - Vertically centered desktop game (pinned to top on mobile)
@@ -71,3 +35,28 @@ I would start in index.html and follow the code from there, everything else flow
 - Replaced the word 'dino' with 'player' in Code
 - Tried batch renderinig update functions but it didn't look right
 - Moved all scripts into their own folders
+
+---
+
+## Plans For Update v1-3
+- Redo backgrounds so they feed into each other
+- Audio toggle option
+- Priority: Get mobile version working properly
+- Too much HTML can slow down page, try to reduce amount of divs to just a couple
+- slowly increasing sound
+- Next: Rework score ui and system
+- Every frame we're querying ALL obstacles, could slow down system
+- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
+- We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
+- Priority: Get mobile version working properly
+- Allow player to jump slightly before touching the ground for better response time
+- Need to fix first jump 'no sound' bug
+- Returning a variable/object could solve variable transfer problem
+- Randomize apple height
+- Need to fix first jump 'no sound' bug
+
+---
+
+## Plans For Update v1-4
+- Leaderboard
+- Chloe really wants werewolves involved
