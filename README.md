@@ -3,7 +3,7 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Update v1-2
+## Update v1-2 (1/10/2023)
 **Features**
 - Made apples the only point system
 - Webpage background colors change based on environment
