@@ -33,27 +33,31 @@ Hey Team! This is the code repository for Brand New Game
 - Moved `update()` function to its own file 
 - Condensed multiple speed variables into one file
 - Replaced the word 'dino' with 'player' in Code
-- Tried batch renderinig update functions but it didn't look right
+- Tried batch rendering update functions but it didn't look right
 - Moved all scripts into their own folders
 
 ---
 
+# Future Updates
+
 ## Plans For Update v1-3
+**Features**
 - Redo backgrounds so they feed into each other
-- Audio toggle option
-- Priority: Get mobile version working properly
+- Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" button on title page)
+- Allow player to jump slightly before touching the ground for better response time
+- Randomize apple height
+**Design**
+- Get mobile css customized
+- Rework score ui and system
+**Known Bugs**
+- Need to fix first jump 'no sound' bug
+**Optimizations**
 - Too much HTML can slow down page, try to reduce amount of divs to just a couple
-- slowly increasing sound
-- Next: Rework score ui and system
+- Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
-- Priority: Get mobile version working properly
-- Allow player to jump slightly before touching the ground for better response time
-- Need to fix first jump 'no sound' bug
 - Returning a variable/object could solve variable transfer problem
-- Randomize apple height
-- Need to fix first jump 'no sound' bug
 
 ---
 
