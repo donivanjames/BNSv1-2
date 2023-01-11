@@ -15,14 +15,14 @@ Hey Team! This is the code repository for Brand New Game
 - Centered player between middle and start of screen
 - Made game fullscreen
 - Vertically centered desktop game
-- Reworked score UI
+- Reworked score UI (work in progress)
 - Experimenting with new "Back To BNS" button
 - Moved "Fun Facts" to Game Over screen
 
 **Mobile Design**
 - Mobile game is pinned to top of screen
 - Mobile background is solid color
-- Game is now resized when phone is turned
+- Game is now resized when phone is turned (nevermind, still not quite working, pushing to v1-3)
 
 **Bug Fixes**
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
@@ -39,9 +39,9 @@ Hey Team! This is the code repository for Brand New Game
 - Moved `update()` function to its own file 
 - Condensed multiple speed variables into one file
 - Replaced the word 'dino' with 'player' in Code
-- Tried batch rendering update functions but it didn't look right
+- Tried batch calling update functions but it didn't look right
 - Moved all scripts into their own folders
-- Obstacles are removed faster after leaving screen
+- Obstacles are now removed faster after leaving screen
 - Start screen and title screens are deleted after starting to reduce divs
 
 ---
@@ -50,14 +50,16 @@ Hey Team! This is the code repository for Brand New Game
 
 ## Plans For Update v1-3
 **Features**
+- Increase difficulty over time
 - Redo backgrounds so they feed into each other
 - Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
 - Randomize apple height
 
 **Design**
+- Get short, loopable sound bites for audio so it loads in faster
 - Incorporate new Figma art
-- Get mobile css customized
+- Bigger mobile "Back to bns" button
 - Rework score ui and system
 - Customize "Tap to start" text for mobile
 
@@ -71,6 +73,8 @@ Hey Team! This is the code repository for Brand New Game
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
+- Mobile: maybe don't change background color for faster processing
+- Potential loading screen
 
 ---
 

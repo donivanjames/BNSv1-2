@@ -33,11 +33,11 @@
     right: 1vmin;
 }
 
-.start-screen, .game-over-screen, .home-screen {
+.start-screen, .game-over-screen, .home-screen, .pause-screen {
     position: absolute;
     text-align: center;
     white-space: nowrap;
-    overflow: hidden;
+    /* overflow: hidden; */
     color: #00450F;
     font-size: 1.25vw;
     top: 40%;
@@ -50,6 +50,12 @@
     top: 50%;
     /* text-shadow: 3px 3px 0px #000000; */
 }
+
+.pause-screen {
+    font-size: 2vw;
+    color: yellow;
+}
+
 
 .start-screen-trees {
     position: absolute;
