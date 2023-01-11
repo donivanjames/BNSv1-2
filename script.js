@@ -36,6 +36,7 @@ let environment = 1;
 let firstClick = false; // to set up first screen
 let pause = false;
 
+
 //   UI ELEMENTS   //
 let elements = {
   worldElem: document.querySelector("[data-world]"),
@@ -46,6 +47,7 @@ let elements = {
   preGameScreen: document.querySelector("[data-pregame-screen]"),
   randomFact: document.querySelector("[data-fact]"),
 };
+
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -61,8 +63,14 @@ window.addEventListener("resize", setPixelToWorldScale);
 export function addStartGameInputListeners() {
   document.addEventListener("keydown", handleFirstInput, { once: true }); // On key down: start game: only do once
   document.addEventListener("mousedown", handleFirstInput, { once: true }); // On key down: start game: only do once
+  const button = document.getElementById('sound-toggle');
 }
 addStartGameInputListeners();
+
+button.addEventListener('click', (event) => {
+	soundToggle()
+  button.blur()
+})
 
 function addPlayerInputListeners() {
   document.removeEventListener("keydown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
@@ -74,6 +82,7 @@ function addPlayerInputListeners() {
 window.onblur = function () {
   pauseGame();
 };
+
 
 // Handles Start Game Input (eventually hopefully all input)
 export function handleFirstInput(event) {

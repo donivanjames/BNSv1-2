@@ -63,15 +63,14 @@ body {
     font-size: 1vw;
 	margin:5px;
     font-weight: bold;
-    padding: 1.25vw 1.25vw 1.25vw 1.25vw ;
+    padding: 0.5vw 0.5vw 0.5vw 0.5vw ;
     background-color: rgb(255, 255, 55);
-    text-shadow: -1px -1px black, 1px 1px rgb(0, 0, 0);
     color: rgb(64, 64, 64);
     -webkit-border-radius: 7px;
 	-moz-border-radius: 7px;
 	-o-border-radius: 7px;
 	border-radius: 7px;
-    box-shadow: 0 .2em rgb(145, 148, 0); 
+    box-shadow: 0 .3em rgb(145, 148, 0); 
     cursor: pointer;
 
 }
@@ -111,6 +110,13 @@ body {
 
 .start-screen {
     text-shadow: 3px 3px 0px #000000;
+}
+
+.sound-toggle {
+    position: absolute;
+    font-size: 1.0vw;
+    right: 1vmin;
+    bottom: 1vmin;
 }
 
 .game-over-screen {
