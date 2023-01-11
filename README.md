@@ -50,6 +50,7 @@ Hey Team! This is the code repository for Brand New Game
 **Design**
 - Get mobile css customized
 - Rework score ui and system
+- Customize "Tap to start" text for mobile
 
 **Known Bugs**
 - Need to fix first jump 'no sound' bug
@@ -60,7 +61,6 @@ Hey Team! This is the code repository for Brand New Game
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
-- Returning a variable/object could solve variable transfer problem
 
 ---
 
