@@ -22,6 +22,7 @@ Hey Team! This is the code repository for Brand New Game
 **Mobile Design**
 - Mobile game is pinned to top of screen
 - Mobile background is solid color
+- Game is now resized when phone is turned
 
 **Bug Fixes**
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
@@ -31,6 +32,7 @@ Hey Team! This is the code repository for Brand New Game
 - Fixed an amination bug where the player's legs would move really fast after a while
 - Bug fix: dying and leaving then coming back and restarting would result in player frame stutter for a few seconds
 - Bug fix: obstacles weren't changing with environment
+- Mobile: "Back To BNS" button wasnt aligning properly
 
 **Optimizations**
 - Optimized code by changing `math.floor` to `~~` in every file

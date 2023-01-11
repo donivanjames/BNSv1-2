@@ -38,6 +38,7 @@ let firstClick = false; // to set up first screen
 let pause = false;
 
 
+
 //   UI ELEMENTS   //
 let elements = {
   worldElem: document.querySelector("[data-world]"),
@@ -57,6 +58,8 @@ let speedScale = 1; // Gets multiplied by speed to increase player speed over ti
 const SPEED_SCALE_INCREASE = 0.0; // Rate of player speed increase // Works with updateSpeedScale()
 
 setPixelToWorldScale();
+// potential mobile screen resize fix
+window.onresize = setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
@@ -66,11 +69,6 @@ export function addStartGameInputListeners() {
   const button = document.getElementById('sound-toggle');
 }
 addStartGameInputListeners();
-
-button.addEventListener('click', (event) => {
-	soundToggle()
-  button.blur()
-})
 
 function addPlayerInputListeners() {
   document.removeEventListener("keydown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
@@ -291,6 +289,7 @@ console.log("GroundHeight: ", getGroundHeight());
 console.log("Groundwidth: ", getGroundWidth());
 
 function setPixelToWorldScale() {
+  console.log("Resized")
   let worldToPixelScale;
   if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
