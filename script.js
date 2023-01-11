@@ -24,6 +24,7 @@ import {
 } from "./scripts/audioManager.js";
 import { giveRandomFact } from "./scripts/BNS_Facts.js";
 import { update, pauseUpdate, unPauseUpdate, updateEnvironment } from "./scripts/update.js";
+
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
@@ -47,7 +48,6 @@ let elements = {
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
   randomFact: document.querySelector("[data-fact]"),
 };
-
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -94,8 +94,7 @@ export function handleFirstInput(event) {
 }
 
 function handleGameInput(event) {
-  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
-    return; // if the key pressed is not space or escape then dont do anything
+  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return;
 
   if (pause) {
     unpauseGame();
