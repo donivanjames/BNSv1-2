@@ -8,9 +8,8 @@ import {
 
 import { collectSound } from "./audioManager.js";
 
-//const SPEED = 0.03; // needs to be the same speed as the ground, might consolodate them both into a "groundSpeed" variable
-const APPLE_INTERVAL_MIN = 2000;
-const APPLE_INTERVAL_MAX = 10000; // speed of obstacles appearing in milliseconds
+const APPLE_INTERVAL_MIN = 1000;
+const APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
 
 // SETUP OBSTACLE
@@ -82,7 +81,12 @@ function createApple() {
   apple.src = "imgs/apple_v1.png"; // selects the correct image from files
   apple.classList.add("apple"); // adds CSS styles to apple
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
-  setCustomProperty(apple, "--top", 0); 
+
+  // Set random apple height
+  const min = 30, max = 55;
+  const randomHeight = Math.floor(Math.random() * (max - min + 1) + min)
+  setCustomProperty(apple, "--bottom", randomHeight); 
+
   worldElem.append(apple); // this adds our apple to the world
 }
 

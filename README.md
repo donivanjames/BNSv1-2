@@ -9,9 +9,11 @@ Hey Team! This is the code repository for Brand New Game
 - Webpage background colors change based on environment
 - Added pause function that activates when player leaves screen
 - Removed speed increase over time and slowed down player (to reduce nausea)
+- Randomized apple heights
 
 **Design**
 - Redid Landing Page
+- Added apple glow
 - Centered player between middle and start of screen
 - Made game fullscreen
 - Vertically centered desktop game
@@ -75,6 +77,7 @@ Hey Team! This is the code repository for Brand New Game
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
+- Remove shadows and glows for mobile
 
 ---
 
