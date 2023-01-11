@@ -10,9 +10,10 @@
     <title>Brand New Game</title>
 
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="imgs/apple_v1.png"/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />  // commented 1/11/2023 -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  // commented 1/11/2023 -->
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
@@ -30,10 +31,10 @@
       src="sounds/Music/run-song.wav"
       id="runSong"
       loop="loop"
-      autoplay="autoplay"
       muted="muted"
     ></audio>
 
+      <!-- The Game Screen -->
       <div class="world" data-world>
         <!-- 2 ground sprites for the endless effect -->
         <img
@@ -94,8 +95,6 @@
       </div>
       <br />
 
-      <div style="font-size: 1vw" data-fact></div>
-
       <div>
         <br /><br />
         <a href="https://brandnewschool.com/" class="button">
@@ -103,11 +102,5 @@
         </a>
       </div>
     </div>
-
-    <img
-      src="imgs/UI/Title Trees.png"
-      class="start-screen-trees"
-      data-start-screen
-    />
   </body>
 </html>

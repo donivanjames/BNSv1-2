@@ -6,9 +6,21 @@ Hey Team! This is the code repository for Brand New Game
 ## Updatev 1-3
 - Removed apple glow
 - Environment no longer changes 
+- Added window tab image
+- Removed "Fun Facts"
+- Screen should now resize when rotating in mobile
+- Death screen changed from black to green
 
 
 ## Plans For Update v1-3
+**Code Reading Notes**
+- Remove switch statement to change font color
+- change handleGameInput to handle ALL game input
+- See if mobile screen resizes correctly 
+- line 32 in script.js might hold key to mobile resize
+- could use the "rect" in checkApple() to assign which apple to remove
+- is removeAllBodyStyles() needed?
+- Should we combine cactus and apple code?
 **Features**
 - Increase difficulty over time
 - Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)

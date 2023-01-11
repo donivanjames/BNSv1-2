@@ -32,9 +32,7 @@ export function setupPlayer(environment) {
     player.classList.add("zindex-top")
     player.classList.remove("zindex-default")
   }
-
   setCustomProperty(player, "--bottom", heightFromGround);
-
 }
 
 export function showPlayer(){
