@@ -31,12 +31,6 @@ body {
     color: yellow;
     background-color: #00C142;
   }
-
-  @media (max-width : 1000px) {
-    body {
-        display: block;
-    }
-}
 /* 
   body::before {
     flex: 1;
@@ -109,5 +103,8 @@ body {
 }
 
 
-
-
+@media (max-width : 1000px) {
+    body {
+        justify-content: flex-start;
+    }
+}

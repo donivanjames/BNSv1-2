@@ -67,3 +67,10 @@
     white-space: pre;
     z-index: 2;
 }
+
+@media (max-width : 1000px) {
+    .score {
+        left: 15vmin;
+    }
+}
+

@@ -8,16 +8,20 @@ Hey Team! This is the code repository for Brand New Game
 - Made apples the only point system
 - Webpage background colors change based on environment
 - Added pause function that activates when player leaves screen
-- Removed speed increase over time and slowed down player
+- Removed speed increase over time and slowed down player (to reduce nausea)
 
 **Design**
 - Redid Landing Page
 - Centered player between middle and start of screen
 - Made game fullscreen
-- Vertically centered desktop game (pinned to top on mobile)
-- Custom background css for mobile
+- Vertically centered desktop game
 - Reworked score UI
 - Experimenting with new "Back To BNS" button
+- Moved "Fun Facts" to Game Over screen
+
+**Mobile Design**
+- Mobile game is pinned to top of screen
+- Mobile background is solid color
 
 **Bug Fixes**
 - Big fix: game was treating being off screen as lag and shooting the player forwards when returning to screen (should prevent cheating)
@@ -45,20 +49,22 @@ Hey Team! This is the code repository for Brand New Game
 ## Plans For Update v1-3
 **Features**
 - Redo backgrounds so they feed into each other
-- Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" button on title page)
+- Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
 - Randomize apple height
 
 **Design**
+- Incorporate new Figma art
 - Get mobile css customized
 - Rework score ui and system
 - Customize "Tap to start" text for mobile
 
 **Known Bugs**
 - Need to fix first jump 'no sound' bug
+- Turning screen on mobile doesn't trigger resize
 
 **Optimizations**
-- Too much HTML can slow down page, try to reduce amount of divs to just a couple
+- Too much HTML can slow down page, try to reduce amount of divs to just one or two
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times

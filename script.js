@@ -258,11 +258,12 @@ export function handleLose() {
   elements.gameOverElem.textContent = `Game Over
   \r\n\r\nScore: ${~~score} | High Score: ${~~highScore}
   \r\nApples Collected: ${applesCollected}
-  \r\n\r\nTap Or Space To Start Again`;
+  \r\n\r\n ${giveRandomFact()}
+  \r\n\r\nTap Or Space To Start Again `;
 
   // Need To Change Score Font Color And Background CSS For Each Environment
   
-  elements.randomFact.textContent = giveRandomFact();
+  //elements.randomFact.textContent = giveRandomFact();
   removeAllBodyStyles();
   document.body.classList.add("black");
 
