@@ -2,7 +2,6 @@
 // the process was very experimental so I havent been able to move functions to their own files yet
 
 import {
-  changeGround,
   resetGround,
   showGround,
   hideGround,
@@ -192,11 +191,6 @@ export function handleGameStart() {
   }
 }
 
-function chooseEnvironment() {
-  //Randomly assigns one of the 5 environments
-  environment = ~~(Math.random() * 5) + 1;
-}
-
 // CHECK FOR GAME OVER
 export function checkLose() {
   const playerRect = getPlayerRect();
@@ -248,8 +242,8 @@ export function handleLose() {
 
   hideGround();
 
-  chooseEnvironment();
-  changeGround(environment);
+  //chooseEnvironment();
+  //changeGround(environment);
   elements.gameOverElem.classList.remove("hide"); // show start screen again
   elements.scoreElem.classList.add("hide");
 

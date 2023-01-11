@@ -5,8 +5,13 @@ import {
 } from "./updateCustomProperty.js";
 
 //const SPEED = 0.02; // needs to be the same speed as the ground, might consolodate them both into a "groundSpeed" variable
+
+// Ending Max: 500  Begining Max 2500: 
 const CACTUS_INTERVAL_MIN = 500;
-const CACTUS_INTERVAL_MAX = 2000; // speed of obstacles appearing in milliseconds
+const CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
+
+
+
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
 
 // SETUP OBSTACLE
