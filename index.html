@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Items in the head set up the internal stuff such as the tab name and where the JavaScript and CSS is going to come from -->
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,7 +21,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
     </style>
 
-    <script src="script.js" type="module"></script> <!-- All the JavaScript code starts with the script.js file, you can go to script.js to follow the JavaScript -->
+    <script src="script.js" type="module"></script>
   </head>
 
   <!-- Body is where everything you see on the page is hosted. The whole game is right here! -->
@@ -34,22 +33,6 @@
       autoplay="autoplay"
       muted="muted"
     ></audio>
-
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      "
-    >
-      <!-- <br /><br />
-
-      <div style="font-size: 2.5vw">Page Coming Soon!</div>
-      <br />
-      <div style="font-size: 1.5vw">Here's a game in the meantime:</div>
-
-      <br /> -->
 
       <div class="world" data-world>
         <!-- 2 ground sprites for the endless effect -->
@@ -69,15 +52,15 @@
 
         <!-- Pre Game Screen -->
         <div class="start-screen" data-start-screen>
-          <img src="imgs/UI/Title Apple.png" style="width: 30%;">
-          <h3 style="color: #FFF0CC;">BRAND NEW GAME<br></h3>
-          <h6>NEW SITE COMING SOON <br>
+          <img src="imgs/UI/Title Apple.png" style="width: 30%" />
+          <h3 style="color: #fff0cc">BRAND NEW GAME<br /></h3>
+          <h6>
+            NEW SITE COMING SOON <br />
             PLAY A GAME WHILE YOU WAIT
-            <br><br><br><br>
+            <br /><br /><br /><br />
             HIT SPACEBAR TO START
           </h6>
         </div>
-        
 
         <!-- Start Screen Text -->
         <div class="home-screen hide" data-title-screen>
@@ -120,7 +103,11 @@
         </a>
       </div>
     </div>
-    
-    <img src="imgs/UI/Title Trees.png" class="start-screen-trees" data-start-screen>
+
+    <img
+      src="imgs/UI/Title Trees.png"
+      class="start-screen-trees"
+      data-start-screen
+    />
   </body>
 </html>

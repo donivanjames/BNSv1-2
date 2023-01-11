@@ -35,6 +35,8 @@ Hey Team! This is the code repository for Brand New Game
 - Replaced the word 'dino' with 'player' in Code
 - Tried batch rendering update functions but it didn't look right
 - Moved all scripts into their own folders
+- Obstacles are removed faster after leaving screen
+- Start screen and title screens are deleted after starting to reduce divs
 
 ---
 

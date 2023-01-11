@@ -22,7 +22,7 @@ export function setupCactus() {
 export function updateCactus(delta, speed, speedScale, environment) {
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
     incrementCustomProperty(cactus, "--left", delta * speedScale * speed * -1);
-    if (getCustomProperty(cactus, "--left") <= -100) {
+    if (getCustomProperty(cactus, "--left") <= -10) {
       cactus.remove();
     }
   });

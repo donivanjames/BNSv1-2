@@ -50,7 +50,7 @@ export function updateApple(delta, speed, speedScale) {
   let apple = document.querySelector("[data-apple]")
   if(apple) {
     incrementCustomProperty(apple, "--left", delta * speedScale * speed * -1);
-    if (getCustomProperty(apple, "--left") <= -100)
+    if (getCustomProperty(apple, "--left") <= -10)
       apple.remove();
   }
 

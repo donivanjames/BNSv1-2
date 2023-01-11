@@ -130,7 +130,7 @@ function unpauseGame() {
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   if (!firstClick) {
-    elements.preGameScreen.forEach(item => item.classList.add("hide")) // get rid of title
+    elements.preGameScreen.forEach(item => item.remove()) // get rid of title
     elements.startScreenElem.classList.remove("hide"); // add the other
     playTitleSong();
     showPlayer(); // show player
@@ -189,7 +189,7 @@ export function handleGameStart() {
     resetGround();
     updateScore()
     elements.scoreElem.classList.remove("hide");
-    elements.startScreenElem.classList.add("hide"); // hides "Press Space To Start" text
+    elements.startScreenElem.remove(); // removes "Press Space To Start" text
     elements.gameOverElem.classList.add("hide");
     window.requestAnimationFrame(update); // start infinite play loop
   }
