@@ -46,11 +46,14 @@ Hey Team! This is the code repository for Brand New Game
 - Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
 - Randomize apple height
+
 **Design**
 - Get mobile css customized
 - Rework score ui and system
+
 **Known Bugs**
 - Need to fix first jump 'no sound' bug
+
 **Optimizations**
 - Too much HTML can slow down page, try to reduce amount of divs to just a couple
 - Get mobile version working properly
