@@ -56,7 +56,6 @@ Hey Team! This is the code repository for Brand New Game
 - Redo backgrounds so they feed into each other
 - Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
-- Randomize apple height
 
 **Design**
 - Get short, loopable sound bites for audio so it loads in faster
@@ -70,7 +69,7 @@ Hey Team! This is the code repository for Brand New Game
 - Turning screen on mobile doesn't trigger resize
 
 **Optimizations**
-- Too much HTML can slow down page, try to reduce amount of divs to just one or two
+- Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times

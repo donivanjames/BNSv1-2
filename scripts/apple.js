@@ -84,7 +84,7 @@ function createApple() {
 
   // Set random apple height
   const min = 30, max = 55;
-  const randomHeight = Math.floor(Math.random() * (max - min + 1) + min)
+  const randomHeight = ~~(Math.random() * (max - min + 1) + min)
   setCustomProperty(apple, "--bottom", randomHeight); 
 
   worldElem.append(apple); // this adds our apple to the world
