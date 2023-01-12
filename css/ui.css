@@ -1,11 +1,12 @@
 .button {
-    position: relative;
+    position: absolute;
     text-align: center;
 	display: inline-block;
     font-size: 1vw;
     padding: 0.8vw 1vw 0.6vw 1vw ;
     background-color: #00450F;
     color: #00C142;
+    left: 41.5%; /* button position wouldnt center */
     cursor: pointer;
     text-decoration: none;
 }

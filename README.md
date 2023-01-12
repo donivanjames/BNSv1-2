@@ -4,6 +4,7 @@ Hey Team! This is the code repository for Brand New Game
 # Updates
 
 ## Current Updates In v1-3 (1/13/2022)
+- Combined ALL text menus into one (title, pause, game over)
 - Added worm character
 - Changed background to new environment
 - Compressed environment png for quicker loading
@@ -45,7 +46,6 @@ Hey Team! This is the code repository for Brand New Game
 - Need to fix first jump 'no sound' bug
 - Bug: Turning screen on mobile doesn't trigger resize
 - "Compressed audio files from 15mb to ___"
-- Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
