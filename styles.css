@@ -67,8 +67,9 @@ body {
     position: absolute;
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
     /* width is 1% bigger to cover boundary glitches */
-    width: 301%;
-    bottom: -1%;
+    height: 100%;
+    width: 201%;
+    bottom: 0%;
     left: calc(var(--left) * 1%);
     will-change: transform;
     object-fit: cover;
@@ -80,7 +81,7 @@ body {
     height: 17%; /* Player size */
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 50; 
+    --bottom: 41.25; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 }
