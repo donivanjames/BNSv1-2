@@ -79,6 +79,7 @@ body {
     bottom: -1%;
     left: calc(var(--left) * 1%);
     will-change: transform;
+    object-fit: cover;
 }
 
 .player {
