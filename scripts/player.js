@@ -8,7 +8,7 @@ const GRAVITY = 0.0015;
 const PLAYER_FRAME_COUNT = 2; // amount of animation frames
 const FRAME_TIME = 140; // how long each animation frame should last (in milliseconds)
 
-const heightFromGround = 30 // also change css --bottom to match
+const heightFromGround = 42 // also change css --bottom to match
 const jumpableHeight = 20
 
 let stopJumpSound = false; // stops jumping sound from playing on restart

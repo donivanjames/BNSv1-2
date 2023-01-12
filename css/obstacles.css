@@ -39,7 +39,7 @@
 .obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .apple, .cactus {
     position: absolute;
     --left: 0;
-    --bottom: 30;
+    --bottom: 42;
     left: calc(var(--left) * 1%);
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;

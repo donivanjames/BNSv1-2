@@ -17,9 +17,10 @@ export function hideGround(){
 
 
 
+const groundWidth = 300; // if you change this make sure to change .ground width in css
 export function resetGround(){
   setCustomProperty(groundElems[0], "--left", 0);
-  setCustomProperty(groundElems[1], "--left", 300); //we have our width at 300% so 300 is what we set our starting value as for the second ground piece
+  setCustomProperty(groundElems[1], "--left", groundWidth); //we have our width at 300% so 300 is what we set our starting value as for the second ground piece
 }
 
 
@@ -29,7 +30,7 @@ export function updateGround(delta, speed, speedScale) {
     incrementCustomProperty(ground, "--left", delta * speedScale * speed * -1);
 
     // Has ground 1 moved all the way off screen? Loop it around to the back
-    if (getCustomProperty(ground, "--left") <= -300)
-      incrementCustomProperty(ground, "--left", 600); // width x 2, frames split if its an even 600
+    if (getCustomProperty(ground, "--left") <= -groundWidth)
+      incrementCustomProperty(ground, "--left", groundWidth * 2); // width x 2, frames split if its an even 600
   });
 }

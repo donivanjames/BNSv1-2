@@ -84,10 +84,10 @@ body {
 .player {
     position: absolute;
     left: 20%;
-    height: 20%; /* Player size */
+    height: 17%; /* Player size */
     
-    /* Height Setup */
-    --bottom: 30;
+    /* Height Setup, Also Change player.js heightFromGround to match */
+    --bottom: 42; 
     bottom: calc(var(--bottom) * 1%);
 
     will-change: transform;
