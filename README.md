@@ -20,16 +20,15 @@ Hey Team! This is the code repository for Brand New Game
 - Changed title and run soundtrack
 - Made minimalistic "Back To BNS" button
 - Reworked "Game Over" screen
+- Flashing "press space to start"
 
 
 ## Plans For Update v1-3
-- Flashing css
 - Randomize obstacle type (puddle vs books)
 - Add coins/lightbulbs
 - Increase difficulty over time
 - Sound toggle
 - Background randomizer
-- White score color
 
 
 ## Future Update Pool
