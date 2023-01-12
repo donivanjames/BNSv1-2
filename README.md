@@ -32,6 +32,7 @@ Hey Team! This is the code repository for Brand New Game
 
 
 ## Future Update Pool
+- Bug: "back to bns" button not working anymore
 - Setup Gitignore and delete old files from repository
 - New opening menu
 - change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)

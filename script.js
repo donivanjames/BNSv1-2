@@ -51,12 +51,9 @@ let mainUIElem = document.querySelector("[data-main-ui]");
 let elements = {
   worldElem: document.querySelector("[data-world]"),
   scoreElem: document.querySelector("[data-score]"),
-  // startScreenElem: document.querySelector("[data-title-screen]"),
-  // gameOverElem: document.querySelector("[data-game-over-screen]"),
-  pauseElem: document.querySelector("[data-pause]"),
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
-  bnsButtonElem: document.querySelector("[data-bns-button]"),
 };
+
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -89,6 +86,10 @@ export function handleFirstInput(event) {
     return;
   } else if (!firstClick) setupGame();
   else handleGameStart();
+}
+
+function buttonTest() {
+  console.log("Clicked")
 }
 
 function handleGameInput(event) {
@@ -145,9 +146,6 @@ export function setupGame() {
     
     mainUIElem.innerHTML = `
     <div class="home-screen">
-      <h1>Brand New Game</h1>
-      <br />
-      A Brand New School Production <br /><br /><br /><br /><br />
       <div class="blink_me">Tap Or Space To Jump</div>
     </div>
     `
@@ -156,12 +154,14 @@ export function setupGame() {
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
-    elements.bnsButtonElem.classList.add("hide");
+    // elements.bnsButtonElem.classList.add("hide");
+    document.querySelector("[data-bns-button]").classList.add("hide")
     addStartGameInputListeners();
     document.body.classList.add("hallway"); // change background color
     firstClick = true;
   }
 }
+
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
 export function handleGameStart() {
@@ -189,8 +189,8 @@ export function handleGameStart() {
     elements.scoreElem.classList.remove("hide");
     mainUIElem.innerHTML = ""
     // elements.startScreenElem.remove(); // removes "Press Space To Start" text
-    // elements.gameOverElem.classList.add("hide");
-    elements.bnsButtonElem.classList.add("hide");
+    //elements.bnsButtonElem.classList.add("hide");
+    document.querySelector("[data-bns-button]").classList.add("hide")
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }
@@ -237,9 +237,9 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  //elements.gameOverElem.classList.remove("hide"); // show game over screen again
   
-  elements.bnsButtonElem.classList.remove("hide");
+  // elements.bnsButtonElem.classList.remove("hide");
+  document.querySelector("[data-bns-button]").classList.remove("hide")
   elements.scoreElem.classList.add("hide"); // hide score
 
   mainUIElem.innerHTML = `

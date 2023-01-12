@@ -80,10 +80,14 @@ body {
     height: 17%; /* Player size */
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 42; 
+    --bottom: 50; 
     bottom: calc(var(--bottom) * 1%);
-
     will-change: transform;
+}
+
+.player::after {
+    clear: both;
+    overflow: visible;
 }
 
 .zindex-default{
