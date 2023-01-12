@@ -3,7 +3,7 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Current Update v1-3
+## Current Updates In v1-3
 - Removed apple glow
 - Put apples back on ground
 - Environment no longer changes
