@@ -9,8 +9,8 @@ import {
   showPlayer,
   onJump,
 } from "./scripts/player.js";
-import { setupCactus, getCactusRects } from "./scripts/cactus.js";
-import { setupApple, getAppleRects, collect } from "./scripts/apple.js";
+// import { setupCactus, getCactusRects } from "./scripts/cactus.js";
+// import { setupApple, getAppleRects, collect } from "./scripts/apple.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -23,6 +23,14 @@ import {
   unPauseUpdate,
   updateEnvironment,
 } from "./scripts/update.js";
+import {
+  setupObstacles,
+  getAppleRects,
+  getCactusRects,
+  collect,
+  createCactus,
+  createApple,
+} from "./scripts/obstacle.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -147,37 +155,19 @@ export function handleGameStart() {
     playRunSong();
 
     let fontColor = "Yellow";
-    removeAllBodyStyles();
-    switch (environment) {
-      case 1: // Outside
-        fontColor = "Yellow";
-        document.body.classList.add("outside");
-        break;
-      case 2: // Hallway
-        fontColor = "Red";
-        document.body.classList.add("hallway");
-        break;
-      case 3: // Lab
-        fontColor = "Yellow";
-        document.body.classList.add("lab");
-        break;
-      case 4: // Library
-        fontColor = "Yellow";
-        document.body.classList.add("library");
-        break;
-      case 5: // Gym
-        fontColor = "#C53A99";
-        document.body.classList.add("gym");
-        break;
-    }
+
+    document.body.classList.remove("black-screen");
+
+    fontColor = "Yellow";
+    document.body.classList.add("outside");
 
     elements.scoreElem.style.color = fontColor;
 
     addPlayerInputListeners();
     setupPlayer(environment);
     updateEnvironment(environment);
-    setupCactus();
-    setupApple();
+    setupObstacles();
+    // setupApple();
     resetGround();
     updateScore();
     elements.scoreElem.classList.remove("hide");
@@ -234,10 +224,10 @@ export function handleLose() {
 
   elements.gameOverElem.textContent = `Game Over
   \r\n\r\nScore: ${~~score} | High Score: ${~~highScore}
-  \r\n\r\nTap Or Space To Start Again `;
+  \r\n\r\n\r\nTap Or Space To Start Again `;
 
   // change screen to solid color
-  removeAllBodyStyles();
+  document.body.classList.remove("outside");
   document.body.classList.add("black-screen");
 
   // timeout stops player from hitting space right when they lose
@@ -246,22 +236,6 @@ export function handleLose() {
     addStartGameInputListeners();
   }, 500);
 }
-
-function removeAllBodyStyles() {
-  document.body.classList.remove("black");
-  document.body.classList.remove("outside");
-  document.body.classList.remove("hallway");
-  document.body.classList.remove("library");
-  document.body.classList.remove("lab");
-  document.body.classList.remove("gym");
-}
-
-// Get Ground Dimensions
-const groundElem = document.querySelector("[data-ground]");
-const getGroundHeight = () => groundElem.getBoundingClientRect().height;
-const getGroundWidth = () => groundElem.getBoundingClientRect().width;
-console.log("GroundHeight: ", getGroundHeight());
-console.log("Groundwidth: ", getGroundWidth());
 
 function setPixelToWorldScale() {
   console.log("Resized");

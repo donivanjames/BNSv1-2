@@ -1,5 +1,5 @@
 // Would be better to make obstacles and collectables the same class, and just specify lose/bonus on collection
-
+/*
 import {
   setCustomProperty,
   incrementCustomProperty,
@@ -8,7 +8,7 @@ import {
 
 import { collectSound } from "./audioManager.js";
 
-const APPLE_INTERVAL_MIN = 1000;
+const APPLE_INTERVAL_MIN = 2000;
 const APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
 
@@ -26,10 +26,6 @@ export function collect(){
   collectSound()
 }
 
-function moveApple() {
-
-}
-
 export function removeAllApples(){
 
   document.querySelectorAll("[data-apple]").forEach((apple) => {
@@ -39,19 +35,19 @@ export function removeAllApples(){
 
 // UPDATE OBSTACLE
 export function updateApple(delta, speed, speedScale) {
-  // document.querySelectorAll("[data-apple]").forEach((apple) => {
-  //   incrementCustomProperty(apple, "--left", delta * speedScale * speed * -1);
-  //   if (getCustomProperty(apple, "--left") <= -100) {
-  //     apple.remove();
-  //   }
-  // });
-
-  let apple = document.querySelector("[data-apple]")
-  if(apple) {
+  document.querySelectorAll("[data-apple]").forEach((apple) => {
     incrementCustomProperty(apple, "--left", delta * speedScale * speed * -1);
-    if (getCustomProperty(apple, "--left") <= -10)
+    if (getCustomProperty(apple, "--left") <= -100) {
       apple.remove();
-  }
+    }
+  });
+
+  // let apple = document.querySelector("[data-apple]")
+  // if(apple) {
+  //   incrementCustomProperty(apple, "--left", delta * speedScale * speed * -1);
+  //   if (getCustomProperty(apple, "--left") <= -10)
+  //     apple.remove();
+  // }
 
 
   if (nextAppleTime <= 0) {
@@ -65,27 +61,21 @@ export function updateApple(delta, speed, speedScale) {
 }
 
 // GET ALL APPLE BOUNDARIES
-let boundaryBox = []
 export function getAppleRects() {
   return [...document.querySelectorAll("[data-apple]")].map(apple => {
     return apple.getBoundingClientRect()
   })
 }
 
-
-
 // CREATE APPLE
 function createApple() {
   const apple = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
+  apple.dataset.obstacle = true;
+
   apple.src = "imgs/apple_v1.png"; // selects the correct image from files
   apple.classList.add("apple"); // adds CSS styles to apple
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
-
-  // Set random apple height
-  const min = 30, max = 55;
-  const randomHeight = ~~(Math.random() * (max - min + 1) + min)
-  setCustomProperty(apple, "--bottom", randomHeight); 
 
   worldElem.append(apple); // this adds our apple to the world
 }
@@ -94,3 +84,5 @@ function createApple() {
 function randomNumberBetween(min, max) {
   return ~~(Math.random() * (max - min + 1) + min);
 }
+
+*/

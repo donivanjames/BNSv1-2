@@ -3,25 +3,28 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Updatev 1-3
+## Current Update v1-3
 - Removed apple glow
-- Environment no longer changes 
+- Put apples back on ground
+- Environment no longer changes
 - Added window tab image
 - Removed "Fun Facts"
 - Screen should now resize when rotating in mobile
 - Death screen changed from black to green
+- Removed clutter/code from old designs
+- Combined Apple And Rock code into one file
 
 
 ## Plans For Update v1-3
 **Code Reading Notes**
-- Remove switch statement to change font color
 - change handleGameInput to handle ALL game input
 - See if mobile screen resizes correctly 
 - line 32 in script.js might hold key to mobile resize
 - could use the "rect" in checkApple() to assign which apple to remove
-- is removeAllBodyStyles() needed?
 - Should we combine cactus and apple code?
+
 **Features**
+- Add coins
 - Increase difficulty over time
 - Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
@@ -38,6 +41,7 @@ Hey Team! This is the code repository for Brand New Game
 - Turning screen on mobile doesn't trigger resize
 
 **Optimizations**
+- Compressed audio files from 15mb to ___
 - Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
