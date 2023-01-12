@@ -9,8 +9,6 @@ import {
   showPlayer,
   onJump,
 } from "./scripts/player.js";
-// import { setupCactus, getCactusRects } from "./scripts/cactus.js";
-// import { setupApple, getAppleRects, collect } from "./scripts/apple.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -28,8 +26,6 @@ import {
   getAppleRects,
   getCactusRects,
   collect,
-  createCactus,
-  createApple,
 } from "./scripts/obstacle.js";
 
 /////////////////////
@@ -56,6 +52,7 @@ let elements = {
   gameOverElem: document.querySelector("[data-game-over-screen]"),
   pauseElem: document.querySelector("[data-pause]"),
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
+  bnsButtonElem: document.querySelector("[data-bns-button]"),
 };
 
 //   SPEED AND SCORE   //
@@ -137,6 +134,7 @@ export function setupGame() {
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
+    elements.bnsButtonElem.classList.add("hide");
     addStartGameInputListeners();
     document.body.classList.add("hallway"); // change background color
     firstClick = true;
@@ -173,6 +171,7 @@ export function handleGameStart() {
     elements.scoreElem.classList.remove("hide");
     elements.startScreenElem.remove(); // removes "Press Space To Start" text
     elements.gameOverElem.classList.add("hide");
+    elements.bnsButtonElem.classList.add("hide");
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }
@@ -219,12 +218,15 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  elements.gameOverElem.classList.remove("hide"); // show start screen again
+  elements.gameOverElem.classList.remove("hide"); // show game over screen again
+  elements.bnsButtonElem.classList.remove("hide");
   elements.scoreElem.classList.add("hide"); // hide score
 
-  elements.gameOverElem.textContent = `Game Over
-  \r\n\r\nScore: ${~~score} | High Score: ${~~highScore}
-  \r\n\r\n\r\nTap Or Space To Start Again `;
+  elements.gameOverElem.innerHTML = `
+  Score: ${~~score}
+  \nHigh Score: ${~~highScore}
+  \n\n\n\n<h1>GAME OVER!</h1>
+  \n\n\n\n\n\n\n\n<div class="blink_me">Tap Or Space To Play Again</div>`;
 
   // change screen to solid color
   document.body.classList.remove("hallway");

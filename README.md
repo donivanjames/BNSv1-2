@@ -3,7 +3,10 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Current Updates In v1-3
+## Current Updates In v1-3 (1/13/2022)
+- Added worm character
+- Changed background to new environment
+- Compressed environment png for quicker loading
 - Removed apple glow
 - Put apples back on ground
 - Environment no longer changes
@@ -12,32 +15,36 @@ Hey Team! This is the code repository for Brand New Game
 - Screen should now resize when rotating in mobile
 - Death screen changed from black to green
 - Removed clutter/code from old designs
-- Combined Apple And Rock code into one file
+- Combined Apple And Obstacle code into one file
 - Changed title and run soundtrack
+- Made minimalistic "Back To BNS" button
 
 
 ## Plans For Update v1-3
-- Shrink environment png for quicker loading
+- Flashing css
 - Randomize obstacle type (puddle vs books)
-- change handleGameInput to handle ALL game input
+- Add coins/lightbulbs
+- Increase difficulty over time
+- Sound toggle
+- Background randomizer
+- White score color
+
+
+## Future Update Pool
+- Setup Gitignore and delete old files from repository
+- New opening menu
+- Rework game over screen based on Figma
+- change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?
-- See if mobile screen resizes correctly 
 - Could maybe delete unused title audio once game starts
 - line 32 in script.js might hold key to mobile resize
 - could use the "rect" in checkApple() to assign which apple to remove
-- Should we combine cactus and apple code?
-- Add coins
-- Increase difficulty over time
-- Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
-- Incorporate new Figma art
-- Minimalistic back to bns button
-- Rework score ui and system
 - Customize "Tap to start" text for mobile
 - Need to fix first jump 'no sound' bug
-- Turning screen on mobile doesn't trigger resize
-- Compressed audio files from 15mb to ___
+- Bug: Turning screen on mobile doesn't trigger resize
+- "Compressed audio files from 15mb to ___"
 - Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
@@ -46,6 +53,8 @@ Hey Team! This is the code repository for Brand New Game
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
 - Remove shadows and glows for mobile
+- Leaderboard
+- Chloe really wants werewolves involved
 
 ---
 
@@ -93,12 +102,6 @@ Hey Team! This is the code repository for Brand New Game
 - Start screen and title screens are deleted after starting to reduce divs
 
 ---
-
-# Future Updates
-
-## Plans For Update v1-4
-- Leaderboard
-- Chloe really wants werewolves involved
 
 ## Plans For v2
 
