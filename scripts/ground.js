@@ -15,11 +15,7 @@ export function hideGround(){
   groundElems.forEach(ground => { ground.classList.add("hide-img") })
 }
 
-// Set up ground on launch
-export function changeGround(environment) {
-  groundElems[0].src = `imgs/L${environment}_environment_loop_v1.png`
-  groundElems[1].src = `imgs/L${environment}_environment_loop_v1.png`
-}
+
 
 export function resetGround(){
   setCustomProperty(groundElems[0], "--left", 0);

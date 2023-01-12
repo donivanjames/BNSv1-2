@@ -87,10 +87,9 @@ body {
     height: 20%; /* Player size */
     
     /* Height Setup */
-    --bottom: 15;
+    --bottom: 30;
     bottom: calc(var(--bottom) * 1%);
 
-    filter: drop-shadow(1px 1px 1px black);
     will-change: transform;
 }
 

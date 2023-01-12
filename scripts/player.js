@@ -8,7 +8,8 @@ const GRAVITY = 0.0015;
 const PLAYER_FRAME_COUNT = 2; // amount of animation frames
 const FRAME_TIME = 140; // how long each animation frame should last (in milliseconds)
 
-const heightFromGround = 15 // also change css --bottom to match
+const heightFromGround = 30 // also change css --bottom to match
+const jumpableHeight = 20
 
 let stopJumpSound = false; // stops jumping sound from playing on restart
 
@@ -22,7 +23,7 @@ export function setupPlayer(environment) {
   playerFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
-  player.src = `imgs/Player-run-0.png`;
+  player.src = `imgs/worm-run-0.png`;
 
   // Need a different zindex for the school so player falls into puddle and not behind it
   player.classList.remove("zindex-top")
@@ -31,9 +32,7 @@ export function setupPlayer(environment) {
     player.classList.add("zindex-top")
     player.classList.remove("zindex-default")
   }
-
   setCustomProperty(player, "--bottom", heightFromGround);
-
 }
 
 export function showPlayer(){
@@ -75,21 +74,21 @@ export function setPlayerLose() {
     loseSound()
     stopJumpSound = true;
     // set the sprite of the player do the loss image
-    player.src = "imgs/Player-lose.png" 
+    player.src = "imgs/worm-lose.png" 
 }
 
 // HANDLE RUN
 function handleRun(delta, speedScale) {
   if (isJumping) {
     // if isJumping: set animation to stationary
-    player.src = `imgs/Player-run-0.png`;
+    player.src = `imgs/worm-run-0.png`;
     return;
   }
 
   if (currentFrameTime >= FRAME_TIME) {
     // swaps animation frames when currentFrameTime is above frameTime
     playerFrame = (playerFrame + 1) % PLAYER_FRAME_COUNT; // will cycle animation frames no matter how many there are
-    player.src = `imgs/Player-run-${playerFrame}.png`; // picks an image from the current player frame
+    player.src = `imgs/worm-run-${playerFrame}.png`; // picks an image from the current player frame
     currentFrameTime = 0; // reset currentFrameTime back to 0
     // currentFrameTime -= FRAME_TIME; // used to be this, if there's ever more than two frames you might need this
   }
@@ -104,13 +103,15 @@ function handleJump(delta) {
   
   incrementCustomProperty(player, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
 
-  if (getCustomProperty(player, "--bottom") <= heightFromGround) {
+  //if (getCustomProperty(player, "--bottom") <= jumpableHeight) {
+    // allow jumping here
+    if (getCustomProperty(player, "--bottom") <= heightFromGround) {
     // if player is back on the ground: continue running
     setCustomProperty(player, "--bottom", heightFromGround); // make sure player position is zero
-    playerFrame = 0 
-    isJumping = false;
-  }
-
+    isJumping = false
+    playerFrame = 0
+  //}
+}
   yVelocity -= GRAVITY * delta; // jump velovity slows down and goes negative while in the air to pull player back to ground
 }
 

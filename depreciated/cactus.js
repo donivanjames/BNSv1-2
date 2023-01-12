@@ -1,3 +1,5 @@
+/*
+
 import {
   setCustomProperty,
   incrementCustomProperty,
@@ -5,8 +7,11 @@ import {
 } from "./updateCustomProperty.js";
 
 //const SPEED = 0.02; // needs to be the same speed as the ground, might consolodate them both into a "groundSpeed" variable
+
+// Ending Max: 500  Begining Max 2500: 
 const CACTUS_INTERVAL_MIN = 500;
-const CACTUS_INTERVAL_MAX = 2000; // speed of obstacles appearing in milliseconds
+const CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
+
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
 
 // SETUP OBSTACLE
@@ -62,7 +67,7 @@ export function getCactusRects() {
     tempBox.style.height = obRect.height + 'px';
     boundaryBox.push(tempBox)
     */
-
+    /*
       return obRect;
     }
   );
@@ -78,6 +83,7 @@ export function getCactusRects() {
 function createCactus(environment) {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
+  cactus.dataset.obstacle = true;
 
   // Set this based on environment
   cactus.src = `imgs/obstacle-${environment}.png`; // selects the correct image from files
@@ -92,3 +98,5 @@ function createCactus(environment) {
 function randomNumberBetween(min, max) {
   return ~~(Math.random() * (max - min + 1) + min);
 }
+
+*/

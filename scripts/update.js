@@ -1,14 +1,14 @@
 import { updateGround } from "./ground.js";
 import { updatePlayer } from "./player.js";
-import { updateCactus } from "./cactus.js";
-import { updateApple } from "./apple.js";
+// import { updateCactus } from "./cactus.js";
+// import { updateApple } from "./apple.js";
 import {
-  updateScore,
   handleLose,
   collectApple,
   checkApple,
   checkLose,
 } from "../script.js";
+import { updateCactus } from "./obstacle.js";
 
 let pause = false;
 const speed = 0.04;
@@ -49,7 +49,7 @@ export function update(time) {
     updateGround(delta, speed, speedScale);
     updatePlayer(delta, speedScale);
     updateCactus(delta, speed, speedScale, environment);
-    updateApple(delta, speed, speedScale);
+    // updateApple(delta, speed, speedScale);
     lastTime = time;
 
     // updateSpeedScale(delta);

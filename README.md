@@ -3,6 +3,52 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
+## Current Updates In v1-3
+- Removed apple glow
+- Put apples back on ground
+- Environment no longer changes
+- Added window tab image
+- Removed "Fun Facts"
+- Screen should now resize when rotating in mobile
+- Death screen changed from black to green
+- Removed clutter/code from old designs
+- Combined Apple And Rock code into one file
+- Changed title and run soundtrack
+
+
+## Plans For Update v1-3
+- Shrink environment png for quicker loading
+- Randomize obstacle type (puddle vs books)
+- change handleGameInput to handle ALL game input
+- Could maybe only start checking boundaries when object is near player?
+- See if mobile screen resizes correctly 
+- Could maybe delete unused title audio once game starts
+- line 32 in script.js might hold key to mobile resize
+- could use the "rect" in checkApple() to assign which apple to remove
+- Should we combine cactus and apple code?
+- Add coins
+- Increase difficulty over time
+- Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
+- Allow player to jump slightly before touching the ground for better response time
+- Get short, loopable sound bites for audio so it loads in faster
+- Incorporate new Figma art
+- Minimalistic back to bns button
+- Rework score ui and system
+- Customize "Tap to start" text for mobile
+- Need to fix first jump 'no sound' bug
+- Turning screen on mobile doesn't trigger resize
+- Compressed audio files from 15mb to ___
+- Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
+- Get mobile version working properly
+- Every frame we're querying ALL obstacles, could slow down system
+- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
+- We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
+- Mobile: maybe don't change background color for faster processing
+- Potential loading screen
+- Remove shadows and glows for mobile
+
+---
+
 ## Update v1-2 (1/10/2023)
 **Features**
 - Made apples the only point system
@@ -50,36 +96,10 @@ Hey Team! This is the code repository for Brand New Game
 
 # Future Updates
 
-## Plans For Update v1-3
-**Features**
-- Increase difficulty over time
-- Redo backgrounds so they feed into each other
-- Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
-- Allow player to jump slightly before touching the ground for better response time
-
-**Design**
-- Get short, loopable sound bites for audio so it loads in faster
-- Incorporate new Figma art
-- Bigger mobile "Back to bns" button
-- Rework score ui and system
-- Customize "Tap to start" text for mobile
-
-**Known Bugs**
-- Need to fix first jump 'no sound' bug
-- Turning screen on mobile doesn't trigger resize
-
-**Optimizations**
-- Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
-- Get mobile version working properly
-- Every frame we're querying ALL obstacles, could slow down system
-- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
-- We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
-- Mobile: maybe don't change background color for faster processing
-- Potential loading screen
-- Remove shadows and glows for mobile
-
----
-
 ## Plans For Update v1-4
 - Leaderboard
 - Chloe really wants werewolves involved
+
+## Plans For v2
+
+- Backgrounds feed into each other

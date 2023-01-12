@@ -1,12 +1,7 @@
 // Working on cleaning up this file,
 // the process was very experimental so I havent been able to move functions to their own files yet
 
-import {
-  changeGround,
-  resetGround,
-  showGround,
-  hideGround,
-} from "./scripts/ground.js";
+import { resetGround, showGround, hideGround } from "./scripts/ground.js";
 import {
   setupPlayer,
   getPlayerRect,
@@ -14,30 +9,44 @@ import {
   showPlayer,
   onJump,
 } from "./scripts/player.js";
-import { setupCactus, getCactusRects } from "./scripts/cactus.js";
-import { setupApple, getAppleRects, collect } from "./scripts/apple.js";
+// import { setupCactus, getCactusRects } from "./scripts/cactus.js";
+// import { setupApple, getAppleRects, collect } from "./scripts/apple.js";
 import {
   playTitleSong,
   stopTitleSong,
   playRunSong,
   stopRunSong,
 } from "./scripts/audioManager.js";
-import { giveRandomFact } from "./scripts/BNS_Facts.js";
-import { update, pauseUpdate, unPauseUpdate, updateEnvironment } from "./scripts/update.js";
+import {
+  update,
+  pauseUpdate,
+  unPauseUpdate,
+  updateEnvironment,
+} from "./scripts/update.js";
+import {
+  setupObstacles,
+  getAppleRects,
+  getCactusRects,
+  collect,
+  createCactus,
+  createApple,
+} from "./scripts/obstacle.js";
 
 /////////////////////
 //   WORLD SETUP   //
 /////////////////////
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
-document.documentElement.style.setProperty('--doc-height', `${window.innerHeight}px`)
-let gameGoing = false;
+document.documentElement.style.setProperty(
+  "--doc-height",
+  `${window.innerHeight}px`
+);
+
+let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
 let applesCollected = 0;
 let environment = 1;
 let firstClick = false; // to set up first screen
 let pause = false;
-
-
 
 //   UI ELEMENTS   //
 let elements = {
@@ -47,40 +56,31 @@ let elements = {
   gameOverElem: document.querySelector("[data-game-over-screen]"),
   pauseElem: document.querySelector("[data-pause]"),
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
-  randomFact: document.querySelector("[data-fact]"),
 };
 
 //   SPEED AND SCORE   //
 let score = 0;
 let highScore = 0;
-const speed = 0.04;
-let speedScale = 1; // Gets multiplied by speed to increase player speed over time
-const SPEED_SCALE_INCREASE = 0.0; // Rate of player speed increase // Works with updateSpeedScale()
 
 setPixelToWorldScale();
-// potential mobile screen resize fix
-window.onresize = setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
 export function addStartGameInputListeners() {
   document.addEventListener("keydown", handleFirstInput, { once: true }); // On key down: start game: only do once
   document.addEventListener("mousedown", handleFirstInput, { once: true }); // On key down: start game: only do once
-  const button = document.getElementById('sound-toggle');
+  const button = document.getElementById("sound-toggle");
 }
 addStartGameInputListeners();
 
 function addPlayerInputListeners() {
   document.removeEventListener("keydown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
-  document.removeEventListener("mousedown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
+  document.removeEventListener("mousedown", handleGameInput);
   document.addEventListener("keydown", handleGameInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
   document.addEventListener("mousedown", handleGameInput); // this adds a listener to the player that waits for click, then it executes the onJump function
 }
 
-window.onblur = function () {
-  pauseGame();
-};
-
+window.onblur = () => pauseGame(); // pause game when player leaves screen
 
 // Handles Start Game Input (eventually hopefully all input)
 export function handleFirstInput(event) {
@@ -92,7 +92,8 @@ export function handleFirstInput(event) {
 }
 
 function handleGameInput(event) {
-  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return;
+  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
+    return;
 
   if (pause) {
     unpauseGame();
@@ -104,6 +105,10 @@ function handleGameInput(event) {
     else pauseGame();
     return;
   }
+
+  // handleStart might go here with gameGoing variable:
+  //if gameGoing => onJump
+  //else => handleStart
 
   onJump();
 }
@@ -127,13 +132,13 @@ function unpauseGame() {
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   if (!firstClick) {
-    elements.preGameScreen.forEach(item => item.remove()) // get rid of title
-    elements.startScreenElem.classList.remove("hide"); // add the other
+    elements.preGameScreen.forEach((item) => item.remove()); // get rid of title
+    elements.startScreenElem.classList.remove("hide"); // show the title screen
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
     addStartGameInputListeners();
-    document.body.classList.add("outside");
+    document.body.classList.add("hallway"); // change background color
     firstClick = true;
   }
 }
@@ -141,9 +146,8 @@ export function setupGame() {
 // HANDLES GAME START WHEN SPACE IS PRESSED
 export function handleGameStart() {
   if (!gameGoing) {
-    showGround();
+    showGround(); // removes "hide" class
     gameGoing = true;
-    speedScale = 1; // sets speedscale
     score = 0;
     applesCollected = 0;
 
@@ -151,50 +155,26 @@ export function handleGameStart() {
     playRunSong();
 
     let fontColor = "Yellow";
-    removeAllBodyStyles();
-    switch (environment) {
-      case 1: // Outside
-        fontColor = "Yellow";
-        document.body.classList.add("outside");
-        break;
-      case 2: // Hallway
-        fontColor = "Red";
-        document.body.classList.add("hallway");
-        break;
-      case 3: // Lab
-        fontColor = "Yellow";
-        document.body.classList.add("lab");
-        break;
-      case 4: // Library
-        fontColor = "Yellow";
-        document.body.classList.add("library");
-        break;
-      case 5: // Gym
-        fontColor = "#C53A99";
-        document.body.classList.add("gym");
-        break;
-    }
+
+    document.body.classList.remove("black-screen");
+
+    fontColor = "Yellow";
+    document.body.classList.add("hallway");
 
     elements.scoreElem.style.color = fontColor;
 
-    //setupGround(environment); // places 2 starting ground pieces in order
     addPlayerInputListeners();
     setupPlayer(environment);
     updateEnvironment(environment);
-    setupCactus();
-    setupApple();
+    setupObstacles();
+    // setupApple();
     resetGround();
-    updateScore()
+    updateScore();
     elements.scoreElem.classList.remove("hide");
     elements.startScreenElem.remove(); // removes "Press Space To Start" text
     elements.gameOverElem.classList.add("hide");
     window.requestAnimationFrame(update); // start infinite play loop
   }
-}
-
-function chooseEnvironment() {
-  //Randomly assigns one of the 5 environments
-  environment = ~~(Math.random() * 5) + 1;
 }
 
 // CHECK FOR GAME OVER
@@ -211,7 +191,7 @@ export function checkApple() {
 
 export function collectApple() {
   applesCollected += 1; // add to score
-  updateScore()
+  updateScore(); // update score UI
   collect(); // remove apple
 }
 
@@ -226,16 +206,9 @@ function isCollision(rect1, rect2) {
   );
 }
 
-// SLOWLY INCREASE SPEED OVER TIME - NO LONGER SPEEDING UP GAME  //
-// function updateSpeedScale(delta) {
-//   speedScale += delta * SPEED_SCALE_INCREASE;
-// }
-
 // INCREASE SCORE BASED ON DELTA TIME //
 export function updateScore(delta) {
-  // score += delta * 0.01 * (applesCollected * 0.1 + 1); // without +1 it sets score to 0 // OLD SCORE METHOD
-
-  score = applesCollected * 1000
+  score = applesCollected * 1000;
   if (score >= highScore) highScore = score;
   elements.scoreElem.textContent = `Score: ${~~score} | High Score: ${~~highScore}`;
 }
@@ -243,53 +216,29 @@ export function updateScore(delta) {
 // HANDLE LOSE
 export function handleLose() {
   setPlayerLose(); // set player to losing sprite
-
   stopRunSong();
-
   hideGround();
 
-  chooseEnvironment();
-  changeGround(environment);
   elements.gameOverElem.classList.remove("hide"); // show start screen again
-  elements.scoreElem.classList.add("hide");
+  elements.scoreElem.classList.add("hide"); // hide score
 
   elements.gameOverElem.textContent = `Game Over
   \r\n\r\nScore: ${~~score} | High Score: ${~~highScore}
-  \r\nApples Collected: ${applesCollected}
-  \r\n\r\n ${giveRandomFact()}
-  \r\n\r\nTap Or Space To Start Again `;
+  \r\n\r\n\r\nTap Or Space To Start Again `;
 
-  // Need To Change Score Font Color And Background CSS For Each Environment
-  
-  //elements.randomFact.textContent = giveRandomFact();
-  removeAllBodyStyles();
-  document.body.classList.add("black");
+  // change screen to solid color
+  document.body.classList.remove("hallway");
+  document.body.classList.add("black-screen");
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
     gameGoing = false;
     addStartGameInputListeners();
-  }, 200);
+  }, 500);
 }
-
-function removeAllBodyStyles() {
-  document.body.classList.remove("black");
-  document.body.classList.remove("outside");
-  document.body.classList.remove("hallway");
-  document.body.classList.remove("library");
-  document.body.classList.remove("lab");
-  document.body.classList.remove("gym");
-}
-
-// Get Ground Dimensions
-const groundElem = document.querySelector("[data-ground]");
-const getGroundHeight = () => groundElem.getBoundingClientRect().height;
-const getGroundWidth = () => groundElem.getBoundingClientRect().width;
-console.log("GroundHeight: ", getGroundHeight());
-console.log("Groundwidth: ", getGroundWidth());
 
 function setPixelToWorldScale() {
-  console.log("Resized")
+  console.log("Resized");
   let worldToPixelScale;
   if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;

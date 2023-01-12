@@ -1,11 +1,13 @@
 // TITLE SONG
 
-let titleSong = new Audio("sounds/Music/title-song.wav");
+let soundOn = true
+
+let titleSong = new Audio("sounds/Music/title-song-2.mp3");
 titleSong.volume = 0.3;
 titleSong.loop = true;
 
 export function playTitleSong() {
-  titleSong.play();
+  if(soundOn) titleSong.play();
 }
 
 export function stopTitleSong() {
@@ -15,12 +17,12 @@ export function stopTitleSong() {
 
 // RUN SONG
 
-let runSong = new Audio("sounds/Music/run-song.wav");
-runSong.volume = 0.1;
+let runSong = new Audio("sounds/Music/run-theme-2.mp3");
+runSong.volume = 0.2;
 runSong.loop = true;
 
 export function playRunSong() {
-  runSong.play();
+  if(soundOn) runSong.play();
 }
 
 export function stopRunSong() {
@@ -33,7 +35,7 @@ export function stopRunSong() {
 let jumpSoundAudio = new Audio("sounds/Jump.mp3")
 
 export function jumpSound() {
-    jumpSoundAudio.play()
+  if(soundOn) jumpSoundAudio.play()
 }
 
 // PLAYER LOSE
@@ -41,7 +43,7 @@ export function jumpSound() {
 let loseSoundAudio = new Audio("sounds/Game-Lose-2.mp3")
 
 export function loseSound() {
-    loseSoundAudio.play()
+  if(soundOn) loseSoundAudio.play()
 }
 
 // APPLE COLLECT
@@ -50,5 +52,5 @@ let collectSoundAudio = new Audio("sounds/Coin-Collect.mp3")
 collectSoundAudio.volume = 0.1
 
 export function collectSound() {
-    collectSoundAudio.play()
+  if(soundOn) collectSoundAudio.play()
 }
