@@ -1,5 +1,5 @@
 button {
-    position: static;
+    position: fixed;
     text-align: center;
 	display: inline-block;
     font-size: 1vw;
@@ -8,6 +8,7 @@ button {
     color: #00C142;
     cursor: pointer;
     text-decoration: none;
+    bottom: 7vw;
 }
 
 .button {
