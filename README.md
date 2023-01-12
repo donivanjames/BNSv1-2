@@ -13,34 +13,31 @@ Hey Team! This is the code repository for Brand New Game
 - Death screen changed from black to green
 - Removed clutter/code from old designs
 - Combined Apple And Rock code into one file
+- Changed title and run soundtrack
 
 
 ## Plans For Update v1-3
 **Code Reading Notes**
+- Shrink environment png for quicker loading
+- Randomize obstacle type (puddle vs books)
 - change handleGameInput to handle ALL game input
+- Could maybe only start checking boundaries when object is near player?
 - See if mobile screen resizes correctly 
+- Could maybe delete unused title audio once game starts
 - line 32 in script.js might hold key to mobile resize
 - could use the "rect" in checkApple() to assign which apple to remove
 - Should we combine cactus and apple code?
-
-**Features**
 - Add coins
 - Increase difficulty over time
 - Audio toggle option + slowly increasing sound to give player a warning (could have "start with sound" / "start without sound" button on title page)
 - Allow player to jump slightly before touching the ground for better response time
-
-**Design**
 - Get short, loopable sound bites for audio so it loads in faster
 - Incorporate new Figma art
 - Minimalistic back to bns button
 - Rework score ui and system
 - Customize "Tap to start" text for mobile
-
-**Known Bugs**
 - Need to fix first jump 'no sound' bug
 - Turning screen on mobile doesn't trigger resize
-
-**Optimizations**
 - Compressed audio files from 15mb to ___
 - Too much HTML can slow down page, try to reduce amount of divs to just one or two (could just apply different css elements to one UI div)
 - Get mobile version working properly

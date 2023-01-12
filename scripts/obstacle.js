@@ -121,8 +121,8 @@ export function createCactus(environment) {
     cactus.dataset.obstacle = true;
   
     // Set this based on environment
-    cactus.src = `imgs/obstacle-${environment}.png`; // selects the correct image from files
-    cactus.classList.add(`obstacle${environment}`); // adds CSS styles to obstacle
+    cactus.src = `imgs/obstacle-4.png`; // selects the correct image from files
+    cactus.classList.add(`obstacle4`); // adds CSS styles to obstacle
   
     setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
     setCustomProperty(cactus, "--top", 0);

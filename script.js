@@ -138,7 +138,7 @@ export function setupGame() {
     showPlayer(); // show player
     showGround(); // show scene
     addStartGameInputListeners();
-    document.body.classList.add("outside"); // change background color
+    document.body.classList.add("hallway"); // change background color
     firstClick = true;
   }
 }
@@ -159,7 +159,7 @@ export function handleGameStart() {
     document.body.classList.remove("black-screen");
 
     fontColor = "Yellow";
-    document.body.classList.add("outside");
+    document.body.classList.add("hallway");
 
     elements.scoreElem.style.color = fontColor;
 
@@ -227,7 +227,7 @@ export function handleLose() {
   \r\n\r\n\r\nTap Or Space To Start Again `;
 
   // change screen to solid color
-  document.body.classList.remove("outside");
+  document.body.classList.remove("hallway");
   document.body.classList.add("black-screen");
 
   // timeout stops player from hitting space right when they lose

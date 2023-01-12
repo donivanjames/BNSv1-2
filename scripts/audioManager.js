@@ -2,7 +2,7 @@
 
 let soundOn = true
 
-let titleSong = new Audio("sounds/Music/title-song.wav");
+let titleSong = new Audio("sounds/Music/title-song-2.mp3");
 titleSong.volume = 0.3;
 titleSong.loop = true;
 
@@ -17,8 +17,8 @@ export function stopTitleSong() {
 
 // RUN SONG
 
-let runSong = new Audio("sounds/Music/run-song.wav");
-runSong.volume = 0.1;
+let runSong = new Audio("sounds/Music/run-theme-2.mp3");
+runSong.volume = 0.2;
 runSong.loop = true;
 
 export function playRunSong() {
