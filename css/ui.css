@@ -1,5 +1,5 @@
 .button {
-    position: absolute;
+    position: relative;
     text-align: center;
 	display: inline-block;
     font-size: 1vw;
@@ -36,7 +36,6 @@
     position: absolute;
     text-align: center;
     white-space: nowrap;
-    /* overflow: hidden; */
     color: #00450F;
     font-size: 1.25vw;
     top: 40%;
@@ -50,7 +49,8 @@
 }
 
 .pause-screen {
-    font-size: 2vw;
+    z-index: 3;
+    font-size: 1.5vw;
     color: rgb(255, 255, 255);
 }
 

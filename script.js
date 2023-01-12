@@ -44,12 +44,15 @@ let environment = 1;
 let firstClick = false; // to set up first screen
 let pause = false;
 
+
+let mainUIElem = document.querySelector("[data-main-ui]");
+
 //   UI ELEMENTS   //
 let elements = {
   worldElem: document.querySelector("[data-world]"),
   scoreElem: document.querySelector("[data-score]"),
-  startScreenElem: document.querySelector("[data-title-screen]"),
-  gameOverElem: document.querySelector("[data-game-over-screen]"),
+  // startScreenElem: document.querySelector("[data-title-screen]"),
+  // gameOverElem: document.querySelector("[data-game-over-screen]"),
   pauseElem: document.querySelector("[data-pause]"),
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
   bnsButtonElem: document.querySelector("[data-bns-button]"),
@@ -113,6 +116,13 @@ function handleGameInput(event) {
 function pauseGame() {
   if (gameGoing) {
     pause = true;
+
+    mainUIElem.innerHTML = `
+      <div class="pause-screen">
+        <h2>Paused</h2><br><br>
+        Tap Or Space To Unpause
+      </div>
+    `
     stopRunSong();
     pauseUpdate();
     elements.pauseElem.classList.remove("hide");
@@ -121,6 +131,7 @@ function pauseGame() {
 
 function unpauseGame() {
   pause = false;
+  mainUIElem.innerHTML = ``
   playRunSong();
   unPauseUpdate();
   elements.pauseElem.classList.add("hide");
@@ -130,7 +141,18 @@ function unpauseGame() {
 export function setupGame() {
   if (!firstClick) {
     elements.preGameScreen.forEach((item) => item.remove()); // get rid of title
-    elements.startScreenElem.classList.remove("hide"); // show the title screen
+    // elements.startScreenElem.classList.remove("hide"); // show the title screen
+    
+    mainUIElem.innerHTML = `
+    <div class="home-screen">
+      <h1>Brand New Game</h1>
+      <br />
+      A Brand New School Production <br /><br /><br /><br /><br />
+      <div class="blink_me">Tap Or Space To Jump</div>
+    </div>
+    `
+    
+    console.log(mainUIElem)
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
@@ -152,13 +174,9 @@ export function handleGameStart() {
     stopTitleSong();
     playRunSong();
 
-    let fontColor = "Yellow";
-
+    let fontColor = "White";
     document.body.classList.remove("black-screen");
-
-    fontColor = "Yellow";
     document.body.classList.add("hallway");
-
     elements.scoreElem.style.color = fontColor;
 
     addPlayerInputListeners();
@@ -169,8 +187,9 @@ export function handleGameStart() {
     resetGround();
     updateScore();
     elements.scoreElem.classList.remove("hide");
-    elements.startScreenElem.remove(); // removes "Press Space To Start" text
-    elements.gameOverElem.classList.add("hide");
+    mainUIElem.innerHTML = ""
+    // elements.startScreenElem.remove(); // removes "Press Space To Start" text
+    // elements.gameOverElem.classList.add("hide");
     elements.bnsButtonElem.classList.add("hide");
     window.requestAnimationFrame(update); // start infinite play loop
   }
@@ -218,15 +237,19 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  elements.gameOverElem.classList.remove("hide"); // show game over screen again
+  //elements.gameOverElem.classList.remove("hide"); // show game over screen again
+  
   elements.bnsButtonElem.classList.remove("hide");
   elements.scoreElem.classList.add("hide"); // hide score
 
-  elements.gameOverElem.innerHTML = `
-  Score: ${~~score}
-  \nHigh Score: ${~~highScore}
-  \n\n\n\n<h1>GAME OVER!</h1>
-  \n\n\n\n\n\n\n\n<div class="blink_me">Tap Or Space To Play Again</div>`;
+  mainUIElem.innerHTML = `
+    <div class="game-over-screen"">
+      \nScore: ${~~score}
+      \nHigh Score: ${~~highScore}
+      \n\n\n\n<h1>GAME OVER!</h1>
+      \n\n\n\n\n\n\n\n<div class="blink_me">Tap Or Space To Play Again</div>
+    </div>
+  `;
 
   // change screen to solid color
   document.body.classList.remove("hallway");
@@ -236,7 +259,7 @@ export function handleLose() {
   setTimeout(() => {
     gameGoing = false;
     addStartGameInputListeners();
-  }, 500);
+  }, 300);
 }
 
 function setPixelToWorldScale() {

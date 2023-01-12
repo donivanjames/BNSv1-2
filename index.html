@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="imgs/apple_v1.png"/>
 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />  // commented 1/11/2023 -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  // commented 1/11/2023 -->
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
@@ -41,10 +39,10 @@
           data-ground
         />
 
-        <!-- Game Text -->
+        <!-- Score Text -->
         <div class="score hide" data-score>Score: 0</div>
 
-        <!-- Pre Game Screen -->
+        <!-- Menu Screen -->
         <div class="start-screen" data-start-screen>
           <img src="imgs/UI/Title Apple.png" style="width: 30%" />
           <h3 style="color: #fff0cc">BRAND NEW GAME<br /></h3>
@@ -56,42 +54,21 @@
           </h6>
         </div>
 
-        <!-- Start Screen Text -->
-        <div class="home-screen hide" data-title-screen>
-          <!-- <img src="imgs/Title Screen.png" class="ground" style="position: relative;"> -->
-          <h1>Brand New Game</h1>
-          <br />
-          A Brand New School Production <br /><br /><br />
-          <div class="blink_me">Tap Or Space To Jump</div>
-        </div>
+        <!-- All the other UI -->
+        <div data-main-ui></div>
 
         <!-- Sound Toggle -->
         <!-- <button onclick="" id="sound-toggle" class="button sound-toggle" data-sound-toggle>Toggle Sound: On</button> -->
 
-        <!-- Pause Screen -->
-        <div class="pause-screen hide" data-pause>
-          <h1>Paused</h1>
-          Tap Or Space To Unpause
-        </div>
-
-        <!-- Game Over Screen Text -->
-        <div class="game-over-screen hide" data-game-over-screen>
-          <!-- <img src="imgs/Title Screen.png" class="ground" style="position: relative;"> -->
-          High Score: 50 <br />
-          Apples Collected: 3 <br /><br />
-          Tap Or Space To Start Again
-        </div>
-
         <!-- Sprites -->
         <img src="imgs/worm-run-0.png" class="player hide-img" data-player />
       </div>
-      <br />
 
       <div>
         <a href="https://brandnewschool.com/" class="button" data-bns-button>
           VISIT OLD SITE
         </a>
       </div>
-    </div>
+      
   </body>
 </html>

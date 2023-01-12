@@ -18,6 +18,7 @@ Hey Team! This is the code repository for Brand New Game
 - Combined Apple And Obstacle code into one file
 - Changed title and run soundtrack
 - Made minimalistic "Back To BNS" button
+- Reworked "Game Over" screen
 
 
 ## Plans For Update v1-3
@@ -33,7 +34,6 @@ Hey Team! This is the code repository for Brand New Game
 ## Future Update Pool
 - Setup Gitignore and delete old files from repository
 - New opening menu
-- Rework game over screen based on Figma
 - change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?
 - Could maybe delete unused title audio once game starts
@@ -55,6 +55,7 @@ Hey Team! This is the code repository for Brand New Game
 - Remove shadows and glows for mobile
 - Leaderboard
 - Chloe really wants werewolves involved
+- Bug: there's a 300ms space after dying where pause can be activated
 
 ---
 
