@@ -17,7 +17,6 @@ Hey Team! This is the code repository for Brand New Game
 
 
 ## Plans For Update v1-3
-**Code Reading Notes**
 - Shrink environment png for quicker loading
 - Randomize obstacle type (puddle vs books)
 - change handleGameInput to handle ALL game input
