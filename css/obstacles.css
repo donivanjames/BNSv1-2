@@ -4,7 +4,12 @@
 .apple {
     height: 7%;
     --bottom: 41;
-}   
+}
+
+.coin {
+    height: 7%;
+    --bottom: 62;
+}
 
 /* Trash */
 .obstacle1 {
@@ -31,7 +36,7 @@
 }
 
 /* Some CSS that covers everything */
-.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6 .apple, .cactus {
+.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6, .apple, .coin, .cactus {
     position: absolute;
     --left: 0;
     left: calc(var(--left) * 1%);

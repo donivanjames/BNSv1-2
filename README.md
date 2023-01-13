@@ -30,7 +30,8 @@ Hey Team! This is the code repository for Brand New Game
 
 
 ## Plans For Update v1-3
-- Randomize collectable type (coins/lightbulbs)
+- If apple spawns over an obstacle => turn it into a coin
+- Score over player's head
 - Increase difficulty over time
 - Sound toggle
 - Screen flash and sound effect when player enters school
@@ -52,7 +53,6 @@ Hey Team! This is the code repository for Brand New Game
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
 - Need to fix first jump 'no sound' bug
-- Bug: Turning screen on mobile doesn't trigger resize
 - Compress audio files
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system

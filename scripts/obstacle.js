@@ -7,7 +7,7 @@ import {
   import { collectSound } from "./audioManager.js";
 
 // Ending Max: 500  Begining Max 2500: 
-const CACTUS_INTERVAL_MIN = 500;
+const CACTUS_INTERVAL_MIN = 800;
 const CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
 
 const APPLE_INTERVAL_MIN = 3000;
@@ -127,7 +127,7 @@ export function createCactus(environment) {
     cactus.classList.add(`obstacle${obNum}`); // adds CSS styles to obstacle
   
     setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
-    setCustomProperty(cactus, "--top", 0);
+    setCustomProperty(cactus, "--top", 0); // might not need this
     worldElem.append(cactus); // this adds our obstacle to the world
   }
 
@@ -137,11 +137,20 @@ export function createApple() {
     apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
     apple.dataset.obstacle = true;
   
-    apple.src = "imgs/apple_v1.png"; // selects the correct image from files
-    apple.classList.add("apple"); // adds CSS styles to apple
+    // // Safeguard so apples will turn into coins if they spawn behind an obstacle
+    if(nextCactusTime < 200 || nextCactusTime > CACTUS_INTERVAL_MAX - 200) {
+      apple.src = "imgs/coin.png"; // selects the correct image from files
+      apple.classList.add("coin"); // adds CSS styles to apple
+      console.log("coin spawned")
+    } else {
+      apple.src = "imgs/apple_v1.png"; // selects the correct image from files
+      apple.classList.add("apple"); // adds CSS styles to apple
+    }
+    
     setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
-  
     worldElem.append(apple); // this adds our apple to the world
+
+    console.log("Apple spawned")
   }
   
   // RANDOM NUMBER GENERATOR
