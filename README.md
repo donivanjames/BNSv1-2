@@ -4,6 +4,7 @@ Hey Team! This is the code repository for Brand New Game
 # Updates
 
 ## Current Updates In v1-3 (1/13/2022)
+- Ground now randomly changes as it cycles
 - Combined ALL text menus into one (title, pause, game over)
 - Added worm character
 - Changed background to new environment
@@ -28,31 +29,32 @@ Hey Team! This is the code repository for Brand New Game
 - Add coins/lightbulbs
 - Increase difficulty over time
 - Sound toggle
-- Background randomizer
+- Menu animation
 
 
 ## Future Update Pool
 - Bug: "back to bns" button not working anymore
 - Setup Gitignore and delete old files from repository
 - New opening menu
+- Bug: When player lands it takes time to switch back to run frame
 - change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?
 - Could maybe delete unused title audio once game starts
 - line 32 in script.js might hold key to mobile resize
 - could use the "rect" in checkApple() to assign which apple to remove
+- Still need a good soundtrack
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
 - Need to fix first jump 'no sound' bug
 - Bug: Turning screen on mobile doesn't trigger resize
-- "Compressed audio files from 15mb to ___"
+- Compress audio files
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
-- Remove shadows and glows for mobile
 - Leaderboard
 - Chloe really wants werewolves involved
 - Bug: there's a 300ms space after dying where pause can be activated

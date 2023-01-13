@@ -23,7 +23,7 @@ export function setupPlayer(environment) {
   playerFrame = 0;
   currentFrameTime = 0;
   yVelocity = 0;
-  player.src = `imgs/kid-walk-0.png`;
+  player.src = `imgs/worm_walk-0.png`;
 
   // Need a different zindex for the school so player falls into puddle and not behind it
   player.classList.remove("zindex-top")
@@ -74,21 +74,21 @@ export function setPlayerLose() {
     loseSound()
     stopJumpSound = true;
     // set the sprite of the player do the loss image
-    player.src = "imgs/kid-walk-0.png" 
+    player.src = "imgs/worm_walk-0.png" 
 }
 
 // HANDLE RUN
 function handleRun(delta, speedScale) {
   if (isJumping) {
     // if isJumping: set animation to stationary
-    player.src = `imgs/kid-jump.png`;
+    player.src = `imgs/worm_jump.png`;
     return;
   }
 
   if (currentFrameTime >= FRAME_TIME) {
     // swaps animation frames when currentFrameTime is above frameTime
     playerFrame = (playerFrame + 1) % PLAYER_FRAME_COUNT; // will cycle animation frames no matter how many there are
-    player.src = `imgs/kid-walk-${playerFrame}.png`; // picks an image from the current player frame
+    player.src = `imgs/worm_walk-${playerFrame}.png`; // picks an image from the current player frame
     currentFrameTime = 0; // reset currentFrameTime back to 0
     // currentFrameTime -= FRAME_TIME; // used to be this, if there's ever more than two frames you might need this
   }

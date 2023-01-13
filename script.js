@@ -126,7 +126,6 @@ function pauseGame() {
     `
     stopRunSong();
     pauseUpdate();
-    //elements.pauseElem.classList.remove("hide");
   }
 }
 
@@ -135,14 +134,12 @@ function unpauseGame() {
   mainUIElem.innerHTML = ``
   playRunSong();
   unPauseUpdate();
-  //elements.pauseElem.classList.add("hide");
 }
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   if (!firstClick) {
-    elements.preGameScreen.forEach((item) => item.remove()); // get rid of title
-    // elements.startScreenElem.classList.remove("hide"); // show the title screen
+    elements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
     elements.worldElem.classList.remove("hide")
     mainUIElem.innerHTML = `
     <div class="home-screen">
@@ -153,8 +150,6 @@ export function setupGame() {
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
-    // elements.bnsButtonElem.classList.add("hide");
-    // document.querySelector("[data-bns-button]").classList.add("hide")
     addStartGameInputListeners();
     document.body.classList.add("hallway"); // change background color
     firstClick = true;
@@ -187,9 +182,6 @@ export function handleGameStart() {
     updateScore();
     elements.scoreElem.classList.remove("hide");
     mainUIElem.innerHTML = ""
-    // elements.startScreenElem.remove(); // removes "Press Space To Start" text
-    //elements.bnsButtonElem.classList.add("hide");
-    // document.querySelector("[data-bns-button]").classList.add("hide")
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }
@@ -236,9 +228,6 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  
-  // elements.bnsButtonElem.classList.remove("hide");
-  // document.querySelector("[data-bns-button]").classList.remove("hide")
   elements.scoreElem.classList.add("hide"); // hide score
 
   mainUIElem.innerHTML = `
