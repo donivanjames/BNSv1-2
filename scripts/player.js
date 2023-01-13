@@ -2,7 +2,6 @@ import { getCustomProperty, setCustomProperty, incrementCustomProperty } from ".
 import { jumpSound, loseSound } from "./audioManager.js";
 
 const player = document.querySelector("[data-player]");
-const world = document.querySelector('[data-world]');
 const JUMP_SPEED = 0.30;
 const GRAVITY = 0.0015;
 const PLAYER_FRAME_COUNT = 4; // amount of animation frames
@@ -41,7 +40,7 @@ export function showPlayer(){
 
 // UPDATE PLAYER
 export function updatePlayer(delta, speedScale) {
-  handleRun(delta, speedScale);
+  handleRun(delta, speedScale, player);
   handleJump(delta);
 }
 
@@ -77,7 +76,7 @@ export function setPlayerLose() {
     player.src = "imgs/Bunny-Idle.png" 
 }
 
-// HANDLE RUN
+// HANDLE RUN - also used in introScene.js
 function handleRun(delta, speedScale) {
   if (isJumping) {
     // if isJumping: set animation to stationary

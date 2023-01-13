@@ -5,7 +5,7 @@ import {
 } from "./updateCustomProperty.js";
 
 const groundElems = document.querySelectorAll("[data-ground]");
-const totalBackgroundImages = 3 // for randomizing background
+const totalBackgroundImages = 1 // for randomizing background
 
 export function showGround() {
   groundElems.forEach((ground) => {

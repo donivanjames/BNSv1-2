@@ -35,8 +35,9 @@ button {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
-    left: 20%;
+    --left: 10;
     --top: 489.3;
+    left: calc(var(--left) * 1%);
 }
 
 .blink_me {

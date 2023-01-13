@@ -2,11 +2,16 @@ import { incrementCustomProperty, getCustomProperty } from "./updateCustomProper
 import { setupGame } from "../script.js"
 
 let lastTime = null
-let introSpeed = 0.03
-let midScrollPause = 1500 // pauses the screen halfway down
+let introSpeed = 0.035
 let waitAtEnd = 1000
+const PLAYER_FRAME_COUNT = 4; // amount of animation frames
+const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
+let playerFrame = 0
+let currentFrameTime = 0
+
 const bigImg = document.querySelector(".start-screen-img")
 const allDivs = document.querySelectorAll("[data-start-screen]")
+const player = document.querySelector(".start-screen-bunny")
 console.log("Big img: ", bigImg)
 
 export function updateIntroScene(time){
@@ -26,23 +31,16 @@ export function updateIntroScene(time){
 }
 
 function scrollIntroScene(delta, introSpeed){
-    
-    if (midScrollPause <= 0 && getCustomProperty(bigImg, "--top") >= -442) {
+    if (getCustomProperty(bigImg, "--top") >= -442) {
         scrollItems(delta, introSpeed)
-    }
-    else if (getCustomProperty(bigImg, "--top") >= -200){
-        scrollItems(delta, introSpeed)
-    }
-    else if (midScrollPause >= 0) {
-        midScrollPause -= 1 * delta
     }
     else {
         if(waitAtEnd <= 0) {
-            cancelAnimationFrame(updateIntroScene)
-            setupGame()
+            //cancelAnimationFrame(updateIntroScene)
+            //setupGame()
+            movePlayer(delta)
         }
         else waitAtEnd -= 1 * delta
-        
     }
 }
 
@@ -51,3 +49,24 @@ function scrollItems(delta, introSpeed) {
         incrementCustomProperty(item, "--top", delta * introSpeed * -1)
     })
 }
+
+function movePlayer(delta){
+    if (getCustomProperty(player, "--left") <= 75){
+        incrementCustomProperty(player, "--left", delta * 0.03 * 1) 
+        // play animation
+        handleRun(delta)
+    }
+    else setupGame()
+}
+
+export function handleRun(delta) {
+    if (currentFrameTime >= FRAME_TIME) {
+      // swaps animation frames when currentFrameTime is above frameTime
+      playerFrame = (playerFrame + 1) % PLAYER_FRAME_COUNT; // will cycle animation frames no matter how many there are
+      player.src = `imgs/Bunny-Run${playerFrame}.png`; // picks an image from the current player frame
+      currentFrameTime = 0; // reset currentFrameTime back to 0
+      // currentFrameTime -= FRAME_TIME; // used to be this, if there's ever more than two frames you might need this
+    }
+  
+    currentFrameTime += delta * 1; // animation will play faster as the level speeds up
+  }
