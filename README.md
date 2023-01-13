@@ -37,9 +37,9 @@ Hey Team! This is the code repository for Brand New Game
 
 
 ## Plans For Update v1-4 - The Optimization Update
-- Clicking again in menu animation goes straight to game (with flash included)
+- Clicking again in starting animation should go straight to game (with flash included)
 - Bug: hitting space after clicking in intro scene caused it to kind-of restart
-- Bug: "back to bns" button not working anymore
+- Bug: "back to bns" button not working once it's grabbed by queryselector
 - Setup Gitignore and delete old files from repository
 - Flashing "space to start" on opening menu
 - Bug: When player lands it takes time to switch back to run frame
