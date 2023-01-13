@@ -102,13 +102,18 @@ body {
 .player {
     position: absolute;
     left: 20%;
-    height: 14%; /* Player size */
-    width: auto;
+    /* height: 14%; Player size */
+    width: 6%;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
     --bottom: 41; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
+
+    /* Scale Pixel Art!! */
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
 .player::after {
