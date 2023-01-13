@@ -138,7 +138,7 @@ export function createApple() {
     apple.dataset.obstacle = true;
   
     // // Safeguard so apples will turn into coins if they spawn behind an obstacle
-    if(nextCactusTime < 200 || nextCactusTime > CACTUS_INTERVAL_MAX - 200) {
+    if(nextCactusTime < 250 || nextCactusTime > CACTUS_INTERVAL_MAX - 250) {
       apple.src = "imgs/coin.png"; // selects the correct image from files
       apple.classList.add("coin"); // adds CSS styles to apple
       console.log("coin spawned")
