@@ -26,9 +26,14 @@ body {
 
   .start-screen {
     position: relative;
+    
+    height: 45vw;
+    width: 100%;
+    overflow: hidden;
   }
 
   .start-screen-img {
+    position: absolute;
     min-height: 100%;
 
     /* Set up proportionate scaling */
@@ -36,8 +41,7 @@ body {
     height: auto;
 
     /* Set up positioning */
-    position: fixed;
-    top: 0;
+    top: -6vw;
     left: 0;
   }
 

@@ -6,7 +6,7 @@ const world = document.querySelector('[data-world]');
 const JUMP_SPEED = 0.30;
 const GRAVITY = 0.0015;
 const PLAYER_FRAME_COUNT = 4; // amount of animation frames
-const FRAME_TIME = 120; // how long each animation frame should last (in milliseconds)
+const FRAME_TIME = 110; // how long each animation frame should last (in milliseconds)
 
 const heightFromGround = 41 // also change css --bottom to match
 const jumpableHeight = 20
