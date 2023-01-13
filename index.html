@@ -25,8 +25,28 @@
 
   <!-- Body is where everything you see on the page is hosted. The whole game is right here! -->
   <body>
+
+    
+  <!-- Menu Screen -->
+  <div class="start-screen" data-start-screen>
+    <img src="imgs/landing_page-v02.png" class="start-screen-img" />
+    <div class="start-screen-content">
+      <!-- <img src="imgs/UI/Title Apple.png" style="width: 25%" />
+      <br>
+      <h3 style="color: #FFF0CC" font-size: 1.6vw;>BRAND NEW GAME<br /></h3>
+      <h6>
+        <br>
+        NEW SITE COMING SOON <br /><br>
+        PLAY A GAME WHILE YOU WAIT
+        <br /><br /><br /><br /> -->
+      <!-- </h6> -->
+    </div>
+  </div>
+  
+  <button class="sound-toggle-button" data-start-screen>SOUND: ON</button>
+
     <!-- The Game Screen -->
-    <div class="world" data-world>
+    <div class="world hide" data-world>
       <!-- 2 ground sprites for the endless effect -->
       <img
         src="imgs/L1_background-v04.png"
@@ -42,31 +62,18 @@
       <!-- Score Text -->
       <div class="score hide" data-score>Score: 0</div>
 
-      <!-- Menu Screen -->
-      <div class="start-screen" data-start-screen>
-        <img src="imgs/UI/Title Apple.png" style="width: 30%" />
-        <h3 style="color: #fff0cc">BRAND NEW GAME<br /></h3>
-        <h6>
-          NEW SITE COMING SOON <br />
-          PLAY A GAME WHILE YOU WAIT
-          <br /><br /><br /><br />
-          <!-- <button>Sound: On</button>
-          <button>Play Game!</button> -->
-        </h6>
-      </div>
+      
 
       <!-- All the other UI -->
       <div data-main-ui></div>
-
-      <!-- Sound Toggle -->
-      <!-- <button onclick="" id="sound-toggle" class="button sound-toggle" data-sound-toggle>Toggle Sound: On</button> -->
 
       <!-- Sprites -->
       <img src="imgs/human-run-1.png" class="player hide-img" data-player />
     </div>
 
     <!-- <div data-bns-button><a href="https://brandnewschool.com/" class="button">VISIT OLD SITE</a></div> -->
-    <button data-bns-button>VISIT OLD SITE</button>
+    <!-- <button data-bns-button style="left: 5vw; top: 50.5vw;">VISIT OLD SITE</button> -->
+    <a href="https://brandnewschool.com/"><img src="imgs/visit-old-website_v01.png" class="back-to-bns-button" data-start-screen></a>
     
 
 

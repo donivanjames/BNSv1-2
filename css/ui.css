@@ -1,27 +1,31 @@
-button {
-    position: fixed;
-    text-align: center;
-	display: inline-block;
-    font-size: 1vw;
-    padding: 0.8vw 1vw 0.6vw 1vw ;
-    background-color: #00450F;
-    color: #00C142;
-    cursor: pointer;
-    text-decoration: none;
-    bottom: 7vw;
-}
-
-.button {
+button, .back-to-bns-button, .sound-toggle-button {
     position: absolute;
     text-align: center;
 	display: inline-block;
-    font-size: 1vw;
-    padding: 0.8vw 1vw 0.6vw 1vw ;
+    padding: 0.8vw 1vw 0.6vw 1vw;
     background-color: #00450F;
     color: #00C142;
-    left: 41.5%; /* button position wouldnt center */
     cursor: pointer;
     text-decoration: none;
+    white-space: nowrap;
+    z-index: 3;
+    font-family: inherit;
+    border: none;
+}
+
+button {
+    width: 10vw;
+    font-size: 1vw;
+}
+
+.back-to-bns-button {
+    width: 15vw;
+    left: 5vw; top: 40vw;
+}
+
+.sound-toggle-button {
+    font-size: 1.1vw;
+    left: 44vw; top: 42vw;
 }
 
 .blink_me {
@@ -46,7 +50,7 @@ button {
     right: 1vmin;
 }
 
-.start-screen, .game-over-screen, .home-screen, .pause-screen {
+.game-over-screen, .home-screen, .pause-screen {
     position: absolute;
     text-align: center;
     white-space: nowrap;
@@ -55,11 +59,6 @@ button {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.start-screen {
-    line-height: 1.6vw;
-    top: 50%;
 }
 
 .pause-screen {

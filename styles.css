@@ -12,13 +12,6 @@
 }
 
 
-/* an attempt to reduce mobile input lag */
-a, button, html, .myelements
-{
-	-ms-touch-action: manipulation;	/* IE10  */
-	touch-action: manipulation;		/* IE11+ */
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -27,9 +20,40 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: 'Press Start 2P', cursive;
-    color: yellow;
+    color: rgb(255, 255, 255);
     background-color: #00C142;
   }
+
+  .start-screen {
+    position: relative;
+  }
+
+  .start-screen-img {
+    min-height: 100%;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .start-screen-content {
+    position: absolute;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1vw;
+    color: #00C142;
+    font-size: 1.7vw;
+    top: 0vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
 
 .world {
     background-color: #00C142;

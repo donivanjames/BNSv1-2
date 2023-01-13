@@ -143,19 +143,18 @@ export function setupGame() {
   if (!firstClick) {
     elements.preGameScreen.forEach((item) => item.remove()); // get rid of title
     // elements.startScreenElem.classList.remove("hide"); // show the title screen
-    
+    elements.worldElem.classList.remove("hide")
     mainUIElem.innerHTML = `
     <div class="home-screen">
       <div class="blink_me">Tap Or Space To Jump</div>
     </div>
     `
     
-    console.log(mainUIElem)
     playTitleSong();
     showPlayer(); // show player
     showGround(); // show scene
     // elements.bnsButtonElem.classList.add("hide");
-    document.querySelector("[data-bns-button]").classList.add("hide")
+    // document.querySelector("[data-bns-button]").classList.add("hide")
     addStartGameInputListeners();
     document.body.classList.add("hallway"); // change background color
     firstClick = true;
@@ -190,7 +189,7 @@ export function handleGameStart() {
     mainUIElem.innerHTML = ""
     // elements.startScreenElem.remove(); // removes "Press Space To Start" text
     //elements.bnsButtonElem.classList.add("hide");
-    document.querySelector("[data-bns-button]").classList.add("hide")
+    // document.querySelector("[data-bns-button]").classList.add("hide")
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }
@@ -239,7 +238,7 @@ export function handleLose() {
 
   
   // elements.bnsButtonElem.classList.remove("hide");
-  document.querySelector("[data-bns-button]").classList.remove("hide")
+  // document.querySelector("[data-bns-button]").classList.remove("hide")
   elements.scoreElem.classList.add("hide"); // hide score
 
   mainUIElem.innerHTML = `
