@@ -2,8 +2,8 @@
 
 let soundOn = true
 
-let titleSong = new Audio("sounds/Music/title-song-2.mp3");
-titleSong.volume = 0.3;
+let titleSong = new Audio("sounds/Music/title-song-3.wav");
+titleSong.volume = 0.07;
 titleSong.loop = true;
 
 export function playTitleSong() {
