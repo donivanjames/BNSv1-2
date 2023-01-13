@@ -11,7 +11,7 @@ import {
 import { updateCactus } from "./obstacle.js";
 
 let pause = false;
-const speed = 0.04;
+const speed = 0.03;
 const speedScale = 1;
 const SPEED_SCALE_INCREASE = 0.0; // Rate of player speed increase // Works with updateSpeedScale()
 let environment = 1;

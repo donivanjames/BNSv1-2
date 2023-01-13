@@ -10,7 +10,7 @@ import {
 const CACTUS_INTERVAL_MIN = 500;
 const CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
 
-const APPLE_INTERVAL_MIN = 2000;
+const APPLE_INTERVAL_MIN = 3000;
 const APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
 
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
