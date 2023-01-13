@@ -5,8 +5,11 @@ Hey Team! This is the code repository for Brand New Game
 
 ## Current Updates In v1-3 (1/13/2022)
 - Ground now randomly changes as it cycles
+- Made menu animation
 - Combined ALL text menus into one (title, pause, game over)
 - Added worm character
+- Added human character
+- Added bunny character
 - Changed background to new environment
 - Compressed environment png for quicker loading
 - Removed apple glow
@@ -19,6 +22,7 @@ Hey Team! This is the code repository for Brand New Game
 - Removed clutter/code from old designs
 - Combined Apple And Obstacle code into one file
 - Changed title and run soundtrack
+- Environment can now change again based on how many different background images we have
 - Made minimalistic "Back To BNS" button
 - Reworked "Game Over" screen
 - Flashing "press space to start"
@@ -26,17 +30,18 @@ Hey Team! This is the code repository for Brand New Game
 
 ## Plans For Update v1-3
 - Randomize obstacle type (puddle vs books)
-- Add coins/lightbulbs
+- Randomize collectable type (coins/lightbulbs)
 - Increase difficulty over time
 - Sound toggle
-- Menu animation
+- Screen flash and sound effect when player enters school
 
 
 ## Future Update Pool
+- Clicking again in menu animation goes straight to game (with flash included)
 - Bug: hitting space after clicking in intro scene caused it to kind-of restart
 - Bug: "back to bns" button not working anymore
 - Setup Gitignore and delete old files from repository
-- New opening menu
+- Flashing "space to start" on opening menu
 - Bug: When player lands it takes time to switch back to run frame
 - change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?

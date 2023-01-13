@@ -73,7 +73,7 @@ export function setPlayerLose() {
     loseSound()
     stopJumpSound = true;
     // set the sprite of the player do the loss image
-    player.src = "imgs/Bunny-Idle.png" 
+    player.src = "imgs/Bunny-Lose.png" 
 }
 
 // HANDLE RUN - also used in introScene.js

@@ -120,9 +120,11 @@ export function createCactus(environment) {
     cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
     cactus.dataset.obstacle = true;
   
+    const obNum = randomNumberBetween(1, 6)
+
     // Set this based on environment
-    cactus.src = `imgs/obstacle-4.png`; // selects the correct image from files
-    cactus.classList.add(`obstacle4`); // adds CSS styles to obstacle
+    cactus.src = `imgs/obstacle-${obNum}.png`; // selects the correct image from files
+    cactus.classList.add(`obstacle${obNum}`); // adds CSS styles to obstacle
   
     setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
     setCustomProperty(cactus, "--top", 0);

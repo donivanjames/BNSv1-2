@@ -3,49 +3,43 @@
 
 .apple {
     height: 7%;
-    --bottom: 14;
+    --bottom: 41;
 }   
 
-/* Rocks */
+/* Trash */
 .obstacle1 {
-    height: 9%;
-    --bottom: 14;
+    height: 16%;
+    --bottom: 33;
 }
 
 /* Puddle */
 .obstacle2 {
-    height: 8%;
-    --bottom: 12;
+    height: 20%;
+    --bottom: 30;
 }
 
+/* Book Stack */
 .obstacle3 {
-    height: 10%;
-    --bottom: 14;
-}
-
-/* Books */
-.obstacle4 {
     height: 7%;
-    --bottom: 14;
+    --bottom: 41;
 }
 
-/* Basketball */
-.obstacle5 {
-    height: 10%;
-    --bottom: 14;
+/* Small Book Stacks */
+.obstacle4, .obstacle5, .obstacle6 {
+    height: 8%;
+    --bottom: 41;
 }
 
 /* Some CSS that covers everything */
-.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .apple, .cactus {
+.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6 .apple, .cactus {
     position: absolute;
     --left: 0;
-    --bottom: 41;
     left: calc(var(--left) * 1%);
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 }
 
 /* Some CSS that covers just obstacles */
-.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .cactus {
+.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6 .cactus {
     z-index: 1;
 }
