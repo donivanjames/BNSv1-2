@@ -32,7 +32,8 @@ export function stopRunSong() {
 
 // PLAYER JUMP
 
-let jumpSoundAudio = new Audio("sounds/Jump.mp3")
+let jumpSoundAudio = new Audio("sounds/jump-2.wav")
+jumpSoundAudio.volume = 0.15
 
 export function jumpSound() {
   if(soundOn) jumpSoundAudio.play()
