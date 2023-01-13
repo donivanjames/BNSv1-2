@@ -126,7 +126,7 @@ function pauseGame() {
     `
     stopRunSong();
     pauseUpdate();
-    elements.pauseElem.classList.remove("hide");
+    //elements.pauseElem.classList.remove("hide");
   }
 }
 
@@ -135,7 +135,7 @@ function unpauseGame() {
   mainUIElem.innerHTML = ``
   playRunSong();
   unPauseUpdate();
-  elements.pauseElem.classList.add("hide");
+  //elements.pauseElem.classList.add("hide");
 }
 
 // Removes Black Screen And Reveals Game
