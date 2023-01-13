@@ -27,10 +27,10 @@ Hey Team! This is the code repository for Brand New Game
 - Reworked "Game Over" screen
 - Flashing "press space to start"
 - Randomized obstacle type (puddle vs books vs trash)
+- If apple spawns over an obstacle => turn it into a coin
 
 
 ## Plans For Update v1-3
-- If apple spawns over an obstacle => turn it into a coin
 - Score over player's head
 - Increase difficulty over time
 - Sound toggle
