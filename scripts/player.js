@@ -49,7 +49,7 @@ let boundaryBox
 export function getPlayerRect() {
   const playerRect = player.getBoundingClientRect();
 
-  playerRect.width = playerRect.width * 0.6;
+  playerRect.width = playerRect.width * 0.4;
   playerRect.height = playerRect.height * 1;
 
   // Red Box Code, Leave For Testing 

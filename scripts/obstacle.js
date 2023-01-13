@@ -88,7 +88,7 @@ export function getCactusRects() {
     (cactus) => {
       const obRect = cactus.getBoundingClientRect();
 
-      obRect.width = obRect.width * 0.6;
+      obRect.width = obRect.width * 0.4;
       // obRect.height = obRect.height * 0.60;
 
       // Red Box Code, Leave For Testing

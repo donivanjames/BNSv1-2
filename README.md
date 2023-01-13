@@ -3,7 +3,7 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Current Updates In v1-3 (1/13/2022)
+## Current Updates In v1-3 (1/13/2022) - The Total Overhaul Update
 - Ground now randomly changes as it cycles
 - Made menu animation
 - Combined ALL text menus into one (title, pause, game over)
@@ -26,17 +26,17 @@ Hey Team! This is the code repository for Brand New Game
 - Made minimalistic "Back To BNS" button
 - Reworked "Game Over" screen
 - Flashing "press space to start"
+- Randomized obstacle type (puddle vs books vs trash)
 
 
 ## Plans For Update v1-3
-- Randomize obstacle type (puddle vs books)
 - Randomize collectable type (coins/lightbulbs)
 - Increase difficulty over time
 - Sound toggle
 - Screen flash and sound effect when player enters school
 
 
-## Future Update Pool
+## Plans For Update v1-4 - The Optimization Update
 - Clicking again in menu animation goes straight to game (with flash included)
 - Bug: hitting space after clicking in intro scene caused it to kind-of restart
 - Bug: "back to bns" button not working anymore
@@ -67,7 +67,7 @@ Hey Team! This is the code repository for Brand New Game
 
 ---
 
-## Update v1-2 (1/10/2023)
+## Update v1-2 (1/10/2023) - The First Good Version
 **Features**
 - Made apples the only point system
 - Webpage background colors change based on environment
@@ -114,4 +114,4 @@ Hey Team! This is the code repository for Brand New Game
 
 ## Plans For v2
 
-- Backgrounds feed into each other
+- Cool stuff
