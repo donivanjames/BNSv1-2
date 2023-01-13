@@ -46,7 +46,6 @@ Hey Team! This is the code repository for Brand New Game
 - change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?
 - Could maybe delete unused title audio once game starts
-- line 32 in script.js might hold key to mobile resize
 - could use the "rect" in checkApple() to assign which apple to remove
 - Still need a good soundtrack
 - Allow player to jump slightly before touching the ground for better response time
@@ -61,9 +60,13 @@ Hey Team! This is the code repository for Brand New Game
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
-- Leaderboard
 - Chloe really wants werewolves involved
 - Bug: there's a 300ms space after dying where pause can be activated
+
+
+## Plans For Update v1-5 - The Leaderboard Update
+- Leaderboard
+
 
 ---
 
