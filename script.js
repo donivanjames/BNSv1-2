@@ -27,6 +27,7 @@ import {
   getCactusRects,
   collect,
 } from "./scripts/obstacle.js";
+import { updateIntroScene } from "./scripts/introScene.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -43,7 +44,7 @@ let applesCollected = 0;
 let environment = 1;
 let firstClick = false; // to set up first screen
 let pause = false;
-
+let introSceneDone = false;
 
 let mainUIElem = document.querySelector("[data-main-ui]");
 
@@ -53,7 +54,6 @@ let elements = {
   scoreElem: document.querySelector("[data-score]"),
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
 };
-
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -84,12 +84,8 @@ export function handleFirstInput(event) {
   if (event.code !== "Space" && event.button !== 0) {
     addStartGameInputListeners();
     return;
-  } else if (!firstClick) setupGame();
+  } else if (!firstClick) startIntroScene();
   else handleGameStart();
-}
-
-function buttonTest() {
-  console.log("Clicked")
 }
 
 function handleGameInput(event) {
@@ -123,7 +119,7 @@ function pauseGame() {
         <h2>Paused</h2><br><br>
         Tap Or Space To Unpause
       </div>
-    `
+    `;
     stopRunSong();
     pauseUpdate();
   }
@@ -131,23 +127,23 @@ function pauseGame() {
 
 function unpauseGame() {
   pause = false;
-  mainUIElem.innerHTML = ``
+  mainUIElem.innerHTML = ``;
   playRunSong();
   unPauseUpdate();
 }
+
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   if (!firstClick) {
     elements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
-    elements.worldElem.classList.remove("hide")
+    elements.worldElem.classList.remove("hide");
     mainUIElem.innerHTML = `
     <div class="home-screen">
       <div class="blink_me">Tap Or Space To Jump</div>
     </div>
-    `
-    
-    playTitleSong();
+    `;
+
     showPlayer(); // show player
     showGround(); // show scene
     addStartGameInputListeners();
@@ -156,6 +152,12 @@ export function setupGame() {
   }
 }
 
+function startIntroScene() {
+  console.log("startIntroScene");
+  playTitleSong();
+  if (!introSceneDone) updateIntroScene();
+  else setupGame();
+}
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
 export function handleGameStart() {
@@ -181,7 +183,7 @@ export function handleGameStart() {
     resetGround();
     updateScore();
     elements.scoreElem.classList.remove("hide");
-    mainUIElem.innerHTML = ""
+    mainUIElem.innerHTML = "";
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }

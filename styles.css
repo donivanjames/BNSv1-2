@@ -21,7 +21,7 @@ body {
     min-height: 100vh;
     font-family: 'Press Start 2P', cursive;
     color: rgb(255, 255, 255);
-    background-color: #00C142;
+    background-color: #00450F;
   }
 
   .start-screen {
@@ -39,24 +39,33 @@ body {
     /* Set up proportionate scaling */
     width: 100%;
     height: auto;
-
-    /* Set up positioning */
     top: -6vw;
-    left: 0;
+    --top: -6;
   }
+
+  .moveable-item {
+    position: absolute;
+        /* Set up positioning */
+        top: calc(var(--top) * 1%);
+        will-change: transform;
+  }
+
+  /* .ground {
+    --left: 0;
+    position: absolute;
+    /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
+    /* width is 1% bigger to cover boundary glitches */
+    /* height: 100%;
+    width: 301%;
+    bottom: 0%;
+    left: calc(var(--left) * 1%);
+    will-change: transform;
+    object-fit: cover;
+} */ */
 
   .start-screen-content {
     position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    line-height: 1vw;
-    color: #00C142;
-    font-size: 1.7vw;
-    top: 0vw;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
-
 
 
 .world {

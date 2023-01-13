@@ -20,12 +20,23 @@ button {
 
 .back-to-bns-button {
     width: 15vw;
-    left: 5vw; top: 40vw;
+    left: 5vw;
+    --top: 80;
 }
 
 .sound-toggle-button {
     font-size: 1.1vw;
-    left: 44vw; top: 42vw;
+    left: 44vw;
+    --top: 80;
+}
+
+.start-screen-bunny {
+    width: 6%;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    left: 20%;
+    --top: 489.3;
 }
 
 .blink_me {

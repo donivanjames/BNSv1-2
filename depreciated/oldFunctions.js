@@ -74,4 +74,46 @@ console.log("Groundwidth: ", getGroundWidth());
 //setCustomProperty(apple, "--bottom", randomHeight); 
 
 
+// Attempt at a game flash
+
+let lastTime = null;
+let flashCount = 6;
+let flashTime = 0
+let maxFlashTime = 200;
+let flash = false;
+const bigImg = document.querySelector(".start-screen-img");
+export function flashIntro(time) {
+  if (flashCount <= 0) {
+    document.body.style.backgroundColor = "#00450F";
+    setupGame();
+    return;
+  }
+
+  // if lastTime is null then only call this block
+  if (lastTime == null) {
+    lastTime = time;
+    window.requestAnimationFrame(flashIntro);
+    return;
+  }
+
+  const delta = time - lastTime;
+
+  if (flashTime <= 0) {
+    if ((flash = !flash)) {
+      document.body.style.backgroundColor = "#fff";
+      bigImg.classList.add("hide");
+    } else {
+      document.body.style.backgroundColor = "#00450F";
+      bigImg.classList.remove("hide");
+    }
+    flashCount--
+    flashTime = maxFlashTime;
+  }
+    console.log("flashTime ", flashTime)
+    flashTime = flashTime - 1 * delta
+    lastTime = time;
+    window.requestAnimationFrame(flashIntro);
+}
+
+
 */

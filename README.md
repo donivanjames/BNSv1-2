@@ -33,6 +33,7 @@ Hey Team! This is the code repository for Brand New Game
 
 
 ## Future Update Pool
+- Bug: hitting space after clicking in intro scene caused it to kind-of restart
 - Bug: "back to bns" button not working anymore
 - Setup Gitignore and delete old files from repository
 - New opening menu
