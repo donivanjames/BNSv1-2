@@ -33,7 +33,7 @@ button {
 .start-screen-bunny {
     width: 6%;
     image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
+    /* image-rendering: -moz-crisp-edges; */
     image-rendering: crisp-edges;
     --left: 10;
     --top: 489.3;

@@ -2,7 +2,7 @@ import { incrementCustomProperty, getCustomProperty } from "./updateCustomProper
 import { setupGame } from "../script.js"
 
 let lastTime = null
-let introSpeed = 0.035
+let introSpeed = 0.03
 let waitAtEnd = 1000
 const PLAYER_FRAME_COUNT = 4; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)

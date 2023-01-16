@@ -3,41 +3,16 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Current Updates In v1-3 (1/13/2022) - The Total Overhaul Update
-- Ground now randomly changes as it cycles
-- Made menu animation
-- Combined ALL text menus into one (title, pause, game over)
-- Added worm character
-- Added human character
-- Added bunny character
-- Changed background to new environment
-- Compressed environment png for quicker loading
-- Removed apple glow
-- Put apples back on ground
-- Environment no longer changes
-- Added window tab image
-- Removed "Fun Facts"
-- Screen should now resize when rotating in mobile
-- Death screen changed from black to green
-- Removed clutter/code from old designs
-- Combined Apple And Obstacle code into one file
-- Changed title and run soundtrack
-- Environment can now change again based on how many different background images we have
-- Made minimalistic "Back To BNS" button
-- Reworked "Game Over" screen
-- Flashing "press space to start"
-- Randomized obstacle type (puddle vs books vs trash)
-- If apple spawns over an obstacle => turn it into a coin
+## Update v1-4
+- Slowed down intro scene
+- Hopefully fixed safari pixel scaling
 
-
-## Plans For Update v1-3
+## Plans For Update v1-4 - The Optimization Update
 - Score over player's head
 - Increase difficulty over time
 - Sound toggle
+- Leaderboard
 - Screen flash and sound effect when player enters school
-
-
-## Plans For Update v1-4 - The Optimization Update
 - Clicking again in starting animation should go straight to game (with flash included)
 - Bug: hitting space after clicking in intro scene caused it to kind-of restart
 - Bug: "back to bns" button not working once it's grabbed by queryselector
@@ -63,10 +38,31 @@ Hey Team! This is the code repository for Brand New Game
 - Chloe really wants werewolves involved
 - Bug: there's a 300ms space after dying where pause can be activated
 
-
-## Plans For Update v1-5 - The Leaderboard Update
-- Leaderboard
-
+## Current Updates In v1-3 (1/13/2022) - The Total Overhaul Update
+- Ground now randomly changes as it cycles
+- Made menu animation
+- Combined ALL text menus into one (title, pause, game over)
+- Added worm character
+- Added human character
+- Added bunny character
+- Changed background to new environment
+- Compressed environment png for quicker loading
+- Removed apple glow
+- Put apples back on ground
+- Environment no longer changes
+- Added window tab image
+- Removed "Fun Facts"
+- Screen should now resize when rotating in mobile
+- Death screen changed from black to green
+- Removed clutter/code from old designs
+- Combined Apple And Obstacle code into one file
+- Changed title and run soundtrack
+- Environment can now change again based on how many different background images we have
+- Made minimalistic "Back To BNS" button
+- Reworked "Game Over" screen
+- Flashing "press space to start"
+- Randomized obstacle type (puddle vs books vs trash)
+- If apple spawns over an obstacle => turn it into a coin
 
 ---
 
