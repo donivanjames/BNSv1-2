@@ -38,31 +38,37 @@ Hey Team! This is the code repository for Brand New Game
 - Chloe really wants werewolves involved
 - Bug: there's a 300ms space after dying where pause can be activated
 
-## Current Updates In v1-3 (1/13/2022) - The Total Overhaul Update
-- Ground now randomly changes as it cycles
-- Made menu animation
-- Combined ALL text menus into one (title, pause, game over)
+---
+
+## Update v1-3 (1/13/2022) - The Total Overhaul Update
+**Features**
+- Background now randomly changes as it cycles
+- Randomized obstacle type (puddle vs books vs trash)
+- If an apple spawns over an obstacle it turns it into a coin
+
+**Design**
+- Made scrolling menu animation
 - Added worm character
 - Added human character
 - Added bunny character
-- Changed background to new environment
-- Compressed environment png for quicker loading
 - Removed apple glow
 - Put apples back on ground
-- Environment no longer changes
 - Added window tab image
 - Removed "Fun Facts"
-- Screen should now resize when rotating in mobile
 - Death screen changed from black to green
-- Removed clutter/code from old designs
-- Combined Apple And Obstacle code into one file
 - Changed title and run soundtrack
-- Environment can now change again based on how many different background images we have
 - Made minimalistic "Back To BNS" button
 - Reworked "Game Over" screen
 - Flashing "press space to start"
-- Randomized obstacle type (puddle vs books vs trash)
-- If apple spawns over an obstacle => turn it into a coin
+
+**Bug Fixes**
+- Screen should now resize when rotating in mobile
+
+**Optimizations**
+- Combined ALL text menus into one (title, pause, game over)
+- Compressed environment png for quicker loading
+- Removed clutter/code from old designs
+- Combined Apple And Obstacle code into one file
 
 ---
 
