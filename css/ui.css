@@ -1,47 +1,5 @@
-button, .back-to-bns-button, .sound-toggle-button {
-    position: absolute;
-    text-align: center;
-	display: inline-block;
-    padding: 0.8vw 1vw 0.6vw 1vw;
-    background-color: #00450F;
-    color: #00C142;
-    cursor: pointer;
-    text-decoration: none;
-    white-space: nowrap;
-    z-index: 3;
-    font-family: inherit;
-    border: none;
-}
-
-button {
-    width: 10vw;
-    font-size: 1vw;
-}
-
-.back-to-bns-button {
-    width: 15vw;
-    left: 5vw;
-    --top: 80;
-}
-
-.sound-toggle-button {
-    font-size: 1.1vw;
-    left: 44vw;
-    --top: 80;
-}
-
-.start-screen-bunny {
-    width: 6%;
-    image-rendering: pixelated;
-    /* image-rendering: -moz-crisp-edges; */
-    image-rendering: crisp-edges;
-    --left: 10;
-    --top: 399;
-    left: calc(var(--left) * 1%);
-}
-
-.blink_me {
-    animation: blinker 1s step-start infinite;
+.text-blink {
+    animation: blinker 1.3s step-start infinite;
   }
   
   @keyframes blinker {
@@ -85,6 +43,7 @@ button {
     color: yellow;
     font-size: 2vw;
 }
+
 .game-over-screen {
     font-size: 1.25vw;
     line-height: 0.8vw;

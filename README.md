@@ -3,7 +3,7 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-## Update v1-4
+## Update v1-4 - The Optimization Update
 **Features**
 - You can now skip intro scene
 
@@ -22,20 +22,18 @@ Hey Team! This is the code repository for Brand New Game
 
 **Optimizations**
 - Completly redid input system
+- Added .gitignore and deleted old images to save space
 
 ---
 
-## Plans For Update v1-4 - The Optimization Update
+## Plans For Update v1-4
 - Score over player's head
 - Increase difficulty over time
 - Sound toggle
 - Leaderboard
 - Screen flash and sound effect when player enters school
-- Bug: hitting space after clicking in intro scene caused it to kind-of restart
 - Bug: "back to bns" button not working once it's grabbed by queryselector
-- Setup Gitignore and delete old files from repository
 - Flashing "space to start" on opening menu
-- Bug: When player lands it takes time to switch back to run frame
 - change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?
 - Could maybe delete unused title audio once game starts
@@ -51,7 +49,6 @@ Hey Team! This is the code repository for Brand New Game
 - We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
-- Chloe really wants werewolves involved
 - Bug: there's a 300ms space after dying where pause can be activated
 
 ---
@@ -135,4 +132,4 @@ Hey Team! This is the code repository for Brand New Game
 
 ## Plans For v2
 
-- Cool stuff
+- Werewolves

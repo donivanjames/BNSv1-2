@@ -157,7 +157,7 @@ export function setupGame() {
   worldElem.classList.remove("hide");
   mainUIElem.innerHTML = `
     <div class="home-screen">
-      <div class="blink_me">Tap Or Space To Jump</div>
+      <div class="text-blink">Tap Or Space To Jump</div>
     </div>
     `;
 
@@ -246,7 +246,7 @@ export function handleLose() {
       \nScore: ${~~score}
       \nHigh Score: ${~~highScore}
       \n\n\n\n<h1>GAME OVER!</h1>
-      \n\n\n\n\n\n\n\n<div class="blink_me">Tap Or Space To Play Again</div>
+      \n\n\n\n\n\n\n\n<div class="text-blink">Tap Or Space To Play Again</div>
     </div>
   `;
 

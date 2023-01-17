@@ -3,6 +3,8 @@
 @import "css/obstacles.css";
 @import "css/environment-colors.css";
 @import "css/ui.css";
+@import "css/title-screen.css";
+@import "node_modules/pixel-borders/src/styles/pixel-borders.scss";
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -36,39 +38,6 @@ body {
     color: #00450F;
 }
 
-  .start-screen {
-    position: relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 60%;
-    padding-top: 33.5%; /* fixed aspect ratio based on width */
-    /* height: 445px; */
-    overflow: hidden;
-  }
-
-  .start-screen-img {
-    position: absolute;
-
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
-    top: -0vw;
-    --top: -0;
-  }
-
-  .moveable-item {
-    position: absolute;
-        /* Set up positioning */
-        top: calc(var(--top) * 1%);
-        will-change: transform;
-  }
-
-
-  .start-screen-content {
-    position: absolute;
-  }
 
 .hide-img {
     opacity: 0.0;
@@ -103,6 +72,13 @@ body {
     left: calc(var(--left) * 1%);
     will-change: transform;
     object-fit: cover;
+}
+
+.pixel-scale {
+    /* Scale Pixel Art!! */
+    image-rendering: pixelated;
+    /* image-rendering: -moz-crisp-edges; */
+    image-rendering: crisp-edges;
 }
 
 .player {
