@@ -29,7 +29,7 @@ import {
 } from "./scripts/obstacle.js";
 import { updateIntroScene } from "./scripts/introScene.js";
 
-/////////////////////
+///////////////////// 
 //   WORLD SETUP   //
 /////////////////////
 const WORLD_WIDTH = 200;
@@ -42,19 +42,13 @@ document.documentElement.style.setProperty(
 let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
 let applesCollected = 0;
 let environment = 1;
-let firstClick = false; // to set up first screen
-let introSceneGoing = false;
 let pause = false;
-let introSceneDone = false;
-
-let mainUIElem = document.querySelector("[data-main-ui]");
 
 //   UI ELEMENTS   //
-let elements = {
-  worldElem: document.querySelector("[data-world]"),
-  scoreElem: document.querySelectorAll("[data-score]"),
-  preGameScreen: document.querySelectorAll("[data-start-screen]"),
-};
+const mainUIElem = document.querySelector("[data-main-ui]");
+const worldElem = document.querySelector("[data-world]");
+const scoreElem = document.querySelectorAll("[data-score]");
+const preGameScreen = document.querySelectorAll("[data-start-screen]");
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -73,7 +67,6 @@ addPlayerInputListeners();
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 
-
 // Input Handler
 let inputNum = 1;
 export function handleAllInput(event) {
@@ -91,7 +84,7 @@ export function handleAllInput(event) {
 
   switch (inputNum) {
     case 0: // putting jump at 0 improves fps slightly
-      playerJump()
+      playerJump();
       break;
     case 1:
       // start first scene/handleFirstInput()
@@ -105,15 +98,14 @@ export function handleAllInput(event) {
   }
 }
 
-function playerJump(){
-  if(pause) unpauseGame()
+function playerJump() {
+  if (pause) unpauseGame();
   else if (gameGoing) onJump();
   else sequence3(); //jump if game going: else restart level
 }
 
 // Start Intro Scene
 function sequence1(event) {
-  introSceneGoing = true;
   startIntroScene();
   inputNum = 2;
 }
@@ -160,21 +152,19 @@ function startIntroScene() {
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
-  if (!firstClick) {
-    elements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
-    elements.worldElem.classList.remove("hide");
-    mainUIElem.innerHTML = `
+  stopTitleSong();
+  preGameScreen.forEach((item) => item.remove()); // get rid of all title element
+  worldElem.classList.remove("hide");
+  mainUIElem.innerHTML = `
     <div class="home-screen">
       <div class="blink_me">Tap Or Space To Jump</div>
     </div>
     `;
 
-    showPlayer(); // show player
-    showGround(); // show scene
-    //addStartGameInputListeners();
-    document.body.classList.add("hallway"); // change background color
-    firstClick = true;
-  }
+  showPlayer(); // show player
+  showGround(); // show scene
+  //addStartGameInputListeners();
+  document.body.classList.add("hallway"); // change background color
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
@@ -191,7 +181,7 @@ export function handleGameStart() {
     let fontColor = "White";
     document.body.classList.remove("black-screen");
     document.body.classList.add("hallway");
-    elements.scoreElem.forEach(item => item.style.color = fontColor);
+    scoreElem.forEach((item) => (item.style.color = fontColor));
 
     //addPlayerInputListeners();
     setupPlayer(environment);
@@ -200,7 +190,7 @@ export function handleGameStart() {
     // setupApple();
     resetGround();
     updateScore();
-    elements.scoreElem.forEach(item => item.classList.remove("hide"));
+    scoreElem.forEach((item) => item.classList.remove("hide"));
     mainUIElem.innerHTML = "";
     window.requestAnimationFrame(update); // start infinite play loop
   }
@@ -239,8 +229,8 @@ function isCollision(rect1, rect2) {
 export function updateScore(delta) {
   score = applesCollected * 1000;
   if (score >= highScore) highScore = score;
-  elements.scoreElem[0].textContent = `Score: ${~~score}`;
-  elements.scoreElem[1].textContent = `High Score: ${~~highScore}`;
+  scoreElem[0].textContent = `Score: ${~~score}`;
+  scoreElem[1].textContent = `High Score: ${~~highScore}`;
 }
 
 // HANDLE LOSE
@@ -249,7 +239,7 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  elements.scoreElem.forEach(item => item.classList.add("hide"));
+  scoreElem.forEach((item) => item.classList.add("hide"));
 
   mainUIElem.innerHTML = `
     <div class="game-over-screen"">
@@ -278,6 +268,6 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  elements.worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
-  elements.worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
+  worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
+  worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
 }

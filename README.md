@@ -26,7 +26,6 @@ Hey Team! This is the code repository for Brand New Game
 ---
 
 ## Plans For Update v1-4 - The Optimization Update
-- Bug: resize now crashes game (probably has to do with sequence3)
 - Score over player's head
 - Increase difficulty over time
 - Sound toggle
