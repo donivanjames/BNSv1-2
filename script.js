@@ -43,6 +43,7 @@ let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose
 let applesCollected = 0;
 let environment = 1;
 let firstClick = false; // to set up first screen
+let introSceneGoing = false
 let pause = false;
 let introSceneDone = false;
 
@@ -63,52 +64,114 @@ setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-export function addStartGameInputListeners() {
-  document.addEventListener("keydown", handleFirstInput, { once: true }); // On key down: start game: only do once
-  document.addEventListener("mousedown", handleFirstInput, { once: true }); // On key down: start game: only do once
-  const button = document.getElementById("sound-toggle");
-}
-addStartGameInputListeners();
+// export function addStartGameInputListeners() {
+//   document.addEventListener("keydown", handleFirstInput, { once: true }); // On key down: start game: only do once
+//   document.addEventListener("mousedown", handleFirstInput, { once: true }); // On key down: start game: only do once
+//   const button = document.getElementById("sound-toggle");
+// }
+//addStartGameInputListeners();
 
 function addPlayerInputListeners() {
-  document.removeEventListener("keydown", handleGameInput); // this removes any extra eventListeners from the game before we add a new one
-  document.removeEventListener("mousedown", handleGameInput);
-  document.addEventListener("keydown", handleGameInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
-  document.addEventListener("mousedown", handleGameInput); // this adds a listener to the player that waits for click, then it executes the onJump function
+  document.removeEventListener("keydown", handleAllInput); // this removes any extra eventListeners from the game before we add a new one
+  document.removeEventListener("mousedown", handleAllInput);
+  document.addEventListener("keydown", handleAllInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
+  document.addEventListener("mousedown", handleAllInput); // this adds a listener to the player that waits for click, then it executes the onJump function
 }
+addPlayerInputListeners()
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 
-// Handles Start Game Input (eventually hopefully all input)
-export function handleFirstInput(event) {
-  if (event.code !== "Space" && event.button !== 0) {
-    addStartGameInputListeners();
-    return;
-  } else if (!firstClick) startIntroScene();
-  else handleGameStart();
-}
-
-function handleGameInput(event) {
+let inputNum = 1
+export function handleAllInput(event) {
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
     return;
 
-  if (pause) {
-    unpauseGame();
-    return;
-  }
+    if (event.code === "Escape") { // remove gameGoing from other places 
+      if(!gameGoing) return
 
-  if (event.code === "Escape") {
-    if (pause) unpauseGame();
-    else pauseGame();
-    return;
-  }
-
-  // handleStart might go here with gameGoing variable:
-  //if gameGoing => onJump
-  //else => handleStart
-
-  onJump();
+      if (pause) unpauseGame();
+      else pauseGame();
+      return;
+    }
+  
+    switch(inputNum) {
+      case 0: // putting jump at 0 improves fps slightly
+      if(gameGoing) onJump()
+      else sequence3() //jump if game going: else restart level 
+      break;
+      case 1: 
+      // start first scene/handleFirstInput()
+      sequence1()
+      break;
+      case 2:
+      sequence2()
+      break;
+      default:
+      sequence3()
+    }
 }
+
+// Start Intro Scene
+function sequence1(event){
+    introSceneGoing = true
+    startIntroScene();
+    inputNum = 2
+}
+
+//skip first scene or setup first level
+export function sequence2(){
+  window.cancelAnimationFrame(updateIntroScene)
+  setupGame()
+  inputNum = 3
+}
+
+// Restart/Load first level and get ready for jump input
+function sequence3(){
+  handleGameStart()
+  inputNum = 0
+}
+
+
+// Handles Start Game Input (eventually hopefully all input)
+// export function handleFirstInput(event) {
+//   if (event.code !== "Space" && event.button !== 0) {
+//     addStartGameInputListeners(); // if no valid buttons were pressed then back out 
+//     return;
+//   } 
+  
+//   if (!firstClick && !introSceneGoing) {
+//     introSceneGoing = true
+//     startIntroScene();
+//   }
+//   else if(firstClick && introSceneGoing) {
+//     window.cancelAnimationFrame(updateIntroScene)
+//     setupGame()
+//   }
+//   else handleGameStart();
+// }
+
+
+// function handleGameInput(event) {
+//   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
+//     return;
+
+//   if (pause) {
+//     unpauseGame();
+//     return;
+//   }
+
+//   if (event.code === "Escape") {
+//     if (pause) unpauseGame();
+//     else pauseGame();
+//     return;
+//   }
+
+//   // handleStart might go here with gameGoing variable:
+//   //if gameGoing => onJump
+//   //else => handleStart
+
+//   onJump();
+// }
 
 function pauseGame() {
   if (gameGoing) {
@@ -132,6 +195,11 @@ function unpauseGame() {
   unPauseUpdate();
 }
 
+function startIntroScene() {
+  console.log("startIntroScene");
+  playTitleSong();
+  updateIntroScene();
+}
 
 // Removes Black Screen And Reveals Game
 export function setupGame() {
@@ -146,17 +214,10 @@ export function setupGame() {
 
     showPlayer(); // show player
     showGround(); // show scene
-    addStartGameInputListeners();
+    //addStartGameInputListeners();
     document.body.classList.add("hallway"); // change background color
     firstClick = true;
   }
-}
-
-function startIntroScene() {
-  console.log("startIntroScene");
-  playTitleSong();
-  if (!introSceneDone) updateIntroScene();
-  else setupGame();
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
@@ -175,7 +236,7 @@ export function handleGameStart() {
     document.body.classList.add("hallway");
     elements.scoreElem.style.color = fontColor;
 
-    addPlayerInputListeners();
+    //addPlayerInputListeners();
     setupPlayer(environment);
     updateEnvironment(environment);
     setupObstacles();
@@ -248,7 +309,7 @@ export function handleLose() {
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
     gameGoing = false;
-    addStartGameInputListeners();
+    //addStartGameInputListeners();
   }, 300);
 }
 

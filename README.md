@@ -4,10 +4,21 @@ Hey Team! This is the code repository for Brand New Game
 # Updates
 
 ## Update v1-4
+**Features**
+- You can now skip intro scene
+
+**Design**
 - Slowed down intro scene
+
+**Bug Fixes**
 - Hopefully fixed safari pixel scaling
 
+**Optimizations**
+- Completly redid input system
+
 ## Plans For Update v1-4 - The Optimization Update
+- Bug: resize now crashes game (probably has to do with sequence3)
+- Bug: intro scene ending position is wrong with ultrawide monitors
 - Score over player's head
 - Increase difficulty over time
 - Sound toggle
