@@ -12,6 +12,7 @@ Next: stop scroll if event is a link or button
 
 **Design**
 - Redid opening scene
+- Swapped out bunny for kid
 - Added aspect ratio to opening scene so that it performs the same on any monitor
 - Adjusted coin spawn position
 - Added High Score UI
@@ -25,6 +26,7 @@ Next: stop scroll if event is a link or button
 - Stopped apples from spawning on obstacles 
 
 **Optimizations**
+- Compressed Soundtrack from 6.42mb to 
 - Completly redid input system
 - Added .gitignore and deleted old images to save space
 
@@ -36,7 +38,6 @@ Next: stop scroll if event is a link or button
 - Leaderboard
 - Screen flash and sound effect when player enters school
 - Could maybe only start checking boundaries when object is near player?
-- Could maybe delete unused title audio once game starts
 - could use the "rect" in checkApple() to assign which apple to remove
 - Still need a good soundtrack
 - Allow player to jump slightly before touching the ground for better response time
