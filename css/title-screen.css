@@ -39,7 +39,6 @@ button, .back-to-bns-button, .sound-toggle-button {
   border: none;
 }
 
-
 .title-text {
   position: absolute;
   font-size: 1.1vw;
@@ -70,13 +69,6 @@ button, .back-to-bns-button, .sound-toggle-button {
   background: none;
 }
 
-/* .sound-toggle {
-    position: absolute;
-    font-size: 1.0vw;
-    right: 1vmin;
-    bottom: 1vmin;
-} */
-
 
 .back-to-bns-button {
   width: 14vw;
@@ -93,7 +85,6 @@ button, .back-to-bns-button, .sound-toggle-button {
 .start-screen-bunny {
   width: 6%;
   image-rendering: pixelated;
-  /* image-rendering: -moz-crisp-edges; */
   image-rendering: crisp-edges;
   --left: 10;
   --top: 399;
@@ -106,3 +97,5 @@ button, .back-to-bns-button, .sound-toggle-button {
   top: calc(var(--top) * 1%);
   will-change: transform;
 }
+
+

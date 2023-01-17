@@ -22,6 +22,7 @@ Next: stop scroll if event is a link or button
 - Fixed first jump 'no sound' bug
 - Bug fix: Couldnt unpause with click, only esc
 - Bug fix: clicking outside screen during intro scene would start game paused
+- Stopped apples from spawning on obstacles 
 
 **Optimizations**
 - Completly redid input system

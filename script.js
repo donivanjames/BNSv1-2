@@ -28,7 +28,7 @@ import {
   getCactusRects,
   collect,
 } from "./scripts/obstacle.js";
-import { updateIntroScene } from "./scripts/introScene.js";
+import { updateIntroScene, skipIntro } from "./scripts/introScene.js";
 
 ///////////////////// 
 //   WORLD SETUP   //
@@ -96,18 +96,21 @@ export function handleAllInput(event) {
       // start first scene/handleFirstInput()
       sequence1();
       break;
-    case 2:
-      sequence2();
+      case 2:
+        sequence2()
+        break;
+    case 3:
+      sequence3();
       break;
     default:
-      sequence3();
+      sequence4();
   }
 }
 
 function playerJump() {
   if (pause) unpauseGame();
   else if (gameGoing) onJump();
-  else sequence3(); //jump if game going: else restart level
+  else sequence4(); //jump if game going: else restart level
 }
 
 // Start Intro Scene
@@ -116,15 +119,20 @@ function sequence1(event) {
   inputNum = 2;
 }
 
+// Skip intro scene
+function sequence2(){
+  skipIntro()
+}
+
 //Skip first scene or setup first level
-export function sequence2() {
+export function sequence3() {
   window.cancelAnimationFrame(updateIntroScene);
   setupGame();
-  inputNum = 3;
+  inputNum = 4;
 }
 
 // Restart/Load first level and get ready for jump input
-function sequence3() {
+function sequence4() {
   handleGameStart();
   inputNum = 0;
 }

@@ -1,5 +1,5 @@
 import { incrementCustomProperty, getCustomProperty } from "./updateCustomProperty.js"
-import { setupGame, sequence2 } from "../script.js"
+import { setupGame, sequence3 } from "../script.js"
 
 let lastTime = null
 let introSpeed = 0.025
@@ -13,6 +13,10 @@ const bigImg = document.querySelector(".start-screen-img")
 const allDivs = document.querySelectorAll("[data-start-screen]")
 const player = document.querySelector(".start-screen-bunny")
 console.log("Big img: ", bigImg)
+
+export function skipIntro() {
+    introSpeed = 1;
+}
 
 export function updateIntroScene(time){
   // if lastTime is null then only call this block
@@ -30,10 +34,8 @@ export function updateIntroScene(time){
   window.requestAnimationFrame(updateIntroScene);
 }
 
-
-
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(bigImg, "--top") >= -350) {
+    if (getCustomProperty(bigImg, "--top") >= -330) {
         scrollItems(delta, introSpeed)
     }
     else {
@@ -56,7 +58,7 @@ function movePlayer(delta){
         // play animation
         handleRun(delta)
     }
-    else sequence2()
+    else sequence3()
 }
 
 export function handleRun(delta) {
