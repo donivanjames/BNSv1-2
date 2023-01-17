@@ -71,7 +71,7 @@ export function getPlayerRect() {
 export function setPlayerLose() {
     loseSound()
     // set the sprite of the player do the loss image
-    player.src = "imgs/kid-lose.png" 
+    player.src = "imgs/Kid-lose.png" 
 }
 
 // HANDLE RUN - also used in introScene.js
