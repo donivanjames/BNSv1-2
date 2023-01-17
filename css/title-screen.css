@@ -78,7 +78,7 @@ button, .back-to-bns-button, .sound-toggle-button {
 }
 
 .back-to-bns-button:hover, .sound-toggle-button:hover {
-    border:4px solid rgb(0, 222, 0); 
+    border:3x solid rgb(0, 222, 0); 
     color: rgb(0, 222, 0);
 }
 
