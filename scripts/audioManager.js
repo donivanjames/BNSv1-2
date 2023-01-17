@@ -22,6 +22,7 @@ export function stopTitleSong() {
   titleSong.currentTime = 0;
 }
 
+
 // RUN SONG
 
 let runSong = new Audio("sounds/Music/run-theme-2.mp3");

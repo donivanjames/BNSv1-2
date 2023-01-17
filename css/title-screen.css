@@ -62,8 +62,8 @@ button, .back-to-bns-button, .sound-toggle-button {
 }
 
 .sound-toggle-button {
-  width: 13vw;
-  font-size: 1vw;
+  width: 11vw;
+  font-size: 0.8vw;
   left: 37vw;
   --top: 60;
   border:4px solid black;

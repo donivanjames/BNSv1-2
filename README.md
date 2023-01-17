@@ -8,6 +8,7 @@ Next: stop scroll if event is a link or button
 ## Update v1-4 - The Optimization Update
 **Features**
 - You can now skip intro scene
+- Added sound toggle
 
 **Design**
 - Redid opening scene
@@ -31,12 +32,8 @@ Next: stop scroll if event is a link or button
 ## Plans For Update v1-4
 - Score over player's head
 - Increase difficulty over time
-- Sound toggle
 - Leaderboard
 - Screen flash and sound effect when player enters school
-- Bug: "back to bns" button not working once it's grabbed by queryselector
-- Flashing "space to start" on opening menu
-- change handleGameInput to handle ALL game input (could use a 0-2 switch statement instead of multiple variables)
 - Could maybe only start checking boundaries when object is near player?
 - Could maybe delete unused title audio once game starts
 - could use the "rect" in checkApple() to assign which apple to remove

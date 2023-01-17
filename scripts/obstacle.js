@@ -18,6 +18,7 @@ const worldElem = document.querySelector("[data-world]"); // grabs the world ele
 // SETUP OBSTACLES
 let nextAppleTime;
 let nextCactusTime;
+let nextChosenCactusTime; // for apple to coin safeguard
 export function setupObstacles() {
   nextAppleTime = APPLE_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
   document.querySelectorAll("[data-apple]").forEach((apple) => {
@@ -60,6 +61,7 @@ export function updateCactus(delta, speed, speedScale, environment) {
     nextCactusTime =
       randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX) /
       speedScale; // divide by speedscale so obstacles speed up over time
+    nextChosenCactusTime = nextCactusTime; // for apple to coin safeguard
   }
 
   if (nextAppleTime <= 0) {
@@ -141,7 +143,7 @@ export function createApple() {
   apple.dataset.obstacle = true;
 
   // // Safeguard so apples will turn into coins if they spawn behind an obstacle
-  if (nextCactusTime < 100 || nextCactusTime > CACTUS_INTERVAL_MAX - 500) {
+  if (nextCactusTime < 100 || nextCactusTime > nextChosenCactusTime - 200) {
     apple.src = "imgs/coin.png"; // selects the correct image from files
     apple.classList.add("coin"); // adds CSS styles to apple
     console.log("coin spawned");
