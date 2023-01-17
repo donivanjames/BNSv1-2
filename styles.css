@@ -79,7 +79,7 @@ body {
     position: absolute;
     left: 20%;
     /* height: 14%; Player size */
-    width: 7%;
+    height: 20%;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
     --bottom: 41; 
