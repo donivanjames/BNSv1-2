@@ -18,6 +18,7 @@ Hey Team! This is the code repository for Brand New Game
 - Hopefully fixed ultrawide monitor scale difference in opening scene
 - Fixed first jump 'no sound' bug
 - Bug fix: Couldnt unpause with click, only esc
+- Bug fix: clicking outside screen during intro scene would start game paused
 
 **Optimizations**
 - Completly redid input system
@@ -25,7 +26,6 @@ Hey Team! This is the code repository for Brand New Game
 ---
 
 ## Plans For Update v1-4 - The Optimization Update
-- Bug: clicking outside screen during intro scene will start game paused (but without pause UI)
 - Bug: resize now crashes game (probably has to do with sequence3)
 - Score over player's head
 - Increase difficulty over time

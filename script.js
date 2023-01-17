@@ -132,6 +132,7 @@ function sequence3() {
 }
 
 function pauseGame() {
+  if (!gameGoing) return;
   pause = true;
 
   mainUIElem.innerHTML = `
