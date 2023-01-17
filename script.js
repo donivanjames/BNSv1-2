@@ -14,6 +14,7 @@ import {
   stopTitleSong,
   playRunSong,
   stopRunSong,
+  soundToggle,
 } from "./scripts/audioManager.js";
 import {
   update,
@@ -49,6 +50,7 @@ const mainUIElem = document.querySelector("[data-main-ui]");
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelectorAll("[data-score]");
 const preGameScreen = document.querySelectorAll("[data-start-screen]");
+const soundButton = document.querySelector("[data-sound-toggle]")
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -66,10 +68,14 @@ function addPlayerInputListeners() {
 addPlayerInputListeners();
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
+soundButton.addEventListener("click", () => soundToggle(soundButton))
+
 
 // Input Handler
 let inputNum = 1;
 export function handleAllInput(event) {
+  if(event.target.classList.contains("button")) return
+
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
     return;
 

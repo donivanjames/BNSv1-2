@@ -4,7 +4,6 @@
 @import "css/environment-colors.css";
 @import "css/ui.css";
 @import "css/title-screen.css";
-@import "node_modules/pixel-borders/src/styles/pixel-borders.scss";
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -43,12 +42,7 @@ body {
     opacity: 0.0;
 }
 
-.sound-toggle {
-    position: absolute;
-    font-size: 1.0vw;
-    right: 1vmin;
-    bottom: 1vmin;
-}
+
 
 .text-shadow {
     text-shadow: -1px 1px 2px #000,

@@ -6,6 +6,13 @@ let titleSong = new Audio("sounds/Music/title-song-3.wav");
 titleSong.volume = 0.07;
 titleSong.loop = false;
 
+export function soundToggle(soundButton){
+  soundOn = !soundOn
+
+  if(!soundOn) soundButton.textContent = "SOUND: OFF"
+  else soundButton.textContent = "SOUND: ON"
+}
+
 export function playTitleSong() {
   if(soundOn) titleSong.play();
 }

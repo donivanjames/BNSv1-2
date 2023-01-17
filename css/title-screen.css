@@ -24,9 +24,7 @@
   position: absolute;
 }
 
-button,
-.back-to-bns-button,
-.sound-toggle-button {
+button, .back-to-bns-button, .sound-toggle-button {
   position: absolute;
   text-align: center;
   display: inline-block;
@@ -41,10 +39,6 @@ button,
   border: none;
 }
 
-button {
-  width: 10vw;
-  font-size: 1vw;
-}
 
 .title-text {
   position: absolute;
@@ -68,10 +62,20 @@ button {
 }
 
 .sound-toggle-button {
-  font-size: 1.1vw;
-  left: 44vw;
-  --top: 80;
+  width: 13vw;
+  font-size: 1vw;
+  left: 37vw;
+  --top: 60;
+  border:4px solid black;
+  background: none;
 }
+
+/* .sound-toggle {
+    position: absolute;
+    font-size: 1.0vw;
+    right: 1vmin;
+    bottom: 1vmin;
+} */
 
 
 .back-to-bns-button {

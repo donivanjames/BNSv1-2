@@ -3,6 +3,8 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
+Next: stop scroll if event is a link or button
+
 ## Update v1-4 - The Optimization Update
 **Features**
 - You can now skip intro scene
