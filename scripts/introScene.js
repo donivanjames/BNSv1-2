@@ -2,7 +2,7 @@ import { incrementCustomProperty, getCustomProperty } from "./updateCustomProper
 import { setupGame, sequence2 } from "../script.js"
 
 let lastTime = null
-let introSpeed = 0.03
+let introSpeed = 0.025
 let waitAtEnd = 1000
 const PLAYER_FRAME_COUNT = 4; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
@@ -33,13 +33,11 @@ export function updateIntroScene(time){
 
 
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(bigImg, "--top") >= -442) {
+    if (getCustomProperty(bigImg, "--top") >= -350) {
         scrollItems(delta, introSpeed)
     }
     else {
         if(waitAtEnd <= 0) {
-            //cancelAnimationFrame(updateIntroScene)
-            //setupGame()
             movePlayer(delta)
         }
         else waitAtEnd -= 1 * delta
@@ -53,7 +51,7 @@ function scrollItems(delta, introSpeed) {
 }
 
 function movePlayer(delta){
-    if (getCustomProperty(player, "--left") <= 75){
+    if (getCustomProperty(player, "--left") <= 65){
         incrementCustomProperty(player, "--left", delta * 0.03 * 1) 
         // play animation
         handleRun(delta)

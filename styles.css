@@ -24,7 +24,7 @@ body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
     color: rgb(255, 255, 255);
-    background-color: #00450F;
+    background-color: #00300a;
   }
 
   .world {
@@ -38,21 +38,24 @@ body {
 
   .start-screen {
     position: relative;
-    
-    height: 45vw;
-    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 60%;
+    padding-top: 33.5%; /* fixed aspect ratio based on width */
+    /* height: 445px; */
     overflow: hidden;
   }
 
   .start-screen-img {
     position: absolute;
-    min-height: 100%;
 
     /* Set up proportionate scaling */
     width: 100%;
     height: auto;
-    top: -6vw;
-    --top: -6;
+    top: -0vw;
+    --top: -0;
   }
 
   .moveable-item {
@@ -66,9 +69,6 @@ body {
   .start-screen-content {
     position: absolute;
   }
-
-
-
 
 .hide-img {
     opacity: 0.0;

@@ -8,23 +8,30 @@ Hey Team! This is the code repository for Brand New Game
 - You can now skip intro scene
 
 **Design**
-- Slowed down intro scene
+- Redid opening scene
+- Added aspect ratio to opening scene so that it performs the same on any monitor
+- Adjusted coin spawn position
+- Added High Score UI
 
 **Bug Fixes**
 - Hopefully fixed safari pixel scaling
+- Hopefully fixed ultrawide monitor scale difference in opening scene
+- Fixed first jump 'no sound' bug
+- Bug fix: Couldnt unpause with click, only esc
 
 **Optimizations**
 - Completly redid input system
 
+---
+
 ## Plans For Update v1-4 - The Optimization Update
+- Bug: clicking outside screen during intro scene will start game paused (but without pause UI)
 - Bug: resize now crashes game (probably has to do with sequence3)
-- Bug: intro scene ending position is wrong with ultrawide monitors
 - Score over player's head
 - Increase difficulty over time
 - Sound toggle
 - Leaderboard
 - Screen flash and sound effect when player enters school
-- Clicking again in starting animation should go straight to game (with flash included)
 - Bug: hitting space after clicking in intro scene caused it to kind-of restart
 - Bug: "back to bns" button not working once it's grabbed by queryselector
 - Setup Gitignore and delete old files from repository
@@ -38,7 +45,6 @@ Hey Team! This is the code repository for Brand New Game
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
-- Need to fix first jump 'no sound' bug
 - Compress audio files
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system

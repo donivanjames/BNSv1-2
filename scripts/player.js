@@ -10,7 +10,6 @@ const FRAME_TIME = 100; // how long each animation frame should last (in millise
 const heightFromGround = 41 // also change css --bottom to match
 const jumpableHeight = 20
 
-let stopJumpSound = false; // stops jumping sound from playing on restart
 
 // PLAYER SETUP
 let isJumping;
@@ -71,7 +70,6 @@ export function getPlayerRect() {
 // SET LOSING SPRITE
 export function setPlayerLose() {
     loseSound()
-    stopJumpSound = true;
     // set the sprite of the player do the loss image
     player.src = "imgs/Bunny-Lose.png" 
 }
@@ -117,11 +115,8 @@ function handleJump(delta) {
 export function onJump(event) {
   if(isJumping) return
 
-  if(!stopJumpSound){
-    jumpSound()
-  }
+  jumpSound()
 
-  stopJumpSound = false; 
  
   yVelocity = JUMP_SPEED;
   isJumping = true;

@@ -36,7 +36,7 @@ button {
     /* image-rendering: -moz-crisp-edges; */
     image-rendering: crisp-edges;
     --left: 10;
-    --top: 489.3;
+    --top: 399;
     left: calc(var(--left) * 1%);
 }
 
@@ -50,16 +50,18 @@ button {
     }
   }
 
-.score {
+.score-ui {
     position: absolute;
     color: rgb(255, 255, 255);
     font-size: 1.0vw;
-    left: 2vw;
     top: 1.5vw;
+}
+.score {
+    left: 2vw;
 }
 
 .high-score {
-    right: 1vmin;
+    right: 2vmin;
 }
 
 .game-over-screen, .home-screen, .pause-screen {

@@ -43,7 +43,7 @@ let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose
 let applesCollected = 0;
 let environment = 1;
 let firstClick = false; // to set up first screen
-let introSceneGoing = false
+let introSceneGoing = false;
 let pause = false;
 let introSceneDone = false;
 
@@ -52,7 +52,7 @@ let mainUIElem = document.querySelector("[data-main-ui]");
 //   UI ELEMENTS   //
 let elements = {
   worldElem: document.querySelector("[data-world]"),
-  scoreElem: document.querySelector("[data-score]"),
+  scoreElem: document.querySelectorAll("[data-score]"),
   preGameScreen: document.querySelectorAll("[data-start-screen]"),
 };
 
@@ -64,128 +64,84 @@ setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
 window.addEventListener("resize", setPixelToWorldScale);
-// export function addStartGameInputListeners() {
-//   document.addEventListener("keydown", handleFirstInput, { once: true }); // On key down: start game: only do once
-//   document.addEventListener("mousedown", handleFirstInput, { once: true }); // On key down: start game: only do once
-//   const button = document.getElementById("sound-toggle");
-// }
-//addStartGameInputListeners();
 
 function addPlayerInputListeners() {
-  document.removeEventListener("keydown", handleAllInput); // this removes any extra eventListeners from the game before we add a new one
-  document.removeEventListener("mousedown", handleAllInput);
   document.addEventListener("keydown", handleAllInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
   document.addEventListener("mousedown", handleAllInput); // this adds a listener to the player that waits for click, then it executes the onJump function
 }
-addPlayerInputListeners()
+addPlayerInputListeners();
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 
-let inputNum = 1
+
+// Input Handler
+let inputNum = 1;
 export function handleAllInput(event) {
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
     return;
 
-    if (event.code === "Escape") { // remove gameGoing from other places 
-      if(!gameGoing) return
+  if (event.code === "Escape") {
+    // remove gameGoing from other places
+    if (!gameGoing) return;
 
-      if (pause) unpauseGame();
-      else pauseGame();
-      return;
-    }
-  
-    switch(inputNum) {
-      case 0: // putting jump at 0 improves fps slightly
-      if(gameGoing) onJump()
-      else sequence3() //jump if game going: else restart level 
+    if (pause) unpauseGame();
+    else pauseGame();
+    return;
+  }
+
+  switch (inputNum) {
+    case 0: // putting jump at 0 improves fps slightly
+      playerJump()
       break;
-      case 1: 
+    case 1:
       // start first scene/handleFirstInput()
-      sequence1()
+      sequence1();
       break;
-      case 2:
-      sequence2()
+    case 2:
+      sequence2();
       break;
-      default:
-      sequence3()
-    }
+    default:
+      sequence3();
+  }
+}
+
+function playerJump(){
+  if(pause) unpauseGame()
+  else if (gameGoing) onJump();
+  else sequence3(); //jump if game going: else restart level
 }
 
 // Start Intro Scene
-function sequence1(event){
-    introSceneGoing = true
-    startIntroScene();
-    inputNum = 2
+function sequence1(event) {
+  introSceneGoing = true;
+  startIntroScene();
+  inputNum = 2;
 }
 
-//skip first scene or setup first level
-export function sequence2(){
-  window.cancelAnimationFrame(updateIntroScene)
-  setupGame()
-  inputNum = 3
+//Skip first scene or setup first level
+export function sequence2() {
+  window.cancelAnimationFrame(updateIntroScene);
+  setupGame();
+  inputNum = 3;
 }
 
 // Restart/Load first level and get ready for jump input
-function sequence3(){
-  handleGameStart()
-  inputNum = 0
+function sequence3() {
+  handleGameStart();
+  inputNum = 0;
 }
 
-
-// Handles Start Game Input (eventually hopefully all input)
-// export function handleFirstInput(event) {
-//   if (event.code !== "Space" && event.button !== 0) {
-//     addStartGameInputListeners(); // if no valid buttons were pressed then back out 
-//     return;
-//   } 
-  
-//   if (!firstClick && !introSceneGoing) {
-//     introSceneGoing = true
-//     startIntroScene();
-//   }
-//   else if(firstClick && introSceneGoing) {
-//     window.cancelAnimationFrame(updateIntroScene)
-//     setupGame()
-//   }
-//   else handleGameStart();
-// }
-
-
-// function handleGameInput(event) {
-//   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
-//     return;
-
-//   if (pause) {
-//     unpauseGame();
-//     return;
-//   }
-
-//   if (event.code === "Escape") {
-//     if (pause) unpauseGame();
-//     else pauseGame();
-//     return;
-//   }
-
-//   // handleStart might go here with gameGoing variable:
-//   //if gameGoing => onJump
-//   //else => handleStart
-
-//   onJump();
-// }
-
 function pauseGame() {
-  if (gameGoing) {
-    pause = true;
+  pause = true;
 
-    mainUIElem.innerHTML = `
+  mainUIElem.innerHTML = `
       <div class="pause-screen">
         <h2>Paused</h2><br><br>
         Tap Or Space To Unpause
       </div>
     `;
-    stopRunSong();
-    pauseUpdate();
-  }
+  stopRunSong();
+  pauseUpdate();
 }
 
 function unpauseGame() {
@@ -234,7 +190,7 @@ export function handleGameStart() {
     let fontColor = "White";
     document.body.classList.remove("black-screen");
     document.body.classList.add("hallway");
-    elements.scoreElem.style.color = fontColor;
+    elements.scoreElem.forEach(item => item.style.color = fontColor);
 
     //addPlayerInputListeners();
     setupPlayer(environment);
@@ -243,7 +199,7 @@ export function handleGameStart() {
     // setupApple();
     resetGround();
     updateScore();
-    elements.scoreElem.classList.remove("hide");
+    elements.scoreElem.forEach(item => item.classList.remove("hide"));
     mainUIElem.innerHTML = "";
     window.requestAnimationFrame(update); // start infinite play loop
   }
@@ -282,7 +238,8 @@ function isCollision(rect1, rect2) {
 export function updateScore(delta) {
   score = applesCollected * 1000;
   if (score >= highScore) highScore = score;
-  elements.scoreElem.textContent = `Score: ${~~score}`;
+  elements.scoreElem[0].textContent = `Score: ${~~score}`;
+  elements.scoreElem[1].textContent = `High Score: ${~~highScore}`;
 }
 
 // HANDLE LOSE
@@ -291,7 +248,7 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  elements.scoreElem.classList.add("hide"); // hide score
+  elements.scoreElem.forEach(item => item.classList.add("hide"));
 
   mainUIElem.innerHTML = `
     <div class="game-over-screen"">
