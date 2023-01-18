@@ -3,7 +3,7 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-Next: stop scroll if event is a link or button
+**Next:** put obstacles in an array, if their position is less than 10: remove, otherwise move left and call getRects every frame
 
 ## Update v1-4 - The Optimization Update
 **Features**
@@ -33,6 +33,7 @@ Next: stop scroll if event is a link or button
 ---
 
 ## Plans For Update v1-4
+- Update apple art
 - Score over player's head
 - Increase difficulty over time
 - Leaderboard
@@ -133,3 +134,4 @@ Next: stop scroll if event is a link or button
 ## Plans For v2
 
 - Werewolves
+- Little worm/bunny friend

@@ -29,6 +29,7 @@ import {
   collect,
 } from "./scripts/obstacle.js";
 import { updateIntroScene, skipIntro } from "./scripts/introScene.js";
+import { getCustomProperty } from "./scripts/updateCustomProperty.js";
 
 ///////////////////// 
 //   WORLD SETUP   //
