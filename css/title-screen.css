@@ -83,11 +83,11 @@ button, .back-to-bns-button, .sound-toggle-button {
 }
 
 .start-screen-bunny {
-  height: 11%;
+  height: 10%;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 20;
-  --top: 400;
+  --top: 401;
   left: calc(var(--left) * 1%);
 }
 
