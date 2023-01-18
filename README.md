@@ -34,6 +34,7 @@ Hey Team! This is the code repository for Brand New Game
 
 ## Plans For Update v1-4
 - Update apple art
+- Mess around with title screen a little more, want an adjustable height
 - Score over player's head
 - Increase difficulty over time
 - Leaderboard

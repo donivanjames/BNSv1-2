@@ -13,6 +13,9 @@ const CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in millisecond
 const APPLE_INTERVAL_MIN = 3000;
 const APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
 
+let cactusList = [];
+let appleList = [];
+
 const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
 
 // SETUP OBSTACLES
@@ -44,15 +47,13 @@ export function removeAllApples() {
 
 // UPDATE OBSTACLE
 export function updateCactus(delta, speed, speedScale, environment) {
-  document.querySelectorAll("[data-obstacle]").forEach((obstacle) => {
-    incrementCustomProperty(
-      obstacle,
-      "--left",
-      delta * speedScale * speed * -1
-    );
-    if (getCustomProperty(obstacle, "--left") <= -10) {
-      obstacle.remove();
+  cactusList.forEach((cactus) => {
+    if(getCustomProperty(cactus, "--left") <= -10) {
+      const i = cactusList.indexOf(cactus)
+      cactus.remove()
+      cactusList.splice(i, 1);
     }
+    else incrementCustomProperty(cactus, "--left", delta * speed * -1);
   });
 
   if (nextCactusTime <= 0) {
@@ -134,6 +135,9 @@ export function createCactus(environment) {
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); // might not need this
   worldElem.append(cactus); // this adds our obstacle to the world
+  cactusList.push(cactus);
+
+  console.log(cactusList)
 }
 
 // CREATE APPLE
