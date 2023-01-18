@@ -3,6 +3,9 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
+**Next:**
+- Get the worm in there!
+
 ## Update v1-4 - The Optimization Update
 **Features**
 - You can now skip intro scene
@@ -31,9 +34,6 @@ Hey Team! This is the code repository for Brand New Game
 - Obstacles are handled in a list instead of calling querySelectorAll every frame
 
 ---
-
-**Next:**
-- Get the worm in there!
 
 ## Plans For Update v1-4/5
 - Look into reducing css rendering time
