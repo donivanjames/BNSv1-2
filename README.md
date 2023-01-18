@@ -38,7 +38,9 @@ Hey Team! This is the code repository for Brand New Game
 - Look into reducing css rendering time
 - Experiement with making hallway background/ceiling transparent so there's not as much to render
 - Score over player's head
+- Even shorter guy 
 - Increase difficulty over time
+- Bobbing apples?
 - Need to customize intro screen size for every device (a ui container within main container could work universally)
 - Screen flash and sound effect when player enters school
 - could use the "rect" in checkApple() to assign which apple to remove (currently collecting an apple removes them all becuase it reuses the obstacle code)
