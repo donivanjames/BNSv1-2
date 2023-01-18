@@ -51,14 +51,23 @@ export function removeAllApples() {
 // UPDATE OBSTACLE
 export function updateCactus(delta, speed, speedScale, environment) {
   cactusList.forEach((cactus) => {
+    incrementCustomProperty(cactus, "--left", delta * speed * -1);
+
     const pos = getCustomProperty(cactus, "--left")
+    if(pos <= -10) {
+      cactus.remove()
+      cactusList = cactusList.filter(item => item !== cactus) // .splice() lags obstacles too much
+      console.log("Cactus removed: ", cactusList)
+    }
+  });
+  appleList.forEach((apple) => {
+    const pos = getCustomProperty(apple, "--left")
 
     if(pos <= -10) {
-      const i = cactusList.indexOf(cactus)
-      cactus.remove()
-      cactusList.splice(i, 1);
+      apple.remove()
+      appleList = appleList.filter(item => item !== apple)
     }
-    else incrementCustomProperty(cactus, "--left", delta * speed * -1);
+    else incrementCustomProperty(apple, "--left", delta * speed * -1);
   });
 
   if (nextCactusTime <= 0) {
@@ -134,7 +143,7 @@ export function createCactus(environment) {
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
   cactus.dataset.obstacle = true;
 
-  const obNum = randomNumberBetween(1, 6);
+  const obNum = randomNumberBetween(1, 2);
 
   // Set this based on environment
   cactus.src = `imgs/obstacle-${obNum}.png`; // selects the correct image from files
@@ -150,6 +159,7 @@ export function createCactus(environment) {
 
 // CREATE APPLE
 export function createApple() {
+  console.log("Attempted Apple")
   const apple = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
   apple.dataset.obstacle = true;
@@ -159,12 +169,13 @@ export function createApple() {
     apple.src = "imgs/coin.png"; // selects the correct image from files
     apple.classList.add("coin"); // adds CSS styles to apple
   } else {
-    apple.src = "imgs/apple_v1.png"; // selects the correct image from files
+    apple.src = "imgs/apple-v02.png"; // selects the correct image from files
     apple.classList.add("apple"); // adds CSS styles to apple
   }
 
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
   worldElem.append(apple); // this adds our apple to the world
+  appleList.push(apple)
 }
 
 // RANDOM NUMBER GENERATOR

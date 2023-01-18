@@ -3,12 +3,11 @@ Hey Team! This is the code repository for Brand New Game
 
 # Updates
 
-**Next:** put obstacles in an array, if their position is less than 10: remove, otherwise move left and call getRects every frame
-
 ## Update v1-4 - The Optimization Update
 **Features**
 - You can now skip intro scene
 - Added sound toggle
+- Apples that spawn on obstacles become coins
 
 **Design**
 - Redid opening scene
@@ -19,11 +18,10 @@ Hey Team! This is the code repository for Brand New Game
 
 **Bug Fixes**
 - Hopefully fixed safari pixel scaling
-- Hopefully fixed ultrawide monitor scale difference in opening scene
 - Fixed first jump 'no sound' bug
 - Bug fix: Couldnt unpause with click, only esc
 - Bug fix: clicking outside screen during intro scene would start game paused
-- Stopped apples from spawning on obstacles 
+- Bug fix: When obstacles reached the halfway point they twitched back a little
 
 **Optimizations**
 - *Compressed Soundtrack from 6.42mb to 1.12mb*
@@ -34,9 +32,10 @@ Hey Team! This is the code repository for Brand New Game
 
 ---
 
+**Next:**
+- Mess around with title screen a little more, need an adjustable height for ultrawide monitors
+
 ## Plans For Update v1-4
-- Update apple art
-- Mess around with title screen a little more, want an adjustable height
 - Score over player's head
 - Increase difficulty over time
 - Leaderboard
@@ -46,11 +45,10 @@ Hey Team! This is the code repository for Brand New Game
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
-- Compress audio files
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
-- We're calling querySelectorAll twice every frame for obstacles (in update and getRects)
+- We're calling querySelectorAll twice every frame for apples (in update and getRects)
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
 - Bug: there's a 300ms space after dying where pause can be activated
@@ -138,3 +136,4 @@ Hey Team! This is the code repository for Brand New Game
 
 - Werewolves
 - Little worm/bunny friend
+- Boundary fixes 

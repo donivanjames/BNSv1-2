@@ -4,7 +4,7 @@ import { jumpSound, loseSound } from "./audioManager.js";
 const player = document.querySelector("[data-player]");
 const JUMP_SPEED = 0.30;
 const GRAVITY = 0.0015;
-const PLAYER_FRAME_COUNT = 4; // amount of animation frames
+const PLAYER_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
 
 const heightFromGround = 41 // also change css --bottom to match

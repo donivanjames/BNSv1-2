@@ -12,7 +12,6 @@
     margin: 0;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -37,12 +36,9 @@ body {
     color: #00450F;
 }
 
-
 .hide-img {
     opacity: 0.0;
 }
-
-
 
 .text-shadow {
     text-shadow: -1px 1px 2px #000,
@@ -81,6 +77,7 @@ body {
     /* height: 14%; Player size */
     max-height: 18%;
     max-width: 7%;
+    z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
     --bottom: 41; 
@@ -105,7 +102,6 @@ body {
 .zindex-top {
     z-index: 10;
 }
-
 
 @media (max-width : 1000px) {
     body {

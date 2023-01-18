@@ -2,7 +2,7 @@
     --bottom = object height from ground  */
 
 .apple {
-    height: 7%;
+    height: 9%;
     --bottom: 41;
 }
 
@@ -13,7 +13,7 @@
 
 /* Trash */
 .obstacle1 {
-    height: 16%;
+    height: 15%;
     --bottom: 33;
 }
 
@@ -46,5 +46,5 @@
 
 /* Some CSS that covers just obstacles */
 .obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6 .cactus {
-    z-index: 1;
+    z-index: 0;
 }

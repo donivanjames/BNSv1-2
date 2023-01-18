@@ -4,7 +4,7 @@ import { setupGame, sequence3 } from "../script.js"
 let lastTime = null
 let introSpeed = 0.025
 let waitAtEnd = 1000
-const PLAYER_FRAME_COUNT = 4; // amount of animation frames
+const PLAYER_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
 let playerFrame = 0
 let currentFrameTime = 0
