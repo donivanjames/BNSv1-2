@@ -23,13 +23,6 @@ export function setupPlayer(environment) {
   yVelocity = 0;
   player.src = `imgs/kid-idle.png`;
 
-  // Need a different zindex for the school so player falls into puddle and not behind it
-  player.classList.remove("zindex-top")
-  player.classList.add("zindex-default")
-  if(environment == 2){
-    player.classList.add("zindex-top")
-    player.classList.remove("zindex-default")
-  }
   setCustomProperty(player, "--bottom", heightFromGround);
 }
 

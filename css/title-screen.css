@@ -1,12 +1,36 @@
-.start-screen {
+/* .start-screen {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 88%;
+  height: auto;
   padding-top: 49%; /* fixed aspect ratio based on width */
-  /* height: 445px; */
+  /* height: 445px; */ /*
+  overflow: hidden;
+} */
+
+/* .start-screen-img {
+  position: absolute;
+
+  /* Set up proportionate scaling */ /*
+  width: auto;
+  height: 456%;
+  top: -0vw;
+  --top: -0;
+} */
+
+.start-screen {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 27%; /* fixed aspect ratio based on width */
+  
   overflow: hidden;
 }
 
@@ -14,8 +38,8 @@
   position: absolute;
 
   /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 456%;
   top: -0vw;
   --top: -0;
 }
@@ -42,7 +66,7 @@ button, .back-to-bns-button, .sound-toggle-button {
 .title-text {
   position: absolute;
   font-size: 1.5vw;
-  left: 42%;
+  left: 44%;
   --top: 20;
   display: inline-block;
   padding: 0.8vw 1vw 0.6vw 1vw;
@@ -63,7 +87,7 @@ button, .back-to-bns-button, .sound-toggle-button {
 .sound-toggle-button {
   width: auto;
   font-size: 1.5vw;
-  left: 55vw;
+  left: 61vw;
   --top: 60;
   border:4px solid black;
   background: none;
@@ -72,7 +96,7 @@ button, .back-to-bns-button, .sound-toggle-button {
 
 .back-to-bns-button {
   width: 14vw;
-  left: 1vw;
+  left: 8vw;
   --top: 2;
   border:4px solid black;  
 }
@@ -87,7 +111,7 @@ button, .back-to-bns-button, .sound-toggle-button {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 20;
-  --top: 401;
+  --top: 397.5;
   left: calc(var(--left) * 1%);
 }
 
@@ -98,4 +122,9 @@ button, .back-to-bns-button, .sound-toggle-button {
   will-change: transform;
 }
 
+@media screen and (orientation:portrait) { 
+  .start-screen {
+    height: 26vh;
+  }
+}
 
