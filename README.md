@@ -33,25 +33,26 @@ Hey Team! This is the code repository for Brand New Game
 ---
 
 **Next:**
-- Mess around with title screen a little more, need an adjustable height for ultrawide monitors
 
-## Plans For Update v1-4
+## Plans For Update v1-4/5
+- Look into reducing css rendering time
+- Experiement with making hallway background/ceiling transparent so there's not as much to render
 - Score over player's head
 - Increase difficulty over time
-- Leaderboard
+- Need to customize intro screen size for every device (a ui container within main container could work universally)
 - Screen flash and sound effect when player enters school
-- Could maybe only start checking boundaries when object is near player?
-- could use the "rect" in checkApple() to assign which apple to remove
+- could use the "rect" in checkApple() to assign which apple to remove (currently collecting an apple removes them all becuase it reuses the obstacle code)
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
-- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - We're calling querySelectorAll twice every frame for apples (in update and getRects)
+- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
 - Bug: there's a 300ms space after dying where pause can be activated
+- Leaderboard
 
 ---
 
