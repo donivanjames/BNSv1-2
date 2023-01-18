@@ -26,7 +26,7 @@ Next: stop scroll if event is a link or button
 - Stopped apples from spawning on obstacles 
 
 **Optimizations**
-- Compressed Soundtrack from 6.42mb to 
+- *Compressed Soundtrack from 6.42mb to 1.12mb*
 - Completly redid input system
 - Added .gitignore and deleted old images to save space
 
@@ -39,7 +39,6 @@ Next: stop scroll if event is a link or button
 - Screen flash and sound effect when player enters school
 - Could maybe only start checking boundaries when object is near player?
 - could use the "rect" in checkApple() to assign which apple to remove
-- Still need a good soundtrack
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
