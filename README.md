@@ -33,6 +33,7 @@ Hey Team! This is the code repository for Brand New Game
 ---
 
 **Next:**
+- Get the worm in there!
 
 ## Plans For Update v1-4/5
 - Look into reducing css rendering time
@@ -54,7 +55,7 @@ Hey Team! This is the code repository for Brand New Game
 - Mobile: maybe don't change background color for faster processing
 - Potential loading screen
 - Bug: there's a 300ms space after dying where pause can be activated
-- Leaderboard
+- Leaderboard 
 
 ---
 
