@@ -33,7 +33,6 @@ export function updateGround(delta, speed, speedScale) {
     // Has ground 1 moved all the way off screen? Loop it around to the back
     if (getCustomProperty(ground, "--left") <= -groundWidth) {
       ground.src = `imgs/background-${chooseGround()}.png`
-      console.log("Random ground")
       incrementCustomProperty(ground, "--left", groundWidth * 2); // width x 2, frames split if its an even 600
     }
   });

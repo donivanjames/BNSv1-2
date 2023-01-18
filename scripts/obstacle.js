@@ -146,7 +146,6 @@ export function createApple() {
   if (nextCactusTime < 100 || nextCactusTime > nextChosenCactusTime - 200) {
     apple.src = "imgs/coin.png"; // selects the correct image from files
     apple.classList.add("coin"); // adds CSS styles to apple
-    console.log("coin spawned");
   } else {
     apple.src = "imgs/apple_v1.png"; // selects the correct image from files
     apple.classList.add("apple"); // adds CSS styles to apple
@@ -154,8 +153,6 @@ export function createApple() {
 
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
   worldElem.append(apple); // this adds our apple to the world
-
-  console.log("Apple spawned");
 }
 
 // RANDOM NUMBER GENERATOR

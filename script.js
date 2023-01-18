@@ -159,7 +159,6 @@ function unpauseGame() {
 }
 
 function startIntroScene() {
-  console.log("startIntroScene");
   playTitleSong();
   updateIntroScene();
 }
@@ -276,7 +275,6 @@ export function handleLose() {
 }
 
 function setPixelToWorldScale() {
-  console.log("Resized");
   let worldToPixelScale;
   if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
