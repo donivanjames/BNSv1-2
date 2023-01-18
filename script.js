@@ -213,7 +213,8 @@ export function handleGameStart() {
 // CHECK FOR GAME OVER
 export function checkLose() {
   const playerRect = getPlayerRect();
-  return getCactusRects().some((rect) => isCollision(rect, playerRect)); // if any of the obstacles are touching the player: lose the game
+  // if any of the obstacles are touching the player: lose the game
+  return getCactusRects().some((rect) => isCollision(rect, playerRect)); 
 }
 
 // CHECK FOR GAME OVER
@@ -231,12 +232,14 @@ export function collectApple() {
 // COLLISION CHECKER
 function isCollision(rect1, rect2) {
   // return true if there is overlap on any of the sides of the objects
-  return (
-    rect1.left < rect2.right &&
-    rect1.top < rect2.bottom &&
-    rect1.right > rect2.left &&
-    rect1.bottom > rect2.top
-  );
+  if(rect1) {
+    return (
+      rect1.left < rect2.right &&
+      rect1.top < rect2.bottom &&
+      rect1.right > rect2.left &&
+      rect1.bottom > rect2.top
+    );
+  }
 }
 
 // INCREASE SCORE BASED ON DELTA TIME //

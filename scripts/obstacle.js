@@ -24,10 +24,13 @@ let nextCactusTime;
 let nextChosenCactusTime; // for apple to coin safeguard
 export function setupObstacles() {
   nextAppleTime = APPLE_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
+  appleList = []
   document.querySelectorAll("[data-apple]").forEach((apple) => {
     apple.remove(); // remove any old apple in the scene when the game restarts
   });
+
   nextCactusTime = CACTUS_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
+  cactusList = []
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
     cactus.remove(); // remove any old cactus in the scene when the game restarts
   });
@@ -48,7 +51,9 @@ export function removeAllApples() {
 // UPDATE OBSTACLE
 export function updateCactus(delta, speed, speedScale, environment) {
   cactusList.forEach((cactus) => {
-    if(getCustomProperty(cactus, "--left") <= -10) {
+    const pos = getCustomProperty(cactus, "--left")
+
+    if(pos <= -10) {
       const i = cactusList.indexOf(cactus)
       cactus.remove()
       cactusList.splice(i, 1);
@@ -84,38 +89,41 @@ export function getAppleRects() {
 }
 
 // GET ALL CACTUS BOUNDARIES
-let boundaryBox = [];
+//let boundaryBox = [];
 export function getCactusRects() {
   // Red Box Code, Leave For Testing
-  // document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
+  //document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
 
-  // gives us all of the rectangles for all of the obstacles on the screen
-  const obMap = [...document.querySelectorAll("[data-cactus]")].map(
-    (cactus) => {
-      const obRect = cactus.getBoundingClientRect();
+  let obMap = cactusList.map((cactus) => {
 
-      obRect.width = obRect.width * 0.4;
-      // obRect.height = obRect.height * 0.60;
+      const pos = getCustomProperty(cactus, "--left")
 
-      // Red Box Code, Leave For Testing
-      /*
-      let tempBox = document.createElement('div');
-      tempBox.className = "tempBox"
-      tempBox.style = "border: 2px solid red; position: absolute;";
-      tempBox.style.left = obRect.left + 'px';
-      tempBox.style.top = obRect.top + 'px';
-      tempBox.style.width = obRect.width + 'px';
-      tempBox.style.height = obRect.height + 'px';
-      boundaryBox.push(tempBox)
-      */
+      // only checks for collisions if pos is past a certain point
+      if(pos < 35) {
+        const obRect = cactus.getBoundingClientRect();
 
-      return obRect;
-    }
-  );
+        obRect.width = obRect.width * 0.4; // set collision width to around half
+        // obRect.height = obRect.height * 0.60;
+  
+        // Red Box Code, Leave For Testing
+        // let tempBox = document.createElement('div');
+        // tempBox.className = "tempBox"
+        // tempBox.style = "border: 2px solid red; position: absolute;";
+        // tempBox.style.left = obRect.left + 'px';
+        // tempBox.style.top = obRect.top + 'px';
+        // tempBox.style.width = obRect.width + 'px';
+        // tempBox.style.height = obRect.height + 'px';
+        // boundaryBox.push(tempBox)
+        
+        return obRect;
+      }
+  })
+
+  //console.log("Obmap: ", obMap)
 
   // Red Box
-  boundaryBox.forEach((obstacle) => document.body.appendChild(obstacle));
-  boundaryBox = [];
+  // boundaryBox.forEach((obstacle) => document.body.appendChild(obstacle));
+  // boundaryBox = [];
 
   return obMap;
 }

@@ -29,6 +29,8 @@ Hey Team! This is the code repository for Brand New Game
 - *Compressed Soundtrack from 6.42mb to 1.12mb*
 - Completly redid input system
 - Added .gitignore and deleted old images to save space
+- Obstacle boundaries now only start checking when close to the player
+- Obstacles are handled in a list instead of calling querySelectorAll every frame
 
 ---
 
