@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2023-01-19T07:51:45.971Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" version="20.8.5" etag="CJlZLf4m3RyYRq6K_377" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-19T07:58:09.915Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" version="20.8.5" etag="L_cwPaWQjMTgeSdhX8EV" type="github">
   <diagram id="neVUZvPGqbSW-kz_h2vm" name="CSS Chart">
     <mxGraphModel dx="2284" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="_EXf-BUQ93rXr9Chj7X9-45" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fontSize=16;glass=0;rounded=0;shadow=0;imageAspect=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="280" height="280" as="geometry" />
+        </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-3" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fontSize=16;direction=south;" vertex="1" parent="1">
           <mxGeometry x="200" y="60" width="400" height="50" as="geometry" />
         </mxCell>
@@ -62,7 +65,7 @@
           <mxGeometry x="140" y="180" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-32" value=".start-screen-img" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="140" y="260" width="120" height="40" as="geometry" />
+          <mxGeometry x="205" y="290" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-35" value="" style="endArrow=classic;html=1;rounded=0;fontSize=16;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -70,26 +73,26 @@
             <mxPoint x="200" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="_EXf-BUQ93rXr9Chj7X9-37" value=".button" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="180" width="120" height="40" as="geometry" />
+        <mxCell id="_EXf-BUQ93rXr9Chj7X9-37" value="button" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="205" y="350" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-38" value=".back-to-bns-button" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="240" width="120" height="40" as="geometry" />
+          <mxGeometry x="70" y="290" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-39" value=".sound-toggle-button" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="300" width="120" height="40" as="geometry" />
+          <mxGeometry x="70" y="350" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-40" value=".title-text" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="360" width="120" height="40" as="geometry" />
+          <mxGeometry x="70" y="410" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-41" value=".title-text h2" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="420" width="120" height="40" as="geometry" />
+          <mxGeometry x="70" y="470" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-42" value=".start-screen-bunny" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="480" width="120" height="40" as="geometry" />
+          <mxGeometry x="205" y="410" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-43" value=".movable-item" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="540" width="120" height="40" as="geometry" />
+          <mxGeometry x="205" y="470" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_EXf-BUQ93rXr9Chj7X9-44" value="Mobile Customization" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="1">
           <mxGeometry x="-20" y="120" width="120" height="40" as="geometry" />
