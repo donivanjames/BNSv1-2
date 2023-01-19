@@ -11,7 +11,7 @@ let currentFrameTime = 0
 
 const bigImg = document.querySelector(".start-screen-img")
 const allDivs = document.querySelectorAll("[data-start-screen]")
-const player = document.querySelector(".start-screen-bunny")
+const player = document.querySelector(".start-screen-player")
 
 export function skipIntro() {
     introSpeed = 1;

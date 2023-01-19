@@ -1,51 +1,25 @@
-/* .start-screen {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  width: 88%;
-  height: auto;
-  padding-top: 49%; /* fixed aspect ratio based on width */
-  /* height: 445px; */ /*
-  overflow: hidden;
-} */
-
-/* .start-screen-img {
-  position: absolute;
-
-  /* Set up proportionate scaling */ /*
-  width: auto;
-  height: 456%;
-  top: -0vw;
-  --top: -0;
-} */
-
 .start-screen {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   overflow: hidden;
-  width: 100vw;
   height: 100vh;
-  padding-top: 27%; /* fixed aspect ratio based on width */
-  
-  overflow: hidden;
+  aspect-ratio: auto 16 /9;
+  overflow: hidden; /* hidden needs to go here and not in container */
+}
+
+.title-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .start-screen-img {
   position: absolute;
-
-  /* Set up proportionate scaling */
   width: auto;
   height: 456%;
   top: -0vw;
   --top: -0;
-}
-
-.start-screen-content {
-  position: absolute;
 }
 
 button, .back-to-bns-button, .sound-toggle-button {
@@ -59,16 +33,19 @@ button, .back-to-bns-button, .sound-toggle-button {
   white-space: nowrap;
   z-index: 3;
   font-size: 0.8vw;
+  text-size-adjust: auto;
   font-family: inherit;
   border: none;
 }
 
 .title-text {
   position: absolute;
-  font-size: 1.5vw;
-  left: 44%;
+  font-size: 1.2vw;
+  text-size-adjust: auto;
+  left: 42%;
+  top: 20%;
   --top: 20;
-  display: inline-block;
+  display: block;
   padding: 0.8vw 1vw 0.6vw 1vw;
   color: #001307;
   cursor: pointer;
@@ -82,36 +59,42 @@ button, .back-to-bns-button, .sound-toggle-button {
 
 .title-text h2 {
   color: #fff0cc;
+  text-size-adjust: auto;
 }
 
 .sound-toggle-button {
   width: auto;
-  font-size: 1.5vw;
-  left: 61vw;
+  font-size: 1.2vw;
+  text-size-adjust: auto;
+  left: 63%;
+  top: 60%;
   --top: 60;
-  border:4px solid black;
+  border:2px solid black;
   background: none;
 }
 
 
 .back-to-bns-button {
   width: 14vw;
-  left: 8vw;
-  --top: 2;
-  border:4px solid black;  
+  left: 1vw;
+  top: 2vh;
+  border:2px solid black;  
 }
 
 .back-to-bns-button:hover, .sound-toggle-button:hover {
-    border:3x solid rgb(0, 222, 0); 
+    border:2x solid rgb(0, 222, 0); 
     color: rgb(0, 222, 0);
 }
 
-.start-screen-bunny {
+.start-screen-player {
+  position: absolute;
   height: 10%;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 20;
-  --top: 397.5;
+  top: 397%;
+  z-index: 10;
+  /* --top: 397.5; */
   left: calc(var(--left) * 1%);
 }
 

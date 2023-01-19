@@ -17,34 +17,34 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    
+
     min-height: 100vh;
-    max-height: 100vh; /* need both min and max to work */
-    width: auto;
-    margin: 0;
+    max-height: 100vh; /* these need to stay in body */
+
     font-family: 'Press Start 2P', cursive;
     color: rgb(255, 255, 255);
     background-color: #00300a;
   }
 
+  .game-container {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+  }
+
   .world {
-    top: 50%;
     position: relative;
+    top: 50%;
     background-color: #BF92FF;
     overflow: hidden;
     width: 100%;
     color: #00450F;
+    padding-top: (16 / 9 * 100);
 }
 
 .hide-img {
     opacity: 0.0;
-}
-
-.text-shadow {
-    text-shadow: -1px 1px 2px #000,
-    1px 1px 2px #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
 }
 
 .hide {
@@ -58,17 +58,10 @@ body {
     /* width is 1% bigger to cover boundary glitches */
     width: 151%;
     height: auto;
-    top: 7vh;
+    top: 10.4%;
     left: calc(var(--left) * 1%);
     will-change: transform;
     object-fit: cover;
-}
-
-.pixel-scale {
-    /* Scale Pixel Art!! */
-    image-rendering: pixelated;
-    /* image-rendering: -moz-crisp-edges; */
-    image-rendering: crisp-edges;
 }
 
 .player {
@@ -89,6 +82,7 @@ body {
     image-rendering: crisp-edges;
 }
 
+/* is this needed? */
 .player::after {
     clear: both;
     overflow: visible;
@@ -110,14 +104,6 @@ body {
     /* Scale Pixel Art!! Doesnt work on Safari :( */
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-}
-
-.zindex-default{
-    z-index: 0;
-}
-
-.zindex-top {
-    z-index: 10;
 }
 
 @media (max-width : 1000px) {

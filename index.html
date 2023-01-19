@@ -25,62 +25,66 @@
 
   <!-- Body is where everything you see on the page is hosted. The whole game is right here! -->
   <body>
+    <!-- Menu Screen -->
+    <div class="start-screen" data-start-screen>
+      <div class="title-container moveable-item">
+        <img
+          src="imgs/landing-page-v3.png"
+          class="start-screen-img"
+          data-start-screen
+        />
 
-    
-  <!-- Menu Screen -->
-  <div class="start-screen" data-start-screen>
-      <img src="imgs/landing-page-v3.png" class="start-screen-img moveable-item" data-start-screen />
+        <div class="title-text" data-start-screen>
+          <h2>SUPER SCHOOL QUEST</h2>
+          <br />
+          <h5>
+            NEW SITE COMING SOON <br />
+            PLAY A GAME WHILE YOU WAIT
+            <br /><br /><br />
+            <div class="text-blink">TAP OR SPACE TO START</div>
+          </h5>
+        </div>
 
-      <div class="title-text moveable-item" data-start-screen>
-        <h2>SUPER SCHOOL QUEST</h2><br>
-        <h5>
-          NEW SITE COMING SOON <br>
-          PLAY A GAME WHILE YOU WAIT 
-          <br><br><br>
-          <div class="text-blink">TAP OR SPACE TO START</div>
-        </h5>
+        <button
+          class="button sound-toggle-button"
+          data-start-screen
+          data-sound-toggle
+        >
+          SOUND: ON
+        </button>
+        <a
+          href="https://brandnewschool.com/"
+          class="back-to-bns-button button"
+          data-start-screen
+          >Visit Old Site</a
+        >
+
+        <img
+          src="imgs/kid-idle.png"
+          class="start-screen-player"
+          data-start-screen
+        />
       </div>
-
-      <button class="button sound-toggle-button moveable-item" data-start-screen data-sound-toggle>SOUND: ON</button>
-      <a href="https://brandnewschool.com/" class="back-to-bns-button button moveable-item" data-start-screen>Visit Old Site</a>
-
-      
-      <img src="imgs/kid-idle.png" class="start-screen-bunny moveable-item" data-start-screen>
-  </div>
-  
-  
+    </div>
 
     <!-- The Game Screen -->
     <div class="world hide" data-world>
-      <!-- 2 ground sprites for the endless effect -->
-      <img
-        src="imgs/background-1.png"
-        class="ground hide-img"
-        data-ground
-      />
-      <img
-        src="imgs/background-1.png"
-        class="ground hide-img"
-        data-ground
-      />
+      <div class="game-container">
+        <!-- 2 ground sprites for the endless effect -->
+        <img src="imgs/background-1.png" class="ground hide-img" data-ground />
+        <img src="imgs/background-1.png" class="ground hide-img" data-ground />
 
-      <!-- Score Text -->
-      <div class="score-ui score hide" data-score>Score: 0</div>
-      <div class="score-ui high-score hide" data-score>High Score: 0</div>
+        <!-- Score Text -->
+        <div class="score-ui score hide" data-score>Score: 0</div>
+        <div class="score-ui high-score hide" data-score>High Score: 0</div>
 
-      
+        <!-- All the other UI -->
+        <div data-main-ui></div>
 
-      <!-- All the other UI -->
-      <div data-main-ui></div>
-
-      <!-- Sprites -->
-      <img src="imgs/kid-idle.png" class="player hide-img" data-player />
-      <img src="imgs/worm-idle.png" class="pet hide-img" data-pet />
+        <!-- Sprites -->
+        <img src="imgs/kid-idle.png" class="player hide-img" data-player />
+        <img src="imgs/worm-idle.png" class="pet hide-img" data-pet />
+      </div>
     </div>
-
-    
-    
-
-
   </body>
 </html>

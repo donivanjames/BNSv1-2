@@ -4,7 +4,7 @@ Hey Team! This is the code repository for Brand New Game
 # Updates
 
 **Next:**
-- Get the worm in there!
+- Look into reducing css rendering time
 
 ## Update v1-4 - The Optimization Update
 **Features**
@@ -14,6 +14,8 @@ Hey Team! This is the code repository for Brand New Game
 
 **Design**
 - Redid opening scene
+- Added werewolves
+- Added worm pet
 - Swapped out bunny for kid
 - Added aspect ratio to opening scene so that it performs the same on any monitor
 - Adjusted coin spawn position
@@ -29,6 +31,7 @@ Hey Team! This is the code repository for Brand New Game
 **Optimizations**
 - *Compressed Soundtrack from 6.42mb to 1.12mb*
 - Completly redid input system
+- Completly redid CSS so everything scales the same 
 - Added .gitignore and deleted old images to save space
 - Obstacle boundaries now only start checking when close to the player
 - Obstacles are handled in a list instead of calling querySelectorAll every frame
@@ -36,8 +39,7 @@ Hey Team! This is the code repository for Brand New Game
 ---
 
 ## Plans For Update v1-4/5
-- Look into reducing css rendering time
-- Experiement with making hallway background/ceiling transparent so there's not as much to render
+- Might be able to remove all --tops in title-screen.css
 - Score over player's head
 - Even shorter guy 
 - Increase difficulty over time
