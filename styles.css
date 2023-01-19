@@ -30,7 +30,7 @@ body {
   .world {
     top: 50%;
     position: relative;
-    background-color: #00C142;
+    background-color: #BF92FF;
     overflow: hidden;
     width: 100%;
     color: #00450F;
@@ -56,9 +56,9 @@ body {
     position: absolute;
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
     /* width is 1% bigger to cover boundary glitches */
-    height: 100%;
-    width: 301%;
-    bottom: 0%;
+    width: 151%;
+    height: auto;
+    top: 7vh;
     left: calc(var(--left) * 1%);
     will-change: transform;
     object-fit: cover;
@@ -80,19 +80,36 @@ body {
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 41; 
+    --bottom: 40.7; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 
-    /* Scale Pixel Art!! */
+    /* Scale Pixel Art!! Doesnt work on Safari :( */
     image-rendering: pixelated;
-    /* image-rendering: -moz-crisp-edges; */
     image-rendering: crisp-edges;
 }
 
 .player::after {
     clear: both;
     overflow: visible;
+}
+
+.pet {
+    position: absolute;
+    left: 10%;
+    /* height: 14%; Player size */
+    max-height: 18%;
+    max-width: 6%;
+    z-index: 2;
+    
+    /* Height Setup, Also Change player.js heightFromGround to match */
+    --bottom: 41; 
+    bottom: calc(var(--bottom) * 1%);
+    will-change: transform;
+
+    /* Scale Pixel Art!! Doesnt work on Safari :( */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .zindex-default{

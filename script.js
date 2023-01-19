@@ -9,6 +9,7 @@ import {
   showPlayer,
   onJump,
 } from "./scripts/player.js";
+import { setupPet } from "./scripts/pet.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -29,7 +30,7 @@ import {
   collect,
 } from "./scripts/obstacle.js";
 import { updateIntroScene, skipIntro } from "./scripts/introScene.js";
-import { getCustomProperty } from "./scripts/updateCustomProperty.js";
+
 
 ///////////////////// 
 //   WORLD SETUP   //

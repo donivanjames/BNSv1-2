@@ -1,8 +1,8 @@
 :root {
   --outside-top-color: #fe5000;
-  --outside-bottom-color: #084616;
-  --hallway-top-color: #00A638;
-  --hallway-bottom-color: #00A638;
+  --outside-bottom-color: #BF92FF;
+  --hallway-top-color: #BF92FF;
+  --hallway-bottom-color: #BF92FF;
   --library-top-color: #BB5E4A;
   --library-bottom-color: #3C4043;
   --lab-top-color: #61A9FF;
@@ -12,7 +12,7 @@
 }
 
 .black-screen {
-  background-color: #00C142;
+  background-color: #BF92FF;
 }
 
 .outside {

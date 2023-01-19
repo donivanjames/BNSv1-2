@@ -3,7 +3,7 @@
 
 .apple {
     height: 9%;
-    --bottom: 41;
+    --bottom: 40.3;
 }
 
 .coin {
@@ -20,7 +20,7 @@
 /* Puddle */
 .obstacle2 {
     height: 20%;
-    --bottom: 30;
+    --bottom: 29.6;
 }
 
 /* Book Stack */
