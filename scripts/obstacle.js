@@ -143,7 +143,7 @@ export function createCactus(environment) {
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
   cactus.dataset.obstacle = true;
 
-  const obNum = randomNumberBetween(1, 2);
+  const obNum = randomNumberBetween(1, 3);
 
   // Set this based on environment
   cactus.src = `imgs/obstacle-${obNum}.png`; // selects the correct image from files

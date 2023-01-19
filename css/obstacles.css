@@ -23,11 +23,17 @@
     --bottom: 29.6;
 }
 
-/* Book Stack */
+/* Werewolf */
 .obstacle3 {
+    height: 10%;
+    --bottom: 40.3;
+}
+
+/* Book Stack */
+/* .obstacle3 {
     height: 7%;
     --bottom: 41;
-}
+} */
 
 /* Small Book Stacks */
 .obstacle4, .obstacle5, .obstacle6 {
