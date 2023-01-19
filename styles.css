@@ -80,7 +80,7 @@ body {
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 40.7; 
+    --bottom: 40.5; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 
@@ -103,7 +103,7 @@ body {
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 41; 
+    --bottom: 40.5; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 

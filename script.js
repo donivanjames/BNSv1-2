@@ -9,7 +9,7 @@ import {
   showPlayer,
   onJump,
 } from "./scripts/player.js";
-import { setupPet } from "./scripts/pet.js";
+import { setupPet, showPet, handlePetJump } from "./scripts/pet.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -177,6 +177,7 @@ export function setupGame() {
     `;
 
   showPlayer(); // show player
+  showPet()
   showGround(); // show scene
   //addStartGameInputListeners();
   document.body.classList.add("hallway"); // change background color
@@ -199,7 +200,8 @@ export function handleGameStart() {
     scoreElem.forEach((item) => (item.style.color = fontColor));
 
     //addPlayerInputListeners();
-    setupPlayer(environment);
+    setupPlayer();
+    setupPet()
     updateEnvironment(environment);
     setupObstacles();
     // setupApple();

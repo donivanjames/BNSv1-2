@@ -1,5 +1,6 @@
 import { updateGround } from "./ground.js";
 import { updatePlayer } from "./player.js";
+import { updatePet } from "./pet.js";
 // import { updateCactus } from "./cactus.js";
 // import { updateApple } from "./apple.js";
 import {
@@ -48,6 +49,7 @@ export function update(time) {
 
     updateGround(delta, speed, speedScale);
     updatePlayer(delta, speedScale);
+    updatePet(delta)
     updateCactus(delta, speed, speedScale, environment);
     // updateApple(delta, speed, speedScale);
     lastTime = time;

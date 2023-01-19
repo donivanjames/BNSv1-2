@@ -1,15 +1,17 @@
 const pet = document.querySelector("[data-pet]")
+import { setCustomProperty } from "./updateCustomProperty.js";
 const JUMP_SPEED = 0.30;
 const GRAVITY = 0.0015;
 const PET_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
-const heightFromGround = 41 // also change css --bottom to match
+const heightFromGround = 40.5 // also change css --bottom to match
 
-// PLAYER SETUP
+// PET SETUP
 let isJumping;
 let petFrame;
 let currentFrameTime;
 let yVelocity;
+
 export function setupPet() {
   isJumping = false; // Reset all past values
   petFrame = 0;
@@ -26,54 +28,53 @@ export function showPet(){
 
 // UPDATE PET
 export function updatePet(delta, speedScale) {
-    handleRun(delta, speedScale, pet);
-    handleJump(delta);
+    handlePetRun(delta, pet);
+    handlePetJump(delta);
   }
 
   // HANDLE RUN - also used in introScene.js
-function handleRun(delta, speedScale) {
+function handlePetRun(delta, speedScale) {
     if (isJumping) {
       // if isJumping: set animation to stationary
-      player.src = `imgs/kid-jump.png`;
+      pet.src = `imgs/worm-jump.png`;
       return;
     }
   
     if (currentFrameTime >= FRAME_TIME) {
       // swaps animation frames when currentFrameTime is above frameTime
-      playerFrame = (playerFrame + 1) % PLAYER_FRAME_COUNT; // will cycle animation frames no matter how many there are
-      player.src = `imgs/kid-run${playerFrame}.png`; // picks an image from the current player frame
+      petFrame = (petFrame + 1) % PET_FRAME_COUNT; // will cycle animation frames no matter how many there are
+      console.log("petframe: ", petFrame)
+      pet.src = `imgs/worm-walk${petFrame}.png`; // picks an image from the current pet frame
       currentFrameTime = 0; // reset currentFrameTime back to 0
       // currentFrameTime -= FRAME_TIME; // used to be this, if there's ever more than two frames you might need this
     }
   
-    currentFrameTime += delta * speedScale; // animation will play faster as the level speeds up
+    currentFrameTime += delta * 1; // animation will play faster as the level speeds up
   }
 
   // HANDLE JUMP
-function handleJump(delta) {
-    if (!isJumping) return; // if not jumping then exit out
-  
-    
-    incrementCustomProperty(player, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
-  
-    //if (getCustomProperty(player, "--bottom") <= jumpableHeight) {
-      // allow jumping here
-      if (getCustomProperty(player, "--bottom") <= heightFromGround) {
-      // if player is back on the ground: continue running
-      setCustomProperty(player, "--bottom", heightFromGround); // make sure player position is zero
-      isJumping = false
-      playerFrame = 1
-    //}
-  }
-    yVelocity -= GRAVITY * delta; // jump velovity slows down and goes negative while in the air to pull player back to ground
-  }
-  
-  export function onJump(event) {
-    if(isJumping) return
-  
-    jumpSound()
-  
-   
-    yVelocity = JUMP_SPEED;
-    isJumping = true;
-  }
+export function handlePetJump(delta) {
+  if (!isJumping) return; // if not jumping then exit out
+
+  incrementCustomProperty(pet, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
+
+  //if (getCustomProperty(pet, "--bottom") <= jumpableHeight) {
+    // allow jumping here
+    if (getCustomProperty(pet, "--bottom") <= heightFromGround) {
+    // if pet is back on the ground: continue running
+    setCustomProperty(pet, "--bottom", heightFromGround); // make sure pet position is zero
+    isJumping = false
+    petFrame = 1
+  //}
+}
+  yVelocity -= GRAVITY * delta; // jump velovity slows down and goes negative while in the air to pull pet back to ground
+}
+
+export function onJump(event) {
+  if(isJumping) return
+
+  jumpSound()
+
+  yVelocity = JUMP_SPEED;
+  isJumping = true;
+}
