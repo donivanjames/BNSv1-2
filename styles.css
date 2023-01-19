@@ -90,10 +90,8 @@ body {
 
 .pet {
     position: absolute;
-    left: 10%;
-    /* height: 14%; Player size */
-    max-height: 18%;
-    max-width: 6%;
+    left: 12%;
+    width: 5%;
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */

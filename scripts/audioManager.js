@@ -47,6 +47,15 @@ export function jumpSound() {
   if(soundOn) jumpSoundAudio.play()
 }
 
+// PET JUMP
+
+let petJumpSoundAudio = new Audio("sounds/jump-3.mp3")
+petJumpSoundAudio.volume = 0.15
+
+export function petJumpSound() {
+  if(soundOn) petJumpSoundAudio.play()
+}
+
 // PLAYER LOSE
 
 let loseSoundAudio = new Audio("sounds/game-lose-3.mp3")

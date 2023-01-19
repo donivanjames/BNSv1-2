@@ -16,6 +16,7 @@ Hey Team! This is the code repository for Brand New Game
 - Redid opening scene
 - Added werewolves
 - Added worm pet
+- Made worm pet jump
 - Swapped out bunny for kid
 - Added aspect ratio to opening scene so that it performs the same on any monitor
 - Adjusted coin spawn position
@@ -24,6 +25,7 @@ Hey Team! This is the code repository for Brand New Game
 **Bug Fixes**
 - Hopefully fixed safari pixel scaling
 - Fixed first jump 'no sound' bug
+- Worm pet jump frames werent resetting on game restart
 - Bug fix: Couldnt unpause with click, only esc
 - Bug fix: clicking outside screen during intro scene would start game paused
 - Bug fix: When obstacles reached the halfway point they twitched back a little

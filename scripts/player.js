@@ -1,5 +1,6 @@
 import { getCustomProperty, setCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
 import { jumpSound, loseSound } from "./audioManager.js";
+import { wormJump } from "./pet.js";
 
 const player = document.querySelector("[data-player]");
 const JUMP_SPEED = 0.30;
@@ -109,7 +110,7 @@ export function onJump(event) {
   if(isJumping) return
 
   jumpSound()
-
+  wormJump()
  
   yVelocity = JUMP_SPEED;
   isJumping = true;

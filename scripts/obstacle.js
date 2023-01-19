@@ -49,7 +49,7 @@ export function removeAllApples() {
 }
 
 // UPDATE OBSTACLE
-export function updateCactus(delta, speed, speedScale, environment) {
+export function updateCactus(delta, speed, speedScale) {
   cactusList.forEach((cactus) => {
     incrementCustomProperty(cactus, "--left", delta * speed * -1);
 
@@ -57,7 +57,6 @@ export function updateCactus(delta, speed, speedScale, environment) {
     if(pos <= -10) {
       cactus.remove()
       cactusList = cactusList.filter(item => item !== cactus) // .splice() lags obstacles too much
-      console.log("Cactus removed: ", cactusList)
     }
   });
   appleList.forEach((apple) => {
@@ -72,7 +71,7 @@ export function updateCactus(delta, speed, speedScale, environment) {
 
   if (nextCactusTime <= 0) {
     // when obstacle time reaches zero: summon a new obstacle
-    createCactus(environment);
+    createCactus();
     nextCactusTime =
       randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX) /
       speedScale; // divide by speedscale so obstacles speed up over time
@@ -128,7 +127,6 @@ export function getCactusRects() {
       }
   })
 
-  //console.log("Obmap: ", obMap)
 
   // Red Box
   // boundaryBox.forEach((obstacle) => document.body.appendChild(obstacle));
@@ -138,7 +136,7 @@ export function getCactusRects() {
 }
 
 // CREATE CACTUS
-export function createCactus(environment) {
+export function createCactus() {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
   cactus.dataset.obstacle = true;
@@ -153,13 +151,10 @@ export function createCactus(environment) {
   setCustomProperty(cactus, "--top", 0); // might not need this
   worldElem.append(cactus); // this adds our obstacle to the world
   cactusList.push(cactus);
-
-  console.log(cactusList)
 }
 
 // CREATE APPLE
 export function createApple() {
-  console.log("Attempted Apple")
   const apple = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
   apple.dataset.obstacle = true;

@@ -15,7 +15,6 @@ let pause = false;
 const speed = 0.03;
 const speedScale = 1;
 const SPEED_SCALE_INCREASE = 0.0; // Rate of player speed increase // Works with updateSpeedScale()
-let environment = 1;
 
 export function pauseUpdate() {
   pause = true;
@@ -23,10 +22,6 @@ export function pauseUpdate() {
 
 export function unPauseUpdate() {
   pause = false;
-}
-
-export function updateEnvironment(env){
-  environment = env
 }
 
 // FRAMERATE LOOP SETUP //
@@ -50,7 +45,7 @@ export function update(time) {
     updateGround(delta, speed, speedScale);
     updatePlayer(delta, speedScale);
     updatePet(delta)
-    updateCactus(delta, speed, speedScale, environment);
+    updateCactus(delta, speed, speedScale);
     // updateApple(delta, speed, speedScale);
     lastTime = time;
 

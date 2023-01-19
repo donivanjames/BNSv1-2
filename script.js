@@ -17,12 +17,7 @@ import {
   stopRunSong,
   soundToggle,
 } from "./scripts/audioManager.js";
-import {
-  update,
-  pauseUpdate,
-  unPauseUpdate,
-  updateEnvironment,
-} from "./scripts/update.js";
+import { update, pauseUpdate, unPauseUpdate } from "./scripts/update.js";
 import {
   setupObstacles,
   getAppleRects,
@@ -31,8 +26,7 @@ import {
 } from "./scripts/obstacle.js";
 import { updateIntroScene, skipIntro } from "./scripts/introScene.js";
 
-
-///////////////////// 
+/////////////////////
 //   WORLD SETUP   //
 /////////////////////
 const WORLD_WIDTH = 200;
@@ -44,7 +38,6 @@ document.documentElement.style.setProperty(
 
 let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
 let applesCollected = 0;
-let environment = 1;
 let pause = false;
 
 //   UI ELEMENTS   //
@@ -52,7 +45,7 @@ const mainUIElem = document.querySelector("[data-main-ui]");
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelectorAll("[data-score]");
 const preGameScreen = document.querySelectorAll("[data-start-screen]");
-const soundButton = document.querySelector("[data-sound-toggle]")
+const soundButton = document.querySelector("[data-sound-toggle]");
 
 //   SPEED AND SCORE   //
 let score = 0;
@@ -70,13 +63,12 @@ function addPlayerInputListeners() {
 addPlayerInputListeners();
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
-soundButton.addEventListener("click", () => soundToggle(soundButton))
-
+soundButton.addEventListener("click", () => soundToggle(soundButton));
 
 // Input Handler
 let inputNum = 1;
 export function handleAllInput(event) {
-  if(event.target.classList.contains("button")) return
+  if (event.target.classList.contains("button")) return;
 
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
     return;
@@ -98,9 +90,9 @@ export function handleAllInput(event) {
       // start first scene/handleFirstInput()
       sequence1();
       break;
-      case 2:
-        sequence2()
-        break;
+    case 2:
+      sequence2();
+      break;
     case 3:
       sequence3();
       break;
@@ -122,8 +114,8 @@ function sequence1(event) {
 }
 
 // Skip intro scene
-function sequence2(){
-  skipIntro()
+function sequence2() {
+  skipIntro();
 }
 
 //Skip first scene or setup first level
@@ -177,7 +169,7 @@ export function setupGame() {
     `;
 
   showPlayer(); // show player
-  showPet()
+  showPet();
   showGround(); // show scene
   //addStartGameInputListeners();
   document.body.classList.add("hallway"); // change background color
@@ -201,8 +193,7 @@ export function handleGameStart() {
 
     //addPlayerInputListeners();
     setupPlayer();
-    setupPet()
-    updateEnvironment(environment);
+    setupPet();
     setupObstacles();
     // setupApple();
     resetGround();
@@ -217,7 +208,7 @@ export function handleGameStart() {
 export function checkLose() {
   const playerRect = getPlayerRect();
   // if any of the obstacles are touching the player: lose the game
-  return getCactusRects().some((rect) => isCollision(rect, playerRect)); 
+  return getCactusRects().some((rect) => isCollision(rect, playerRect));
 }
 
 // CHECK FOR GAME OVER
@@ -235,7 +226,7 @@ export function collectApple() {
 // COLLISION CHECKER
 function isCollision(rect1, rect2) {
   // return true if there is overlap on any of the sides of the objects
-  if(rect1) {
+  if (rect1) {
     return (
       rect1.left < rect2.right &&
       rect1.top < rect2.bottom &&
