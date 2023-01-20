@@ -1,8 +1,5 @@
 .start-screen {
   position: relative;
-  
-  display: flex;
-  justify-content: center;
   height: 100vh;
   aspect-ratio: auto 16 / 9;
   overflow: hidden; /* hidden needs to go here and not in container */
