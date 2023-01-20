@@ -23,7 +23,7 @@ body {
 
     font-family: 'Press Start 2P', cursive;
     color: rgb(255, 255, 255);
-    background-color: #00300a;
+    background-color: #351f54;
   }
 
   .game-container {
@@ -91,8 +91,8 @@ body {
 
 .pet {
     position: absolute;
-    left: 17%;
-    width: 2%;
+    left: 15%;
+    width: 3%;
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */

@@ -19,7 +19,7 @@
 }
 
 .high-score {
-    right: 2vmin;
+    right: 3vmin;
 }
 
 .textContainer {
@@ -27,7 +27,6 @@
     overflow:visible;
     z-index: 10;
 }
-
 .game-over-screen, .home-screen, .pause-screen {
     position: absolute;
     text-align: center;
