@@ -4,7 +4,34 @@ Hey Team! This is the code repository for Brand New Game
 # Updates
 
 **Next:**
-- Look into reducing css rendering time
+- More apples: to do this we'll need to disconnect apple code from obstacle code
+- Make other obstacles except the one the player hits dissapear on game over
+
+## Plans For Update v1-4/5
+- Fix vertical leaderboard scaling
+- Might be able to remove all --tops in title-screen.css
+- Score over player's head
+- Even shorter guy 
+- Increase difficulty over time
+- Set up "Lazy Loading"
+- Set up GZip compression
+- Bobbing apples?
+- Need to customize intro screen size for every device (a ui container within main container could work universally)
+- Screen flash and sound effect when player enters school
+- could use the "rect" in checkApple() to assign which apple to remove (currently collecting an apple removes them all becuase it reuses the obstacle code)
+- Allow player to jump slightly before touching the ground for better response time
+- Get short, loopable sound bites for audio so it loads in faster
+- Customize "Tap to start" text for mobile
+- Get mobile version working properly
+- Every frame we're querying ALL obstacles, could slow down system
+- We're calling querySelectorAll twice every frame for apples (in update and getRects)
+- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
+- Mobile: maybe don't change background color for faster processing
+- Potential loading screen
+- Bug: there's a 300ms space after dying where pause can be activated
+- Leaderboard 
+
+---
 
 ## Update v1-4 - The Optimization Update
 **Features**
@@ -37,32 +64,6 @@ Hey Team! This is the code repository for Brand New Game
 - Added .gitignore and deleted old images to save space
 - Obstacle boundaries now only start checking when close to the player
 - Obstacles are handled in a list instead of calling querySelectorAll every frame
-
----
-
-## Plans For Update v1-4/5
-- Fix vertical leaderboard scaling
-- Might be able to remove all --tops in title-screen.css
-- Score over player's head
-- Even shorter guy 
-- Increase difficulty over time
-- Set up "Lazy Loading"
-- Set up GZip compression
-- Bobbing apples?
-- Need to customize intro screen size for every device (a ui container within main container could work universally)
-- Screen flash and sound effect when player enters school
-- could use the "rect" in checkApple() to assign which apple to remove (currently collecting an apple removes them all becuase it reuses the obstacle code)
-- Allow player to jump slightly before touching the ground for better response time
-- Get short, loopable sound bites for audio so it loads in faster
-- Customize "Tap to start" text for mobile
-- Get mobile version working properly
-- Every frame we're querying ALL obstacles, could slow down system
-- We're calling querySelectorAll twice every frame for apples (in update and getRects)
-- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
-- Mobile: maybe don't change background color for faster processing
-- Potential loading screen
-- Bug: there's a 300ms space after dying where pause can be activated
-- Leaderboard 
 
 ---
 
