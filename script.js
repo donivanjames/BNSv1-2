@@ -255,10 +255,10 @@ export function handleLose() {
       <h1 style="color:#FE5000; font-size: 5vh;">GAME OVER!</h1>
       <div class="row">
         <div class="column">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
-        <div class="column">User<br>User<br>User<br>User<br>User<br>User<br>User<br>User<br>User<br>User</div>
-        <div class="column">10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000</div>
+        <div class="column">BRUMB<br>CHLOE<br>JNTHN<br>DOOLS<br>PHOEB<br>TREYY<br>ALEXS<br>COOKI<br>URIBE<br>NICCO</div>
+        <div class="column">23,000<br>22,000<br>20,000<br>19,000<br>18,000<br>18,000<br>17,000<br>16,000<br>15,000<br>14,000</div>
       </div>
-      <div class="text-blink">HIT SPACEBAR TO PLAY AGAIN</div>
+      <div class="text-blink" style="color:#CEFFDE">HIT SPACEBAR TO PLAY AGAIN</div>
       <p>VISIT OLD SITE</p> 
     </div>
   `;

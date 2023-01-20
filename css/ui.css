@@ -50,6 +50,7 @@
 
 .game-over-screen {
     position: absolute;
+    color: #00450F;
     font-size: 1.8vh;
     line-height: 3vh;
     white-space: pre;

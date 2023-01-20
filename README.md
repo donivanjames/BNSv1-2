@@ -26,8 +26,7 @@ Hey Team! This is the code repository for Brand New Game
 - Every frame we're querying ALL obstacles, could slow down system
 - We're calling querySelectorAll twice every frame for apples (in update and getRects)
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
-- Mobile: maybe don't change background color for faster processing
-- Potential loading screen
+- Potential loading screen for bad internet (lazy loading might fix this)
 - Bug: there's a 300ms space after dying where pause can be activated
 - Leaderboard 
 
