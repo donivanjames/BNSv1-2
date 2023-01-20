@@ -78,7 +78,7 @@ button, .back-to-bns-button, .sound-toggle-button {
   width: 14vw;
   left: 1vw;
   top: 2vh;
-  border:2px solid black;  
+  border:2px solid black; 
 }
 
 .back-to-bns-button:hover, .sound-toggle-button:hover {

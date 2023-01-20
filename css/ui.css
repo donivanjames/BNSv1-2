@@ -22,6 +22,11 @@
     right: 2vmin;
 }
 
+.textContainer {
+
+    overflow:scroll;
+}
+
 .game-over-screen, .home-screen, .pause-screen {
     position: absolute;
     text-align: center;
@@ -45,12 +50,26 @@
 }
 
 .game-over-screen {
-    font-size: 1.25vw;
-    line-height: 0.8vw;
+    font-size: 1.8vh;
+    line-height: 3vh;
     white-space: pre;
     z-index: 2;
-    top: 42%
+    top: 50%
 }
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 1.5vw;
+  }
+  
+  /* Clear floats after the columns */
+  .row {
+    display: table;
+    clear: both;
+    margin-top: -4vh;
+    margin-bottom: -5vh;
+  }
 
 @media (max-width : 1000px) {
     

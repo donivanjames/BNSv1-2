@@ -168,6 +168,7 @@ export function setupGame() {
     </div>
     `;
 
+    scoreElem.forEach((item) => item.classList.remove("hide"));
   showPlayer(); // show player
   showPet();
   showGround(); // show scene
@@ -198,7 +199,6 @@ export function handleGameStart() {
     // setupApple();
     resetGround();
     updateScore();
-    scoreElem.forEach((item) => item.classList.remove("hide"));
     mainUIElem.innerHTML = "";
     window.requestAnimationFrame(update); // start infinite play loop
   }
@@ -250,14 +250,18 @@ export function handleLose() {
   stopRunSong();
   hideGround();
 
-  scoreElem.forEach((item) => item.classList.add("hide"));
+  //scoreElem.forEach((item) => item.classList.add("hide"));
 
   mainUIElem.innerHTML = `
-    <div class="game-over-screen"">
-      \nScore: ${~~score}
-      \nHigh Score: ${~~highScore}
-      \n\n\n\n<h1>GAME OVER!</h1>
-      \n\n\n\n\n\n\n\n<div class="text-blink">Tap Or Space To Play Again</div>
+    <div class="game-over-screen">
+      <h1 style="color:#CEFFDE; font-size: 5vh;">GAME OVER!</h1>
+      <div class="row">
+        <div class="column">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+        <div class="column">User<br>User<br>User<br>User<br>User<br>User<br>User<br>User<br>User<br>User</div>
+        <div class="column">10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000<br>10,000</div>
+      </div>
+      <div class="text-blink">HIT SPACEBAR TO PLAY AGAIN</div>
+      <p>VISIT OLD SITE</p> 
     </div>
   `;
 

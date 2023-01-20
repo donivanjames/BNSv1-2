@@ -41,10 +41,13 @@ Hey Team! This is the code repository for Brand New Game
 ---
 
 ## Plans For Update v1-4/5
+- Fix vertical leaderboard scaling
 - Might be able to remove all --tops in title-screen.css
 - Score over player's head
 - Even shorter guy 
 - Increase difficulty over time
+- Set up "Lazy Loading"
+- Set up GZip compression
 - Bobbing apples?
 - Need to customize intro screen size for every device (a ui container within main container could work universally)
 - Screen flash and sound effect when player enters school
