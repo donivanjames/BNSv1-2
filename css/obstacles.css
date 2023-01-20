@@ -48,9 +48,10 @@
     left: calc(var(--left) * 1%);
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
+    z-index: 0;
 }
 
 /* Some CSS that covers just obstacles */
-.obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6 .cactus {
-    z-index: 0;
-}
+/* .obstacle1, .obstacle2, .obstacle3, .obstacle4, .obstacle5, .obstacle6 .cactus {
+    
+} */

@@ -10,7 +10,7 @@
 
 .score-ui {
     position: absolute;
-    color: rgb(255, 255, 255);
+    color: #CEFFDE;
     font-size: 1.0vw;
     top: 1.5vw;
 }
@@ -23,15 +23,16 @@
 }
 
 .textContainer {
-
-    overflow:scroll;
+    position: relative;
+    overflow:visible;
+    z-index: 10;
 }
 
 .game-over-screen, .home-screen, .pause-screen {
     position: absolute;
     text-align: center;
     white-space: nowrap;
-    color: #00450F;
+    color: #CEFFDE;
     font-size: 1.25vw;
     top: 40%;
     left: 50%;
@@ -41,20 +42,19 @@
 .pause-screen {
     z-index: 3;
     font-size: 1.5vw;
-    color: rgb(255, 255, 255);
 }
 
 .home-screen {
-    color: yellow;
     font-size: 2vw;
 }
 
 .game-over-screen {
+    position: absolute;
     font-size: 1.8vh;
     line-height: 3vh;
     white-space: pre;
-    z-index: 2;
-    top: 50%
+    top: 50%;
+    z-index: 10;
 }
 
 .column {
@@ -65,6 +65,8 @@
   
   /* Clear floats after the columns */
   .row {
+    position: relative;
+    z-index: 10;
     display: table;
     clear: both;
     margin-top: -4vh;

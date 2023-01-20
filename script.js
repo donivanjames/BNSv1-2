@@ -187,10 +187,8 @@ export function handleGameStart() {
     stopTitleSong();
     playRunSong();
 
-    let fontColor = "White";
     document.body.classList.remove("black-screen");
     document.body.classList.add("hallway");
-    scoreElem.forEach((item) => (item.style.color = fontColor));
 
     //addPlayerInputListeners();
     setupPlayer();
@@ -253,8 +251,8 @@ export function handleLose() {
   //scoreElem.forEach((item) => item.classList.add("hide"));
 
   mainUIElem.innerHTML = `
-    <div class="game-over-screen">
-      <h1 style="color:#CEFFDE; font-size: 5vh;">GAME OVER!</h1>
+    <div class="game-over-screen"">
+      <h1 style="color:#FE5000; font-size: 5vh;">GAME OVER!</h1>
       <div class="row">
         <div class="column">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
         <div class="column">User<br>User<br>User<br>User<br>User<br>User<br>User<br>User<br>User<br>User</div>
