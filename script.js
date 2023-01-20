@@ -240,8 +240,8 @@ function isCollision(rect1, rect2) {
 export function updateScore(delta) {
   score = applesCollected * 1000;
   if (score >= highScore) highScore = score;
-  scoreElem[0].textContent = `Score: ${~~score}`;
-  scoreElem[1].textContent = `High Score: ${~~highScore}`;
+  scoreElem[0].textContent = `Score ${~~score}`;
+  scoreElem[1].textContent = `High Score ${~~highScore}`;
 }
 
 // HANDLE LOSE
