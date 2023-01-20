@@ -8,11 +8,11 @@ import { score } from "../script.js";
 import { collectSound } from "./audioManager.js";
 
 // Ending Max: 500  Begining Max 2500:
-const CACTUS_INTERVAL_MIN = 800;
-const CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
+let CACTUS_INTERVAL_MIN = 800;
+let CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
 
-const APPLE_INTERVAL_MIN = 3000;
-const APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
+let APPLE_INTERVAL_MIN = 3000;
+let APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
 
 let cactusList = [];
 let appleList = [];
@@ -34,6 +34,17 @@ export function setupObstacles() {
   cactusList = [];
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
     cactus.remove(); // remove any old cactus in the scene when the game restarts
+  });
+}
+
+// remove everything but the obstacle the player hit
+export function gameOverObstacles(){
+  document.querySelectorAll("[data-cactus]").forEach((cactus) => {
+    const pos = getCustomProperty(cactus, "--left");
+    if(pos > 35) cactus.remove();
+  });
+  document.querySelectorAll("[data-apple]").forEach((apple) => {
+    apple.remove();
   });
 }
 
@@ -139,7 +150,15 @@ export function createCactus() {
 
   // Harder obstacles as the score gets higher
   let randNum = 3;
-  if(score > 5000) randNum = 4
+  if(score > 10000) {
+    CACTUS_INTERVAL_MAX = 1500;
+    CACTUS_INTERVAL_MIN = 600;
+  }
+  else if(score > 5000) {
+    randNum = 4
+    CACTUS_INTERVAL_MAX = 2000;
+    CACTUS_INTERVAL_MIN = 700;
+  }
 
   // Set obstacle based on random number
   const objNum = randomNumberBetween(1, randNum);

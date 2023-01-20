@@ -26,6 +26,7 @@
     position: relative;
     overflow:visible;
     z-index: 10;
+    height: 100vh;
 }
 .game-over-screen, .home-screen, .pause-screen {
     position: absolute;
@@ -53,12 +54,12 @@
     font-size: 1.8vh;
     line-height: 3vh;
     white-space: pre;
-    top: 50%;
+    top: 55%;
     z-index: 10;
 }
 
 .column {
-    float: left;
+    float:left;
     width: 33.33%;
     padding: 1.5vw;
   }
@@ -71,6 +72,8 @@
     clear: both;
     margin-top: -4vh;
     margin-bottom: -3vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
   }
 
 @media (max-width : 1000px) {
