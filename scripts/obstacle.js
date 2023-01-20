@@ -137,21 +137,15 @@ export function createCactus() {
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
   cactus.dataset.obstacle = true;
 
-  let randNum = 3;
-
   // Harder obstacles as the score gets higher
-  switch (score) {
-    case 5000:
-      randNum = 4;
-      break;
-  }
-  console.log("score ", score);
+  let randNum = 3;
+  if(score > 5000) randNum = 4
 
+  // Set obstacle based on random number
   const objNum = randomNumberBetween(1, randNum);
-
-  // Set this based on environment
   cactus.src = `imgs/obstacle-${objNum}.png`; // selects the correct image from files
   cactus.classList.add(`obstacle${objNum}`); // adds CSS styles to obstacle
+  cactus.classList.add(`base-obstacle`);
 
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); // might not need this
@@ -166,7 +160,7 @@ export function createApple() {
   apple.dataset.obstacle = true;
 
   // // Makes coins a little harder to get
-  if (nextCactusTime > 100 && nextCactusTime < 600) {
+  if (nextCactusTime > 200 && nextCactusTime < 600) {
     apple.src = "imgs/coin.png"; // selects the correct image from files
     apple.classList.add("coin"); // adds CSS styles to apple
   } else {
@@ -174,6 +168,7 @@ export function createApple() {
     apple.classList.add("apple"); // adds CSS styles to apple
   }
 
+  apple.classList.add(`base-obstacle`);
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
   worldElem.append(apple); // this adds our apple to the world
   appleList.push(apple);

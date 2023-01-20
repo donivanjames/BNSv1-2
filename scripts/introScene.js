@@ -52,7 +52,7 @@ function scrollItems(delta, introSpeed) {
 }
 
 function movePlayer(delta){
-    if (getCustomProperty(player, "--left") <= 65){
+    if (getCustomProperty(player, "--left") <= 70){
         incrementCustomProperty(player, "--left", delta * 0.03 * 1) 
         // play animation
         handleRun(delta)

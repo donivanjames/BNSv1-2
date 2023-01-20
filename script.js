@@ -68,7 +68,7 @@ soundButton.addEventListener("click", () => soundToggle(soundButton));
 // Input Handler
 let inputNum = 1;
 export function handleAllInput(event) {
-  if (event.target.classList.contains("button")) return;
+  if (event.target.classList.contains("clickable")) return;
 
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
     return;
@@ -161,6 +161,7 @@ function startIntroScene() {
 export function setupGame() {
   stopTitleSong();
   preGameScreen.forEach((item) => item.remove()); // get rid of all title element
+  preGameScreen.forEach((item) => console.log(item)); // get rid of all title element
   worldElem.classList.remove("hide");
   mainUIElem.innerHTML = `
     <div class="home-screen">
