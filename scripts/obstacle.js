@@ -11,8 +11,8 @@ import { collectSound } from "./audioManager.js";
 let CACTUS_INTERVAL_MIN = 800;
 let CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
 
-let APPLE_INTERVAL_MIN = 3000;
-let APPLE_INTERVAL_MAX = 5000; // speed of obstacles appearing in milliseconds
+let APPLE_INTERVAL_MIN = 1000;
+let APPLE_INTERVAL_MAX = 4000; // speed of obstacles appearing in milliseconds
 
 let cactusList = [];
 let appleList = [];
@@ -50,13 +50,15 @@ export function gameOverObstacles(){
 
 export function collect() {
   // push apple off screen
-  removeAllApples();
+  removeCollectedApple();
   collectSound();
 }
 
-export function removeAllApples() {
+// Just removes apple based on position for now, will work on object detetction later
+function removeCollectedApple() {
   document.querySelectorAll("[data-apple]").forEach((apple) => {
-    apple.remove();
+    const pos = getCustomProperty(apple, "--left");
+    if(pos <= 35) apple.remove();
   });
 }
 
@@ -150,12 +152,12 @@ export function createCactus() {
 
   // Harder obstacles as the score gets higher
   let randNum = 3;
-  if(score > 10000) {
+  if(score > 15000) {
     randNum = 5
     CACTUS_INTERVAL_MAX = 1500;
     CACTUS_INTERVAL_MIN = 600;
   }
-  else if(score > 5000) {
+  else if(score > 8000) {
     randNum = 4
     CACTUS_INTERVAL_MAX = 2000;
     CACTUS_INTERVAL_MIN = 700;
@@ -180,14 +182,18 @@ export function createApple() {
   apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
   apple.dataset.obstacle = true;
 
-  // // Makes coins a little harder to get
-  if (nextCactusTime > 200 && nextCactusTime < 600) {
+  const randNum = randomNumberBetween (1, 10)
+
+  // Makes coins rarer
+  if (randNum >= 9) {
     apple.src = "imgs/coin.png"; // selects the correct image from files
     apple.classList.add("coin"); // adds CSS styles to apple
   } else {
     apple.src = "imgs/apple-v02.png"; // selects the correct image from files
     apple.classList.add("apple"); // adds CSS styles to apple
   }
+
+  setCustomProperty(apple, "--bottom", randomNumberBetween(55, 70)) // sets apple height
 
   apple.classList.add(`base-obstacle`);
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen

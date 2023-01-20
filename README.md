@@ -40,6 +40,7 @@ Hey Team! This is the code repository for Brand New Game
 
 **Design**
 - Redid opening scene
+- Increased apple speeds
 - Added werewolves
 - Added worm pet
 - Made worm pet jump
@@ -47,6 +48,7 @@ Hey Team! This is the code repository for Brand New Game
 - Added aspect ratio to opening scene so that it performs the same on any monitor
 - Adjusted coin spawn position
 - Added High Score UI
+- Added UFO
 
 **Bug Fixes**
 - Hopefully fixed safari pixel scaling
