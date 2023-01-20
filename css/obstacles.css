@@ -2,25 +2,25 @@
     --bottom = object height from ground  */
 
 .apple {
-    height: 9%;
+    height: 7%;
     --bottom: 40.3;
 }
 
 .coin {
-    height: 7%;
+    height: 6%;
     --bottom: 62;
 }
 
 /* Trash */
 .obstacle1 {
-    height: 15%;
-    --bottom: 33;
+    height: 12%;
+    --bottom: 34;
 }
 
 /* Puddle */
 .obstacle2 {
-    height: 20%;
-    --bottom: 29.6;
+    height: 15%;
+    --bottom: 32.4;
 }
 
 /* Werewolf */

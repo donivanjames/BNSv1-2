@@ -19,7 +19,7 @@ let currentFrameTime;
 let yVelocity;
 
 let jumpDelay;
-let maxJumpDelay = 280;
+let maxJumpDelay = 180;
 
 export function setupPet() {
   isJumping = false; // Reset all past values
