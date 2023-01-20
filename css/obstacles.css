@@ -35,6 +35,12 @@
     --bottom: 40.4;
 }
 
+/* UFO */
+.obstacle5 {
+    height: 13%;
+    --bottom: 40.6;
+}
+
 /* Some CSS that covers everything */
 .base-obstacle {
     position: absolute;

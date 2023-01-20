@@ -151,6 +151,7 @@ export function createCactus() {
   // Harder obstacles as the score gets higher
   let randNum = 3;
   if(score > 10000) {
+    randNum = 5
     CACTUS_INTERVAL_MAX = 1500;
     CACTUS_INTERVAL_MIN = 600;
   }
@@ -165,6 +166,7 @@ export function createCactus() {
   cactus.src = `imgs/obstacle-${objNum}.png`; // selects the correct image from files
   cactus.classList.add(`obstacle${objNum}`); // adds CSS styles to obstacle
   cactus.classList.add(`base-obstacle`);
+  console.log(`obstacle ${objNum}`)
 
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); // might not need this
