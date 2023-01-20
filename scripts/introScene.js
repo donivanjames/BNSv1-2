@@ -34,7 +34,7 @@ export function updateIntroScene(time){
 }
 
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(bigImg, "--top") >= -330) {
+    if (getCustomProperty(bigImg, "--top") >= -170) {
         scrollItems(delta, introSpeed)
     }
     else {

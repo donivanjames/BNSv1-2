@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   justify-content: center;
-  overflow: hidden;
   height: 100vh;
   aspect-ratio: auto 16 / 9;
   overflow: hidden; /* hidden needs to go here and not in container */
@@ -18,15 +17,21 @@
 
 .start-screen-img {
   position: absolute;
+
+  /* Temp Code */
+  /* width: 100%; */
+
+  /* Change back to this after demo: */
   width: auto;
   height: 280%;
+
   top: -0vw;
   --top: -0;
 }
 
 button, .back-to-bns-button, .sound-toggle-button {
-  position: absolute;
-  text-align: center;
+  /* position: absolute;
+  text-align: center; */
   display: inline-block;
   padding: 0.8vw 1vw 0.6vw 1vw;
   color: #001307;
@@ -44,9 +49,8 @@ button, .back-to-bns-button, .sound-toggle-button {
   position: absolute;
   font-size: 1.2vw;
   text-size-adjust: auto;
-  left: 42%;
+  left: 52%;
   top: 20%;
-  --top: 20;
   display: block;
   padding: 0.8vw 1vw 0.6vw 1vw;
   color: #001307;
@@ -56,12 +60,12 @@ button, .back-to-bns-button, .sound-toggle-button {
   z-index: 3;
   font-family: inherit;
   border: none;
-  line-height: 110%;
+  line-height: 200%;
 }
 
 .title-text h2 {
   color: #fff0cc;
-  text-size-adjust: auto;
+  font-size: 300%;
 }
 
 .sound-toggle-button {
@@ -94,7 +98,7 @@ button, .back-to-bns-button, .sound-toggle-button {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 20;
-  top: 397%;
+  top: 234.3%;
   z-index: 10;
   /* --top: 397.5; */
   left: calc(var(--left) * 1%);

@@ -3,6 +3,7 @@ import {
   incrementCustomProperty,
   getCustomProperty,
 } from "./updateCustomProperty.js";
+import { score } from "../script.js";
 
 import { collectSound } from "./audioManager.js";
 
@@ -24,13 +25,13 @@ let nextCactusTime;
 let nextChosenCactusTime; // for apple to coin safeguard
 export function setupObstacles() {
   nextAppleTime = APPLE_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
-  appleList = []
+  appleList = [];
   document.querySelectorAll("[data-apple]").forEach((apple) => {
     apple.remove(); // remove any old apple in the scene when the game restarts
   });
 
   nextCactusTime = CACTUS_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
-  cactusList = []
+  cactusList = [];
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
     cactus.remove(); // remove any old cactus in the scene when the game restarts
   });
@@ -49,40 +50,37 @@ export function removeAllApples() {
 }
 
 // UPDATE OBSTACLE
-export function updateCactus(delta, speed, speedScale) {
+export function updateCactus(delta, speed) {
   cactusList.forEach((cactus) => {
     incrementCustomProperty(cactus, "--left", delta * speed * -1);
 
-    const pos = getCustomProperty(cactus, "--left")
-    if(pos <= -10) {
-      cactus.remove()
-      cactusList = cactusList.filter(item => item !== cactus) // .splice() lags obstacles too much
+    const pos = getCustomProperty(cactus, "--left");
+    if (pos <= -10) {
+      cactus.remove();
+      cactusList = cactusList.filter((item) => item !== cactus); // .splice() lags obstacles too much
     }
   });
   appleList.forEach((apple) => {
-    const pos = getCustomProperty(apple, "--left")
+    const pos = getCustomProperty(apple, "--left");
 
-    if(pos <= -10) {
-      apple.remove()
-      appleList = appleList.filter(item => item !== apple)
-    }
-    else incrementCustomProperty(apple, "--left", delta * speed * -1);
+    if (pos <= -10) {
+      apple.remove();
+      appleList = appleList.filter((item) => item !== apple);
+    } else incrementCustomProperty(apple, "--left", delta * speed * -1);
   });
 
   if (nextCactusTime <= 0) {
     // when obstacle time reaches zero: summon a new obstacle
     createCactus();
     nextCactusTime =
-      randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX) /
-      speedScale; // divide by speedscale so obstacles speed up over time
+      randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX)
     nextChosenCactusTime = nextCactusTime; // for apple to coin safeguard
   }
 
   if (nextAppleTime <= 0) {
     // when obstacle time reaches zero: summon a new obstacle
     createApple();
-    nextAppleTime =
-      randomNumberBetween(APPLE_INTERVAL_MIN, APPLE_INTERVAL_MAX) / speedScale; // divide by speedscale so obstacles speed up over time
+    nextAppleTime = randomNumberBetween(APPLE_INTERVAL_MIN, APPLE_INTERVAL_MAX);
   }
 
   nextCactusTime -= delta; // count down to next cactus
@@ -103,30 +101,28 @@ export function getCactusRects() {
   //document.querySelectorAll("div.tempBox").forEach(boundary => boundary.remove())
 
   let obMap = cactusList.map((cactus) => {
+    const pos = getCustomProperty(cactus, "--left");
 
-      const pos = getCustomProperty(cactus, "--left")
+    // only checks for collisions if pos is past a certain point
+    if (pos < 35) {
+      const obRect = cactus.getBoundingClientRect();
 
-      // only checks for collisions if pos is past a certain point
-      if(pos < 35) {
-        const obRect = cactus.getBoundingClientRect();
+      obRect.width = obRect.width * 0.4; // set collision width to around half
+      // obRect.height = obRect.height * 0.60;
 
-        obRect.width = obRect.width * 0.4; // set collision width to around half
-        // obRect.height = obRect.height * 0.60;
-  
-        // Red Box Code, Leave For Testing
-        // let tempBox = document.createElement('div');
-        // tempBox.className = "tempBox"
-        // tempBox.style = "border: 2px solid red; position: absolute;";
-        // tempBox.style.left = obRect.left + 'px';
-        // tempBox.style.top = obRect.top + 'px';
-        // tempBox.style.width = obRect.width + 'px';
-        // tempBox.style.height = obRect.height + 'px';
-        // boundaryBox.push(tempBox)
-        
-        return obRect;
-      }
-  })
+      // Red Box Code, Leave For Testing
+      // let tempBox = document.createElement('div');
+      // tempBox.className = "tempBox"
+      // tempBox.style = "border: 2px solid red; position: absolute;";
+      // tempBox.style.left = obRect.left + 'px';
+      // tempBox.style.top = obRect.top + 'px';
+      // tempBox.style.width = obRect.width + 'px';
+      // tempBox.style.height = obRect.height + 'px';
+      // boundaryBox.push(tempBox)
 
+      return obRect;
+    }
+  });
 
   // Red Box
   // boundaryBox.forEach((obstacle) => document.body.appendChild(obstacle));
@@ -141,11 +137,21 @@ export function createCactus() {
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
   cactus.dataset.obstacle = true;
 
-  const obNum = randomNumberBetween(1, 3);
+  let randNum = 3;
+
+  // Harder obstacles as the score gets higher
+  switch (score) {
+    case 5000:
+      randNum = 4;
+      break;
+  }
+  console.log("score ", score);
+
+  const objNum = randomNumberBetween(1, randNum);
 
   // Set this based on environment
-  cactus.src = `imgs/obstacle-${obNum}.png`; // selects the correct image from files
-  cactus.classList.add(`obstacle${obNum}`); // adds CSS styles to obstacle
+  cactus.src = `imgs/obstacle-${objNum}.png`; // selects the correct image from files
+  cactus.classList.add(`obstacle${objNum}`); // adds CSS styles to obstacle
 
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); // might not need this
@@ -159,8 +165,8 @@ export function createApple() {
   apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
   apple.dataset.obstacle = true;
 
-  // // Safeguard so apples will turn into coins if they spawn behind an obstacle
-  if (nextCactusTime < 100 || nextCactusTime > nextChosenCactusTime - 200) {
+  // // Makes coins a little harder to get
+  if (nextCactusTime > 100 && nextCactusTime < 600) {
     apple.src = "imgs/coin.png"; // selects the correct image from files
     apple.classList.add("coin"); // adds CSS styles to apple
   } else {
@@ -170,7 +176,7 @@ export function createApple() {
 
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
   worldElem.append(apple); // this adds our apple to the world
-  appleList.push(apple)
+  appleList.push(apple);
 }
 
 // RANDOM NUMBER GENERATOR
