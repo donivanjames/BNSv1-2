@@ -1,5 +1,8 @@
 .start-screen {
   position: relative;
+  
+  display: flex;
+  justify-content: center;
   height: 100vh;
   aspect-ratio: auto 16 / 9;
   overflow: hidden; /* hidden needs to go here and not in container */
@@ -89,16 +92,9 @@ a:link a:visited a:active {
   .start-screen {
     height: 26vh;
   }
-
-  .title-container {
-    --top: 0;
-  }
 }
 
 @media (min-width : 2000px) {
-  .title-container {
-    --top: -0;
-  }
 
   .title-text, button, a:link {
     font-size: 1.1vw;
