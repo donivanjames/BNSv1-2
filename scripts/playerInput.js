@@ -1,6 +1,15 @@
 // Handles All Player Input
 
-import { sequence1, sequence2, sequence3, sequence4, playerJump, pauseGame, unpauseGame, inputNum, } from "../script.js";
+import {
+  sequence1,
+  sequence2,
+  sequence3,
+  sequence4,
+  playerJump,
+  pauseGame,
+  unpauseGame,
+  inputNum
+} from "./gameHandler.js";
 
 export function handleAllInput(event) {
   if (event.target.classList.contains("clickable")) return;
@@ -9,7 +18,6 @@ export function handleAllInput(event) {
     return;
 
   if (event.code === "Escape") {
-    // remove gameGoing from other places
     if (!gameGoing) return;
 
     if (pause) unpauseGame();

@@ -1,5 +1,5 @@
 import { incrementCustomProperty, getCustomProperty } from "./updateCustomProperty.js"
-import { setupGame, sequence3 } from "../script.js"
+import { sequence3 } from "./gameHandler.js"
 
 let lastTime = null
 let introSpeed = 0.025
