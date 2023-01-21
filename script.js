@@ -26,6 +26,7 @@ import {
   gameOverObstacles,
 } from "./scripts/obstacle.js";
 import { updateIntroScene, skipIntro } from "./scripts/introScene.js";
+import { handleAllInput } from "./scripts/playerInput.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -66,56 +67,22 @@ addPlayerInputListeners();
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 soundButton.addEventListener("click", () => soundToggle(soundButton));
 
-// Input Handler
-let inputNum = 1;
-export function handleAllInput(event) {
-  if (event.target.classList.contains("clickable")) return;
+export let inputNum = 1;
 
-  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
-    return;
-
-  if (event.code === "Escape") {
-    // remove gameGoing from other places
-    if (!gameGoing) return;
-
-    if (pause) unpauseGame();
-    else pauseGame();
-    return;
-  }
-
-  switch (inputNum) {
-    case 0: // putting jump at 0 improves fps slightly
-      playerJump();
-      break;
-    case 1:
-      // start first scene/handleFirstInput()
-      sequence1();
-      break;
-    case 2:
-      sequence2();
-      break;
-    case 3:
-      sequence3();
-      break;
-    default:
-      sequence4();
-  }
-}
-
-function playerJump() {
+export function playerJump() {
   if (pause) unpauseGame();
   else if (gameGoing) onJump();
   else sequence4(); //jump if game going: else restart level
 }
 
 // Start Intro Scene
-function sequence1(event) {
+export function sequence1(event) {
   startIntroScene();
   inputNum = 2;
 }
 
 // Skip intro scene
-function sequence2() {
+export function sequence2() {
   skipIntro();
 }
 
@@ -127,12 +94,12 @@ export function sequence3() {
 }
 
 // Restart/Load first level and get ready for jump input
-function sequence4() {
+export function sequence4() {
   handleGameStart();
   inputNum = 0;
 }
 
-function pauseGame() {
+export function pauseGame() {
   if (!gameGoing) return;
   pause = true;
 
@@ -146,7 +113,7 @@ function pauseGame() {
   pauseUpdate();
 }
 
-function unpauseGame() {
+export function unpauseGame() {
   pause = false;
   mainUIElem.innerHTML = ``;
   playRunSong();
@@ -171,11 +138,11 @@ export function setupGame() {
     `;
 
     scoreElem.forEach((item) => item.classList.remove("hide"));
-  showPlayer(); // show player
-  showPet();
-  showGround(); // show scene
-  //addStartGameInputListeners();
-  document.body.classList.add("hallway"); // change background color
+    showPlayer(); // show player
+    showPet();
+    showGround(); // show scene
+    //addStartGameInputListeners();
+    document.body.classList.add("hallway"); // change background color
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
