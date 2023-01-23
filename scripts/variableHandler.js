@@ -1,3 +1,5 @@
+// holds most of the game variables
+
 export const windowElements = {
     mainUIElem: document.querySelector("[data-main-ui]"),
     worldElem: document.querySelector("[data-world]"),

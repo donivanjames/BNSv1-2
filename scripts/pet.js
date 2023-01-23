@@ -1,9 +1,10 @@
+// controls the worm, basically the same as player.js
+
 import {
   getCustomProperty,
   setCustomProperty,
   incrementCustomProperty,
 } from "./updateCustomProperty.js";
-import { petJumpSound } from "./audioManager.js";
 import { windowElements } from "./variableHandler.js";
 
 const pet = windowElements.pet

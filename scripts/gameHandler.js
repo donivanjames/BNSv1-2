@@ -1,3 +1,5 @@
+// handles most game functions
+// working on organizing this file
 
 import { playTitleSong, stopTitleSong, playRunSong, stopRunSong } from "./audioManager.js";
 import { showGround, resetGround, hideGround } from "./ground.js";
@@ -18,7 +20,7 @@ export function playerJump() {
 }
 
 // Start Intro Scene
-export function sequence1(event) {
+export function sequence1() {
   startIntroScene();
   variableHolder.inputNum = 2;
 }
@@ -179,8 +181,7 @@ export function handleLose() {
   }, 300);
 }
 
-// INCREASE SCORE BASED ON DELTA TIME //
-function updateScore(delta) {
+function updateScore() {
   variableHolder.score = variableHolder.applesCollected * 1000;
   const score = variableHolder.score;
   if (score >= variableHolder.highScore) variableHolder.highScore = score;

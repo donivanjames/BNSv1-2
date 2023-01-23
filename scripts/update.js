@@ -1,3 +1,5 @@
+// runs every frame 
+
 import { updateGround } from "./ground.js";
 import { updatePlayer } from "./player.js";
 import { updatePet } from "./pet.js";

@@ -1,3 +1,5 @@
+// handles both obstacles AND apples 
+
 import {
   setCustomProperty,
   incrementCustomProperty,

@@ -1,3 +1,5 @@
+// handles the long scrolling intro scene
+
 import { incrementCustomProperty, getCustomProperty } from "./updateCustomProperty.js"
 import { sequence3 } from "./gameHandler.js"
 import { soundToggle } from "./audioManager.js"
