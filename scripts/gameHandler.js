@@ -33,7 +33,7 @@ export function sequence2() {
   skipIntro();
 }
 
-//Skip first scene or setup first level
+// Skip first scene or setup first level
 export function sequence3() {
   window.cancelAnimationFrame(updateIntroScene);
   setupGame();

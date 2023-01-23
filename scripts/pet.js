@@ -85,9 +85,6 @@ export function handlePetJump(delta) {
 
 export function wormJump(event) {
   if (isJumping) return;
-  //setCustomProperty(pet, "width", jumpingSize);
-
-  //petJumpSound();
 
   yVelocity = JUMP_SPEED;
   isJumping = true;

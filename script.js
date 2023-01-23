@@ -58,14 +58,12 @@ export function checkLose() {
   return getCactusRects().some((rect) => isCollision(rect, playerRect));
 }
 
-// CHECK FOR GAME OVER
 export function checkApple() {
   const playerRect = getPlayerRect();
   return getAppleRects().some((rect) => isCollision(rect, playerRect)); // if any of the apples touch player, add to score
 }
 
 export function collectApple() {
-  //addAppleCollected(); // add to score
   variableHolder.applesCollected += 1;
 
   updateScore(); // update score UI
@@ -100,8 +98,6 @@ export function handleLose() {
   stopRunSong();
   hideGround();
   gameOverObstacles();
-
-  //scoreElem.forEach((item) => item.classList.add("hide"));
 
   mainUIElem.innerHTML = `
     <div class="game-over-screen">
