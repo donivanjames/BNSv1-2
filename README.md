@@ -8,7 +8,7 @@ The game is a fairly simple browser runner. You jump over obstacles and collect 
 The game starts in **index.html** which leads to **styles.css** and **script.js**.
 
 1. **script.js** sets up the initial game, which leads to introScene.js 
-2. **introScene.js** handles the long scrolling intro at the beggining of the game - it leads back to script.js which then kicks off update.js
+2. **introScene.js** handles the long scrolling intro at the beggining of the game - it leads to playerInput.js which then kicks off update.js
 3. **update.js** handles the running of the actual game and listens for player input from the playerInput.js file. Everything else in the game branches from the update function.
 
 # Updates
