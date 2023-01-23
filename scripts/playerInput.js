@@ -1,21 +1,15 @@
 // Handles All Player Input
 
-import {
-  sequence1,
-  sequence2,
-  sequence3,
-  sequence4,
-  playerJump,
-  pauseGame,
-  unpauseGame,
-} from "./gameHandler.js";
+import { sequence1, sequence2, sequence3, sequence4 } from "./gameSetup.js";
+import { playerJump, pauseGame, unpauseGame } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
 
 // Any input fires this function, it starts the intro scene and then handles game input
 export function handleAllInput(event) {
   if (event.target.classList.contains("clickable")) return; // blocks buttons from activating jump
 
-  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return;
+  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
+    return;
 
   if (event.code === "Escape") {
     if (!variableHolder.gameGoing) return;

@@ -6,6 +6,7 @@ import { getCactusRects, getAppleRects, collect, gameOverObstacles } from "./obs
 import { onJump, getPlayerRect, setPlayerLose } from "./player.js";
 import { pauseUpdate, unPauseUpdate } from "./update.js";
 import { windowElements, variableHolder } from "./variableHandler.js";
+import { sequence4 } from "./gameSetup.js";
 
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
@@ -107,7 +108,7 @@ export function handleLose() {
   }, 300);
 }
 
-function updateScore() {
+export function updateScore() {
   variableHolder.score = variableHolder.applesCollected * 1000;
   const score = variableHolder.score;
   if (score >= variableHolder.highScore) variableHolder.highScore = score;

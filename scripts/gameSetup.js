@@ -1,13 +1,14 @@
 // handles the setup functions of the game
 
-import { startIntroScene, skipIntro, updateIntroScene } from "./introScene";
-import { playTitleSong, stopTitleSong } from "./audioManager";
-import { showGround, resetGround } from "./ground";
-import { setupObstacles } from "./obstacle";
-import { showPet, setupPet } from "./pet";
-import { showPlayer, setupPlayer } from "./player";
-import { update } from "./update";
-import { resetVariables } from "./variableHandler";
+import { skipIntro, updateIntroScene } from "./introScene.js";
+import { playTitleSong, stopTitleSong, playRunSong } from "./audioManager.js";
+import { showGround, resetGround } from "./ground.js";
+import { setupObstacles } from "./obstacle.js";
+import { showPet, setupPet } from "./pet.js";
+import { showPlayer, setupPlayer } from "./player.js";
+import { update } from "./update.js";
+import { resetVariables, variableHolder, windowElements } from "./variableHandler.js";
+import { updateScore } from "./gameHandler.js";
 
 // Start Intro Scene
 export function sequence1() {
