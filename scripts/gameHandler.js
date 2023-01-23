@@ -13,7 +13,6 @@ const worldElem = document.querySelector("[data-world]");
 const mainUIElem = document.querySelector("[data-main-ui]");
 const preGameScreen = document.querySelectorAll("[data-start-screen]");
 const scoreElem = document.querySelectorAll("[data-score]");
-export let inputNum = 1;
 
 
 export function playerJump() {
@@ -25,7 +24,7 @@ export function playerJump() {
 // Start Intro Scene
 export function sequence1(event) {
   startIntroScene();
-  inputNum = 2;
+  variableHolder.inputNum = 2;
 }
 
 // Skip intro scene
@@ -37,13 +36,13 @@ export function sequence2() {
 export function sequence3() {
   window.cancelAnimationFrame(updateIntroScene);
   setupGame();
-  inputNum = 4;
+  variableHolder.inputNum = 4;
 }
 
 // Restart/Load first level and get ready for jump input
 export function sequence4() {
   handleGameStart();
-  inputNum = 0;
+  variableHolder.inputNum = 0;
 }
 
 export function pauseGame() {

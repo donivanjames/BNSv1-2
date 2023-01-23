@@ -8,7 +8,6 @@ import {
   playerJump,
   pauseGame,
   unpauseGame,
-  inputNum,
 } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
 
@@ -25,7 +24,7 @@ export function handleAllInput(event) {
     return;
   }
 
-  switch (inputNum) {
+  switch (variableHolder.inputNum) {
     case 0: // putting jump at 0 improves fps slightly
       playerJump();
       break;

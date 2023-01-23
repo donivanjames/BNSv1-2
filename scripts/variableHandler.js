@@ -5,7 +5,7 @@ const newVariables = {
     applesCollected: 0,
     pause: false,
     gameGoing: false, // used to prevent misclicks in handleStart(), handleLose(), and pause()
-    //inputNum: 1,
+    inputNum: 1,
 }
 
 export let variableHolder = {}
