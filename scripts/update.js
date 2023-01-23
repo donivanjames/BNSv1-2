@@ -1,9 +1,9 @@
 import { updateGround } from "./ground.js";
 import { updatePlayer } from "./player.js";
 import { updatePet } from "./pet.js";
-import { handleLose, collectApple, checkApple, checkLose } from "../script.js";
 import { updateCactus } from "./obstacle.js";
 import { variableHolder } from "./variableHandler.js";
+import { checkLose, checkApple, collectApple, handleLose } from "./gameHandler.js";
 
 const speed = 0.03;
 const speedScale = 1;
