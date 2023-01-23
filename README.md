@@ -6,9 +6,11 @@ The documentation for how the game works is located in documentation.md
 # Updates
 
 **Next:**
+- Keep replacing windowelems
 - Clean up script.js
 
-## Plans For Update v1-4/5
+## Plans For Update v15
+- re-add game over screen
 - Fix vertical leaderboard scaling
 - Might be able to remove all --tops in title-screen.css
 - Score over player's head
@@ -29,7 +31,10 @@ The documentation for how the game works is located in documentation.md
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - Potential loading screen for bad internet (lazy loading might fix this)
 - Bug: there's a 300ms space after dying where pause can be activated
-- Leaderboard 
+
+
+## Update v1-5 - The Launch Update
+- Leaderboard OR Achievement board (could push to v6)
 
 ---
 

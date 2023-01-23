@@ -1,5 +1,6 @@
 import { incrementCustomProperty, getCustomProperty } from "./updateCustomProperty.js"
 import { sequence3 } from "./gameHandler.js"
+import { soundToggle } from "./audioManager.js"
 
 let lastTime = null
 let introSpeed = 0.025
@@ -12,6 +13,10 @@ let currentFrameTime = 0
 const bigImg = document.querySelector(".start-screen-img")
 const allDivs = document.querySelectorAll("[data-start-screen]")
 const player = document.querySelector(".start-screen-player")
+const soundButton = document.querySelector("[data-sound-toggle]")
+soundButton.addEventListener("click", () =>
+  soundToggle(soundButton)
+);
 
 export function skipIntro() {
     // introSpeed = 1;

@@ -4,8 +4,9 @@ import {
   incrementCustomProperty,
 } from "./updateCustomProperty.js";
 import { petJumpSound } from "./audioManager.js";
+import { windowElements } from "./variableHandler.js";
 
-const pet = document.querySelector("[data-pet]");
+const pet = windowElements.pet
 const JUMP_SPEED = 0.3;
 const GRAVITY = 0.0015;
 const PET_FRAME_COUNT = 3; // amount of animation frames

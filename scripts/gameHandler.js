@@ -7,13 +7,9 @@ import { showPet, setupPet } from "./pet.js";
 import { showPlayer, setupPlayer, onJump } from "./player.js";
 import { updateScore, } from "../script.js";
 import { update, pauseUpdate, unPauseUpdate } from "./update.js";
-import { variableHolder, resetVariables } from "./variableHandler.js";
+import { windowElements, variableHolder, resetVariables } from "./variableHandler.js";
 
-const worldElem = document.querySelector("[data-world]");
-const mainUIElem = document.querySelector("[data-main-ui]");
-const preGameScreen = document.querySelectorAll("[data-start-screen]");
-const scoreElem = document.querySelectorAll("[data-score]");
-
+window.onblur = () => pauseGame(); // pause game when player leaves screen
 
 export function playerJump() {
   if (variableHolder.pause) unpauseGame();
@@ -49,7 +45,7 @@ export function pauseGame() {
   if (!variableHolder.gameGoing) return;
   variableHolder.pause = true;
 
-  mainUIElem.innerHTML = `
+  windowElements.mainUIElem.innerHTML = `
       <div class="pause-screen">
         <h2>Paused</h2><br><br>
         Tap Or Space To Unpause
@@ -61,7 +57,7 @@ export function pauseGame() {
 
 export function unpauseGame() {
   variableHolder.pause = false;
-  mainUIElem.innerHTML = ``;
+  windowElements.mainUIElem.innerHTML = ``;
   playRunSong();
   unPauseUpdate();
 }
@@ -74,15 +70,15 @@ function startIntroScene() {
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   stopTitleSong();
-  preGameScreen.forEach((item) => item.remove()); // get rid of all title element
-  worldElem.classList.remove("hide");
-  mainUIElem.innerHTML = `
+  windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
+  windowElements.worldElem.classList.remove("hide");
+  windowElements.mainUIElem.innerHTML = `
     <div class="home-screen">
       <div class="text-blink">Tap Or Space To Jump</div>
     </div>
     `;
 
-  scoreElem.forEach((item) => item.classList.remove("hide"));
+  windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
   showPlayer(); // show player
   showPet();
   showGround(); // show scene
@@ -108,7 +104,7 @@ export function handleGameStart() {
     setupObstacles();
     resetGround();
     updateScore();
-    mainUIElem.innerHTML = "";
+    windowElements.mainUIElem.innerHTML = "";
     window.requestAnimationFrame(update); // start infinite play loop
   }
 }

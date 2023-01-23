@@ -3,18 +3,19 @@
 
 import { hideGround } from "./scripts/ground.js";
 import { getPlayerRect, setPlayerLose } from "./scripts/player.js";
-import { stopRunSong, soundToggle } from "./scripts/audioManager.js";
+import { stopRunSong } from "./scripts/audioManager.js";
 import { handleAllInput } from "./scripts/playerInput.js";
-import {
-  pauseGame,
-} from "./scripts/gameHandler.js";
 import {
   getAppleRects,
   getCactusRects,
   collect,
   gameOverObstacles,
 } from "./scripts/obstacle.js";
-import { variableHolder, resetVariables } from "./scripts/variableHandler.js";
+import {
+  windowElements,
+  variableHolder,
+  resetVariables,
+} from "./scripts/variableHandler.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -26,17 +27,7 @@ document.documentElement.style.setProperty(
   `${window.innerHeight}px`
 );
 
-let highScore = 0;
-
 resetVariables();
-
-
-//   UI ELEMENTS   //
-const mainUIElem = document.querySelector("[data-main-ui]");
-const worldElem = document.querySelector("[data-world]");
-const scoreElem = document.querySelectorAll("[data-score]");
-const soundButton = document.querySelector("[data-sound-toggle]");
-
 setPixelToWorldScale();
 
 //   EVENT LISTENERS   //
@@ -48,8 +39,7 @@ function addPlayerInputListeners() {
 }
 addPlayerInputListeners();
 
-window.onblur = () => pauseGame(); // pause game when player leaves screen
-soundButton.addEventListener("click", () => soundToggle(soundButton));
+
 
 // CHECK FOR GAME OVER
 export function checkLose() {
@@ -86,10 +76,10 @@ function isCollision(rect1, rect2) {
 // INCREASE SCORE BASED ON DELTA TIME //
 export function updateScore(delta) {
   variableHolder.score = variableHolder.applesCollected * 1000;
-  const score = variableHolder.score
-  if (score >= highScore) highScore = score;
-  scoreElem[0].textContent = `Score ${~~score}`;
-  scoreElem[1].textContent = `High Score ${~~highScore}`;
+  const score = variableHolder.score;
+  if (score >= variableHolder.highScore) variableHolder.highScore = score;
+  windowElements.scoreElem[0].textContent = `Score ${~~score}`;
+  windowElements.scoreElem[1].textContent = `High Score ${~~variableHolder.highScore}`;
 }
 
 // HANDLE LOSE
@@ -99,7 +89,7 @@ export function handleLose() {
   hideGround();
   gameOverObstacles();
 
-  mainUIElem.innerHTML = `
+  windowElements.mainUIElem.innerHTML = `
     <div class="game-over-screen">
       <h1 style="color:#EC472B; font-size: 5vh; margin-left: 1vw; margin-bottom: -1vh">GAME OVER!</h1>
       <div class="row">
@@ -126,7 +116,7 @@ export function handleLose() {
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
-    variableHolder.gameGoing = false
+    variableHolder.gameGoing = false;
   }, 300);
 }
 
@@ -136,6 +126,8 @@ function setPixelToWorldScale() {
     worldToPixelScale = window.innerWidth / WORLD_WIDTH;
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
-  worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
-  worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
+  windowElements.worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
+  windowElements.worldElem.style.height = `${
+    WORLD_HEIGHT * worldToPixelScale
+  }px`;
 }

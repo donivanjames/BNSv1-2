@@ -5,6 +5,7 @@ import {
 } from "./updateCustomProperty.js";
 import { variableHolder } from "./variableHandler.js";
 import { collectSound } from "./audioManager.js";
+import { windowElements } from "./variableHandler.js";
 
 // Ending Max: 500  Begining Max 2500:
 let CACTUS_INTERVAL_MIN = 800;
@@ -16,12 +17,9 @@ let APPLE_INTERVAL_MAX = 4000; // speed of obstacles appearing in milliseconds
 let cactusList = [];
 let appleList = [];
 
-const worldElem = document.querySelector("[data-world]"); // grabs the world element so we can add the obstacles into the world
-
 // SETUP OBSTACLES
 let nextAppleTime;
 let nextCactusTime;
-let nextChosenCactusTime; // for apple to coin safeguard
 export function setupObstacles() {
   nextAppleTime = APPLE_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
   appleList = [];
@@ -37,10 +35,10 @@ export function setupObstacles() {
 }
 
 // remove everything but the obstacle the player hit
-export function gameOverObstacles(){
+export function gameOverObstacles() {
   document.querySelectorAll("[data-cactus]").forEach((cactus) => {
     const pos = getCustomProperty(cactus, "--left");
-    if(pos > 35) cactus.remove();
+    if (pos > 35) cactus.remove();
   });
   document.querySelectorAll("[data-apple]").forEach((apple) => {
     apple.remove();
@@ -57,7 +55,7 @@ export function collect() {
 function removeCollectedApple() {
   document.querySelectorAll("[data-apple]").forEach((apple) => {
     const pos = getCustomProperty(apple, "--left");
-    if(pos <= 35) apple.remove();
+    if (pos <= 35) apple.remove();
   });
 }
 
@@ -84,9 +82,10 @@ export function updateCactus(delta, speed) {
   if (nextCactusTime <= 0) {
     // when obstacle time reaches zero: summon a new obstacle
     createCactus();
-    nextCactusTime =
-      randomNumberBetween(CACTUS_INTERVAL_MIN, CACTUS_INTERVAL_MAX)
-    nextChosenCactusTime = nextCactusTime; // for apple to coin safeguard
+    nextCactusTime = randomNumberBetween(
+      CACTUS_INTERVAL_MIN,
+      CACTUS_INTERVAL_MAX
+    );
   }
 
   if (nextAppleTime <= 0) {
@@ -150,15 +149,14 @@ export function createCactus() {
   cactus.dataset.obstacle = true;
 
   // Harder obstacles as the score gets higher
-  const score = variableHolder.score
+  const score = variableHolder.score;
   let randNum = 3;
-  if(score > 15000) {
-    randNum = 5
+  if (score > 15000) {
+    randNum = 5;
     CACTUS_INTERVAL_MAX = 1500;
     CACTUS_INTERVAL_MIN = 600;
-  }
-  else if(score > 8000) {
-    randNum = 4
+  } else if (score > 8000) {
+    randNum = 4;
     CACTUS_INTERVAL_MAX = 2000;
     CACTUS_INTERVAL_MIN = 700;
   }
@@ -171,7 +169,7 @@ export function createCactus() {
 
   setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
   setCustomProperty(cactus, "--top", 0); // might not need this
-  worldElem.append(cactus); // this adds our obstacle to the world
+  windowElements.worldElem.append(cactus); // this adds our obstacle to the world
   cactusList.push(cactus);
 }
 
@@ -181,7 +179,7 @@ export function createApple() {
   apple.dataset.apple = true; // adds "data-apple" to obstacle object so we can interact with it
   apple.dataset.obstacle = true;
 
-  const randNum = randomNumberBetween (1, 10)
+  const randNum = randomNumberBetween(1, 10);
 
   // Makes coins rarer
   if (randNum >= 9) {
@@ -192,11 +190,11 @@ export function createApple() {
     apple.classList.add("apple"); // adds CSS styles to apple
   }
 
-  setCustomProperty(apple, "--bottom", randomNumberBetween(55, 70)) // sets apple height
+  setCustomProperty(apple, "--bottom", randomNumberBetween(55, 70)); // sets apple height
 
   apple.classList.add(`base-obstacle`);
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
-  worldElem.append(apple); // this adds our apple to the world
+  windowElements.worldElem.append(apple); // this adds our apple to the world
   appleList.push(apple);
 }
 
