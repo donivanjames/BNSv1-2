@@ -6,8 +6,7 @@ The documentation for how the game works is located in documentation.md
 # Updates
 
 **Next:**
-- More apples: to do this we'll need to disconnect apple code from obstacle code
-- Make other obstacles except the one the player hits dissapear on game over
+- Clean up script.js
 
 ## Plans For Update v1-4/5
 - Fix vertical leaderboard scaling
@@ -36,11 +35,13 @@ The documentation for how the game works is located in documentation.md
 
 ## Update v1-4 - The Optimization Update
 **Features**
+- Other obstacles except the one you hit dissapear on game over screen
 - You can now skip intro scene
 - Added sound toggle
 - Apples that spawn on obstacles become coins
 
 **Design**
+- Increased apple frequency
 - Redid opening scene
 - Increased apple speeds
 - Added werewolves
