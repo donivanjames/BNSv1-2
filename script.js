@@ -7,7 +7,6 @@ import { stopRunSong, soundToggle } from "./scripts/audioManager.js";
 import { handleAllInput } from "./scripts/playerInput.js";
 import {
   pauseGame,
-  makeGameGoingFalse,
 } from "./scripts/gameHandler.js";
 import {
   getAppleRects,
@@ -15,7 +14,7 @@ import {
   collect,
   gameOverObstacles,
 } from "./scripts/obstacle.js";
-import { variableHolder, resetVariables, addAppleCollected, updateScoreVariables } from "./scripts/variableHandler.js";
+import { variableHolder, resetVariables } from "./scripts/variableHandler.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -66,7 +65,9 @@ export function checkApple() {
 }
 
 export function collectApple() {
-  addAppleCollected(); // add to score
+  //addAppleCollected(); // add to score
+  variableHolder.applesCollected += 1;
+
   updateScore(); // update score UI
   collect(); // remove apple
 }
@@ -86,7 +87,7 @@ function isCollision(rect1, rect2) {
 
 // INCREASE SCORE BASED ON DELTA TIME //
 export function updateScore(delta) {
-  updateScoreVariables();
+  variableHolder.score = variableHolder.applesCollected * 1000;
   const score = variableHolder.score
   if (score >= highScore) highScore = score;
   scoreElem[0].textContent = `Score ${~~score}`;
@@ -129,8 +130,7 @@ export function handleLose() {
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
-    makeGameGoingFalse();
-    //addStartGameInputListeners();
+    variableHolder.gameGoing = false
   }, 300);
 }
 

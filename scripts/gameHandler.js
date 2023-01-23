@@ -15,13 +15,10 @@ const preGameScreen = document.querySelectorAll("[data-start-screen]");
 const scoreElem = document.querySelectorAll("[data-score]");
 export let inputNum = 1;
 
-export let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
-export const makeGameGoingFalse = () => gameGoing = false;
-
 
 export function playerJump() {
   if (variableHolder.pause) unpauseGame();
-  else if (gameGoing) onJump();
+  else if (variableHolder.gameGoing) onJump();
   else sequence4(); //jump if game going: else restart level
 }
 
@@ -50,7 +47,7 @@ export function sequence4() {
 }
 
 export function pauseGame() {
-  if (!gameGoing) return;
+  if (!variableHolder.gameGoing) return;
   variableHolder.pause = true;
 
   mainUIElem.innerHTML = `
@@ -90,16 +87,16 @@ export function setupGame() {
   showPlayer(); // show player
   showPet();
   showGround(); // show scene
-  //addStartGameInputListeners();
   document.body.classList.add("hallway"); // change background color
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
 export function handleGameStart() {
-  if (!gameGoing) {
-    showGround(); // removes "hide" class
-    gameGoing = true;
+  if (!variableHolder.gameGoing) {
+    
     resetVariables()
+    showGround(); // removes "hide" class
+    variableHolder.gameGoing = true;
 
     stopTitleSong();
     playRunSong();
@@ -107,11 +104,9 @@ export function handleGameStart() {
     document.body.classList.remove("black-screen");
     document.body.classList.add("hallway");
 
-    //addPlayerInputListeners();
     setupPlayer();
     setupPet();
     setupObstacles();
-    // setupApple();
     resetGround();
     updateScore();
     mainUIElem.innerHTML = "";

@@ -9,18 +9,16 @@ import {
   pauseGame,
   unpauseGame,
   inputNum,
-  gameGoing
 } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
 
 export function handleAllInput(event) {
-  if (event.target.classList.contains("clickable")) return;
+  if (event.target.classList.contains("clickable")) return; // blocks buttons from activating jump
 
-  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
-    return;
+  if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0) return;
 
   if (event.code === "Escape") {
-    if (!gameGoing) return;
+    if (!variableHolder.gameGoing) return;
 
     if (variableHolder.pause) unpauseGame();
     else pauseGame();
