@@ -10,24 +10,24 @@ import {
   checkLose,
 } from "../script.js";
 import { updateCactus } from "./obstacle.js";
+import { variableHolder } from "./variableHandler.js";
 
-let pause = false;
 const speed = 0.03;
 const speedScale = 1;
 const SPEED_SCALE_INCREASE = 0.0; // Rate of player speed increase // Works with updateSpeedScale()
 
 export function pauseUpdate() {
-  pause = true;
+  variableHolder.pause = true;
 }
 
 export function unPauseUpdate() {
-  pause = false;
+  variableHolder.pause = false;
 }
 
 // FRAMERATE LOOP SETUP //
 let lastTime = null;
 export function update(time) {
-  if (!pause) {
+  if (!variableHolder.pause) {
     // BEFORE GAME RUNS //
 
     // if lastTime is null then only call this block

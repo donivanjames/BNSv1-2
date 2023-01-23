@@ -8,8 +8,10 @@ import {
   playerJump,
   pauseGame,
   unpauseGame,
-  inputNum
+  inputNum,
+  gameGoing
 } from "./gameHandler.js";
+import { variableHolder } from "./variableHandler.js";
 
 export function handleAllInput(event) {
   if (event.target.classList.contains("clickable")) return;
@@ -20,7 +22,7 @@ export function handleAllInput(event) {
   if (event.code === "Escape") {
     if (!gameGoing) return;
 
-    if (pause) unpauseGame();
+    if (variableHolder.pause) unpauseGame();
     else pauseGame();
     return;
   }

@@ -3,7 +3,8 @@
 const newVariables = {
     score: 0,
     applesCollected: 0,
-    //pause: false,
+    pause: false,
+    gameGoing: false,
     //inputNum: 1,
 }
 

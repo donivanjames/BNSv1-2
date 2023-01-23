@@ -15,13 +15,12 @@ const preGameScreen = document.querySelectorAll("[data-start-screen]");
 const scoreElem = document.querySelectorAll("[data-score]");
 export let inputNum = 1;
 
+export let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
 export const makeGameGoingFalse = () => gameGoing = false;
 
-let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
-export let pause = false;
 
 export function playerJump() {
-  if (pause) unpauseGame();
+  if (variableHolder.pause) unpauseGame();
   else if (gameGoing) onJump();
   else sequence4(); //jump if game going: else restart level
 }
@@ -52,7 +51,7 @@ export function sequence4() {
 
 export function pauseGame() {
   if (!gameGoing) return;
-  pause = true;
+  variableHolder.pause = true;
 
   mainUIElem.innerHTML = `
       <div class="pause-screen">
@@ -65,7 +64,7 @@ export function pauseGame() {
 }
 
 export function unpauseGame() {
-  pause = false;
+  variableHolder.pause = false;
   mainUIElem.innerHTML = ``;
   playRunSong();
   unPauseUpdate();
