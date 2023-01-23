@@ -3,8 +3,7 @@ import {
   incrementCustomProperty,
   getCustomProperty,
 } from "./updateCustomProperty.js";
-import { score } from "./gameHandler.js";
-
+import { variableHolder } from "./variableHandler.js";
 import { collectSound } from "./audioManager.js";
 
 // Ending Max: 500  Begining Max 2500:
@@ -151,6 +150,7 @@ export function createCactus() {
   cactus.dataset.obstacle = true;
 
   // Harder obstacles as the score gets higher
+  const score = variableHolder.score
   let randNum = 3;
   if(score > 15000) {
     randNum = 5

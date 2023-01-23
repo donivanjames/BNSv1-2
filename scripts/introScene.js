@@ -14,7 +14,8 @@ const allDivs = document.querySelectorAll("[data-start-screen]")
 const player = document.querySelector(".start-screen-player")
 
 export function skipIntro() {
-    introSpeed = 1;
+    // introSpeed = 1;
+    sequence3()
 }
 
 export function updateIntroScene(time){

@@ -1,21 +1,20 @@
 
-import { playTitleSong, stopTitleSong, playRunSong } from "./audioManager.js";
+import { playTitleSong, stopTitleSong, playRunSong, stopRunSong } from "./audioManager.js";
 import { showGround, resetGround } from "./ground.js";
 import { updateIntroScene, skipIntro } from "./introScene.js";
 import { setupObstacles } from "./obstacle.js";
 import { showPet, setupPet } from "./pet.js";
 import { showPlayer, setupPlayer, onJump } from "./player.js";
-import { applesCollected, updateScore, resetApplesCollected } from "../script.js";
-import { update } from "./update.js";
+import { updateScore, } from "../script.js";
+import { update, pauseUpdate, unPauseUpdate } from "./update.js";
+import { variableHolder, resetVariables } from "./variableHandler.js";
 
 const worldElem = document.querySelector("[data-world]");
 const mainUIElem = document.querySelector("[data-main-ui]");
 const preGameScreen = document.querySelectorAll("[data-start-screen]");
 const scoreElem = document.querySelectorAll("[data-score]");
 export let inputNum = 1;
-export let score = 0;
 
-export const updateScoreVariables = (applesCollected) => score = applesCollected * 1000;
 export const makeGameGoingFalse = () => gameGoing = false;
 
 let gameGoing = false; // used to prevent misclicks in handleStart(), handleLose(), and pause()
@@ -101,8 +100,7 @@ export function handleGameStart() {
   if (!gameGoing) {
     showGround(); // removes "hide" class
     gameGoing = true;
-    score = 0;
-    resetApplesCollected()
+    resetVariables()
 
     stopTitleSong();
     playRunSong();

@@ -1,6 +1,8 @@
 ﻿# Brand-New-Game
 Hey Team! This is the code repository for Brand New Game
 
+The documentation for how the game works is located in documentation.md
+
 # Updates
 
 **Next:**

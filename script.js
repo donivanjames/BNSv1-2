@@ -6,9 +6,7 @@ import { getPlayerRect, setPlayerLose } from "./scripts/player.js";
 import { stopRunSong, soundToggle } from "./scripts/audioManager.js";
 import { handleAllInput } from "./scripts/playerInput.js";
 import {
-  score,
   pauseGame,
-  updateScoreVariables,
   makeGameGoingFalse,
 } from "./scripts/gameHandler.js";
 import {
@@ -17,6 +15,7 @@ import {
   collect,
   gameOverObstacles,
 } from "./scripts/obstacle.js";
+import { variableHolder, resetVariables, addAppleCollected, updateScoreVariables } from "./scripts/variableHandler.js";
 
 /////////////////////
 //   WORLD SETUP   //
@@ -28,10 +27,10 @@ document.documentElement.style.setProperty(
   `${window.innerHeight}px`
 );
 
-export let applesCollected = 0;
 let highScore = 0;
 
-export const resetApplesCollected = () => (applesCollected = 0);
+resetVariables();
+
 
 //   UI ELEMENTS   //
 const mainUIElem = document.querySelector("[data-main-ui]");
@@ -67,7 +66,7 @@ export function checkApple() {
 }
 
 export function collectApple() {
-  applesCollected += 1; // add to score
+  addAppleCollected(); // add to score
   updateScore(); // update score UI
   collect(); // remove apple
 }
@@ -87,7 +86,8 @@ function isCollision(rect1, rect2) {
 
 // INCREASE SCORE BASED ON DELTA TIME //
 export function updateScore(delta) {
-  updateScoreVariables(applesCollected);
+  updateScoreVariables();
+  const score = variableHolder.score
   if (score >= highScore) highScore = score;
   scoreElem[0].textContent = `Score ${~~score}`;
   scoreElem[1].textContent = `High Score ${~~highScore}`;
