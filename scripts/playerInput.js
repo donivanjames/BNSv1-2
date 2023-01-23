@@ -11,6 +11,7 @@ import {
 } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
 
+// Any input fires this function, it starts the intro scene and then handles game input
 export function handleAllInput(event) {
   if (event.target.classList.contains("clickable")) return; // blocks buttons from activating jump
 
