@@ -16,6 +16,13 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 ## Planned Updated Pool
 - Foreach functions in obstacles.js are the longest runtime (lets try adding them to a dom and just moving that dom)
 - Offload intense JS onto web workers
+- Scrolling tutorial text
+- Stop objects from spawning back to back 
+- Hair bigger werewolf
+- Only one werewolf, only one ufo
+- Add leaderboard music
+- "Brand New Game"
+- Add coin sound and lunch money text
 - Bug: when mobile is sideways the search bar cuts off intro sequence
 - Try to animate background with CSS instead of JS: https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/ 
 - JavaScript Optimizations: https://web.dev/optimize-javascript-execution/

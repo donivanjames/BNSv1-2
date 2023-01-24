@@ -24,7 +24,7 @@
   position: absolute;
   
   left: 52%;
-  top: 25%;
+  top: 24%;
 }
 
 :root {
@@ -32,7 +32,7 @@
 }
 
 .title-text, button, a:link {
-  font-size: 1.3vw;
+  font-size: var(--fs-title-sub);
   text-size-adjust: auto;
   display: block;
   margin: 0px;
@@ -47,7 +47,7 @@
 
 .title-text h2 {
   color: #ffffff;
-  font-size: 480%;
+  font-size: var(--fs-title-main);
   line-height: 100%;
 }
 

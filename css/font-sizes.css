@@ -1,0 +1,40 @@
+/* // Breakpoints
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+// Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"; */
+
+@media (min-width: 2500px) {
+    :root {
+        --fs-title-main: 20rem;
+        --fs-title-sub: 1rem;
+    }
+}
+
+:root {
+    --fs-title-main: 7rem;
+    --fs-title-sub: 1.2rem;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --fs-title-main: 3rem;
+        --fs-title-sub: 0.6rem;
+    }
+}
+
+@media (max-width: 500px) {
+    :root {
+        --fs-title-main: 1.5rem;
+        --fs-title-sub: 0.3rem;
+    }
+}

@@ -1,9 +1,11 @@
 /* This page handles a lot of the visual aspects of the game, including the display borders of the game itself */
 
+@import "css/font-sizes.css";
 @import "css/obstacles.css";
 @import "css/environment-colors.css";
 @import "css/ui.css";
 @import "css/title-screen.css";
+
 
 *, *::before, *::after {
     box-sizing: border-box;
