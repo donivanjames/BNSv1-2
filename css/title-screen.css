@@ -16,7 +16,7 @@
   width: auto;
   height: 280%;
 
-  top: -0vw;
+  top: -0vh;
   --top: -0;
 }
 
@@ -81,7 +81,7 @@ a:link a:visited a:active {
 .moveable-item {
   position: absolute;
   /* Set up positioning */
-  top: calc(var(--top) * 1vh);
+  top: calc(var(--top) * 1%);
   will-change: transform;
 }
 

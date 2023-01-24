@@ -39,6 +39,8 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 
 ## Update v1-5 - The Launch Update
 - Centralized all variables
+- Fixed game over mobile font size
+- Fixed title screen mobile scroll distance
 
 ---
 
