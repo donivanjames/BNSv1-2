@@ -14,15 +14,19 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 # Updates
 
 ## Planned Updated Pool
+- Foreach functions in obstacles.js are the longest runtime (lets try adding them to a dom and just moving that dom)
+- Offload intense JS onto web workers
 - Bug: when mobile is sideways the search bar cuts off intro sequence
+- Try to animate background with CSS instead of JS: https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/ 
+- JavaScript Optimizations: https://web.dev/optimize-javascript-execution/
 - Might be able to remove all --tops in title-screen.css
 - Move text dom outside of world so no text gets cut off 
+- Add "Rotate screen for optimal gameplay" under vertical mobile game
+- Adding obstacles to the ground div instead of moving them separate could improve performance 
 - Add Score text over player's head
 - Even shorter guy in title screen
-- Vertical mobile game over UI is broken
 - Moving both grounds in one div may increase performance
 - Moving all obstacles in one div may increase performance
-- Set up "Lazy Loading"
 - Set up GZip compression
 - Need to customize intro screen size for every device (a ui container within main container could work universally)
 - Screen flash and sound effect when player enters school
@@ -33,12 +37,13 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Every frame we're querying ALL obstacles, could slow down system
 - We're calling querySelectorAll twice every frame for apples (in update and getRects)
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
-- Potential loading screen for bad internet (lazy loading might fix this)
+- Potential loading screen for bad internet
 - Bug: there's a 300ms space after dying where pause can be activated
 - Leaderboard OR Achievement board (could push to v6)
 
 
 ## Update v1-5 - The Launch Update
+- Added "Lazy Loading"
 - Centralized all variables
 - Fixed game over mobile font size
 - Fixed title screen mobile scroll distance

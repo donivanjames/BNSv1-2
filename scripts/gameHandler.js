@@ -54,6 +54,13 @@ export function checkApple() {
   return getAppleRects().some((rect) => isCollision(rect, playerRect)); // if any of the apples touch player, add to score
 }
 
+export function collectApple() {
+  variableHolder.applesCollected += 1;
+
+  updateScore(); // update score UI
+  collect(); // remove apple
+}
+
 // COLLISION CHECKER
 function isCollision(rect1, rect2) {
   // return true if there is overlap on any of the sides of the objects
@@ -65,13 +72,6 @@ function isCollision(rect1, rect2) {
       rect1.bottom > rect2.top
     );
   }
-}
-
-export function collectApple() {
-  variableHolder.applesCollected += 1;
-
-  updateScore(); // update score UI
-  collect(); // remove apple
 }
 
 // HANDLE LOSE
