@@ -34,7 +34,7 @@
     white-space: nowrap;
     color: #CEFFDE;
     font-size: 1.25vw;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -51,7 +51,7 @@
 .game-over-screen {
     position: absolute;
     color: #00450F;
-    font-size: 1.8vh;
+    font-size: 3vh;
     line-height: 3vh;
     white-space: pre;
     top: 55%;

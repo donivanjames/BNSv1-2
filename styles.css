@@ -48,10 +48,12 @@ body {
 
 .hide-img {
     opacity: 0.0;
+    pointer-events: none;
 }
 
 .hide {
-    display: none;
+    display: none; 
+    pointer-events: none;
 }
 
 .ground {

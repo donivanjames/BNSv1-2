@@ -13,23 +13,17 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 
 # Updates
 
-**Next:**
-- Keep replacing windowelems
-- Clean up script.js
-
-## Plans For Update v15
-- re-add game over screen
+## Planned Updated Pool
 - Fix vertical leaderboard scaling
 - Might be able to remove all --tops in title-screen.css
 - Score over player's head
-- Even shorter guy 
-- Increase difficulty over time
+- Even shorter guy in title screen
+- Vertical mobile game over UI is broken
+- Moving both grounds in one div may increase performance
 - Set up "Lazy Loading"
 - Set up GZip compression
-- Bobbing apples?
 - Need to customize intro screen size for every device (a ui container within main container could work universally)
 - Screen flash and sound effect when player enters school
-- could use the "rect" in checkApple() to assign which apple to remove (currently collecting an apple removes them all becuase it reuses the obstacle code)
 - Allow player to jump slightly before touching the ground for better response time
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
@@ -39,10 +33,11 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
 - Potential loading screen for bad internet (lazy loading might fix this)
 - Bug: there's a 300ms space after dying where pause can be activated
+- Leaderboard OR Achievement board (could push to v6)
 
 
 ## Update v1-5 - The Launch Update
-- Leaderboard OR Achievement board (could push to v6)
+- Centralized all variables
 
 ---
 
@@ -52,6 +47,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - You can now skip intro scene
 - Added sound toggle
 - Apples that spawn on obstacles become coins
+- Game gets harder over time
 
 **Design**
 - Increased apple frequency
