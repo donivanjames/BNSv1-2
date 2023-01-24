@@ -20,6 +20,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Even shorter guy in title screen
 - Vertical mobile game over UI is broken
 - Moving both grounds in one div may increase performance
+- Moving all obstacles in one div may increase performance
 - Set up "Lazy Loading"
 - Set up GZip compression
 - Need to customize intro screen size for every device (a ui container within main container could work universally)
