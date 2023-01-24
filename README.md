@@ -14,9 +14,10 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 # Updates
 
 ## Planned Updated Pool
-- Fix vertical leaderboard scaling
+- Bug: when mobile is sideways the search bar cuts off intro sequence
 - Might be able to remove all --tops in title-screen.css
-- Score over player's head
+- Move text dom outside of world so no text gets cut off 
+- Add Score text over player's head
 - Even shorter guy in title screen
 - Vertical mobile game over UI is broken
 - Moving both grounds in one div may increase performance
