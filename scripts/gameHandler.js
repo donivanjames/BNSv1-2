@@ -1,6 +1,6 @@
 // handles most game functions
 
-import { playRunSong, stopRunSong } from "./audioManager.js";
+import { playRunSong, stopRunSong, playGameOverSong } from "./audioManager.js";
 import { hideGround } from "./ground.js";
 import {
   getCactusRects,
@@ -108,7 +108,8 @@ export function handleLose() {
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {
     variableHolder.gameGoing = false;
-  }, 300);
+    playGameOverSong()
+  }, 400);
 }
 
 export function updateScore() {

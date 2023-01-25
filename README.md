@@ -14,6 +14,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 # Updates
 
 ## Planned Updated Pool
+- Compress "Game Over" soundtrack once it's approved
 - Foreach functions in obstacles.js are the longest runtime (lets try adding them to a dom and just moving that dom)
 - Offload intense JS onto web workers
 - Scrolling tutorial text
@@ -22,7 +23,6 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - one-by-one text in intro scene
 - Only one werewolf, only one ufo
 - Add leaderboard music
-- "Brand New Game"
 - Add coin sound and lunch money text
 - Bug: when mobile is sideways the search bar cuts off intro sequence
 - Try to animate background with CSS instead of JS: https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/ 
@@ -48,13 +48,15 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Potential loading screen for bad internet
 - Bug: there's a 300ms space after dying where pause can be activated
 - Leaderboard OR Achievement board (could push to v6)
+- On screen change: needs to trigger a resize (or maybe a page refresh if on intro scene)
 
 
 ## Update v1-5 - The Launch Update
 - Added "Lazy Loading"
 - Centralized all variables
-- Fixed game over mobile font size
-- Fixed title screen mobile scroll distance
+- Centralized all font sizes
+- Added Leaderboard Music
+- Made opening title sequence fullscreen
 
 ---
 

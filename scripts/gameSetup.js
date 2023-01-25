@@ -1,7 +1,7 @@
 // handles the setup functions of the game
 
 import { skipIntro, updateIntroScene } from "./introScene.js";
-import { playTitleSong, stopTitleSong, playRunSong } from "./audioManager.js";
+import { playTitleSong, stopTitleSong, playRunSong, stopGameOverSong } from "./audioManager.js";
 import { showGround, resetGround } from "./ground.js";
 import { setupObstacles } from "./obstacle.js";
 import { showPet, setupPet } from "./pet.js";
@@ -66,6 +66,7 @@ export function handleGameStart() {
       variableHolder.gameGoing = true;
   
       stopTitleSong();
+      stopGameOverSong()
       playRunSong();
   
       document.body.classList.remove("black-screen");

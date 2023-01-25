@@ -1,8 +1,8 @@
 // holds all the audio
 
-// TITLE SONG
-
 let soundOn = true
+
+// TITLE SONG
 
 let titleSong = new Audio("sounds/Music/title-song-3.mp3");
 titleSong.volume = 0.07;
@@ -72,4 +72,19 @@ collectSoundAudio.volume = 0.1
 
 export function collectSound() {
   if(soundOn) collectSoundAudio.play()
+}
+
+// GAME OVER SONG
+
+let gameOverSong = new Audio("sounds/Music/game-over-theme-1.mp3");
+gameOverSong.volume = 0.7;
+gameOverSong.loop = false;
+
+export function playGameOverSong() {
+  if(soundOn) gameOverSong.play();
+}
+
+export function stopGameOverSong() {
+  gameOverSong.pause();
+  gameOverSong.currentTime = 0;
 }
