@@ -15,6 +15,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 
 ## Planned Updated Pool
 - Compress "Game Over" soundtrack once it's approved
+- "Visit site" button width too large
 - Foreach functions in obstacles.js are the longest runtime (lets try adding them to a dom and just moving that dom)
 - Offload intense JS onto web workers
 - Scrolling tutorial text

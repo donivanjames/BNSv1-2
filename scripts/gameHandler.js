@@ -90,7 +90,7 @@ export function handleLose() {
       <div class="column">23,000<br>22,000<br>20,000<br>19,000<br>18,000<br>18,000<br>17,000<br>16,000<br>15,000<br>14,000</div>
     </div>
     <div style="line-height:80%; margin-top: -6vh">
-        <div class="text-blink" style="color:#CEFFDE">HIT SPACEBAR TO PLAY AGAIN</div>
+        <div class="text-blink" style="color:#CEFFDE" font-size: var(--fs-med);>HIT SPACEBAR TO PLAY AGAIN</div>
         <a
           href="https://brandnewschool.com/"
           class="clickable"
