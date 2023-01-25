@@ -12,6 +12,7 @@ const FRAME_TIME = 100; // how long each animation frame should last (in millise
 let playerFrame = 0
 let currentFrameTime = 0
 
+
 const container = document.querySelector(".title-container")
 const containerHeight = container.clientHeight
 console.log("containerHeight: ", containerHeight)
@@ -20,21 +21,24 @@ const bigImg = document.querySelector(".start-screen-img")
 const imgHeight = bigImg.clientHeight
 console.log("Img height: ", imgHeight)
 
-const scrollHeight = imgHeight / containerHeight
+const scrollHeight = ((imgHeight / containerHeight) * 100)
 console.log("ScrollHeight ", scrollHeight, "%")
 
 
 const player = document.querySelector(".start-screen-player")
-const playerHeight = scrollHeight// * 153.823
-setCustomProperty(player, "--top", playerHeight)
+const playerHeight = -scrollHeight
+setCustomProperty(player, "--bottom", playerHeight)
 console.log("Player height: ", playerHeight)
 
 
+
 const allDivs = document.querySelectorAll("[data-start-screen]")
-const soundButton = document.querySelector("[data-sound-toggle]")
-soundButton.addEventListener("click", () =>
-  soundToggle(soundButton)
-);
+
+// add back when adding in text
+// const soundButton = document.querySelector("[data-sound-toggle]")
+// soundButton.addEventListener("click", () =>
+//   soundToggle(soundButton)
+// );
 
 export function skipIntro() {
     introSpeed = 1;
@@ -58,7 +62,7 @@ export function updateIntroScene(time){
 }
 
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(container, "--top") >= -scrollHeight * 65) {
+    if (getCustomProperty(container, "--top") >= -scrollHeight + 120) {
         scrollItems(delta, introSpeed)
     }
     else {
@@ -76,7 +80,7 @@ function scrollItems(delta, introSpeed) {
 }
 
 function movePlayer(delta){
-    if (getCustomProperty(player, "--left") <= 70){
+    if (getCustomProperty(player, "--left") <= 65){
         incrementCustomProperty(player, "--left", delta * 0.03 * 1) 
         // play animation
         handleRun(delta)

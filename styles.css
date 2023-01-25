@@ -114,8 +114,3 @@ body {
 
 
 
-@media (max-width : 1000px) {
-    body {
-        justify-content: flex-start;
-    }
-}

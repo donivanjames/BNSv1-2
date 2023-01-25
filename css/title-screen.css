@@ -27,7 +27,7 @@
   position: absolute;
   
   left: 52%;
-  top: 24%;
+  top: var(--title-text-top)
 }
 
 :root {
@@ -77,9 +77,9 @@ a:link a:visited a:active {
   image-rendering: crisp-edges;
   --left: 20;
   /* --top: 0%; */
-  --top: 500;
+  --bottom: -100;
   z-index: 10;
-  top: calc((var(--top) * var(--title-player-top)) * 1%);
+  bottom: calc((var(--bottom) + var(--title-player-bottom)) * 1%);
   left: calc(var(--left) * 1%);
 }
 
@@ -88,17 +88,4 @@ a:link a:visited a:active {
   /* Set up positioning */
   top: calc(var(--top) * 1%);
   will-change: transform;
-}
-
-@media screen and (orientation:portrait) { 
-  .start-screen {
-    height: 26vh;
-  }
-}
-
-@media (min-width : 2000px) {
-
-  .title-text, button, a:link {
-    font-size: 1.1vw;
-  }
 }

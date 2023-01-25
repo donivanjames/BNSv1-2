@@ -64,21 +64,3 @@
     var(--gym-bottom-color) 100%
   );
 }
-
-  @media (max-width : 1000px) {
-    .outside {
-      background: var(--outside-bottom-color);
-    }
-    .hallway {
-      background: var(--hallway-bottom-color);
-    }
-    .library {
-      background: var(--library-bottom-color);
-    }
-    .lab {
-      background: var(--lab-bottom-color);
-    }
-    .gym {
-      background: var(--gym-bottom-color);
-    }
-}

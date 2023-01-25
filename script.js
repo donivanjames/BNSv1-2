@@ -5,13 +5,15 @@ import { windowElements, resetVariables } from "./scripts/variableHandler.js";
 
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
-document.documentElement.style.setProperty(
-  "--doc-height",
-  `${window.innerHeight}px`
-);
+// document.documentElement.style.setProperty(
+//   "--doc-height",
+//   `${window.innerHeight}px`
+// );
 
 resetVariables();
 setPixelToWorldScale();
+
+console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
 
 window.addEventListener("resize", setPixelToWorldScale);
 document.addEventListener("keydown", handleAllInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
@@ -24,7 +26,5 @@ function setPixelToWorldScale() {
   } else worldToPixelScale = window.innerHeight / WORLD_HEIGHT;
 
   windowElements.worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`;
-  windowElements.worldElem.style.height = `${
-    WORLD_HEIGHT * worldToPixelScale
-  }px`;
+  windowElements.worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`;
 }
