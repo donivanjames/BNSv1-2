@@ -7,13 +7,13 @@
         --title-player-bottom: 135.2;
         --title-text-top: 30%;
       
-        --fs-xlarge: 220%;
-        --fs-large: 200%;
-        --fs-med: 130%;
+        --fs-xlarge: 400%;
+        --fs-large: 80%;
+        --fs-med: 20%;
       
-        --col-width: 30%;
-        --col-margin-top: 0%;
-        --col-margin-bottom: 5%;
+        --col-width: 20%;
+        --col-margin-top: 5%;
+        --col-margin-bottom: 20%;
       }
 }
 
@@ -26,11 +26,11 @@
 
     --fs-xlarge: 300%;
     --fs-large: 80%;
-    --fs-med: 40%;
+    --fs-med: 50%;
     --col-width: 22%;
     
   --col-margin-top: 5%;
-  --col-margin-bottom: 20%;
+  --col-margin-bottom: 10%;
   }
 }
 
