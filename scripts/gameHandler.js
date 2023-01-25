@@ -28,7 +28,7 @@ export function pauseGame() {
   windowElements.mainUIElem.innerHTML = `
       <div class="pause-screen">
         <h2>Paused</h2><br><br>
-        Tap Or Space To Unpause
+        Space To Unpause
       </div>
     `;
   stopRunSong();

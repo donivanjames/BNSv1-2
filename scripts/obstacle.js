@@ -192,7 +192,7 @@ export function createApple() {
     apple.classList.add("apple"); // adds CSS styles to apple
   }
 
-  setCustomProperty(apple, "--bottom", randomNumberBetween(55, 70)); // sets apple height
+  setCustomProperty(apple, "--bottom", randomNumberBetween(45, 64)); // sets apple height
 
   apple.classList.add(`base-obstacle`);
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
