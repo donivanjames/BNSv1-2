@@ -1,6 +1,6 @@
 // handles the long scrolling intro scene
 
-import { incrementCustomProperty, getCustomProperty } from "./updateCustomProperty.js"
+import { incrementCustomProperty, getCustomProperty, setCustomProperty } from "./updateCustomProperty.js"
 import { soundToggle } from "./audioManager.js"
 import { sequence3 } from "./gameSetup.js"
 
@@ -12,17 +12,33 @@ const FRAME_TIME = 100; // how long each animation frame should last (in millise
 let playerFrame = 0
 let currentFrameTime = 0
 
+const container = document.querySelector(".title-container")
+const containerHeight = container.clientHeight
+console.log("containerHeight: ", containerHeight)
+
 const bigImg = document.querySelector(".start-screen-img")
-const allDivs = document.querySelectorAll("[data-start-screen]")
+const imgHeight = bigImg.clientHeight
+console.log("Img height: ", imgHeight)
+
+const scrollHeight = imgHeight / containerHeight
+console.log("ScrollHeight ", scrollHeight, "%")
+
+
 const player = document.querySelector(".start-screen-player")
+const playerHeight = scrollHeight// * 153.823
+setCustomProperty(player, "--top", playerHeight)
+console.log("Player height: ", playerHeight)
+
+
+const allDivs = document.querySelectorAll("[data-start-screen]")
 const soundButton = document.querySelector("[data-sound-toggle]")
 soundButton.addEventListener("click", () =>
   soundToggle(soundButton)
 );
 
 export function skipIntro() {
-    // introSpeed = 1;
-    sequence3()
+    introSpeed = 1;
+    //sequence3()
 }
 
 export function updateIntroScene(time){
@@ -42,7 +58,7 @@ export function updateIntroScene(time){
 }
 
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(bigImg, "--top") >= -170) {
+    if (getCustomProperty(container, "--top") >= -scrollHeight * 65) {
         scrollItems(delta, introSpeed)
     }
     else {

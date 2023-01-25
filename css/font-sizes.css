@@ -23,12 +23,15 @@ $mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"; */
 :root {
     --fs-title-main: 7rem;
     --fs-title-sub: 1.2rem;
+
+    --title-player-top: 84.67;
 }
 
 @media (max-width: 1200px) {
     :root {
         --fs-title-main: 3rem;
         --fs-title-sub: 0.6rem;
+        --title-player-top: 84.8;
     }
 }
 
@@ -36,5 +39,7 @@ $mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"; */
     :root {
         --fs-title-main: 1.5rem;
         --fs-title-sub: 0.3rem;
+        --title-player-top: 84.2;
+
     }
 }

@@ -19,6 +19,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Scrolling tutorial text
 - Stop objects from spawning back to back 
 - Hair bigger werewolf
+- one-by-one text in intro scene
 - Only one werewolf, only one ufo
 - Add leaderboard music
 - "Brand New Game"
