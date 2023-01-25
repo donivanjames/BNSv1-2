@@ -1,5 +1,4 @@
-/* Change all these to min width */
-
+/* Small Screens */
 @media (min-width: 0em) {
     :root {
         --title-fs-main: 6rem;
@@ -83,10 +82,4 @@
       --col-width: 30%;
   
     }
-  
-    .title-text,
-    button,
-    a:link {
-      font-size: 1.1vw;
-    } 
   }
