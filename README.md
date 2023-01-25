@@ -17,13 +17,11 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Compress "Game Over" soundtrack once it's approved
 - "Visit site" button width too large
 - Foreach functions in obstacles.js are the longest runtime (lets try adding them to a dom and just moving that dom)
-- Offload intense JS onto web workers
-- Scrolling tutorial text
+- Offload intense JS onto web workers/multi-threading
 - Stop objects from spawning back to back 
 - Hair bigger werewolf
-- one-by-one text in intro scene
+- one-by-one tutorial text in intro scene
 - Only one werewolf, only one ufo
-- Add leaderboard music
 - Add coin sound and lunch money text
 - Bug: when mobile is sideways the search bar cuts off intro sequence
 - Try to animate background with CSS instead of JS: https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/ 
@@ -33,7 +31,6 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Add "Rotate screen for optimal gameplay" under vertical mobile game
 - Adding obstacles to the ground div instead of moving them separate could improve performance 
 - Add Score text over player's head
-- Even shorter guy in title screen
 - Moving both grounds in one div may increase performance
 - Moving all obstacles in one div may increase performance
 - Set up GZip compression
@@ -45,10 +42,10 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Get mobile version working properly
 - Every frame we're querying ALL obstacles, could slow down system
 - We're calling querySelectorAll twice every frame for apples (in update and getRects)
-- A lot of Math.floor (~~) in script.js, might be able to condense it to 1 or two times
+- A lot of Math.floor (~~) in gameHandler.js, might be able to condense it to 1 or two times
 - Potential loading screen for bad internet
 - Bug: there's a 300ms space after dying where pause can be activated
-- Leaderboard OR Achievement board (could push to v6)
+- Leaderboard OR Achievement board
 - On screen change: needs to trigger a resize (or maybe a page refresh if on intro scene)
 
 
