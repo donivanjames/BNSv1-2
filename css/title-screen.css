@@ -35,7 +35,7 @@
 }
 
 .title-text, button, a:link {
-  font-size: var(--fs-title-sub);
+  font-size: var(--title-fs-sub);
   text-size-adjust: auto;
   display: block;
   margin: 0px;
@@ -50,7 +50,7 @@
 
 .title-text h2 {
   color: #ffffff;
-  font-size: var(--fs-title-main);
+  font-size: var(--title-fs-main);
   line-height: 100%;
 }
 

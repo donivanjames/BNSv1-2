@@ -34,7 +34,7 @@
     white-space: nowrap;
     color: #CEFFDE;
     font-size: 1.25vw;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -51,29 +51,29 @@
 .game-over-screen {
     position: absolute;
     color: #00450F;
-    font-size: 1.25vw;
-    line-height: 1vw;
+    font-size: var(--fs-med);
+    line-height: 130%;
     white-space: pre;
-    top: 55%;
+    top: 50%;
     z-index: 10;
 }
 
-.column {
-    float:left;
-    width: 33.33%;
-    padding: 1.5vw;
-  }
-  
   /* Clear floats after the columns */
   .row {
     position: relative;
+    width: 100%;
     z-index: 10;
     display: table;
     clear: both;
-    margin-top: -4vh;
-    margin-bottom: -3vh;
-    margin-left: 1vw;
-    margin-right: 1vw;
+    margin-top: var(--col-margin-top);
+    margin-bottom: var(--col-margin-bottom);
   }
+
+.column {
+    display: inline-block;
+    width: var(--col-width);
+  }
+  
+
 
 

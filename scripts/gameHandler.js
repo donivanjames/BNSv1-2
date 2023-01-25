@@ -82,12 +82,23 @@ export function handleLose() {
   gameOverObstacles();
 
   windowElements.mainUIElem.innerHTML = `
-    <div class="game-over-screen"">
-      \nScore: ${~~variableHolder.score}
-      \nHigh Score: ${~~variableHolder.highScore}
-      \n\n\n\n<h1>GAME OVER!</h1>
-      \n\n\n\n\n\n\n\n<div class="text-blink">Tap Or Space To Play Again</div>
+  <div class="game-over-screen">
+    <h1 style="color:#EC472B; font-size: var(--fs-xlarge); margin-left: 1vw; margin-bottom: -1vh">GAME OVER!</h1>
+    <div class="row">
+      <div class="column" style="width:10%">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
+      <div class="column">BRUMB<br>CHLOE<br>JNTHN<br>DOOLS<br>PHOEB<br>TREYY<br>ALEXS<br>COOKI<br>URIBE<br>NICCO</div>
+      <div class="column">23,000<br>22,000<br>20,000<br>19,000<br>18,000<br>18,000<br>17,000<br>16,000<br>15,000<br>14,000</div>
     </div>
+    <div style="line-height:80%; margin-top: -6vh">
+        <div class="text-blink" style="color:#CEFFDE">HIT SPACEBAR TO PLAY AGAIN</div>
+        <a
+          href="https://brandnewschool.com/"
+          class="clickable"
+          style="font-size: 1.8vh"
+          >VISIT OLD SITE
+        </a>
+    </div>
+  </div>
   `;
 
   // change screen to solid color

@@ -1,52 +1,92 @@
-/* Breakpoints */ /*
-$bp-small: 48em;  /* 768px */ /*
-$bp-medium: 64em; /* 1024px */ /*
-$bp-large: 85.375em; /*  1366px */ /*
-$bp-xlarge: 120em; /* 1920px */ /*
-$bp-xxlarge: 160em; 2560px */
+/* Change all these to min width */
 
-/* 2560px */
-@media (min-width: 160em) {
-  :root {
-    --fs-title-main: 20rem;
-    --fs-title-sub: 1rem;
-    --title-player-bottom: 140.3;
-  }
-  .title-text,
-  button,
-  a:link {
-    font-size: 1.1vw;
-  }
-}
-
-/* 1920px */
-:root {
-  --fs-title-main: 6rem;
-  --fs-title-sub: 1.6rem;
-  --title-player-bottom: 140.5;
-  --title-text-top: 30%;
-}
-
-/* 1024px */
-@media (max-width: 85.375em) {
+@media (min-width: 0em) {
     :root {
-      --fs-title-main: 3rem;
-      --fs-title-sub: 0.6rem;
+        --title-fs-main: 6rem;
+        --title-fs-sub: 1.6rem;
+        --title-player-bottom: 135.2;
+        --title-text-top: 30%;
+      
+        --fs-xlarge: 220%;
+        --fs-large: 200%;
+        --fs-med: 130%;
+      
+        --col-width: 30%;
+        --col-margin-top: 0%;
+        --col-margin-bottom: 5%;
+      }
+}
+
+/* 768px - ipad vertical */
+@media (min-width: 48em) {
+  :root {
+    --title-fs-main: 1.5rem;
+    --title-fs-sub: 0.3rem;
+    --title-player-bottom: 142.5;
+
+    --fs-xlarge: 300%;
+    --fs-large: 80%;
+    --fs-med: 40%;
+    --col-width: 22%;
+    
+  --col-margin-top: 5%;
+  --col-margin-bottom: 20%;
+  }
+}
+
+/* 1024px - ipad horizontal */
+@media (min-width: 85.375em) {
+    :root {
+      --title-fs-main: 3rem;
+      --title-fs-sub: 0.6rem;
       --title-player-bottom: 140.3;
+
+      --fs-xlarge: 300%;
+      --fs-large: 100%;
+      --fs-med: 60%;
+
+      --col-margin-top: 5%;
+      --col-margin-bottom: 15%;
     }
   }
 
-/* 768px */
-@media (max-width: 48em) {
-  :root {
-    --fs-title-main: 1.5rem;
-    --fs-title-sub: 0.3rem;
-    --title-player-bottom: 140.3;
-  }
+
+/* 1920px */
+@media (min-width: 120em) {
+    :root {
+        --title-fs-main: 6rem;
+        --title-fs-sub: 1.6rem;
+        --title-player-bottom: 140.5;
+        --title-text-top: 30%;
+      
+        --fs-xlarge: 220%;
+        --fs-large: 200%;
+        --fs-med: 130%;
+      
+        --col-width: 30%;
+        --col-margin-top: 0%;
+        --col-margin-bottom: 5%;
+      }
 }
 
-/* @media screen and (orientation: portrait) {
-  .start-screen {
-    height: 26vh;
+/* 2560px ultrawide horizontal */
+@media (min-width: 160em) {
+    :root {
+      --title-fs-main: 20rem;
+      --title-fs-sub: 1rem;
+      --title-player-bottom: 147.1;
+  
+      --fs-xlarge: 300%;
+      --fs-large: 200%;
+      --fs-med: 210%;
+    
+      --col-width: 30%;
+  
+    }
+  
+    .title-text,
+    button,
+    a:link {
+      font-size: 1.1vw;
+    } 
   }
-} */
