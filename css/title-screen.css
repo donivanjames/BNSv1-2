@@ -26,31 +26,32 @@
 .title-text-container {
   position: absolute;
   
-  left: 52%;
-  top: var(--title-text-top)
-}
-
-:root {
-  --title-text-color: #003522;
+  left: 55.9vw;
+  top: 10vw;
 }
 
 .title-text {
-  font-size: var(--title-fs-sub);
   display: block;
-  margin: 0px;
-  color: var(--title-text-color);
   text-decoration: none;
   white-space: nowrap;
   z-index: 3;
   font-family: inherit;
-  line-height: 1.5vw;
+  font-style: inherit;
   border: none;
+  font-size: 0.94vw;
+  line-height: 1.4vw;
+  color: #003522;
+}
+
+.mini-container  {
+  margin-bottom: -4vw;
+  margin-top: 4vw;
 }
 
 .title-text h2 {
   color: #ffffff;
-  font-size: var(--title-fs-main);
-  line-height: 100%;
+  font-size: 5.5vw;
+  line-height: 5.5vw;
 }
 
 
