@@ -1,79 +1,63 @@
 .text-blink {
-    animation: blinker 1.3s step-start infinite;
+  animation: blinker 1.3s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
   }
-  
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
+}
+
+.clickable {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+.clickable:hover {
+  color: rgb(0, 146, 0);
+}
 
 .score-ui {
-    position: absolute;
-    color: #CEFFDE;
-    font-size: 1.0vw;
-    top: 1.5vw;
+  position: absolute;
+  color: #ceffde;
+  font-size: 1vw;
+  top: 1.5vw;
 }
 .score {
-    left: 2vw;
+  left: 2vw;
 }
 
 .high-score {
-    right: 3vmin;
+  right: 3vmin;
 }
 
 .textContainer {
-    position: relative;
-    overflow:visible;
-    z-index: 10;
-    height: 100vh;
+  position: relative;
+  overflow: visible;
+  z-index: 10;
+  height: 100vh;
 }
-.game-over-screen, .home-screen, .pause-screen {
-    position: absolute;
-    text-align: center;
-    white-space: nowrap;
-    color: #CEFFDE;
-    font-size: 1.25vw;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+.game-over-screen,
+.home-screen,
+.pause-screen {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .pause-screen {
-    z-index: 3;
-    font-size: 1.5vw;
+  z-index: 3;
+  font-size: 1.5vw;
 }
 
 .home-screen {
-    font-size: 2vw;
+  font-size: 2vw;
 }
-
-.game-over-screen {
-    position: absolute;
-    color: #00450F;
-    font-size: var(--fs-med);
-    line-height: 130%;
-    white-space: pre;
-    top: 50%;
-    z-index: 10;
-}
-
-  /* Clear floats after the columns */
-  .row {
-    position: relative;
-    width: 100%;
-    z-index: 10;
-    display: table;
-    clear: both;
-    margin-top: var(--col-margin-top);
-    margin-bottom: var(--col-margin-bottom);
-  }
-
-.column {
-    display: inline-block;
-    width: var(--col-width);
-  }
-  
-
 
 

@@ -1,0 +1,53 @@
+
+:root {
+    --game-over-title: 2.5vw;
+    --game-over-fs: 0.8vw;
+    --game-over-color: #003522;
+    --game-over-line-height: 1.5vw;
+  
+    --col-width: 3vw;
+    --col-margin-top: 2vw;
+    --col-margin-bottom: 2vw;
+  }
+
+  @media (orientation: portrait) {
+    :root {
+        --game-over-title: 2.5vw;
+        --game-over-fs: 1vw;
+        --game-over-color: #003522;
+        --game-over-line-height: 2vw;
+      
+        --col-width: 3vw;
+        --col-margin-top: 4vw;
+        --col-margin-bottom: 2vw;
+      }
+  }
+
+
+.game-over-screen {
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .game-over-font {
+    color: #00450f;
+    white-space: nowrap;
+    font-size: var(--game-over-fs);
+    line-height: var(--game-over-line-height);
+  }
+  
+  /* Clear floats after the columns */
+  .row {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    display: table;
+    clear: both;
+    margin-top: var(--col-margin-top);
+    margin-bottom: var(--col-margin-bottom);
+  }
+  
+  .column {
+    display: inline-block;
+    /* width: var(--col-width); */
+  }

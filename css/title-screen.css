@@ -34,9 +34,8 @@
   --title-text-color: #003522;
 }
 
-.title-text, button, a:link {
+.title-text {
   font-size: var(--title-fs-sub);
-  text-size-adjust: auto;
   display: block;
   margin: 0px;
   color: var(--title-text-color);
@@ -45,7 +44,6 @@
   z-index: 3;
   font-family: inherit;
   border: none;
-  line-height: 160%;
 }
 
 .title-text h2 {
@@ -54,16 +52,6 @@
   line-height: 100%;
 }
 
-.clickable { 
-  cursor: pointer;
-  background: none;
-}
-
-.clickable:hover { color: rgb(0, 222, 0); }
-
-button {
-  border: none;
-}
 
 a:link a:visited a:active { 
   text-decoration: none;
