@@ -153,11 +153,11 @@ export function createCactus() {
   // Harder obstacles as the score gets higher
   const score = variableHolder.score;
   let randNum = 3;
-  if (score > 15000) {
+  if (score > 1500) {
     randNum = 5;
     CACTUS_INTERVAL_MAX = 1500;
     CACTUS_INTERVAL_MIN = 600;
-  } else if (score > 8000) {
+  } else if (score > 800) {
     randNum = 4;
     CACTUS_INTERVAL_MAX = 2000;
     CACTUS_INTERVAL_MIN = 700;

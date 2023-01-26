@@ -34,11 +34,10 @@ console.log("Player height: ", playerHeight)
 
 const allDivs = document.querySelectorAll("[data-start-screen]")
 
-// add back when adding in text
-// const soundButton = document.querySelector("[data-sound-toggle]")
-// soundButton.addEventListener("click", () =>
-//   soundToggle(soundButton)
-// );
+const soundButton = document.querySelector("[data-sound-toggle]")
+soundButton.addEventListener("click", () =>
+  soundToggle(soundButton)
+);
 
 export function skipIntro() {
     introSpeed = 1;

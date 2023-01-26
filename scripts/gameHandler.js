@@ -12,6 +12,7 @@ import { onJump, getPlayerRect, setPlayerLose } from "./player.js";
 import { pauseUpdate, unPauseUpdate } from "./update.js";
 import { windowElements, variableHolder } from "./variableHandler.js";
 import { sequence4 } from "./gameSetup.js";
+import { returnLeaderboard, setupLeaderboard } from "./leaderboard.js";
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 
@@ -81,20 +82,8 @@ export function handleLose() {
   hideGround();
   gameOverObstacles();
 
-  windowElements.mainUIElem.innerHTML = `
-  <div class="game-over-screen game-over-font">
-    <h1 style="color:#EC472B; font-size: var(--game-over-title); margin-left: 1vw; margin-bottom: -1vh">GAME OVER</h1>
-    <div class="row">
-      <div class="column" style="width:20%">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</div>
-      <div class="column" style="width:30%">BRUMB<br>CHLOE<br>JNTHN<br>DOOLS<br>PHOEB<br>TREYY<br>ALEXS<br>COOKI<br>URIBE<br>NICCO</div>
-      <div class="column" style="width:30%">23,000<br>22,000<br>20,000<br>19,000<br>18,000<br>18,000<br>17,000<br>16,000<br>15,000<br>14,000</div>
-    </div>
-    <div>
-        <div class="text-blink" style="color:#CEFFDE" font-size: var(--fs-med);>PLAY AGAIN</div>
-        <button style="margin-top:10%" class="clickable game-over-font" onclick="myfunc()">RETURN TO BRAND NEW SCHOOL</button>
-    </div>
-  </div>
-  `;
+  setupLeaderboard()
+  windowElements.mainUIElem.innerHTML = returnLeaderboard();
 
   // change screen to solid color
   document.body.classList.remove("hallway");
@@ -108,7 +97,7 @@ export function handleLose() {
 }
 
 export function updateScore() {
-  variableHolder.score = variableHolder.applesCollected * 1000;
+  variableHolder.score = variableHolder.applesCollected * 100;
   const score = variableHolder.score;
   if (score >= variableHolder.highScore) variableHolder.highScore = score;
   windowElements.scoreElem[0].textContent = `Score ${~~score}`;

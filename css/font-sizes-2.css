@@ -1,10 +1,10 @@
 
 
 :root {
-  --title-fs-main: 6rem;
-  --title-fs-sub: 1.6rem;
+  --title-fs-main: 5vw;
+  --title-fs-sub: 1vw;
   --title-player-bottom: 140.5;
-  --title-text-top: 30rem;
+  --title-text-top: 4.5vw;
 
   --fs-xlarge: clamp(1rem, 10vw + 1rem, 3.5rem);
   --fs-large: 0.2rem;
@@ -14,10 +14,7 @@
 
 @media (max-width: 40em) {
   :root {
-    --title-fs-main: 6rem;
-    --title-fs-sub: 1.6rem;
     --title-player-bottom: 140.5;
-    --title-text-top: 30rem;
 
     --fs-xlarge: clamp(1rem, 10vw + 1rem, 3.5rem);
     --fs-large: 0.2rem;
