@@ -37,7 +37,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 - Set up GZip compression
 - Need to customize intro screen size for every device (a ui container within main container could work universally)
 - Screen flash and sound effect when player enters school
-- Allow player to jump slightly before touching the ground for better response time
+- Allow player to jump slightly before touching the ground for better response time (celeste keeps track of jumps and activates once you actually hit the ground)
 - Get short, loopable sound bites for audio so it loads in faster
 - Customize "Tap to start" text for mobile
 - Get mobile version working properly

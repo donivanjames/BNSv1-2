@@ -38,18 +38,18 @@
   position: relative;
   overflow: visible;
   z-index: 10;
-  height: 100vh;
 }
 
-.game-over-screen,
 .home-screen,
 .pause-screen {
   position: absolute;
   text-align: center;
-  top: 50%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
 
 .pause-screen {
   z-index: 3;
