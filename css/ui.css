@@ -44,12 +44,19 @@
 .pause-screen {
   position: absolute;
   text-align: center;
-  top: 17vw;
+  top: 45vh;
   left: 47vw;
   transform: translate(-50%, -50%);
   color: #CEFFDE;
 }
 
+@media (orientation: portrait) {
+    .home-screen,
+    .pause-screen {
+      top: 5.5vh;
+      left: 47vw;
+  }
+}
 
 
 .pause-screen {

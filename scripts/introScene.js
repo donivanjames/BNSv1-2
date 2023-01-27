@@ -1,4 +1,5 @@
 // handles the long scrolling intro scene
+// deletes everything after intro scene
 
 import { incrementCustomProperty, getCustomProperty, setCustomProperty } from "./updateCustomProperty.js"
 import { soundToggle } from "./audioManager.js"
@@ -15,12 +16,16 @@ const startScreen = document.querySelector(".start-screen")
 const container = document.querySelector(".title-container")
 const bigImg = document.querySelector(".start-screen-img")
 const player = document.querySelector(".start-screen-player")
+const tutText = document.querySelector("[data-tutorial-text]")
 
 let startScreenHeight = 0
-let imgHeight = 0
-let playerPos = 0
-let scrollDistance = 0
-let scrollSpeed = 0.3
+let imgHeight         = 0
+let playerPos         = 0
+let tutTextPos        = 0
+let scrollDistance    = 0
+let scrollSpeed       = 0
+
+console.log(tutText)
 
 window.addEventListener('resize', setupIntro) // to protect screen resizes
 setupIntro()
@@ -37,19 +42,23 @@ function setupIntro() {
     playerPos = 0 + startScreenHeight - (imgHeight * 0.894)
     setCustomProperty(player, "--bottom", playerPos)
 
-    console.log("\n")
-    console.log("Player Position:")
-    console.log("playerPosition = 0 + containerHeight - (imageHeight * 0.894) =", playerPos)
-    console.log("Command: set position player at playerPosition", playerPos)
-    console.log("\n")
-    console.log("Screen Scroll Distance:")
-    console.log("scrollDistance = -imageHeight + containerHeight =", scrollDistance)
-    console.log("Command: scroll screen to scrollDistance", scrollDistance)
-    console.log("\n")
-    console.log("Screen Scroll Speed:")
-    console.log("scrollSpeed = imageHeight * 0.00008 = ", scrollSpeed)
-    console.log("Command: scroll screen at speed",scrollSpeed)
-    console.log("\n")
+    // Tutorial Text Position:
+    tutTextPos = 0 + startScreenHeight - (imgHeight * 0.88)
+    setCustomProperty(tutText, "--bottom", tutTextPos)
+
+    // console.log("\n")
+    // console.log("Player Position:")
+    // console.log("playerPosition = 0 + containerHeight - (imageHeight * 0.894) =", playerPos)
+    // console.log("Command: set position player at playerPosition", playerPos)
+    // console.log("\n")
+    // console.log("Screen Scroll Distance:")
+    // console.log("scrollDistance = -imageHeight + containerHeight =", scrollDistance)
+    // console.log("Command: scroll screen to scrollDistance", scrollDistance)
+    // console.log("\n")
+    // console.log("Screen Scroll Speed:")
+    // console.log("scrollSpeed = imageHeight * 0.00008 = ", scrollSpeed)
+    // console.log("Command: scroll screen at speed",scrollSpeed)
+    // console.log("\n")
 }
 
 

@@ -23,19 +23,19 @@
       }
   }
 
-
 .game-over-screen {
     position: absolute;
     text-align: center;
     z-index: 10;
     top: 50%;
-    left: 50%;
+    left: 47%;
     transform: translate(-50%, -50%);
   }
   
   .game-over-font {
     color: #00450f;
     white-space: nowrap;
+    margin: 0 auto;
     font-size: var(--game-over-fs);
     line-height: var(--game-over-line-height);
   }
@@ -54,4 +54,24 @@
   .column {
     display: inline-block;
     /* width: var(--col-width); */
+  }
+
+  .go-color-1 {
+    color: #630331;
+  }
+
+  .go-color-2 {
+    color: #EC472B;
+  }
+
+  .go-color-3 {
+    color: #FFC700;
+  }
+
+  .go-color-4 {
+    color: #CEFFDE;
+  }
+
+  .go-color-5 {
+    color: #003399;
   }

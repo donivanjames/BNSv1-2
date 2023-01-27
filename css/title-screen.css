@@ -49,6 +49,12 @@
   color: #003522;
 }
 
+.tut-text {
+  color: #ffffff;
+  font-size: 1.3vw;
+  line-height: 2.2vw;
+}
+
 
 .title-text h2 {
   color: #ffffff;
@@ -63,13 +69,17 @@ a:link a:visited a:active {
 }
 
 .start-screen-player {
-  position: absolute;
   height: 4vw;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 20;
   --top: 136.6;
   --bottom: -100;
+}
+
+.positioned-item {
+  position: absolute;
+
   z-index: 10;
   bottom: calc(var(--bottom) * 1px);
   left: calc(var(--left) * 1%);
