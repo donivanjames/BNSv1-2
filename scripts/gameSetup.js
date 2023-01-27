@@ -46,7 +46,7 @@ export function setupGame() {
     windowElements.worldElem.classList.remove("hide");
     windowElements.mainUIElem.innerHTML = `
       <div class="home-screen">
-        <div class="text-blink">Space To Jump</div>
+        <div class="text-blink">SPACE TO JUMP</div>
       </div>
       `;
   

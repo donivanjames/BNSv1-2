@@ -28,8 +28,8 @@ export function pauseGame() {
 
   windowElements.mainUIElem.innerHTML = `
       <div class="pause-screen">
-        <h2>Paused</h2><br><br>
-        Space To Unpause
+        <h2>PAUSED</h2><br><br>
+        SPACE TO UNPAUSE
       </div>
     `;
   stopRunSong();

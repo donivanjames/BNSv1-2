@@ -44,9 +44,10 @@
 .pause-screen {
   position: absolute;
   text-align: center;
-  top: 42%;
-  left: 50%;
+  top: 17vw;
+  left: 47vw;
   transform: translate(-50%, -50%);
+  color: #CEFFDE;
 }
 
 
@@ -57,7 +58,7 @@
 }
 
 .home-screen {
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 
 
