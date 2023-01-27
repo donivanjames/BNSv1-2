@@ -17,69 +17,21 @@ const container = document.querySelector(".title-container")
 const bigImg = document.querySelector(".start-screen-img")
 const player = document.querySelector(".start-screen-player")
 
-let screenHeight = 0
 let startScreenHeight = 0
-let containerHeight = 0
 let imgHeight = 0
 let playerPos = 0
 
 window.addEventListener('resize', setupIntro) // to protect screen resizes
 setupIntro()
 function setupIntro() {
-    screenHeight = window.innerHeight; // might need to do container height for mobile
-    startScreenHeight = startScreen.scrollHeight
-    containerHeight = container.scrollHeight
+    startScreenHeight = startScreen.offsetHeight
     imgHeight = bigImg.scrollHeight
-    playerPos = 0 + screenHeight - (imgHeight * 0.894)
+    playerPos = 0 + startScreenHeight - (imgHeight * 0.894)
     setCustomProperty(player, "--bottom", playerPos)
     
     
-    console.log("screenHeight: ", screenHeight)
-    console.log("startScreenHeight: ", startScreenHeight)
-    console.log("containerHeight: ", containerHeight)
-    console.log("imgHeight: ", imgHeight)
-    console.log("playerPos: ", playerPos)
     
-    console.log("-imgHeight + screenHeight: ", -imgHeight + screenHeight)
 }
-
-
-
-
-// next: add player, base height on pixels 
-
-
-// const container = document.querySelector(".title-container")
-// const screenHeight = window.innerHeight; // might need to do container height for mobile
-// console.log("screenHeight ", screenHeight)
-// const screenWidth = window.innerWidth;
-// console.log("Screen height, ", screenHeight)
-
-// const bigImg = document.querySelector(".start-screen-img")
-// //const imgHeight = bigImg.clientHeight
-// const imgWidth = bigImg.clientWidth
-
-// const imgHeight = bigImg.scrollHeight
-// const scrollRatio = imgHeight / screenHeight // 3%
-
-// console.log("Img Size: ", imgWidth, " x ", imgHeight)
-// const scrollHeight = scrollRatio * 100
-// console.log("ScrollHeight ", scrollHeight)
-
-
-// const newScreenHeight = (screenHeight / scrollRatio) * 100
-// console.log("newScreenHeight ", newScreenHeight)
-
-// const desiredPlayerPos = 5
-// const realDesiredPos = (desiredPlayerPos / scrollRatio) * 100
-// console.log("realDesiredPos ", realDesiredPos)
-
-// const player = document.querySelector(".start-screen-player")
-// const playerHeight = player.clientHeight / scrollRatio
-// const playerPos = desiredPlayerPos - scrollHeight + // + screenHeight / scrollRatio + realDesiredPos // scrollHeight - realDesiredPos + playerHeight
-// setCustomProperty(player, "--bottom", playerPos)
-// console.log("Playerpos ", playerPos)
-
 
 
 const allDivs = document.querySelectorAll("[data-start-screen]")
@@ -112,7 +64,7 @@ export function updateIntroScene(time){
 }
 
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(container, "--top") > -imgHeight + screenHeight) {
+    if (getCustomProperty(container, "--top") > -imgHeight + startScreenHeight) {
         console.log("container top: ", getCustomProperty(container, "--top"))
         scrollItems(delta, introSpeed)
     }
