@@ -30,6 +30,12 @@ body {
     background-color: #ffffff;
   }
 
+  @media (orientation: portrait) {
+    body {
+      justify-content: flex-start;
+    }
+  }
+
   .world {
     position: relative;
     top: 50%;

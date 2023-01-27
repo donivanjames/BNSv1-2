@@ -62,20 +62,20 @@ a:link a:visited a:active {
 
 .start-screen-player {
   position: absolute;
-  height: 8%;
+  height: 4vw;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 20;
-  /* --top: 0%; */
+  --top: 136.6;
   --bottom: -100;
   z-index: 10;
-  bottom: calc((var(--bottom) + var(--title-player-bottom)) * 1%);
+  bottom: calc(var(--bottom) * 1px);
   left: calc(var(--left) * 1%);
 }
 
 .moveable-item {
   position: absolute;
   /* Set up positioning */
-  top: calc(var(--top) * 1%);
+  top: calc(var(--top) * 1px);
   will-change: transform;
 }

@@ -5,30 +5,80 @@ import { soundToggle } from "./audioManager.js"
 import { sequence3 } from "./gameSetup.js"
 
 let lastTime = null
-let introSpeed = 0.025
+let introSpeed = 0.3
 let waitAtEnd = 1000
 const PLAYER_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
 let playerFrame = 0
 let currentFrameTime = 0
 
-
+const startScreen = document.querySelector(".start-screen")
 const container = document.querySelector(".title-container")
-const containerHeight = container.clientHeight
-console.log("containerHeight: ", containerHeight)
-
 const bigImg = document.querySelector(".start-screen-img")
-const imgHeight = bigImg.clientHeight
-console.log("Img height: ", imgHeight)
-
-const scrollHeight = ((imgHeight / containerHeight) * 100)
-console.log("ScrollHeight ", scrollHeight, "%")
-
-
 const player = document.querySelector(".start-screen-player")
-const playerHeight = -scrollHeight
-setCustomProperty(player, "--bottom", playerHeight)
-console.log("Player height: ", playerHeight)
+
+let screenHeight = 0
+let startScreenHeight = 0
+let containerHeight = 0
+let imgHeight = 0
+let playerPos = 0
+
+window.addEventListener('resize', setupIntro) // to protect screen resizes
+setupIntro()
+function setupIntro() {
+    screenHeight = window.innerHeight; // might need to do container height for mobile
+    startScreenHeight = startScreen.scrollHeight
+    containerHeight = container.scrollHeight
+    imgHeight = bigImg.scrollHeight
+    playerPos = 0 + screenHeight - (imgHeight * 0.894)
+    setCustomProperty(player, "--bottom", playerPos)
+    
+    
+    console.log("screenHeight: ", screenHeight)
+    console.log("startScreenHeight: ", startScreenHeight)
+    console.log("containerHeight: ", containerHeight)
+    console.log("imgHeight: ", imgHeight)
+    console.log("playerPos: ", playerPos)
+    
+    console.log("-imgHeight + screenHeight: ", -imgHeight + screenHeight)
+}
+
+
+
+
+// next: add player, base height on pixels 
+
+
+// const container = document.querySelector(".title-container")
+// const screenHeight = window.innerHeight; // might need to do container height for mobile
+// console.log("screenHeight ", screenHeight)
+// const screenWidth = window.innerWidth;
+// console.log("Screen height, ", screenHeight)
+
+// const bigImg = document.querySelector(".start-screen-img")
+// //const imgHeight = bigImg.clientHeight
+// const imgWidth = bigImg.clientWidth
+
+// const imgHeight = bigImg.scrollHeight
+// const scrollRatio = imgHeight / screenHeight // 3%
+
+// console.log("Img Size: ", imgWidth, " x ", imgHeight)
+// const scrollHeight = scrollRatio * 100
+// console.log("ScrollHeight ", scrollHeight)
+
+
+// const newScreenHeight = (screenHeight / scrollRatio) * 100
+// console.log("newScreenHeight ", newScreenHeight)
+
+// const desiredPlayerPos = 5
+// const realDesiredPos = (desiredPlayerPos / scrollRatio) * 100
+// console.log("realDesiredPos ", realDesiredPos)
+
+// const player = document.querySelector(".start-screen-player")
+// const playerHeight = player.clientHeight / scrollRatio
+// const playerPos = desiredPlayerPos - scrollHeight + // + screenHeight / scrollRatio + realDesiredPos // scrollHeight - realDesiredPos + playerHeight
+// setCustomProperty(player, "--bottom", playerPos)
+// console.log("Playerpos ", playerPos)
 
 
 
@@ -41,7 +91,7 @@ if(soundButton)
     );
 
 export function skipIntro() {
-    introSpeed = 1;
+    introSpeed = 2;
     //sequence3()
 }
 
@@ -62,11 +112,13 @@ export function updateIntroScene(time){
 }
 
 function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(container, "--top") >= -scrollHeight + 120) {
+    if (getCustomProperty(container, "--top") > -imgHeight + screenHeight) {
+        console.log("container top: ", getCustomProperty(container, "--top"))
         scrollItems(delta, introSpeed)
     }
     else {
         if(waitAtEnd <= 0) {
+            console.log("done, top: ", getCustomProperty(container, "--top"))
             movePlayer(delta)
         }
         else waitAtEnd -= 1 * delta
@@ -81,7 +133,7 @@ function scrollItems(delta, introSpeed) {
 
 function movePlayer(delta){
     if (getCustomProperty(player, "--left") <= 65){
-        incrementCustomProperty(player, "--left", delta * 0.03 * 1) 
+        incrementCustomProperty(player, "--left", delta * 0.03 * 1)
         // play animation
         handleRun(delta)
     }
