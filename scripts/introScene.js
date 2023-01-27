@@ -5,7 +5,6 @@ import { soundToggle } from "./audioManager.js"
 import { sequence3 } from "./gameSetup.js"
 
 let lastTime = null
-let introSpeed = 0.3
 let waitAtEnd = 1000
 const PLAYER_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
@@ -20,17 +19,37 @@ const player = document.querySelector(".start-screen-player")
 let startScreenHeight = 0
 let imgHeight = 0
 let playerPos = 0
+let scrollDistance = 0
+let scrollSpeed = 0.3
 
 window.addEventListener('resize', setupIntro) // to protect screen resizes
 setupIntro()
 function setupIntro() {
+    // Get Screen Heights:
     startScreenHeight = startScreen.offsetHeight
     imgHeight = bigImg.scrollHeight
+
+    //Scrolling
+    scrollDistance = -imgHeight + startScreenHeight
+    scrollSpeed = imgHeight * 0.00008
+
+    // Player Position:
     playerPos = 0 + startScreenHeight - (imgHeight * 0.894)
     setCustomProperty(player, "--bottom", playerPos)
-    
-    
-    
+
+    console.log("\n")
+    console.log("Player Position:")
+    console.log("playerPosition = 0 + containerHeight - (imageHeight * 0.894) =", playerPos)
+    console.log("Command: set position player at playerPosition", playerPos)
+    console.log("\n")
+    console.log("Screen Scroll Distance:")
+    console.log("scrollDistance = -imageHeight + containerHeight =", scrollDistance)
+    console.log("Command: scroll screen to scrollDistance", scrollDistance)
+    console.log("\n")
+    console.log("Screen Scroll Speed:")
+    console.log("scrollSpeed = imageHeight * 0.00008 = ", scrollSpeed)
+    console.log("Command: scroll screen at speed",scrollSpeed)
+    console.log("\n")
 }
 
 
@@ -43,7 +62,7 @@ if(soundButton)
     );
 
 export function skipIntro() {
-    introSpeed = 2;
+    scrollSpeed = 2;
     //sequence3()
 }
 
@@ -57,16 +76,16 @@ export function updateIntroScene(time){
 
   // Set deltatime for constant update speed regardless of framerate
   const delta = time - lastTime;
-  scrollIntroScene(delta, introSpeed)
+  scrollIntroScene(delta, scrollSpeed)
   lastTime = time;
 
   window.requestAnimationFrame(updateIntroScene);
 }
 
-function scrollIntroScene(delta, introSpeed){
-    if (getCustomProperty(container, "--top") > -imgHeight + startScreenHeight) {
+function scrollIntroScene(delta, scrollSpeed){
+    if (getCustomProperty(container, "--top") > scrollDistance) {
         console.log("container top: ", getCustomProperty(container, "--top"))
-        scrollItems(delta, introSpeed)
+        scrollItems(delta, scrollSpeed)
     }
     else {
         if(waitAtEnd <= 0) {
@@ -77,9 +96,9 @@ function scrollIntroScene(delta, introSpeed){
     }
 }
 
-function scrollItems(delta, introSpeed) {
+function scrollItems(delta, scrollSpeed) {
     allDivs.forEach(item => {
-        incrementCustomProperty(item, "--top", delta * introSpeed * -1)
+        incrementCustomProperty(item, "--top", delta * scrollSpeed * -1)
     })
 }
 
