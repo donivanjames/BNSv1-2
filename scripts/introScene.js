@@ -30,7 +30,7 @@ function setupIntro() {
     imgHeight = bigImg.scrollHeight
 
     //Scrolling
-    scrollDistance = -imgHeight + startScreenHeight
+    scrollDistance = -imgHeight + startScreenHeight + 5
     scrollSpeed = imgHeight * 0.00008
 
     // Player Position:
@@ -62,8 +62,8 @@ if(soundButton)
     );
 
 export function skipIntro() {
-    scrollSpeed = 2;
-    //sequence3()
+    //scrollSpeed = 2;
+    sequence3()
 }
 
 export function updateIntroScene(time){
@@ -84,12 +84,10 @@ export function updateIntroScene(time){
 
 function scrollIntroScene(delta, scrollSpeed){
     if (getCustomProperty(container, "--top") > scrollDistance) {
-        console.log("container top: ", getCustomProperty(container, "--top"))
         scrollItems(delta, scrollSpeed)
     }
     else {
         if(waitAtEnd <= 0) {
-            console.log("done, top: ", getCustomProperty(container, "--top"))
             movePlayer(delta)
         }
         else waitAtEnd -= 1 * delta

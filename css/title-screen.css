@@ -26,9 +26,13 @@
 
 .title-text-container {
   position: absolute;
-  
-  left: 55.9vw;
-  top: 10vw;
+  /* left: 55.9vw;
+  top: 10vw; */
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
 .title-text {
@@ -41,13 +45,10 @@
   border: none;
   font-size: 0.94vw;
   line-height: 1.4vw;
+  margin: 0 auto;
   color: #003522;
 }
 
-.mini-container  {
-  margin-bottom: -4vw;
-  margin-top: 4vw;
-}
 
 .title-text h2 {
   color: #ffffff;
