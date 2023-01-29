@@ -15,7 +15,7 @@ setPixelToWorldScale();
 
 getScores()
 function getScores() {
-  fetch("server.php")
+  fetch("https://simple-leaderboard-server.vercel.app/")
     .then(response => response.json())
     .then(console.log)
 }

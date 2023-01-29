@@ -7,7 +7,7 @@
     $db_password="";
 
     $lnk=mysqli_connect($db_host, $db_user, $db_password);
-    if(!$lnk) die("No connecty, something wrong: server.php line 8");
+    if(!$lnk) die("No connect, something wrong: server.php line 10");
 
 
     mysqli_select_db($lnk, "bns-leaderboard-1") or die ("Failed to select DB");
