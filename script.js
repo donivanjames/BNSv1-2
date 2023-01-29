@@ -19,6 +19,7 @@ function getScores() {
     .then(response => response.json())
     .then(console.log)
 }
+console.log("Updated")
 
 
 console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
