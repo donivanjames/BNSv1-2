@@ -13,6 +13,14 @@ const WORLD_HEIGHT = 65;
 resetVariables();
 setPixelToWorldScale();
 
+getScores()
+function getScores() {
+  fetch("server.php")
+    .then(response => response.json())
+    .then(console.log)
+}
+
+
 console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
 
 window.addEventListener("resize", setPixelToWorldScale);
