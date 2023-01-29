@@ -25,7 +25,6 @@ let tutTextPos        = 0
 let scrollDistance    = 0
 let scrollSpeed       = 0
 
-console.log(tutText)
 
 window.addEventListener('resize', setupIntro) // to protect screen resizes
 setupIntro()
