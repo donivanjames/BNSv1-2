@@ -42,7 +42,7 @@ function setupIntro() {
     setCustomProperty(player, "--bottom", playerPos)
 
     // Tutorial Text Position:
-    tutTextPos = 0 + startScreenHeight - (imgHeight * 0.88)
+    tutTextPos = 0 + startScreenHeight - (imgHeight * 0.85)
     setCustomProperty(tutText, "--bottom", tutTextPos)
 }
 
