@@ -1,4 +1,4 @@
-const fetch = require("fetch").fetchUrl
+import fetch from "../node_modules/node-fetch";
 const API_BASE_URL = "http://localhost:8080";
 
 async function fetchJson(url, options, onCancel) {
