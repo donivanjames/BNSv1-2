@@ -1,9 +1,9 @@
-@font-face {
+/* @font-face {
   font-family: 'neuehaas';
   src: url("./NeueHaasGroteskDisplayPro/NeueHaasDisplayMediu.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 
 .start-screen {
@@ -12,7 +12,7 @@
   width: 100%;
   aspect-ratio: auto 16 / 9;
 
-  /* overflow: hidden; /* hidden needs to go here and not in container */
+  overflow: hidden; /* hidden needs to go here and not in container */
 }
 
 .title-container {
@@ -48,7 +48,7 @@
 }
 
 .title-text {
-  font-family: 'neuehaas';
+  /* font-family: 'neuehaas'; */
   display: block;
   text-decoration: none;
   white-space: nowrap;

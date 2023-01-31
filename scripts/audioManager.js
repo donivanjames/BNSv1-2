@@ -2,7 +2,7 @@
 
 let soundOn = true
 
-// TITLE SONG
+// TITLE SONG //
 
 let titleSong = new Audio("sounds/Music/title-song-3.mp3");
 titleSong.volume = 0.07;
