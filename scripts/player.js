@@ -7,8 +7,8 @@ import { windowElements } from "./variableHandler.js";
 
 const JUMP_SPEED = 0.28; // how high
 const GRAVITY = 0.0014;  // how heavy
-const PLAYER_FRAME_COUNT = 3; // amount of animation frames
-const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
+const PLAYER_FRAME_COUNT = 4; // amount of animation frames
+const FRAME_TIME = 75; // how long each animation frame should last (in milliseconds)
 
 const heightFromGround = 40.5 // also change css --bottom to match
 const jumpableHeight = 20 // planning on implementing a jump buffer from the ground

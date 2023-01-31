@@ -44,11 +44,7 @@ export function setupGame() {
     stopTitleSong();
     windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
     windowElements.worldElem.classList.remove("hide");
-    windowElements.mainUIElem.innerHTML = `
-      <div class="home-screen">
-        <div class="text-blink">SPACEBAR TO JUMP</div>
-      </div>
-      `;
+    windowElements.mainUIElem.innerHTML = `<div class="home-screen space-to-start text-blink">SPACEBAR TO JUMP</div>`;
   
     windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
     showPlayer(); // show player

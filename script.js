@@ -13,13 +13,6 @@ const WORLD_HEIGHT = 65;
 resetVariables();
 setPixelToWorldScale();
 
-getScores()
-function getScores() {
-  fetch("https://simple-leaderboard-server.vercel.app/")
-    .then(response => response.json())
-    .then(console.log)
-}
-
 
 console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
 

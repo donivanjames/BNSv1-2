@@ -24,6 +24,10 @@
   --top: -0;
 }
 
+.start-screen-logo-img {
+  width: 30vw;
+}
+
 .title-text-container {
   position: absolute;
   /* left: 55.9vw;

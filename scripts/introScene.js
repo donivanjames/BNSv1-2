@@ -44,20 +44,6 @@ function setupIntro() {
     // Tutorial Text Position:
     tutTextPos = 0 + startScreenHeight - (imgHeight * 0.88)
     setCustomProperty(tutText, "--bottom", tutTextPos)
-
-    // console.log("\n")
-    // console.log("Player Position:")
-    // console.log("playerPosition = 0 + containerHeight - (imageHeight * 0.894) =", playerPos)
-    // console.log("Command: set position player at playerPosition", playerPos)
-    // console.log("\n")
-    // console.log("Screen Scroll Distance:")
-    // console.log("scrollDistance = -imageHeight + containerHeight =", scrollDistance)
-    // console.log("Command: scroll screen to scrollDistance", scrollDistance)
-    // console.log("\n")
-    // console.log("Screen Scroll Speed:")
-    // console.log("scrollSpeed = imageHeight * 0.00008 = ", scrollSpeed)
-    // console.log("Command: scroll screen at speed",scrollSpeed)
-    // console.log("\n")
 }
 
 

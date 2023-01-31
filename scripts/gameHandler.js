@@ -84,6 +84,7 @@ export function handleLose() {
 
   setupLeaderboard()
   windowElements.mainUIElem.innerHTML = returnLeaderboard();
+  console.log("leadboard")
 
   // change screen to solid color
   document.body.classList.remove("hallway");
