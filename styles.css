@@ -71,7 +71,7 @@ body {
     position: absolute;
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
     /* width is 1% bigger to cover boundary glitches */
-    width: 151%;
+    width: 295%;
     height: auto;
 
     top: 10.4%;
