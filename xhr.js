@@ -1,7 +1,7 @@
 // https://youtu.be/4K33w-0-p2c
 
-const getBtn = document.getElementById('get-btn');
-const postBtn = document.getElementById('post-btn');
+//const getBtn = document.getElementById('get-btn');
+//const postBtn = document.getElementById('post-btn');
 
 const sendHttpRequest = (method, url, data) => {
   const promise = new Promise((resolve, reject) => {
@@ -31,16 +31,19 @@ const sendHttpRequest = (method, url, data) => {
   return promise;
 };
 
-const getData = () => {
-  sendHttpRequest('GET', 'https://reqres.in/api/users').then(responseData => {
+export const getLeaderboardData = () => {
+  sendHttpRequest('GET', 'https://bns-knex-leaderboard-1.onrender.com/').then(responseData => {
     console.log(responseData);
   });
 };
 
-const sendData = () => {
-  sendHttpRequest('POST', 'https://reqres.in/api/register', {
-    email: 'eve.holt@reqres.in'
-    // password: 'pistol'
+export const sendLeaderboardData = () => {
+  sendHttpRequest('POST', 'https://bns-knex-leaderboard-1.onrender.com/', {
+      data:
+          {
+              name: "Billy",
+              score: 1700
+          }
   })
     .then(responseData => {
       console.log(responseData);

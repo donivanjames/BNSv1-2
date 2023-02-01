@@ -2,6 +2,7 @@
 
 import { handleAllInput } from "./scripts/playerInput.js";
 import { windowElements, resetVariables } from "./scripts/variableHandler.js";
+import { getData, sendData } from "./xhr.js";
 
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
@@ -13,14 +14,12 @@ const WORLD_HEIGHT = 65;
 resetVariables();
 setPixelToWorldScale();
 
-
-
-
 console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
 
 window.addEventListener("resize", setPixelToWorldScale);
 document.addEventListener("keydown", handleAllInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
 document.addEventListener("mousedown", handleAllInput); // this adds a listener to the player that waits for click, then it executes the onJump function
+
 
 function setPixelToWorldScale() {
   let worldToPixelScale;
