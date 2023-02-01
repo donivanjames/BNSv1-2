@@ -25,7 +25,7 @@ export function handleAllInput(event) {
       break;
     case 1:
       // start first scene/handleFirstInput()
-      sequence1();
+      if(event.code == "Space") sequence1();
       break;
     case 2:
       sequence2();

@@ -3,7 +3,7 @@
 
 import { incrementCustomProperty, getCustomProperty, setCustomProperty } from "./updateCustomProperty.js"
 import { soundToggle } from "./audioManager.js"
-import { sequence3 } from "./gameSetup.js"
+import { sequence1, sequence3 } from "./gameSetup.js"
 
 let lastTime = null
 let waitAtEnd = 1000
@@ -49,11 +49,12 @@ function setupIntro() {
 
 const allDivs = document.querySelectorAll("[data-start-screen]")
 
+
+const startButton = document.querySelector("[data-space-to-start]")
+if(startButton) startButton.addEventListener("click", sequence1);
+
 const soundButton = document.querySelector("[data-sound-toggle]")
-if(soundButton)
-    soundButton.addEventListener("click", () =>
-    soundToggle(soundButton)
-    );
+if(soundButton) soundButton.addEventListener("click", () =>soundToggle(soundButton));
 
 export function skipIntro() {
     //scrollSpeed = 2;
