@@ -1,18 +1,20 @@
-/* @font-face {
+@font-face {
   font-family: 'neuehaas';
-  src: url("./NeueHaasGroteskDisplayPro/NeueHaasDisplayMediu.ttf") format('truetype');
+  src: url(../NeueHaasGroteskDisplayPro/NeueHaasDisplayMediu.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
-} */
-
+}
+:root {
+  --title-color-light: #FFF0CC;
+}
 
 .start-screen {
-  position: relative;
+  position: relative; 
   /* height: 100vh; */
   width: 100%;
   aspect-ratio: auto 16 / 9;
 
-  overflow: hidden; /* hidden needs to go here and not in container */
+  /* overflow: hidden; hidden needs to go here and not in container */
 }
 
 .title-container {
@@ -36,6 +38,13 @@
   width: 30vw;
 }
 
+.start-screen-logo-button {
+  position: absolute;
+  top: 1vw;
+  left: 15vw;
+  width: 2.5vw;
+}
+
 .title-text-container {
   position: absolute;
   /* left: 55.9vw;
@@ -48,31 +57,34 @@
 }
 
 .title-text {
-  /* font-family: 'neuehaas'; */
   display: block;
   text-decoration: none;
+  font-family: 'neuehaas';
   white-space: nowrap;
   z-index: 3;
   border: none;
   font-size: 1.5vw;
   line-height: 1.4vw;
   margin: 0 auto;
-  color: #003522;
+  color: var(--title-color-light);
 }
 
 .tut-text {
-  color: #ffffff;
+  position: absolute;
+  color: var(--title-color-light);
   font-size: 0.9vw;
   line-height: 2.2vw;
+  --left: 30;
 }
 
 
 .title-text h2 {
-  color: #ffffff;
+  color: var(--title-color-light);
   font-size: 5.5vw;
   line-height: 5.5vw;
-}
 
+  
+}
 
 a:link a:visited a:active { 
   text-decoration: none;
@@ -101,4 +113,38 @@ a:link a:visited a:active {
   /* Set up positioning */
   top: calc(var(--top) * 1px);
   will-change: transform;
+}
+
+@media (orientation: portrait) {
+  body {
+    justify-content: flex-start;
+  }
+
+  .title-text-container {
+    top: 100%;
+  }
+
+  .title-text {
+
+    font-size: 5.5vw;
+    line-height: 5vw;
+    margin: 0 auto;
+  }
+
+  .start-screen-logo-img {
+    width: 60vw;
+  }
+
+  .start-screen-logo-button {
+    top: 5vw;
+    left: none;
+    align-self: center;
+    width: 5vw;
+  }
+
+  .tut-text {
+    font-size: 4vw;
+    line-height: 5vw;
+    --left: 10;
+  }
 }
