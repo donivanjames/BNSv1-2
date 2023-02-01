@@ -33,7 +33,6 @@ export function setupLeaderboard() {
     const [key, value] = person
     const curColor = `<div style="color:#${colors[colorRotator]};">`
 
-    console.log(num, key, value)
     numColumn += `${curColor}${num}</div>`;
     const capName = `${Object.keys(value)}`
     nameColumn += `${curColor}${capName.toUpperCase()}</div>`;

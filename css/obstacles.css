@@ -29,14 +29,20 @@
     --bottom: 39;
 }
 
-/* Werewolf */
+/* Book Stack */
 .obstacle4 {
-    height: 10%;
+    height: 7%;
+    --bottom: 40.4;
+}
+
+/* Werewolf */
+.werewolf {
+    height: 12%;
     --bottom: 40.4;
 }
 
 /* UFO */
-.obstacle5 {
+.ufo {
     height: 13%;
     --bottom: 40.6;
 }

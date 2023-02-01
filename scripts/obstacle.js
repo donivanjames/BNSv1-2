@@ -23,6 +23,8 @@ let appleList = [];
 let nextAppleTime;
 let nextCactusTime;
 export function setupObstacles() {
+  easterEggs.wolfCalled = false;
+  easterEggs.ufoCalled - false;
   nextAppleTime = APPLE_INTERVAL_MIN; // the first obstacle will spawn with the minimum time to get the game going
   appleList = [];
   document.querySelectorAll("[data-apple]").forEach((apple) => {
@@ -144,6 +146,22 @@ export function getCactusRects() {
   return obMap;
 }
 
+let easterEggs = {
+  wolfCalled: false,
+  ufoCalled: false,
+}
+
+function addSpecialObstacle(obstacleName, cactus){
+  cactus.src = `imgs/${obstacleName}.png`; // selects the correct image from files
+  cactus.classList.add(`${obstacleName}`); // adds CSS styles to obstacle
+  cactus.classList.add(`base-obstacle`);
+
+  setCustomProperty(cactus, "--left", 100); // sets our obstacle position 100% left, which puts it all the way on the right side of the screen
+  setCustomProperty(cactus, "--top", 0); // might not need this
+  windowElements.worldElem.append(cactus); // this adds our obstacle to the world
+  cactusList.push(cactus);
+}
+
 // CREATE CACTUS
 export function createCactus() {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
@@ -152,13 +170,23 @@ export function createCactus() {
 
   // Harder obstacles as the score gets higher
   const score = variableHolder.score;
-  let randNum = 3;
+  let randNum = 4;
   if (score > 1500) {
-    randNum = 5;
+    if(!easterEggs.ufoCalled) {
+      // call wolf
+      addSpecialObstacle("ufo", cactus)
+      easterEggs.ufoCalled = true;
+      return;
+    }
     CACTUS_INTERVAL_MAX = 1500;
     CACTUS_INTERVAL_MIN = 600;
-  } else if (score > 800) {
-    randNum = 4;
+  } else if (score > 800) { 
+    if(!easterEggs.wolfCalled) {
+      // call wolf
+      addSpecialObstacle("werewolf", cactus)
+      easterEggs.wolfCalled = true;
+      return;
+    }
     CACTUS_INTERVAL_MAX = 2000;
     CACTUS_INTERVAL_MIN = 700;
   }
