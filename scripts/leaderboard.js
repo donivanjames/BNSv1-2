@@ -1,5 +1,5 @@
 // leaderboard tutorial: https://youtu.be/MVgRYcqvm6k 
-import { getLeaderboardData } from "../xhr"
+import { getLeaderboardData } from "../xhr.js"
 
 let numColumn = `1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10`
 let nameColumn = `NAME0<br>NAME1<br>NAME2<br>NAME3<br>NAME4<br>NAME5<br>NAME6<br>NAME7<br>NAME8<br>NAME9`
