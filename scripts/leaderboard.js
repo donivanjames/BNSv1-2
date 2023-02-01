@@ -5,7 +5,8 @@ let numColumn = `1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10`
 let nameColumn = `NAME0<br>NAME1<br>NAME2<br>NAME3<br>NAME4<br>NAME5<br>NAME6<br>NAME7<br>NAME8<br>NAME9`
 let scoreColumn = `{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}`
 
-let leaderboardData = getLeaderboardData;
+let leaderboardData = getLeaderboardData();
+console.log("leaderboardData: ", leaderboardData)
 
 let scores = {
   1: {"phoeb": 1200,},
