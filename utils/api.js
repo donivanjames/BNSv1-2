@@ -1,6 +1,9 @@
-import fetch from "../node_modules/node-fetch";
-const API_BASE_URL = "http://localhost:8080";
+//import fetch from "node-fetch";
+//const API_BASE_URL = "http://localhost:8080";
 
+
+
+/*
 async function fetchJson(url, options, onCancel) {
   try {
     const response = await fetch(url, options);
@@ -44,3 +47,4 @@ const sessionData = {
     console.log("Score added");
     return await fetchJson(url, options); //, reservation)
   }
+  */

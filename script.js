@@ -2,7 +2,6 @@
 
 import { handleAllInput } from "./scripts/playerInput.js";
 import { windowElements, resetVariables } from "./scripts/variableHandler.js";
-import { addScore } from "./utils/api.js";
 
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
