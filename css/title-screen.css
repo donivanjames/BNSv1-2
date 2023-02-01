@@ -41,9 +41,9 @@
 
 .start-screen-logo-button {
   position: absolute;
-  top: 1vw;
-  left: 15vw;
-  width: 2.5vw;
+  top: 0.9vw;
+  left: 15.2vw;
+  width: 2.4vw;
 }
 
 .title-text-container {
@@ -76,9 +76,10 @@
   color: var(--title-color-light);
   font-size: 0.9vw;
   line-height: 2.2vw;
+  white-space: nowrap;
 
-  --top: 100;
-  --left: 30;
+  --top: 80;
+  --left: 10;
 }
 
 
@@ -147,7 +148,7 @@ a:link a:visited a:active {
     position: relative;
     top: 5vw;
     left: 47vw;
-    width: 5vw;
+    width: 10vw;
   }
 
   .tut-text {
