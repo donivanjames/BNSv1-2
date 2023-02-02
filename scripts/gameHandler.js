@@ -84,6 +84,7 @@ export function handleLose() {
 
   setupLeaderboard2()
   windowElements.mainUIElem.innerHTML = returnLeaderboard();
+  document.getElementById("playerName").focus();
 
   // change screen to solid color
   document.body.classList.remove("hallway");

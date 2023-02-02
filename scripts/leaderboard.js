@@ -36,6 +36,7 @@ export function setupLeaderboard2() {
       numColumn += `${curColor}${num}</div>`;
       nameColumn += `${curColor}${scoreInput()}</div>`;
       scoreColumn += `${curColor}${playerScore}</div>`;
+      
       i--;
       leaderboardLimiter = 1;
     }
