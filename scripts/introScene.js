@@ -11,8 +11,8 @@ import { sequence1, sequence3 } from "./gameSetup.js";
 
 let lastTime = null;
 let waitAtEnd = 1000;
-const PLAYER_FRAME_COUNT = 3; // amount of animation frames
-const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
+const PLAYER_FRAME_COUNT = 7; // amount of animation frames
+const FRAME_TIME = 75; // how long each animation frame should last (in milliseconds)
 let playerFrame = 0;
 let currentFrameTime = 0;
 
@@ -122,7 +122,7 @@ function movePlayer(delta) {
     incrementCustomProperty(player, "--left", delta * 0.03 * 1);
     // play animation
     handleRun(delta);
-  } //else sequence3();
+  } else sequence3();
 }
 
 export function handleRun(delta) {
