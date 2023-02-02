@@ -34,7 +34,7 @@ export function setupLeaderboard2() {
     if(playerScore > score && leaderboardLimiter == 0 || leaderboardData.length < 10) {
       console.log("New high score")
       numColumn += `${curColor}${num}</div>`;
-      nameColumn += `${curColor}${`-YOU-`}</div>`;
+      nameColumn += `${curColor}${scoreInput()}</div>`;
       scoreColumn += `${curColor}${playerScore}</div>`;
       i--;
       leaderboardLimiter = 1;
@@ -55,11 +55,16 @@ export function setupLeaderboard2() {
   // show input
 }
 
+function highscoreMessage(){
+  return (`
+    <br><br><div>HIGH SCORE!! ENTER INITIALS</div>
+  `)
+}
+
 function scoreInput(name, score) {
 return (`
-<br><br><form onsubmit="submitScore(event)" class="game-over-font">
-  <label for="myInput">HIGH SCORE!! ENTER INITIALS</label><br>
-  <input type="text" id="playerName" name="playerName" size="6" minlength="1" maxlength="5" required value="HIGH1"><br>
+<form onsubmit="submitScore(event)" class="game-over-font">
+  <input type="text" id="playerName" name="playerName" size="6" minlength="1" maxlength="5" required placeholder="NAME"><br>
   <input type="submit" value="Submit" style="display: none">
 </form>
 `)
@@ -78,7 +83,7 @@ export function returnLeaderboard() {
   return `
         <div class="game-over-screen game-over-font">
           <h1 class="game-over-title">GAME OVER</h1>
-          ${leaderboardLimiter == 1 ? scoreInput() : ""}
+          ${leaderboardLimiter == 1 ? highscoreMessage() : ""}
           <div class="row">
             <div class="column" style="width:20%">${numColumn}</div>
             <div class="column" style="width:30%">${nameColumn}</div>
