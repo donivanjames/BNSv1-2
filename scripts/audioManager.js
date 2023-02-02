@@ -76,7 +76,7 @@ export function collectSound() {
 
 // GAME OVER SONG
 
-let gameOverSong = new Audio("sounds/Music/game-over-theme-1.mp3");
+let gameOverSong = new Audio("sounds/Music/game-over-theme-2.mp3");
 gameOverSong.volume = 0.6;
 gameOverSong.loop = false;
 

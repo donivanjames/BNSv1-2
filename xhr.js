@@ -40,16 +40,17 @@ export const getLeaderboardData = () => {
   });
 };
 
-export const sendLeaderboardData = () => {
+export const sendLeaderboardData = (name, score) => {
   sendHttpRequest('POST', 'https://bns-knex-leaderboard-1.onrender.com/', {
       data:
           {
-              name: "Billy",
-              score: 1700
+              name: name,
+              score: score
           }
   })
     .then(responseData => {
-      console.log(responseData);
+      //console.log(responseData);
+      getLeaderboardData()
     })
     .catch(err => {
       console.log(err);

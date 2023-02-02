@@ -3,9 +3,11 @@
 import { sequence1, sequence2, sequence3, sequence4 } from "./gameSetup.js";
 import { playerJump, pauseGame, unpauseGame } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
+import { leaderboardLimiter } from "./leaderboard.js";
 
 // Any input fires this function, it starts the intro scene and then handles game input
 export function handleAllInput(event) {
+  if(leaderboardLimiter == 1) return //stops input if player gets a high score
   if (event.target.classList.contains("clickable")) return; // blocks buttons from activating jump
 
   if (event.code !== "Space" && event.code !== "Escape" && event.button !== 0)
