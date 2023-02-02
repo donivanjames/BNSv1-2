@@ -49,7 +49,7 @@
   transform: translate(-50%, -50%);
   align-items: center;
   
-  width: 1000px;
+  width: 900px;
   height: 100%;
   max-width: 1920px;
   border: 3px solid red;
@@ -68,7 +68,7 @@
 }
 
 .start-screen-logo-img {
-  width: 30vw;
+  width: 23vw;
   margin: 0 auto;
 }
 
@@ -79,8 +79,8 @@
   white-space: nowrap;
   z-index: 3;
   border: none;
-  font-size: 1.5vw;
-  line-height: 2vw;
+  font-size: 1vw;
+  line-height: 1.5vw;
   margin: 0 auto;
   color: var(--title-color-light);
 }
@@ -143,9 +143,9 @@ a:link a:visited a:active {
 
   .start-screen-logo-button {
     position: relative;
-    top: 1vw;
-    left: 1vw;
-    width: 6vw;
+    top: 1.4vw;
+    left: 1.8vw;
+    width: 5.5vw;
   }
 }
 
