@@ -12,40 +12,13 @@ getLeaderboardData()
 let colors = ["630331", "EC472B", "FFC700", "CEFFDE", "003399"];
 
 export function setupLeaderboard2() {
-
-
-  // Object.entries(leaderboardData.data).forEach((person) => {
-  //   console.log(person)
-  //   const name = person[1].name;
-  //   const score = person[1].score;
-  //   const curColor = `<div style="color:#${colors[colorRotator]};">`; // might swap this out for nth child
-
-  //   if(playerScore > score && !YOU_ON_SCREEN) {
-  //     console.log("New high score")
-  //     numColumn += `${curColor}${num}</div>`;
-  //     nameColumn += `${curColor}${`YOU`}</div>`;
-  //     scoreColumn += `${curColor}${score}</div>`;
-  //     YOU_ON_SCREEN = true;
-  //     return;
-  //   }
-
-  //   numColumn += `${curColor}${num}</div>`;
-  //   nameColumn += `${curColor}${name.toUpperCase()}</div>`;
-  //   scoreColumn += `${curColor}${score}</div>`;
-
-  //   colorRotator += 1;
-  //   if (colorRotator >= colors.length) colorRotator = 0;
-  //   num++;
-  // });
-
   numColumn = "";
   nameColumn = "";
   scoreColumn = "";
   let num = 1;
   let colorRotator = 0;
-  let YOU_ON_SCREEN;
   const playerScore = variableHolder.score;
-  let leaderboardLimiter = 0;
+  let leaderboardLimiter = 0; // checks to see if you're on the leaderboard, then substracts one so there's not 11 names
 
 
   for (let i = 0; i < Object.entries(leaderboardData.data).length - leaderboardLimiter; i++) {
@@ -57,12 +30,11 @@ export function setupLeaderboard2() {
     const score = person[1].score;
     const curColor = `<div style="color:#${colors[colorRotator]};">`; // might swap this out for nth child
 
-    if(playerScore > score && !YOU_ON_SCREEN) {
+    if(playerScore > score && leaderboardLimiter == 0) {
       console.log("New high score")
       numColumn += `${curColor}${num}</div>`;
       nameColumn += `${curColor}${`-YOU-`}</div>`;
       scoreColumn += `${curColor}${playerScore}</div>`;
-      YOU_ON_SCREEN = true;
       i--;
       leaderboardLimiter = 1;
     }
