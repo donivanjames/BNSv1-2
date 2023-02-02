@@ -12,7 +12,7 @@ import { onJump, getPlayerRect, setPlayerLose } from "./player.js";
 import { pauseUpdate, unPauseUpdate } from "./update.js";
 import { windowElements, variableHolder } from "./variableHandler.js";
 import { sequence4 } from "./gameSetup.js";
-import { returnLeaderboard, setupLeaderboard } from "./leaderboard.js";
+import { returnLeaderboard, setupLeaderboard2 } from "./leaderboard.js";
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 
@@ -82,9 +82,8 @@ export function handleLose() {
   hideGround();
   gameOverObstacles();
 
-  setupLeaderboard()
+  setupLeaderboard2()
   windowElements.mainUIElem.innerHTML = returnLeaderboard();
-  console.log("leadboard")
 
   // change screen to solid color
   document.body.classList.remove("hallway");

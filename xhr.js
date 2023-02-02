@@ -3,6 +3,8 @@
 //const getBtn = document.getElementById('get-btn');
 //const postBtn = document.getElementById('post-btn');
 
+export let leaderboardData;
+
 const sendHttpRequest = (method, url, data) => {
   const promise = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -34,6 +36,7 @@ const sendHttpRequest = (method, url, data) => {
 export const getLeaderboardData = () => {
   sendHttpRequest('GET', 'https://bns-knex-leaderboard-1.onrender.com/').then(responseData => {
     console.log(responseData);
+    leaderboardData = responseData;
   });
 };
 
