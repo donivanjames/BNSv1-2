@@ -16,6 +16,9 @@ const FRAME_TIME = 75; // how long each animation frame should last (in millisec
 let playerFrame = 0;
 let currentFrameTime = 0;
 
+let outputTutText = "" // the empty string for the scrolling tutorial text
+let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES!";
+
 const startScreen = document.querySelector(".start-screen");
 const container = document.querySelector(".title-container");
 const bigImg = document.querySelector(".start-screen-img");
@@ -104,17 +107,38 @@ export function updateIntroScene(time) {
 function scrollIntroScene(delta, scrollSpeed) {
   if (getCustomProperty(container, "--top") > scrollDistance) {
     scrollItems(delta, scrollSpeed);
-  } else {
-    if (waitAtEnd <= 0) {
+  }
+  else if(outputTutText.length < fullTutText.length) {
+    scrollText(delta)
+  }
+  else if (waitAtEnd <= 0){
       movePlayer(delta);
     } else waitAtEnd -= 1 * delta;
-  }
+  
 }
 
 function scrollItems(delta, scrollSpeed) {
   allDivs.forEach((item) => {
     incrementCustomProperty(item, "--top", delta * scrollSpeed * -1);
   });
+}
+
+let textFrameTime = 0;
+let fullTextFrameTime = 60
+let textSpeed = 1
+let iText = 0;
+tutText.innerHTML = ""
+
+function scrollText(delta) {
+  if(textFrameTime <= 0){
+    outputTutText += fullTutText[iText]
+    iText++
+    textFrameTime = fullTextFrameTime
+  }
+
+  textFrameTime -= delta * textSpeed;
+  console.log(outputTutText)
+  tutText.innerHTML = outputTutText
 }
 
 function movePlayer(delta) {
@@ -135,3 +159,5 @@ export function handleRun(delta) {
 
   currentFrameTime += delta * 1; // animation will play faster as the level speeds up
 }
+
+

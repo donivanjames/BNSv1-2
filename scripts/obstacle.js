@@ -10,10 +10,10 @@ import { collectSound } from "./audioManager.js";
 import { windowElements } from "./variableHandler.js";
 
 // Ending Max: 500  Begining Max 2500:
-let CACTUS_INTERVAL_MIN = 800;
-let CACTUS_INTERVAL_MAX = 2500; // speed of obstacles appearing in milliseconds
+let CACTUS_INTERVAL_MIN = 600;
+let CACTUS_INTERVAL_MAX = 2000; // speed of obstacles appearing in milliseconds
 
-let APPLE_INTERVAL_MIN = 1000;
+let APPLE_INTERVAL_MIN = 800;
 let APPLE_INTERVAL_MAX = 4000; // speed of obstacles appearing in milliseconds
 
 let cactusList = [];
