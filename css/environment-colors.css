@@ -1,3 +1,5 @@
+/* Environments used to change colors per level, not really needed anymore except for .black-screen*/
+
 :root {
   --outside-top-color: #fe5000;
   --outside-bottom-color: #BF92FF;

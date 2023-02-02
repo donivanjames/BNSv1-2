@@ -61,7 +61,7 @@ export function returnLeaderboard(){
             <div class="column" style="width:30%">${scoreColumn}</div>
           </div>
           <div>
-              <div class="text-blink" style="color:#CEFFDE;" font-size: var(--fs-med);>PLAY AGAIN!</div>
+              <div class="text-blink" style="color:#CEFFDE;" class="game-over-font">PLAY AGAIN!</div>
               <button style="margin-top:10%; color:#CEFFDE;" class="clickable game-over-font" onclick="myfunc()">RETURN TO BRAND NEW SCHOOL</button>
           </div>
         </div>

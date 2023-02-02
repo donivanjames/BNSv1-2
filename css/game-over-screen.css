@@ -1,6 +1,5 @@
 
 :root {
-    --game-over-title: 2.5vw;
     --game-over-fs: 0.8vw;
     --game-over-color: #003522;
     --game-over-line-height: 1.5vw;
@@ -12,7 +11,6 @@
 
   @media (orientation: portrait) {
     :root {
-        --game-over-title: 2.5vw;
         --game-over-fs: 1vw;
         --game-over-color: #003522;
         --game-over-line-height: 2vw;
@@ -42,7 +40,7 @@
     color: #00450f;
     white-space: nowrap;
     margin: 0 auto;
-    font-size: var(--game-over-fs);
+    font-size: 0.8vw;
     line-height: 1.8vw;
   }
   
@@ -59,7 +57,6 @@
   
   .column {
     display: inline-block;
-    /* width: var(--col-width); */
   }
 
   @media (orientation: portrait) {
