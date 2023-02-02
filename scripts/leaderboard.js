@@ -49,6 +49,9 @@ export function setupLeaderboard2() {
     if (colorRotator >= colors.length) colorRotator = 0;
     num++;
   }
+
+  // if leaderboardLimiter = 1
+  // stop player from going to next screen without entering name
 }
 
 export function returnLeaderboard() {

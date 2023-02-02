@@ -1,7 +1,6 @@
 /* This page handles a lot of the visual aspects of the game, including the display borders of the game itself */
 /* Probably going to transision to SASS for organization */
 
-@import "css/font-sizes-2.css";
 @import "css/obstacles.css";
 @import "css/environment-colors.css";
 @import "css/ui.css";

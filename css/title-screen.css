@@ -25,6 +25,13 @@
   top: 0%;
 }
 
+.moveable-item {
+  position: absolute;
+  /* Set up positioning */
+  top: calc(var(--top) * 1px);
+  will-change: transform;
+}
+
 .start-screen-img {
   position: absolute;
   width: 100%;
@@ -34,28 +41,35 @@
   --top: -0;
 }
 
-.start-screen-logo-img {
-  width: 30vw;
-  margin: 0 auto;
-}
-
-.start-screen-logo-button {
-  position: absolute;
-  top: 0.9vw;
-  left: 15.2vw;
-  width: 2.4vw;
+/* This is so the little logo button matches the BNS website */
+.ui-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  
+  width: 1000px;
+  height: 100%;
+  max-width: 1920px;
+  border: 3px solid red;
 }
 
 .title-text-container {
   position: absolute;
-  /* left: 55.9vw;
-  top: 10vw; */
   text-align: center;
   margin: 0 auto;
   top: 50%;
   left: 50%;
+  /* border: 2px solid red; */
   transform: translate(-50%, -50%);
+  border: 2px solid blue;
 
+}
+
+.start-screen-logo-img {
+  width: 30vw;
+  margin: 0 auto;
 }
 
 .title-text {
@@ -71,24 +85,32 @@
   color: var(--title-color-light);
 }
 
-.tut-text {
-  position: absolute;
-  color: var(--title-color-light);
-  font-size: 0.9vw;
-  line-height: 2.2vw;
-  white-space: nowrap;
-
-  --top: 80;
-  --left: 10;
-}
-
-
+/* Not used now that title is an image */
 .title-text h2 {
   color: var(--title-color-light);
   font-size: 5.5vw;
   line-height: 5.5vw;
+}
 
+.start-screen-logo-button {
+  position: absolute;
+  top: 1.1%;
+  left: 0%;
+  width: 30px;
+}
+
+.tut-text {
+  position: absolute;
+  color: var(--title-color-light);
+  font-size: 1.2vw;
+  line-height: 2.2vw;
+  white-space: nowrap;
   
+  text-align: center;
+
+  --top: 80;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
 }
 
 a:link a:visited a:active { 
@@ -113,11 +135,18 @@ a:link a:visited a:active {
   left: calc(var(--left) * 1%);
 }
 
-.moveable-item {
-  position: absolute;
-  /* Set up positioning */
-  top: calc(var(--top) * 1px);
-  will-change: transform;
+/* for horizontal iphone screens only, just to match logo icon to BNS website */
+@media only screen and (max-width: 1000px)  {
+  .ui-container {
+    width: 100%;
+  }
+
+  .start-screen-logo-button {
+    position: relative;
+    top: 1vw;
+    left: 1vw;
+    width: 6vw;
+  }
 }
 
 @media (orientation: portrait) {
@@ -146,14 +175,20 @@ a:link a:visited a:active {
 
   .start-screen-logo-button {
     position: relative;
-    top: 5vw;
-    left: 47vw;
+    top: 1vw;
+    left: 1vw;
     width: 10vw;
   }
 
+  .ui-container {
+    width: 100%;
+  }
+
   .tut-text {
-    font-size: 4vw;
+    text-align: center;
+    font-size: 3vw;
     line-height: 5vw;
-    --left: 10;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

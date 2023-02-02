@@ -24,7 +24,6 @@
     <script src="script.js" type="module"></script>
   </head>
 
-  <!-- Body is where everything you see on the page is hosted. The whole game is right here! -->
   <body>
     <!-- Menu Screen -->
     <div class="start-screen" data-start-screen>
@@ -34,39 +33,42 @@
           class="start-screen-img"
           data-start-screen
         />
+        <div class="ui-container">
+          <div class="title-text-container">
+            <div class="title-text" data-start-screen>
+              <br />
+              New website coming soon!<br />
+              Kill time while we finish<br /><br />
+              <!-- <h2>BRAND<br />NEW<br />GAME</h2> -->
+              <img
+                src="imgs/bns-title-logo.png"
+                class="start-screen-logo-img"
+              />
+              <br /><br />
 
-        <a href="https://brandnewschool.com/"
-          ><img
-            class="clickable start-screen-logo-button"
-            src="imgs/bns-leaf.png"
-        /></a>
+              <button
+                class="text-blink clickable title-text"
+                data-space-to-start
+              >
+                Spacebar to start
+              </button>
+              <button class="clickable title-text" data-sound-toggle>
+                Sound on
+              </button>
+            </div>
 
-        <div class="title-text-container">
-          <div class="title-text" data-start-screen>
-            <br />
-            New website coming soon!<br />
-            Kill time while we finish<br /><br />
-            <!-- <h2>BRAND<br />NEW<br />GAME</h2> -->
-            <img src="imgs/bns-title-logo.png" class="start-screen-logo-img" />
-            <br /><br />
-
-            <button class="text-blink clickable title-text" data-space-to-start>
-              Spacebar to start
-            </button>
-            <button class="clickable title-text" data-sound-toggle>
-              Sound on
-            </button>
-            <!-- <a
-              href="https://brandnewschool.com/"
-              class="clickable title-text"
-              data-start-screen
-              >RETURN TO BRAND NEW SCHOOL
-            </a> -->
+            <div class="positioned-item tut-text" data-tutorial-text>
+              COLLECT APPLES TO SCORE<br />WATCH OUT FOR OBSTACLES!
+            </div>
           </div>
 
-          <div class="positioned-item tut-text" data-tutorial-text>
-            COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES!
-          </div>
+            <a href="https://brandnewschool.com/"
+              ><img
+                class="clickable start-screen-logo-button"
+                src="imgs/bns-leaf.png"
+            /></a>
+
+          
         </div>
 
         <img

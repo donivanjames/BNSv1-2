@@ -10,6 +10,7 @@ import { update } from "./update.js";
 import { resetVariables, variableHolder, windowElements } from "./variableHandler.js";
 import { updateScore } from "./gameHandler.js";
 
+
 // Start Intro Scene
 export function sequence1() {
     startIntroScene();
