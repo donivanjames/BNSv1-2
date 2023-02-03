@@ -93,6 +93,8 @@ export function handleLose() {
   // change screen to solid color
   document.body.classList.remove("hallway");
   document.body.classList.add("black-screen");
+  console.log(windowElements.scoreElem)
+  windowElements.scoreElem.forEach(item => item.classList.add("hide"))
 
   // timeout stops player from hitting space right when they lose
   setTimeout(() => {

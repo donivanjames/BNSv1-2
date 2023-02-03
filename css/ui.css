@@ -31,7 +31,7 @@
 }
 
 .high-score {
-  right: 3vmin;
+  right: 3vw;
 }
 
 .textContainer {
@@ -58,8 +58,22 @@
 @media (orientation: portrait) {
     .home-screen,
     .pause-screen {
-      top: 5.5vh;
+      /* top: 5.5vh; */
       left: 47vw;
+  }
+
+  .score-ui {
+    font-size: 1.5vw;
+    top: 0vw;
+    padding: 5px;
+  }
+
+  .score {
+    left: 14vw;
+  }
+  
+  .high-score {
+    right: 36vw;
   }
 }
 

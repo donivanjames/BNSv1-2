@@ -35,11 +35,11 @@
   .game-over-title {
     color:#EC472B; 
     font-size: 3vw;
-    margin-bottom: -1vh;
+    margin-bottom: 5vh;
   }
   
   .game-over-font {
-    color: #00450f;
+    color: #CEFFDE;
     white-space: nowrap;
     margin: 0 auto;
     font-size: 0.8vw;
@@ -61,7 +61,8 @@
   /* Clear floats after the columns */
   .row {
     position: relative;
-    width: 100%;
+    width: 85%;
+    left: 11%;
     z-index: 10;
     display: table;
     clear: both;
@@ -76,6 +77,23 @@
   @media (orientation: portrait) {
 
     .game-over-screen {
-      top: 15%
+      top: 15%;
+      transform: translate(-50%, 25%);
+    }
+
+    .game-over-title {
+      font-size: 7vw;
+      margin-bottom: 3vh;
+    }
+
+    .game-over-font {
+      font-size: 3vw;
+      line-height: 6vw;
+    }
+
+    .row {
+      left: 8%;
+      width: 90%;
+      margin-bottom: 10%;
     }
 }

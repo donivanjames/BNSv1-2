@@ -24,9 +24,7 @@ export function setupLeaderboard2() {
   if(leaderboardData) {
     for (let i = 0; i < Object.entries(leaderboardData.data).length - leaderboardLimiter; i++) {
       const person = Object.entries(leaderboardData.data)[i];
-      console.log("i:", i)
   
-      console.log(person)
       const name = person[1].name;
       const score = person[1].score;
       const curColor = `<div style="color:#${colors[colorRotator]};">`; // might swap this out for nth child
@@ -85,6 +83,7 @@ window.submitScore = function(event) {
 export function returnLeaderboard() {
   return `
         <div class="game-over-screen game-over-font">
+          <div class="game-over-font">Score ${variableHolder.score}<br>Hi Score ${variableHolder.highScore}<br><br>
           <h1 class="game-over-title">GAME OVER</h1>
           ${leaderboardLimiter == 1 ? highscoreMessage() : ""}
           <div class="row">
@@ -93,8 +92,8 @@ export function returnLeaderboard() {
             <div class="column" style="width:30%">${scoreColumn}</div>
           </div>
           <div>
-              <div class="text-blink" style="color:#CEFFDE;" class="game-over-font">PLAY AGAIN!</div>
-              <button style="margin-top:10%; color:#CEFFDE;" class="clickable game-over-font" onclick="myfunc()">RETURN TO BRAND NEW SCHOOL</button>
+              <div class="text-blink"class="game-over-font">PLAY AGAIN!</div>
+              <button class="clickable game-over-font" onclick="myfunc()">RETURN TO BRAND NEW SCHOOL</button>
           </div>
         </div>
       `;

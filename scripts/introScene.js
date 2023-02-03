@@ -78,6 +78,12 @@ function setupIntro() {
     scrollDistance = -imgHeight - startScreenHeight; // there IS a difference
   }
 
+  console.log(getCustomProperty(container, "--top"))
+  console.log(getCustomProperty(bigImg, "--top"))
+  setCustomProperty(container, "--top", 0);
+  setCustomProperty(bigImg, "top", 0);
+
+
   // Tutorial Text Position:
   tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
   setCustomProperty(tutText, "--bottom", tutTextPos);
