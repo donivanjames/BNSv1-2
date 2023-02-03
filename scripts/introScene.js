@@ -19,17 +19,17 @@ let currentFrameTime = 0;
 let outputTutText = ""; // the empty string for the scrolling tutorial text
 let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES!";
 
-const allDivs = document.querySelectorAll("[data-start-screen]");
-const startScreen = document.querySelector(".start-screen");
-const container = document.querySelector(".title-container");
-const bigImg = document.querySelector(".start-screen-img");
-const player = document.querySelector(".start-screen-player");
-const tutText = document.querySelector("[data-tutorial-text]");
+let allDivs = document.querySelectorAll("[data-start-screen]");
+let startScreen = document.querySelector(".start-screen");
+let container = document.querySelector(".title-container");
+let bigImg = document.querySelector(".start-screen-img");
+let player = document.querySelector(".start-screen-player");
+let tutText = document.querySelector("[data-tutorial-text]");
 
-const startButton = document.querySelector("[data-space-to-start]");
+let startButton = document.querySelector("[data-space-to-start]");
 if (startButton) startButton.addEventListener("click", sequence1);
 
-const soundButton = document.querySelector("[data-sound-toggle]");
+let soundButton = document.querySelector("[data-sound-toggle]");
 if (soundButton)
   soundButton.addEventListener("click", () => soundToggle(soundButton));
 
@@ -74,7 +74,7 @@ function setupIntro() {
 
   // These need to come after imgHeight, hence why they're not in window.matchMedia
   if(horizontal) {
-    scrollSpeed = imgHeight * 0.00004;
+    scrollSpeed = imgHeight * 0.00006;
     customPlayerPos = 0.8945;
     customTutTextPost = 0.875;
     scrollDistance = -imgHeight + startScreenHeight + 5;

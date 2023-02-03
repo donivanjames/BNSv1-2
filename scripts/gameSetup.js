@@ -9,6 +9,7 @@ import { showPlayer, setupPlayer } from "./player.js";
 import { update } from "./update.js";
 import { resetVariables, variableHolder, windowElements } from "./variableHandler.js";
 import { updateScore } from "./gameHandler.js";
+import { resetLeaderboardLimiter } from "./leaderboard.js";
 
 
 // Start Intro Scene
@@ -61,6 +62,7 @@ export function handleGameStart() {
       resetVariables()
       showGround(); // removes "hide" class
       variableHolder.gameGoing = true;
+      resetLeaderboardLimiter()
   
       stopTitleSong();
       stopGameOverSong()

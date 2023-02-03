@@ -50,12 +50,17 @@
     background: transparent;
     border: none;
     outline: none;
-    caret-color: #CEFFDE;
-    color: #CEFFDE;
+    caret-color: yellow;
+    color: yellow;
     font-family: inherit;
     font-size: inherit;
     text-align: center;
     text-transform: uppercase;
+  }
+
+  ::placeholder { /* for high score input box */
+    color: yellow;
+    opacity: 1;
   }
   
   /* Clear floats after the columns */

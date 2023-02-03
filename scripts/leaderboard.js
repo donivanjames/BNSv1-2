@@ -8,6 +8,7 @@ let nameColumn = `NAME0<br>NAME1<br>NAME2<br>NAME3<br>NAME4<br>NAME5<br>NAME6<br
 let scoreColumn = `{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}`;
 
 getLeaderboardData()
+export const resetLeaderboardLimiter = () => { leaderboardLimiter = 0 }
 
 let colors = ["630331", "EC472B", "FFC700", "CEFFDE", "003399"];
 export let leaderboardLimiter
@@ -31,9 +32,9 @@ export function setupLeaderboard2() {
   
       if(playerScore > score && leaderboardLimiter == 0 || Object.entries(leaderboardData.data).length < 10 && leaderboardLimiter == 0) {
         console.log("New high score")
-        numColumn += `${curColor}${num}</div>`;
-        nameColumn += `${curColor}${scoreInput()}</div>`;
-        scoreColumn += `${curColor}${playerScore}</div>`;
+        numColumn += `<div style="color:yellow;">${num}</div>`;
+        nameColumn += `<div style="color:yellow;"${scoreInput()}</div>`;
+        scoreColumn += `<div style="color:yellow;">${playerScore}</div>`;
         
         i--;
         leaderboardLimiter = 1;
@@ -61,9 +62,10 @@ function highscoreMessage(){
 
 function scoreInput(name, score) {
 return (`
-  <form onsubmit="submitScore(event)" class="game-over-font">
+  <form onsubmit=" id="submitForm" class="game-over-font">
     <input 
-      class="score-input" spellcheck="false" type="text" id="playerName" name="playerName" size="6" minlength="1" maxlength="5" required placeholder="NAME"
+      class="score-input" spellcheck="false" type="text" id="playerName" name="playerName" 
+      size="6" minlength="1" maxlength="5" required placeholder=">NAME<"
       onkeypress="return event.charCode != 32";
       ><br>
     <input type="submit" value="Submit" style="display: none">
@@ -71,9 +73,15 @@ return (`
 `)
 }
 
-window.submitScore = function(event) {
+// might not be needed
+window.submitForm = function(event) {
   event.preventDefault();
   const playerName = event.target.elements.playerName.value
+  console.log("submit player name")
+  submitScore(playerName)
+}
+
+export function submitScore(playerName){
   console.log("submit called ", playerName, variableHolder.score)
   sendLeaderboardData(playerName, variableHolder.score)
   leaderboardLimiter = 0;
@@ -92,7 +100,7 @@ export function returnLeaderboard() {
             <div class="column" style="width:30%">${scoreColumn}</div>
           </div>
           <div>
-              <div class="text-blink"class="game-over-font">PLAY AGAIN!</div>
+              <div id="play-again" class="text-blink"class="game-over-font">PLAY AGAIN!</div>
               <button class="clickable game-over-font" onclick="myfunc()">RETURN TO BRAND NEW SCHOOL</button>
           </div>
         </div>
