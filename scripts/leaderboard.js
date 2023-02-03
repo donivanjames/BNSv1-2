@@ -56,7 +56,7 @@ export function setupLeaderboard2() {
 
 function highscoreMessage(){
   return (`
-    <br><br><div>HIGH SCORE!! ENTER INITIALS</div>
+    <br><div>HIGH SCORE!! ENTER INITIALS</div>
   `)
 }
 
@@ -101,7 +101,13 @@ export function returnLeaderboard() {
           </div>
           <div>
               <div id="play-again" class="text-blink"class="game-over-font">PLAY AGAIN!</div>
-              <button class="clickable game-over-font" onclick="myfunc()">RETURN TO BRAND NEW SCHOOL</button>
+
+              <a
+                href="https://brandnewschool.com/"
+                class="clickable game-over-font"
+                data-start-screen
+                >RETURN TO BRAND NEW SCHOOL
+              </a>
           </div>
         </div>
       `;
