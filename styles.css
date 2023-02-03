@@ -38,13 +38,14 @@ body {
     width: 100%;
     color: #CEFFDE;
     padding-top: (16 / 9 * 100);
-    transform: translate(0, 50%);
+    transform: translate(0, 30%);
 }
 
 @media (orientation: portrait) {
   .world {
     left: 22%;
-    transform: translate(0%, 300%) scale(2);
+    transform: translate(0%, 200%) scale(2) translateZ(0);
+    backface-visibility: hidden;
   }
 }
 
@@ -62,7 +63,7 @@ body {
 }
 
 .hide {
-    display: none; 
+    display: none;
     pointer-events: none;
 }
 

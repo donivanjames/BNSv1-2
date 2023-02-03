@@ -77,7 +77,7 @@
   @media (orientation: portrait) {
 
     .game-over-screen {
-      top: 15%;
+      top: 2%;
       transform: translate(-50%, 25%);
     }
 
