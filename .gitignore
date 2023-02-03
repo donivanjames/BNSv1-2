@@ -1,5 +1,6 @@
+**node_modules
+.env*
 depreciated/
 imgs/ignorable/
 imgs/aseprite/
-node_modules/
 speed-tests/
