@@ -16,7 +16,7 @@ const FRAME_TIME = 75; // how long each animation frame should last (in millisec
 let playerFrame = 0;
 let currentFrameTime = 0;
 
-let outputTutText = "" // the empty string for the scrolling tutorial text
+let outputTutText = ""; // the empty string for the scrolling tutorial text
 let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES!";
 
 const startScreen = document.querySelector(".start-screen");
@@ -32,6 +32,9 @@ let tutTextPos = 0;
 let scrollDistance = 0;
 let scrollSpeed = 0;
 
+let customPlayerPos = 1;
+let customTutTextPost = 1;
+
 getResolution();
 function getResolution() {
   console.log(
@@ -40,37 +43,48 @@ function getResolution() {
 }
 
 window.addEventListener("resize", setupIntro); // to protect screen resizes
+let horizontal = true;
+
 setupIntro();
 function setupIntro() {
+  console.log("setup called")
+  // Horizontal ui positioning
+  if (window.matchMedia("(orientation: landscape)").matches) {
+    horizontal = true;
+    console.log("you're in LANDSCAPE mode");
+    bigImg.src = "imgs/landing-page-v12.png";
+  }
+  // Vertical ui positioning
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    horizontal = false;
+    console.log("you're in PORTRAIT mode");
+    bigImg.src = "imgs/landing-page-mobile-1.png";
+  }
+
   // Get Screen Heights:
   startScreenHeight = startScreen.offsetHeight;
   imgHeight = bigImg.scrollHeight;
 
-  //Scrolling
-  scrollDistance = -imgHeight + startScreenHeight + 5;
-
-  // Portrait ui positioning
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    console.log("you're in PORTRAIT mode");
-
-    // Tutorial Text Position:
-    tutTextPos = 0 + startScreenHeight - imgHeight * 1.005;
-    setCustomProperty(tutText, "--bottom", tutTextPos);
-  }
-  
-  // Orientation ui positioning
-  if (window.matchMedia("(orientation: landscape)").matches) {
-    console.log("you're in LANDSCAPE mode");
-
-    // Tutorial Text Position:
-    tutTextPos = 0 + startScreenHeight - imgHeight * 0.85;
-    setCustomProperty(tutText, "--bottom", tutTextPos);
+  if(horizontal) {
+    scrollSpeed = imgHeight * 0.00004;
+    customPlayerPos = 0.894;
+    customTutTextPost = 0.875;
+  } else {
+    scrollSpeed = imgHeight * 0.0001;
+    customPlayerPos = 2.316;
+    customTutTextPost = 1.62;
   }
 
-  scrollSpeed = imgHeight * 0.00008;
+  // Scrolling
+  scrollDistance = -imgHeight - startScreenHeight;
+  setCustomProperty(bigImg, "--top", 0);
+
+  // Tutorial Text Position:
+  tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
+  setCustomProperty(tutText, "--bottom", tutTextPos);
 
   // Player Position:
-  playerPos = 0 + startScreenHeight - imgHeight * 0.894;
+  playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
   setCustomProperty(player, "--bottom", playerPos);
 }
 
@@ -107,14 +121,11 @@ export function updateIntroScene(time) {
 function scrollIntroScene(delta, scrollSpeed) {
   if (getCustomProperty(container, "--top") > scrollDistance) {
     scrollItems(delta, scrollSpeed);
-  }
-  else if(outputTutText.length < fullTutText.length) {
-    scrollText(delta)
-  }
-  else if (waitAtEnd <= 0){
-      movePlayer(delta);
-    } else waitAtEnd -= 1 * delta;
-  
+  } else if (outputTutText.length < fullTutText.length) {
+    scrollText(delta);
+  } else if (waitAtEnd <= 0) {
+    movePlayer(delta);
+  } else waitAtEnd -= 1 * delta;
 }
 
 function scrollItems(delta, scrollSpeed) {
@@ -124,21 +135,20 @@ function scrollItems(delta, scrollSpeed) {
 }
 
 let textFrameTime = 0;
-let fullTextFrameTime = 60
-let textSpeed = 1
+let fullTextFrameTime = 60;
+let textSpeed = 1;
 let iText = 0;
-tutText.innerHTML = ""
+tutText.innerHTML = "";
 
 function scrollText(delta) {
-  if(textFrameTime <= 0){
-    outputTutText += fullTutText[iText]
-    iText++
-    textFrameTime = fullTextFrameTime
+  if (textFrameTime <= 0) {
+    outputTutText += fullTutText[iText];
+    iText++;
+    textFrameTime = fullTextFrameTime;
   }
 
   textFrameTime -= delta * textSpeed;
-  console.log(outputTutText)
-  tutText.innerHTML = outputTutText
+  tutText.innerHTML = outputTutText;
 }
 
 function movePlayer(delta) {
@@ -159,5 +169,3 @@ export function handleRun(delta) {
 
   currentFrameTime += delta * 1; // animation will play faster as the level speeds up
 }
-
-

@@ -105,10 +105,7 @@
   white-space: nowrap;
   
   text-align: center;
-
-  --top: 80;
-    left: 50%;
-    /* transform: translate(-50%, -50%); */
+  transform: translate(-20%, -50%);
 }
 
 a:link a:visited a:active { 
@@ -157,7 +154,7 @@ a:link a:visited a:active {
   }
 
   .title-text-container {
-    top: 100%;
+    top: 40vh;
   }
 
   .title-text {

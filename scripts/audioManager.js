@@ -1,6 +1,6 @@
 // holds all the audio
 
-let soundOn = true
+let soundOn = false
 
 // TITLE SONG //
 
