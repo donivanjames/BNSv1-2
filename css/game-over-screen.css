@@ -50,7 +50,7 @@
     background: transparent;
     border: none;
     outline: none;
-    caret-color: yellow;
+    caret-color: rgb(0, 0, 0);
     color: yellow;
     font-family: inherit;
     font-size: inherit;
