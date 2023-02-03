@@ -3,7 +3,7 @@
 //const getBtn = document.getElementById('get-btn');
 //const postBtn = document.getElementById('post-btn');
 
-export let leaderboardData;
+export let leaderboardData = null;
 
 const sendHttpRequest = (method, url, data) => {
   const promise = new Promise((resolve, reject) => {

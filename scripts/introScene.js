@@ -65,9 +65,10 @@ function setupIntro() {
   startScreenHeight = startScreen.offsetHeight;
   imgHeight = bigImg.scrollHeight;
 
+  // These need to come after imgHeight, hence why they're not in window.matchMedia
   if(horizontal) {
     scrollSpeed = imgHeight * 0.00004;
-    customPlayerPos = 0.894;
+    customPlayerPos = 0.8945;
     customTutTextPost = 0.875;
     scrollDistance = -imgHeight + startScreenHeight + 5;
   } else {
@@ -76,9 +77,6 @@ function setupIntro() {
     customTutTextPost = 1.62;
     scrollDistance = -imgHeight - startScreenHeight; // there IS a difference
   }
-
-  // Scrolling
-  setCustomProperty(bigImg, "--top", 0);
 
   // Tutorial Text Position:
   tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;

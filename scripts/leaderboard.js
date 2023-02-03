@@ -21,39 +21,38 @@ export function setupLeaderboard2() {
   const playerScore = variableHolder.score;
   leaderboardLimiter = 0; // checks to see if you're on the leaderboard, then substracts one so there's not 11 names
 
+  if(leaderboardData) {
+    for (let i = 0; i < Object.entries(leaderboardData.data).length - leaderboardLimiter; i++) {
+      const person = Object.entries(leaderboardData.data)[i];
+      console.log("i:", i)
+  
+      console.log(person)
+      const name = person[1].name;
+      const score = person[1].score;
+      const curColor = `<div style="color:#${colors[colorRotator]};">`; // might swap this out for nth child
+  
+      if(playerScore > score && leaderboardLimiter == 0 || Object.entries(leaderboardData.data).length < 10 && leaderboardLimiter == 0) {
+        console.log("New high score")
+        numColumn += `${curColor}${num}</div>`;
+        nameColumn += `${curColor}${scoreInput()}</div>`;
+        scoreColumn += `${curColor}${playerScore}</div>`;
+        
+        i--;
+        leaderboardLimiter = 1;
+      }
+      else {
+        numColumn += `${curColor}${num}</div>`;
+        nameColumn += `${curColor}${name.toUpperCase()}</div>`;
+        scoreColumn += `${curColor}${score}</div>`;
+      }
 
-  for (let i = 0; i < Object.entries(leaderboardData.data).length - leaderboardLimiter; i++) {
-    const person = Object.entries(leaderboardData.data)[i];
-    console.log("i:", i)
-
-    console.log(person)
-    const name = person[1].name;
-    const score = person[1].score;
-    const curColor = `<div style="color:#${colors[colorRotator]};">`; // might swap this out for nth child
-
-    if(playerScore > score && leaderboardLimiter == 0 || Object.entries(leaderboardData.data).length < 10 && leaderboardLimiter == 0) {
-      console.log("New high score")
-      numColumn += `${curColor}${num}</div>`;
-      nameColumn += `${curColor}${scoreInput()}</div>`;
-      scoreColumn += `${curColor}${playerScore}</div>`;
-      
-      i--;
-      leaderboardLimiter = 1;
+      colorRotator += 1;
+      if (colorRotator >= colors.length) colorRotator = 0;
+      num++;
     }
-    else {
-      numColumn += `${curColor}${num}</div>`;
-      nameColumn += `${curColor}${name.toUpperCase()}</div>`;
-      scoreColumn += `${curColor}${score}</div>`;
-    }
-
-
-    colorRotator += 1;
-    if (colorRotator >= colors.length) colorRotator = 0;
-    num++;
+  } else {
+    getLeaderboardData()
   }
-
-  // if leaderboardLimiter = 1
-  // show input
 }
 
 function highscoreMessage(){
