@@ -38,7 +38,13 @@ body {
     width: 100%;
     color: #CEFFDE;
     padding-top: (16 / 9 * 100);
+    transform: translate(0, 50%);
+}
+
+@media (max-width: 1000px) {
+  .world {
     transform: translate(0, 30%);
+  }
 }
 
 @media (orientation: portrait) {
