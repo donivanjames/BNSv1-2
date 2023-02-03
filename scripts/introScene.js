@@ -19,11 +19,19 @@ let currentFrameTime = 0;
 let outputTutText = ""; // the empty string for the scrolling tutorial text
 let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES!";
 
+const allDivs = document.querySelectorAll("[data-start-screen]");
 const startScreen = document.querySelector(".start-screen");
 const container = document.querySelector(".title-container");
 const bigImg = document.querySelector(".start-screen-img");
 const player = document.querySelector(".start-screen-player");
 const tutText = document.querySelector("[data-tutorial-text]");
+
+const startButton = document.querySelector("[data-space-to-start]");
+if (startButton) startButton.addEventListener("click", sequence1);
+
+const soundButton = document.querySelector("[data-sound-toggle]");
+if (soundButton)
+  soundButton.addEventListener("click", () => soundToggle(soundButton));
 
 let startScreenHeight = 0;
 let imgHeight = 0;
@@ -47,17 +55,16 @@ let horizontal = true;
 
 setupIntro();
 function setupIntro() {
-  console.log("setup called")
   // Horizontal ui positioning
   if (window.matchMedia("(orientation: landscape)").matches) {
     horizontal = true;
-    console.log("you're in LANDSCAPE mode");
+    console.log("you're in LANDSCAPE mode", "horizontal: ", horizontal);
     bigImg.src = "imgs/landing-page-v12.png";
   }
   // Vertical ui positioning
   if (window.matchMedia("(orientation: portrait)").matches) {
     horizontal = false;
-    console.log("you're in PORTRAIT mode");
+    console.log("you're in PORTRAIT mode, ", "horizontal: ", horizontal);
     bigImg.src = "imgs/landing-page-mobile-1.png";
   }
 
@@ -89,16 +96,14 @@ function setupIntro() {
   // Player Position:
   playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
   setCustomProperty(player, "--bottom", playerPos);
+
+  allDivs.forEach((item) => {
+    setCustomProperty(item, "--top");
+  });
 }
 
-const allDivs = document.querySelectorAll("[data-start-screen]");
 
-const startButton = document.querySelector("[data-space-to-start]");
-if (startButton) startButton.addEventListener("click", sequence1);
 
-const soundButton = document.querySelector("[data-sound-toggle]");
-if (soundButton)
-  soundButton.addEventListener("click", () => soundToggle(soundButton));
 
 export function skipIntro() {
   //scrollSpeed = 2;
