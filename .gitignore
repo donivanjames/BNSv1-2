@@ -1,6 +1,7 @@
-**node_modules
 .env*
 depreciated/
 imgs/ignorable/
 imgs/aseprite/
 speed-tests/
+
+# keep node modules in so we can test on github, there's not a ton

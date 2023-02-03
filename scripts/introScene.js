@@ -82,7 +82,7 @@ function setupIntro() {
     scrollSpeed = imgHeight * 0.0002;
     customPlayerPos = 2.316;
     customTutTextPost = 1.62;
-    scrollDistance = -imgHeight - startScreenHeight; // there IS a difference
+    scrollDistance = -imgHeight - startScreenHeight * 1.5; // there IS a difference
   }
 
   console.log(getCustomProperty(container, "--top"))

@@ -1,9 +1,9 @@
 // https://youtu.be/4K33w-0-p2c
 
-//const getBtn = document.getElementById('get-btn');
-//const postBtn = document.getElementById('post-btn');
-
 export let leaderboardData = null;
+
+//const { SERVER_LINK } = process.env;
+
 
 const sendHttpRequest = (method, url, data) => {
   const promise = new Promise((resolve, reject) => {
@@ -34,14 +34,14 @@ const sendHttpRequest = (method, url, data) => {
 };
 
 export const getLeaderboardData = () => {
-  sendHttpRequest('GET', 'https://bns-knex-leaderboard-1.onrender.com/').then(responseData => {
+  sendHttpRequest('GET', "https://bns-knex-leaderboard-1.onrender.com/").then(responseData => {
     console.log(responseData);
     leaderboardData = responseData;
   });
 };
 
 export const sendLeaderboardData = (name, score) => {
-  sendHttpRequest('POST', 'https://bns-knex-leaderboard-1.onrender.com/', {
+  sendHttpRequest('POST', "https://bns-knex-leaderboard-1.onrender.com/", {
       data:
           {
               name: name,
@@ -56,6 +56,3 @@ export const sendLeaderboardData = (name, score) => {
       console.log(err);
     });
 };
-
-// getBtn.addEventListener('click', getData);
-// postBtn.addEventListener('click', sendData);
