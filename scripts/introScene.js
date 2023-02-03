@@ -69,14 +69,15 @@ function setupIntro() {
     scrollSpeed = imgHeight * 0.00004;
     customPlayerPos = 0.894;
     customTutTextPost = 0.875;
+    scrollDistance = -imgHeight + startScreenHeight + 5;
   } else {
     scrollSpeed = imgHeight * 0.0001;
     customPlayerPos = 2.316;
     customTutTextPost = 1.62;
+    scrollDistance = -imgHeight - startScreenHeight; // there IS a difference
   }
 
   // Scrolling
-  scrollDistance = -imgHeight - startScreenHeight;
   setCustomProperty(bigImg, "--top", 0);
 
   // Tutorial Text Position:
