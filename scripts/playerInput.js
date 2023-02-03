@@ -36,6 +36,7 @@ export function handleAllInput(event) {
       else {
         console.log("name: ", leaderboardInput.value)
         submitScore(leaderboardInput.value)
+        return;
       }
     }
 
