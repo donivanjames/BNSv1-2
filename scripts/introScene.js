@@ -80,8 +80,6 @@ function setupIntro() {
 
   console.log(getCustomProperty(container, "--top"))
   console.log(getCustomProperty(bigImg, "--top"))
-  setCustomProperty(container, "--top", 0);
-  setCustomProperty(bigImg, "top", 0);
 
 
   // Tutorial Text Position:
