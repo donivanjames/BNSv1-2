@@ -13,6 +13,7 @@ import { pauseUpdate, unPauseUpdate } from "./update.js";
 import { windowElements, variableHolder } from "./variableHandler.js";
 import { sequence4 } from "./gameSetup.js";
 import { returnLeaderboard, setupLeaderboard2 } from "./leaderboard.js";
+import { leaderboardLimiter } from "./leaderboard.js";
 
 window.onblur = () => pauseGame(); // pause game when player leaves screen
 
@@ -75,6 +76,7 @@ function isCollision(rect1, rect2) {
   }
 }
 
+
 // HANDLE LOSE
 export function handleLose() {
   setPlayerLose(); // set player to losing sprite
@@ -84,7 +86,9 @@ export function handleLose() {
 
   setupLeaderboard2()
   windowElements.mainUIElem.innerHTML = returnLeaderboard();
-  document.getElementById("playerName").focus();
+  let focusedInput = null
+  if(leaderboardLimiter == 1) focusedInput = document.getElementById("playerName")
+  if(focusedInput) focusedInput.focus();
 
   // change screen to solid color
   document.body.classList.remove("hallway");

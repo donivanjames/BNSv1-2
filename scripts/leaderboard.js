@@ -31,7 +31,7 @@ export function setupLeaderboard2() {
     const score = person[1].score;
     const curColor = `<div style="color:#${colors[colorRotator]};">`; // might swap this out for nth child
 
-    if(playerScore > score && leaderboardLimiter == 0 || leaderboardData.length < 10) {
+    if(playerScore > score && leaderboardLimiter == 0 || Object.entries(leaderboardData.data).length < 10 && leaderboardLimiter == 0) {
       console.log("New high score")
       numColumn += `${curColor}${num}</div>`;
       nameColumn += `${curColor}${scoreInput()}</div>`;
@@ -64,10 +64,13 @@ function highscoreMessage(){
 
 function scoreInput(name, score) {
 return (`
-<form onsubmit="submitScore(event)" class="game-over-font">
-  <input type="text" id="playerName" name="playerName" size="6" minlength="1" maxlength="5" required placeholder="NAME"><br>
-  <input type="submit" value="Submit" style="display: none">
-</form>
+  <form onsubmit="submitScore(event)" class="game-over-font">
+    <input 
+      class="score-input" spellcheck="false" type="text" id="playerName" name="playerName" size="6" minlength="1" maxlength="5" required placeholder="NAME"
+      onkeypress="return event.charCode != 32";
+      ><br>
+    <input type="submit" value="Submit" style="display: none">
+  </form>
 `)
 }
 

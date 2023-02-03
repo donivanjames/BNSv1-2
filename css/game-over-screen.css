@@ -21,6 +21,8 @@
       }
   }
 
+
+
 .game-over-screen {
     position: absolute;
     text-align: center;
@@ -43,6 +45,18 @@
     font-size: 0.8vw;
     line-height: 1.8vw;
   }
+
+  .score-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    caret-color: #CEFFDE;
+    color: #CEFFDE;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: center;
+    text-transform: uppercase;
+  }
   
   /* Clear floats after the columns */
   .row {
@@ -51,7 +65,7 @@
     z-index: 10;
     display: table;
     clear: both;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-bottom: var(--col-margin-bottom);
   }
   
