@@ -83,7 +83,7 @@ window.submitScore = function(event) {
 export function returnLeaderboard() {
   return `
         <div class="game-over-screen game-over-font">
-          <div class="game-over-font">Score ${variableHolder.score}<br>Hi Score ${variableHolder.highScore}<br><br>
+          <div class="game-over-font">SCORE ${variableHolder.score}<br>HI SCORE ${variableHolder.highScore}<br><br>
           <h1 class="game-over-title">GAME OVER</h1>
           ${leaderboardLimiter == 1 ? highscoreMessage() : ""}
           <div class="row">
