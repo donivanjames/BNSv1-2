@@ -3,7 +3,7 @@
 import { handleAllInput } from "./scripts/playerInput.js";
 import { windowElements, resetVariables } from "./scripts/variableHandler.js";
 
-//google stuff
+// google stuff
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
@@ -11,14 +11,11 @@ gtag('config', 'UA-178389882-1');
 
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
-// document.documentElement.style.setProperty(
-//   "--doc-height",
-//   `${window.innerHeight}px`
-// );
 
 resetVariables();
 setPixelToWorldScale();
 
+window.addEventListener("resize", setPixelToWorldScale());
 
 
 console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)

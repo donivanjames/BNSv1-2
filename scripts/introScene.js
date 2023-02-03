@@ -72,6 +72,8 @@ function setupIntro() {
   startScreenHeight = startScreen.offsetHeight;
   imgHeight = bigImg.scrollHeight;
 
+  console.log("img height: ", imgHeight)
+
   // These need to come after imgHeight, hence why they're not in window.matchMedia
   if(horizontal) {
     scrollSpeed = imgHeight * 0.00006;
