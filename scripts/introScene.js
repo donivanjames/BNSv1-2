@@ -70,7 +70,7 @@ function setupIntro() {
 
   // Get Screen Heights:
   startScreenHeight = startScreen.offsetHeight;
-  imgHeight = bigImg.scrollHeight;
+  imgHeight = bigImg.offsetHeight;
 
   console.log("img height: ", imgHeight)
 
@@ -79,12 +79,12 @@ function setupIntro() {
     scrollSpeed = imgHeight * 0.00006;
     customPlayerPos = 0.8945;
     customTutTextPost = 0.875;
-    scrollDistance = -imgHeight + startScreenHeight + 5;
+    scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
   } else {
     scrollSpeed = imgHeight * 0.0002;
     customPlayerPos = 2.317;
     customTutTextPost = 1.62;
-    scrollDistance = -imgHeight - startScreenHeight * 1.5; // there IS a difference
+    scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5; // there IS a difference
   }
 
 
