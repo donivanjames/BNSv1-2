@@ -105,7 +105,7 @@ export function handleLose() {
 export function updateScore() {
   variableHolder.score = variableHolder.applesCollected * 100;
   const score = variableHolder.score;
-  if (score >= variableHolder.highScore) variableHolder.highScore = score;
+  if (score >= variableHolder.highScore || !variableHolder.highScore) variableHolder.highScore = score;
   windowElements.scoreElem[0].textContent = `SCORE ${~~score}`;
   windowElements.scoreElem[1].textContent = `HI SCORE ${~~variableHolder.highScore}`;
 }

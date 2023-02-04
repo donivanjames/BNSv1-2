@@ -88,6 +88,10 @@ function setupIntro() {
   }
 
 
+  
+
+
+
   // Tutorial Text Position:
   tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
   setCustomProperty(tutText, "--bottom", tutTextPos);
@@ -97,8 +101,15 @@ function setupIntro() {
   setCustomProperty(player, "--bottom", playerPos);
 
   allDivs.forEach((item) => {
-    setCustomProperty(item, "--top");
+    setCustomProperty(item, "--top", 0);
   });
+
+  allDivs.forEach(item => console.log("allDivs", getCustomProperty(item, "--top")))
+  console.log("startScreen", getCustomProperty(startScreen, "--top"))
+  console.log("container", getCustomProperty(container, "--top"))
+  console.log("bigImg", getCustomProperty(bigImg, "--top"))
+  console.log("player", getCustomProperty(player, "--top"))
+  console.log("tutText", getCustomProperty(tutText, "--top"))
 }
 
 

@@ -22,7 +22,6 @@ let highScore = 0;
 export let variableHolder = {}
 
 export const resetVariables = () => {
-    variableHolder = {}
     variableHolder = Object.assign(variableHolder, newVariables)
-    variableHolder.highScore = highScore
+    console.log(variableHolder)
 }
