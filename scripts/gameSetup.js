@@ -22,7 +22,7 @@ import { resetLeaderboardLimiter } from "./leaderboard.js";
 
 // Start Intro Scene
 export function sequence1() {
-  if (window.innerWidth < 1920) skipIntro();
+  if (window.innerWidth < 1200) skipIntro();
   else {
     startIntroScene();
     variableHolder.inputNum = 2;
