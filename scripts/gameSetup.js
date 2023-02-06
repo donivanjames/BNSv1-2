@@ -80,6 +80,7 @@ export function handleGameStart() {
 
     document.body.classList.remove("black-screen");
     document.body.classList.add("hallway");
+    windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
 
     setupPlayer();
     setupPet();

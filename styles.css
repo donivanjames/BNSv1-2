@@ -20,6 +20,7 @@ body {
     flex-direction: column;
 
     overflow: hidden;
+    background-size: cover;
 
     min-height: 100vh;
     max-height: 100vh; /* these need to stay in body */
