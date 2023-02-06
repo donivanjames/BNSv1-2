@@ -55,65 +55,68 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 
 setupIntro();
 function setupIntro() {
-  // Horizontal ui positioning
-  if (window.matchMedia("(orientation: landscape)").matches) {
-    horizontalScreen = true;
-    console.log("you're in LANDSCAPE mode", "horizontal: ", horizontalScreen);
-    bigImg.src = "imgs/landing-page-v13.png";
-  }
-  // Vertical ui positioning
-  if (window.matchMedia("(orientation: portrait)").matches) {
-    horizontalScreen = false;
-    console.log("you're in PORTRAIT mode, ", "horizontal: ", horizontalScreen);
-    bigImg.src = "imgs/landing-page-mobile-2.png";
-  }
+  bigImg = new Image();
 
-  // Get Screen Heights:
-  startScreenHeight = startScreen.offsetHeight;
-  imgHeight = bigImg.offsetHeight;
+  bigImg.onload = () => {
+    // Horizontal ui positioning
+    if (window.matchMedia("(orientation: landscape)").matches) {
+      horizontalScreen = true;
+      console.log("you're in LANDSCAPE mode", "horizontal: ", horizontalScreen);
+      bigImg.src = "imgs/landing-page-v13.png";
+    }
+    // Vertical ui positioning
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      horizontalScreen = false;
+      console.log(
+        "you're in PORTRAIT mode, ",
+        "horizontal: ",
+        horizontalScreen
+      );
+      bigImg.src = "imgs/landing-page-mobile-2.png";
+    }
 
-  console.log("img height: ", imgHeight)
+    // Get Screen Heights:
+    startScreenHeight = window.innerHeight; // startScreen.offsetHeight;
+    imgHeight = bigImg.offsetHeight;
 
-  // These need to come after imgHeight, hence why they're not in window.matchMedia
-  if(horizontalScreen) {
-    scrollSpeed = imgHeight * 0.00006;
-    customPlayerPos = 0.8944;
-    customTutTextPost = 0.842;
-    scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
-  } else {
-    scrollSpeed = imgHeight * 0.0002;
-    customPlayerPos = 2.317;
-    customTutTextPost = 1.53;
-    scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5;
-  }
+    console.log("screen height: ", startScreenHeight);
+    console.log("img height: ", imgHeight);
 
+    // These need to come after imgHeight, hence why they're not in window.matchMedia
+    if (horizontalScreen) {
+      scrollSpeed = imgHeight * 0.00006;
+      customPlayerPos = 0.8944;
+      customTutTextPost = 0.842;
+      scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
+    } else {
+      scrollSpeed = imgHeight * 0.0002;
+      customPlayerPos = 2.317;
+      customTutTextPost = 1.53;
+      scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5;
+    }
 
-  
+    // Tutorial Text Position:
+    tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
+    setCustomProperty(tutText, "--bottom", tutTextPos);
 
+    // Player Position:
+    playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
+    setCustomProperty(player, "--bottom", playerPos);
 
+    allDivs.forEach((item) => {
+      setCustomProperty(item, "--top", 0);
+    });
 
-  // Tutorial Text Position:
-  tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
-  setCustomProperty(tutText, "--bottom", tutTextPos);
-
-  // Player Position:
-  playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
-  setCustomProperty(player, "--bottom", playerPos);
-
-  allDivs.forEach((item) => {
-    setCustomProperty(item, "--top", 0);
-  });
-
-  allDivs.forEach(item => console.log("allDivs", getCustomProperty(item, "--top")))
-  console.log("startScreen", getCustomProperty(startScreen, "--top"))
-  console.log("container", getCustomProperty(container, "--top"))
-  console.log("bigImg", getCustomProperty(bigImg, "--top"))
-  console.log("player", getCustomProperty(player, "--top"))
-  console.log("tutText", getCustomProperty(tutText, "--top"))
+    allDivs.forEach((item) =>
+      console.log("allDivs", getCustomProperty(item, "--top"))
+    );
+    console.log("startScreen", getCustomProperty(startScreen, "--top"));
+    console.log("container", getCustomProperty(container, "--top"));
+    console.log("bigImg", getCustomProperty(bigImg, "--top"));
+    console.log("player", getCustomProperty(player, "--top"));
+    console.log("tutText", getCustomProperty(tutText, "--top"));
+  };
 }
-
-
-
 
 export function skipIntro() {
   //scrollSpeed = 2;
