@@ -149,7 +149,7 @@ a:link a:visited a:active {
     position: relative;
     top: 1vh;
     height: 5vh;
-    transform: translate(-22%, 00%);
+    transform: translate(0%, 00%);
     margin-bottom: 6vh;
   }
 
