@@ -55,9 +55,9 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 
 setupIntro();
 function setupIntro() {
-  bigImg = new Image();
 
-  bigImg.onload = () => {
+
+
     // Horizontal ui positioning
     if (window.matchMedia("(orientation: landscape)").matches) {
       horizontalScreen = true;
@@ -110,12 +110,7 @@ function setupIntro() {
     allDivs.forEach((item) =>
       console.log("allDivs", getCustomProperty(item, "--top"))
     );
-    console.log("startScreen", getCustomProperty(startScreen, "--top"));
-    console.log("container", getCustomProperty(container, "--top"));
-    console.log("bigImg", getCustomProperty(bigImg, "--top"));
-    console.log("player", getCustomProperty(player, "--top"));
-    console.log("tutText", getCustomProperty(tutText, "--top"));
-  };
+  
 }
 
 export function skipIntro() {

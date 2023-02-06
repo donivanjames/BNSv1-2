@@ -17,6 +17,7 @@ export const touchDevice = ('ontouchstart' in document.documentElement);
 if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"
 
 
+
 resetVariables();
 setPixelToWorldScale();
 
