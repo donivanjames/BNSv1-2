@@ -2,6 +2,7 @@
 import { getLeaderboardData, sendLeaderboardData, leaderboardData } from "../xhr.js";
 import { variableHolder } from "./variableHandler.js";
 import { sequence4 } from "./gameSetup.js";
+import { horizontalScreen } from "./introScene.js";
 
 let numColumn = `1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10`;
 let nameColumn = `NAME0<br>NAME1<br>NAME2<br>NAME3<br>NAME4<br>NAME5<br>NAME6<br>NAME7<br>NAME8<br>NAME9`;
@@ -88,10 +89,20 @@ export function submitScore(playerName){
   sequence4()
 }
 
+const logoSetup = () => horizontalScreen ? "" : `
+<a href="https://brandnewschool.com/">
+  <img class="clickable start-screen-logo-button-leaderboard"
+  src="imgs/bns-leaf.png"/>
+</a>`
+
+const scoreSetup = () => horizontalScreen ? "" : `<div class="game-over-font">SCORE ${variableHolder.score}<br>HI SCORE ${variableHolder.highScore}<br><br></br>`
+
+
 export function returnLeaderboard() {
   return `
+        ${logoSetup()}
         <div class="game-over-screen game-over-font">
-          <div class="game-over-font">SCORE ${variableHolder.score}<br>HI SCORE ${variableHolder.highScore}<br><br>
+          ${scoreSetup()}
           <h1 class="game-over-title">GAME OVER</h1>
           ${leaderboardLimiter == 1 ? highscoreMessage() : ""}
           <div class="row">

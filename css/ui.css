@@ -28,7 +28,7 @@
   top: 1.5vw;
 }
 .score {
-  left: 2vw;
+  left: 3vw;
 }
 
 .high-score {
@@ -42,9 +42,9 @@
 }
 
 /* might be the same as home screen */
-.space-to-start {
+/* .space-to-start {
   font-size: 1.2vw;
-}
+} */
 
 .home-screen,
 .pause-screen {
@@ -56,11 +56,17 @@
   color: #CEFFDE;
 }
 
+.pause-screen {
+  z-index: 3;
+  font-size: 1vw;
+}
+
 @media (orientation: portrait) {
     .home-screen,
     .pause-screen {
-      top: 34vh;
-      left: 47vw;
+      font-size: 2vw;
+      top: 35vh;
+
   }
 
   .score-ui {
@@ -70,7 +76,7 @@
   }
 
   .score {
-    left: 14vw;
+    left: 20vw;
   }
   
   .high-score {
@@ -78,10 +84,5 @@
   }
 }
 
-
-.pause-screen {
-  z-index: 3;
-  font-size: 1.5vw;
-}
 
 

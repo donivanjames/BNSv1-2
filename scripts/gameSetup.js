@@ -1,6 +1,6 @@
 // handles the setup functions of the game
 
-import { skipIntro, updateIntroScene } from "./introScene.js";
+import { skipIntro, updateIntroScene, horizontalScreen } from "./introScene.js";
 import { playTitleSong, stopTitleSong, playRunSong, stopGameOverSong } from "./audioManager.js";
 import { showGround, resetGround } from "./ground.js";
 import { setupObstacles } from "./obstacle.js";
@@ -70,7 +70,7 @@ export function handleGameStart() {
   
       document.body.classList.remove("black-screen");
       document.body.classList.add("hallway");
-      windowElements.scoreElem.forEach(item => item.classList.remove("hide"))
+
   
       setupPlayer();
       setupPet();

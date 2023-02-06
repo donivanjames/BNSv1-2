@@ -17,7 +17,7 @@ let playerFrame = 0;
 let currentFrameTime = 0;
 
 let outputTutText = ""; // the empty string for the scrolling tutorial text
-let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES!";
+let fullTutText = "COLLECT APPLES TO SCORE.<br>WATCH OUT FOR OBSTACLES!";
 
 let allDivs = document.querySelectorAll("[data-start-screen]");
 let startScreen = document.querySelector(".start-screen");
@@ -42,6 +42,7 @@ let scrollSpeed = 0;
 
 let customPlayerPos = 1;
 let customTutTextPost = 1;
+export let horizontalScreen = true;
 
 getResolution();
 function getResolution() {
@@ -51,21 +52,20 @@ function getResolution() {
 }
 
 window.addEventListener("resize", setupIntro); // to protect screen resizes
-let horizontal = true;
 
 setupIntro();
 function setupIntro() {
   // Horizontal ui positioning
   if (window.matchMedia("(orientation: landscape)").matches) {
-    horizontal = true;
-    console.log("you're in LANDSCAPE mode", "horizontal: ", horizontal);
-    bigImg.src = "imgs/landing-page-v12.png";
+    horizontalScreen = true;
+    console.log("you're in LANDSCAPE mode", "horizontal: ", horizontalScreen);
+    bigImg.src = "imgs/landing-page-v13.png";
   }
   // Vertical ui positioning
   if (window.matchMedia("(orientation: portrait)").matches) {
-    horizontal = false;
-    console.log("you're in PORTRAIT mode, ", "horizontal: ", horizontal);
-    bigImg.src = "imgs/landing-page-mobile-1.png";
+    horizontalScreen = false;
+    console.log("you're in PORTRAIT mode, ", "horizontal: ", horizontalScreen);
+    bigImg.src = "imgs/landing-page-mobile-2.png";
   }
 
   // Get Screen Heights:
@@ -75,16 +75,16 @@ function setupIntro() {
   console.log("img height: ", imgHeight)
 
   // These need to come after imgHeight, hence why they're not in window.matchMedia
-  if(horizontal) {
+  if(horizontalScreen) {
     scrollSpeed = imgHeight * 0.00006;
-    customPlayerPos = 0.8945;
-    customTutTextPost = 0.875;
+    customPlayerPos = 0.8944;
+    customTutTextPost = 0.842;
     scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
   } else {
     scrollSpeed = imgHeight * 0.0002;
     customPlayerPos = 2.317;
-    customTutTextPost = 1.62;
-    scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5; // there IS a difference
+    customTutTextPost = 1.53;
+    scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5;
   }
 
 
@@ -170,7 +170,7 @@ function scrollText(delta) {
 }
 
 function movePlayer(delta) {
-  if (getCustomProperty(player, "--left") <= 70) {
+  if (getCustomProperty(player, "--left") <= 70.8) {
     incrementCustomProperty(player, "--left", delta * 0.03 * 1);
     // play animation
     handleRun(delta);

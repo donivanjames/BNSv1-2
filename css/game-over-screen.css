@@ -1,41 +1,17 @@
-
-:root {
-    --game-over-fs: 0.8vw;
-    --game-over-color: #003522;
-    --game-over-line-height: 1.5vw;
-  
-    --col-width: 3vw;
-    --col-margin-top: 2vw;
-    --col-margin-bottom: 2vw;
-  }
-
-  @media (orientation: portrait) {
-    :root {
-        --game-over-fs: 1vw;
-        --game-over-color: #003522;
-        --game-over-line-height: 2vw;
-      
-        --col-width: 3vw;
-        --col-margin-top: 4vw;
-        --col-margin-bottom: 2vw;
-      }
-  }
-
-
-
 .game-over-screen {
     position: absolute;
     text-align: center;
     z-index: 10;
+    
     top: 53%;
     left: 50%;
-    transform: translate(-50%, -60%);
+    transform: translate(-60%, -50%); 
   }
 
   .game-over-title {
     color:#EC472B; 
     font-size: 3vw;
-    margin-bottom: 5vh;
+    margin-bottom: 8vh;
   }
   
   .game-over-font {
@@ -71,8 +47,7 @@
     z-index: 10;
     display: table;
     clear: both;
-    margin-top: 5%;
-    margin-bottom: var(--col-margin-bottom);
+    margin-bottom: 3vw;
   }
   
   .column {
@@ -83,12 +58,12 @@
 
     .game-over-screen {
       top: 2%;
-      transform: translate(-50%, 25%);
+      transform: translate(-50%, 20%);
     }
 
     .game-over-title {
       font-size: 7vw;
-      margin-bottom: 3vh;
+      margin-bottom: 5vh;
     }
 
     .game-over-font {

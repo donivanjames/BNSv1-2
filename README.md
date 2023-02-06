@@ -11,44 +11,59 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 2. **introScene.js** handles the long scrolling intro at the beggining of the game - it leads to playerInput.js which then kicks off update.js
 3. **update.js** handles the running of the actual game and listens for player input from the playerInput.js file. Everything else in the game branches from the update function.
 
-# Updates
+## Designs to 100% finish before Monday:
+**~~Make custom variable to detect screen rotation~~**
+**Private Github repositories**
+- Front end
+- Server
+**Match rest of UI to Google Drive designs**
+mobile
+- title screen
+- swap out reference image
+- game over
+desktop
+- title screen
+  - ~~text~~
+  - swap out reference image
+  - color
+- game over
+  - text
+  - color
+  - add logo
+**Custom score text for mobile**
+- make score dissapear on sides on mobile
+- make score appear on sides for desktop
+- ~~make score appear in column on mobile~~
+- ~~make score dissapear in colum on desktop~~
+**Customize "Tap to start" text for mobile**
+**Bug: when mobile is horizontal the search bar cuts off intro sequence**
+Bug: refreshing mobile title screen almost always randomizes speed and scroll distance
+Bug: there's a 300ms space after dying where pause can be activated
+Bug: Refreshing screen on vertical mobile locks screen position
+Stop objects from spawning back to back
+Stop apples from spawning on top of obstacles
 
-## Planned Updated Pool
-- Compress "Game Over" soundtrack once it's approved
-- "Visit site" button width too large
-- Delete introScene script after introScene
-- More frequent lower apples (increase apple spawn and prioratize lower apples)
-- Foreach functions in obstacles.js are the longest runtime (lets try adding them to a dom and just moving that dom)
-- Offload intense JS onto web workers/multi-threading
-- Stop objects from spawning back to back 
-- Hair bigger werewolf
-- one-by-one tutorial text in intro scene
-- Only one werewolf, only one ufo
-- Add coin sound and lunch money text
-- Bug: when mobile is sideways the search bar cuts off intro sequence
-- Try to animate background with CSS instead of JS: https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/ 
-- JavaScript Optimizations: https://web.dev/optimize-javascript-execution/
-- Might be able to remove all --tops in title-screen.css
-- Move text dom outside of world so no text gets cut off 
-- Add "Rotate screen for optimal gameplay" under vertical mobile game
-- Adding obstacles to the ground div instead of moving them separate could improve performance 
-- Add Score text over player's head
-- Moving both grounds in one div may increase performance
-- Moving all obstacles in one div may increase performance
-- Set up GZip compression
-- Need to customize intro screen size for every device (a ui container within main container could work universally)
-- Screen flash and sound effect when player enters school
-- Allow player to jump slightly before touching the ground for better response time (celeste keeps track of jumps and activates once you actually hit the ground)
-- Get short, loopable sound bites for audio so it loads in faster
-- Customize "Tap to start" text for mobile
-- Get mobile version working properly
-- Every frame we're querying ALL obstacles, could slow down system
-- We're calling querySelectorAll twice every frame for apples (in update and getRects)
-- A lot of Math.floor (~~) in gameHandler.js, might be able to condense it to 1 or two times
-- Potential loading screen for bad internet
-- Bug: there's a 300ms space after dying where pause can be activated
-- Leaderboard OR Achievement board
-- On screen change: needs to trigger a resize (or maybe a page refresh if on intro scene)
+
+## ALL remaining designs:
+**Gameplay:**
+Allow player to jump slightly before touching the ground for better response time (Celeste game keeps track of jump inputs and activates once you actually hit the ground)
+Better worm jump response
+Add custom coin sound and "lunch money" text
+Make coins 50 points
+Parallax opening sequence
+Add "+100" text over player's head when he collects an apple
+Screen flash and sound effect when player enters school (similar to classic pokemon when player enters a building)
+**Bugs:**
+introScene script still runs after intro scene (console log textScroller to see bug)
+**Optimizations:**
+Foreach movement functions in obstacles.js are the longest runtime (lets try adding them to a div and just moving that div (maybe even add them to the ground div))
+Offload intense JS onto web workers/multi-threading
+JavaScript Optimizations: https://web.dev/optimize-javascript-execution/
+Moving both grounds in one div may increase performance
+Set up GZip compression and look into Minify
+We're calling querySelectorAll twice every frame for apples (in update and getRects)
+Potential loading screen for bad internet
+Potential safeguard for if database doesnt load properly
 
 
 ## Update v1-5 - The Launch Update

@@ -42,11 +42,12 @@
 
 /* This is so the little logo button matches the BNS website */
 .ui-container {
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  align-items: center;
   
   width: 900px;
   height: 100%;
@@ -57,16 +58,26 @@
   position: absolute;
   text-align: center;
   margin: 0 auto;
-  top: 50%;
-  left: 50%;
+  top: 1vh;
   /* border: 2px solid red; */
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 
 }
 
+.start-screen-logo-button {
+  position: relative;
+  /* top: 1.1%; */
+  top: 1vh;
+  /* left: 0%; */
+  height: 5vh;
+  margin-bottom: 9vh;
+}
+
 .start-screen-logo-img {
-  width: 23vw;
+  height: 41vh;
   margin: 0 auto;
+  margin-top: 9.5vh;
+  margin-bottom: 8.5vh;
 }
 
 .title-text {
@@ -76,35 +87,30 @@
   white-space: nowrap;
   z-index: 3;
   border: none;
-  font-size: 1vw;
-  line-height: 1.5vw;
+  font-size: 3vh;
+  line-height: 3.9vh;
   margin: 0 auto;
-  color: var(--title-color-light);
+  color: green;
 }
 
 /* Not used now that title is an image */
 .title-text h2 {
   color: var(--title-color-light);
-  font-size: 5.5vw;
-  line-height: 5.5vw;
+  font-size: 7vh;
+  line-height: 5.5vh;
 }
 
-.start-screen-logo-button {
-  position: absolute;
-  top: 1.1%;
-  left: 0%;
-  width: 30px;
-}
+
 
 .tut-text {
   position: absolute;
   color: var(--title-color-light);
-  font-size: 1.2vw;
-  line-height: 2.2vw;
+  font-size: 2vh;
+  line-height: 3.7vh;
   white-space: nowrap;
   
   text-align: center;
-  transform: translate(-20%, -50%);
+  transform: translate(0%, 0%);
 }
 
 a:link a:visited a:active { 
@@ -113,10 +119,10 @@ a:link a:visited a:active {
 }
 
 .start-screen-player {
-  height: 4vw;
+  height: 5vw;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  --left: 20;
+  --left: 13;
   --top: 136.6;
   --bottom: -100;
 }
@@ -135,12 +141,7 @@ a:link a:visited a:active {
     width: 100%;
   }
 
-  .start-screen-logo-button {
-    position: relative;
-    top: 1.4vw;
-    left: 1.8vw;
-    width: 5.5vw;
-  }
+
 }
 
 @media (orientation: portrait) {
@@ -152,35 +153,48 @@ a:link a:visited a:active {
     overflow: visible;
   }
 
-  .title-text-container {
-    top: 40vh;
+  .start-screen-logo-button {
+    position: relative;
+    top: 1vh;
+    height: 5vh;
+    transform: translate(-22%, 00%);
+    margin-bottom: 6vh;
   }
 
-  .title-text {
-    font-size: 5.5vw;
-    line-height: 7vw;
-    margin: 0 auto;
+  .start-screen-logo-button-leaderboard {
+    position: absolute;;
+    top: 1.5vh;
+    left: 3vw;
+    height: 5vh;
+    transform: translate(0%, 0%);
+    margin-bottom: 0 auto;
   }
 
   .start-screen-logo-img {
-    width: 60vw;
+    height: 27vh;
+    /* margin-top:    15vw;
+    margin-bottom: 15vw; */
+    
+    margin-top: 7.4vh;
+    margin-bottom: 7.2vh;
   }
 
-  .start-screen-logo-button {
-    position: relative;
-    top: 1vw;
-    left: 1vw;
-    width: 10vw;
+  .title-text {
+    /* font-size: 6vh;
+    line-height: 8vh; */
+    font-size: 2.8vh;
+    line-height: 3.5vh;
+    margin: 0 auto;
   }
 
   .ui-container {
-    width: 100%;
+    height: 100%;
   }
 
   .tut-text {
     text-align: center;
-    font-size: 3vw;
-    line-height: 5vw;
+    font-size: 2.8vw;
+    line-height: 5.8vw;
     left: 50%;
     transform: translate(-50%, -50%);
   }
