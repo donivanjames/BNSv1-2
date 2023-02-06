@@ -87,8 +87,8 @@
   white-space: nowrap;
   z-index: 3;
   border: none;
-  font-size: 2.5vh;
-  letter-spacing: 0.07vh;
+  font-size: 2.6vh;
+  letter-spacing: normal;
   line-height: 3.65vh;
   margin: 0 auto;
   color: var(--title-color-light);
