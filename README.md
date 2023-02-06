@@ -35,7 +35,7 @@ desktop
 - ~~make score appear on sides for desktop~~
 - ~~make score appear in column on mobile~~
 - ~~make score dissapear in colum on desktop~~
-**Customize "Tap to start" text for mobile**
+**~~Customize "Tap to start" text for mobile~~**
 **Bug: when mobile is horizontal the search bar cuts off intro sequence**
 Bug: refreshing mobile title screen almost always randomizes speed and scroll distance
 Bug: there's a 300ms space after dying where pause can be activated
