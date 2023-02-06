@@ -137,6 +137,9 @@ a:link a:visited a:active {
 
 /* for horizontal iphone screens only, just to match logo icon to BNS website */
 @media only screen and (max-width: 1000px)  {
+  body {
+    height: -webkit-fill-available
+  }
   .ui-container {
     width: 100%;
   }

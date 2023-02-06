@@ -42,7 +42,7 @@ desktop
 - Screen needs to ignore sidebars
 Bug: refreshing mobile title screen almost always randomizes speed and scroll distance
 Bug: there's a 300ms space after dying where pause can be activated
-Bug: Refreshing screen on vertical mobile locks screen position
+~~Bug: Refreshing screen on vertical mobile locks screen position~~
 Stop objects from spawning back to back
 Stop apples from spawning on top of obstacles
 
@@ -75,6 +75,7 @@ Potential safeguard for if database doesnt load properly
 - Centralized all font sizes
 - Added Leaderboard Music
 - Made opening title sequence fullscreen
+- Tons of other stuff - no longer updating logs here
 
 ---
 
