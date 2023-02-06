@@ -4,19 +4,16 @@ import { sequence1, sequence2, sequence3, sequence4 } from "./gameSetup.js";
 import { playerJump, pauseGame, unpauseGame } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
 import { leaderboardLimiter, submitScore } from "./leaderboard.js";
+import { touchDevice } from "../script.js";
 
 // Any input fires this function, it starts the intro scene and then handles game input
 export function handleAllInput(event) {
-
-  
-
-
   if (event.target.classList.contains("clickable")) return; // blocks buttons from activating jump
 
   if (event.code !== "Space" && event.code !== "Escape" && event.code != "Enter" && event.button !== 0)
     return;
 
-    if(leaderboardLimiter == 1) 
+    if(leaderboardLimiter == 1)
     {
       if (event.code === "Escape") {
         sequence4()
@@ -54,7 +51,7 @@ export function handleAllInput(event) {
       break;
     case 1:
       // start first scene/handleFirstInput()
-      if(event.code == "Space") sequence1();
+      if(event.code == "Space" || touchDevice) sequence1();
       break;
     case 2:
       sequence2();

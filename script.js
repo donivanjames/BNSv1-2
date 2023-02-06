@@ -12,7 +12,8 @@ gtag('config', 'UA-178389882-1');
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
 
-const touchDevice = ('ontouchstart' in document.documentElement);
+
+export const touchDevice = ('ontouchstart' in document.documentElement);
 if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"
 
 window.addEventListener("load",function() {

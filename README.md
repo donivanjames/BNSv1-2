@@ -12,6 +12,7 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 3. **update.js** handles the running of the actual game and listens for player input from the playerInput.js file. Everything else in the game branches from the update function.
 
 ## Designs to 100% finish before Monday:
+I gave touchscreen decices the ability to tap anywhere to start the game just in case there are any weird loading bugs for mobile, so they don't get stuck on the title screen. Browser devices are still spacebar only. We can remove it if you want
 **~~Make custom variable to detect screen rotation~~**
 **Private Github repositories**
 - Front end
@@ -37,6 +38,8 @@ desktop
 - ~~make score dissapear in colum on desktop~~
 **~~Customize "Tap to start" text for mobile~~**
 **Bug: when mobile is horizontal the search bar cuts off intro sequence**
+- Hide search bar
+- Screen needs to ignore sidebars
 Bug: refreshing mobile title screen almost always randomizes speed and scroll distance
 Bug: there's a 300ms space after dying where pause can be activated
 Bug: Refreshing screen on vertical mobile locks screen position
