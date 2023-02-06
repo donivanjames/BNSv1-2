@@ -104,10 +104,10 @@
 
 .tut-text {
   position: absolute;
-  color: #CEFFDE;
   font-size: 2vh;
   line-height: 3.7vh;
   white-space: nowrap;
+  color: var(--title-color-light);
   
   text-align: center;
   transform: translate(0%, 0%);
