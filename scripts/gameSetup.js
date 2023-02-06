@@ -55,7 +55,7 @@ function startIntroScene() {
 // Removes Black Screen And Reveals Game
 export function setupGame() {
   stopTitleSong();
-  windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
+  windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title elements
   windowElements.worldElem.classList.remove("hide");
   windowElements.mainUIElem.innerHTML = `<div class="home-screen space-to-start text-blink">SPACEBAR TO JUMP</div>`;
   document.body.style.backgroundColor = "#BF92FF";

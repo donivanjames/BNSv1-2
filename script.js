@@ -16,7 +16,10 @@ const WORLD_HEIGHT = 65;
 export const touchDevice = ('ontouchstart' in document.documentElement);
 if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"
 
-
+// Have to destroy all title elements on page reload or else it makes a nasty placing bug
+window.onbeforeunload = function(){
+  windowElements.preGameScreen.forEach((item) => item.remove());
+};
 
 resetVariables();
 setPixelToWorldScale();
