@@ -14,7 +14,7 @@
   width: 100%;
   aspect-ratio: auto 16 / 9;
 
-  overflow: hidden; /* hidden needs to go here and not in container */
+  overflow: visible; /* hidden needs to go here and not in container */
 }
 
 .title-container {
