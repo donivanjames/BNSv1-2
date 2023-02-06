@@ -19,20 +19,20 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 **Match rest of UI to Google Drive designs**
 mobile
 - title screen
-- swap out reference image
+- title positioning
+- ~~swap out reference image~~
 - game over
+  - ~~add logo~~
 desktop
 - title screen
   - ~~text~~
-  - swap out reference image
-  - color
+  - ~~swap out reference image~~
+  - ~~color~~
 - game over
-  - text
-  - color
-  - add logo
+  - container position
 **Custom score text for mobile**
-- make score dissapear on sides on mobile
-- make score appear on sides for desktop
+- ~~make score dissapear on sides on mobile~~
+- ~~make score appear on sides for desktop~~
 - ~~make score appear in column on mobile~~
 - ~~make score dissapear in colum on desktop~~
 **Customize "Tap to start" text for mobile**

@@ -5,7 +5,7 @@
   font-style: normal;
 }
 :root {
-  --title-color-light: #FFF0CC;
+  --title-color-light: #FFF1CC;
 }
 
 .start-screen {
@@ -90,7 +90,7 @@
   font-size: 3vh;
   line-height: 3.9vh;
   margin: 0 auto;
-  color: green;
+  color: var(--title-color-light);
 }
 
 /* Not used now that title is an image */
@@ -104,7 +104,7 @@
 
 .tut-text {
   position: absolute;
-  color: var(--title-color-light);
+  color: #CEFFDE;
   font-size: 2vh;
   line-height: 3.7vh;
   white-space: nowrap;
