@@ -56,8 +56,6 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 setupIntro();
 function setupIntro() {
 
-
-
     // Horizontal ui positioning
     if (window.matchMedia("(orientation: landscape)").matches) {
       horizontalScreen = true;
