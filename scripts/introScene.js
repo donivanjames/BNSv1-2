@@ -72,7 +72,7 @@ function setupIntro() {
         "horizontal: ",
         horizontalScreen
       );
-      bigImg.src = "imgs/landing-page-mobile-2.png";
+      bigImg.removeAttribute('src')
     }
 
     // Get Screen Heights:
