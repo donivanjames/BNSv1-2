@@ -11,8 +11,8 @@ titleSong.loop = false;
 export function soundToggle(soundButton){
   soundOn = !soundOn
 
-  if(!soundOn) soundButton.textContent = "Sound off"
-  else soundButton.textContent = "Sound on"
+  if(!soundOn) soundButton.innerHTML = "Sound <u>off</u>"
+  else soundButton.innerHTML = "Sound <u>on</u>"
 }
 
 export function playTitleSong() {
