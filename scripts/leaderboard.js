@@ -99,7 +99,6 @@ const scoreSetup = () => horizontalScreen ? "" : `<div class="game-over-font">SC
 
 export function returnLeaderboard() {
   return `
-        ${logoSetup()}
         <div class="game-over-screen game-over-font">
           ${scoreSetup()}
           <h1 class="game-over-title">GAME OVER</h1>

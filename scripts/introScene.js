@@ -75,6 +75,8 @@ function setupIntro() {
       bigImg.removeAttribute('src')
     }
 
+    if(window.innerWidth < 1200) bigImg.removeAttribute('src')
+
     // Get Screen Heights:
     startScreenHeight = window.innerHeight; // startScreen.offsetHeight;
     imgHeight = bigImg.offsetHeight;
@@ -95,6 +97,8 @@ function setupIntro() {
       scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5;
     }
 
+    
+
     // Tutorial Text Position:
     tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
     setCustomProperty(tutText, "--bottom", tutTextPos);
@@ -106,13 +110,8 @@ function setupIntro() {
     allDivs.forEach((item) => {
       setCustomProperty(item, "--top", 0);
     });
-
-    allDivs.forEach((item) =>
-      console.log("allDivs", getCustomProperty(item, "--top"))
-    );
-
     
-    window.scrollTo(0, 1);
+    // window.scrollTo(0, 1);
 }
 
 export function skipIntro() {
@@ -137,13 +136,16 @@ export function updateIntroScene(time) {
 }
 
 function scrollIntroScene(delta, scrollSpeed) {
-  if (getCustomProperty(container, "--top") > scrollDistance) {
-    scrollItems(delta, scrollSpeed);
-  } else if (outputTutText.length < fullTutText.length) {
-    scrollText(delta);
-  } else if (waitAtEnd <= 0) {
-    movePlayer(delta);
-  } else waitAtEnd -= 1 * delta;
+  if(horizontalScreen) {
+    if (getCustomProperty(container, "--top") > scrollDistance) {
+      scrollItems(delta, scrollSpeed);
+    } else if (outputTutText.length < fullTutText.length) {
+      scrollText(delta);
+    } else if (waitAtEnd <= 0) {
+      movePlayer(delta);
+    } else waitAtEnd -= 1 * delta;
+  }
+  else sequence3()
 }
 
 function scrollItems(delta, scrollSpeed) {

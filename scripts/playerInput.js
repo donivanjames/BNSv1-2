@@ -5,6 +5,7 @@ import { playerJump, pauseGame, unpauseGame } from "./gameHandler.js";
 import { variableHolder } from "./variableHandler.js";
 import { leaderboardLimiter, submitScore } from "./leaderboard.js";
 import { touchDevice } from "../script.js";
+import { horizontalScreen } from "./introScene.js";
 
 // Any input fires this function, it starts the intro scene and then handles game input
 export function handleAllInput(event) {
@@ -51,7 +52,7 @@ export function handleAllInput(event) {
       break;
     case 1:
       // start first scene/handleFirstInput()
-      if(event.code == "Space" || touchDevice) sequence1();
+      if(event.code == "Space" || !horizontalScreen) sequence1();
       break;
     case 2:
       sequence2();

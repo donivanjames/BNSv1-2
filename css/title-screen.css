@@ -186,8 +186,8 @@ a:link a:visited a:active {
 
   .tut-text {
     text-align: center;
-    font-size: 2.8vw;
-    line-height: 5.8vw;
+    font-size: 1.8vw;
+    line-height: 2vw;
     left: 50%;
     transform: translate(-50%, -50%);
   }
