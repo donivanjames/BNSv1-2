@@ -62,6 +62,7 @@ Screen flash and sound effect when player enters school (similar to classic poke
 **Bugs:**
 introScene script still runs after intro scene (console log textScroller to see bug)
 **Optimizations:**
+Look into keeping animation images loaded in 
 Foreach movement functions in obstacles.js are the longest runtime (lets try adding them to a div and just moving that div (maybe even add them to the ground div))
 Offload intense JS onto web workers/multi-threading
 JavaScript Optimizations: https://web.dev/optimize-javascript-execution/
