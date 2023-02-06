@@ -12,6 +12,9 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 3. **update.js** handles the running of the actual game and listens for player input from the playerInput.js file. Everything else in the game branches from the update function.
 
 ## Designs to 100% finish before Monday:
+Score not reappearing mobile
+Score too far on the left 
+
 I gave touchscreen decices the ability to tap anywhere to start the game just in case there are any weird loading bugs for mobile, so they don't get stuck on the title screen. Browser devices are still spacebar only. We can remove it if you want
 **~~Make custom variable to detect screen rotation~~**
 **Private Github repositories**

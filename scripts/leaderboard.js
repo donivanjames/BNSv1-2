@@ -97,7 +97,6 @@ const logoSetup = () => horizontalScreen ? "" : `
 
 const scoreSetup = () => horizontalScreen ? "" : `<div class="game-over-font">SCORE ${variableHolder.score}<br>HI SCORE ${variableHolder.highScore}<br><br></br>`
 
-
 export function returnLeaderboard() {
   return `
         ${logoSetup()}

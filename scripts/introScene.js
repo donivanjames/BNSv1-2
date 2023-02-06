@@ -110,7 +110,9 @@ function setupIntro() {
     allDivs.forEach((item) =>
       console.log("allDivs", getCustomProperty(item, "--top"))
     );
-  
+
+    
+    window.scrollTo(0, 1);
 }
 
 export function skipIntro() {
