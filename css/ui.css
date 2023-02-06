@@ -50,23 +50,20 @@
 .pause-screen {
   position: absolute;
   text-align: center;
-  top: 50vh;
-  left: 47vw;
-  transform: translate(-50%, -50%);
+  top: 22vw;
+  left: 42vw;
   color: #CEFFDE;
-}
-
-.pause-screen {
   z-index: 3;
   font-size: 1vw;
 }
 
+
 @media (orientation: portrait) {
     .home-screen,
     .pause-screen {
-      font-size: 2vw;
-      top: 35vh;
-
+      font-size: 2vw;   
+      top: 72vw;
+      left: 33vw;
   }
 
   .score-ui {

@@ -58,12 +58,12 @@ export function setupGame() {
   windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title element
   windowElements.worldElem.classList.remove("hide");
   windowElements.mainUIElem.innerHTML = `<div class="home-screen space-to-start text-blink">SPACEBAR TO JUMP</div>`;
+  document.body.style.backgroundColor = "#BF92FF";
 
   windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
   showPlayer(); // show player
   showPet();
   showGround(); // show scene
-  document.body.classList.add("hallway"); // change background color
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED
@@ -78,8 +78,6 @@ export function handleGameStart() {
     stopGameOverSong();
     playRunSong();
 
-    document.body.classList.remove("black-screen");
-    document.body.classList.add("hallway");
     windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
 
     setupPlayer();

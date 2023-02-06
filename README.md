@@ -12,12 +12,10 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 3. **update.js** handles the running of the actual game and listens for player input from the playerInput.js file. Everything else in the game branches from the update function.
 
 ## Designs to 100% finish before Monday:
-Score not reappearing mobile
-Score too far on the left 
 
 I unfortunatly had to cut the intro scene on mobile. It would work completly fine on my test mobile browser, but when actually implemented on my iphone it would do something COMPLETLY random every time (differet scroll distances, differnet speeds, different boy positions). It's just not a problem I could solve in time over the weekend.
 
-I gave touchscreen decices the ability to tap anywhere to start the game just in case there are any weird loading bugs for mobile, so they don't get stuck on the title screen. Browser devices are still spacebar only. We can remove it if you want
+I gave touchscreen decices the ability to tap anywhere to start the game just in case there are any weird loading bugs for mobile, so they don't get stuck on the title screen. Browser devices are still spacebar only
 **~~Make custom variable to detect screen rotation~~**
 **Private Github repositories**
 - Front end

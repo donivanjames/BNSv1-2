@@ -92,8 +92,6 @@ export function handleLose() {
   if(focusedInput) focusedInput.focus();
 
   // change screen to solid color
-  document.body.classList.remove("hallway");
-  document.body.classList.add("black-screen");
   if(!horizontalScreen)
     windowElements.scoreElem.forEach(item => item.classList.add("hide"))
 
