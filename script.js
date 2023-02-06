@@ -15,6 +15,13 @@ const WORLD_HEIGHT = 65;
 const touchDevice = ('ontouchstart' in document.documentElement);
 if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"
 
+window.addEventListener("load",function() {
+  setTimeout(function(){
+      // This hides the address bar:
+      window.scrollTo(0, 1);
+  }, 0);
+});
+
 resetVariables();
 setPixelToWorldScale();
 
