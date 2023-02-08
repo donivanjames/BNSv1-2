@@ -13,6 +13,12 @@ const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
 
 
+// web worker test
+const myWorker = new Worker("web-workers/simple-worker.js")
+myWorker.onmessage = ({message}) => {
+  console.log("Recieved Message: ", message.data)
+}
+
 export const touchDevice = ('ontouchstart' in document.documentElement);
 if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"
 
@@ -32,7 +38,6 @@ console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
 window.addEventListener("resize", setPixelToWorldScale);
 document.addEventListener("keydown", handleAllInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function
 document.addEventListener("mousedown", handleAllInput); // this adds a listener to the player that waits for click, then it executes the onJump function
-
 
 function setPixelToWorldScale() {
   let worldToPixelScale;

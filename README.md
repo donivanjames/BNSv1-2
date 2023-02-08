@@ -11,47 +11,12 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 2. **introScene.js** handles the long scrolling intro at the beggining of the game - it leads to playerInput.js which then kicks off update.js
 3. **update.js** handles the running of the actual game and listens for player input from the playerInput.js file. Everything else in the game branches from the update function.
 
-## Designs to 100% finish before Monday:
+---
 
-I unfortunatly had to cut the intro scene on mobile. It would work completly fine on my test mobile browser, but when actually implemented on my iphone it would do something COMPLETLY random every time (differet scroll distances, differnet speeds, different boy positions). It's just not a problem I could solve in time over the weekend.
-
-I gave touchscreen decices the ability to tap anywhere to start the game just in case there are any weird loading bugs for mobile, so they don't get stuck on the title screen. Browser devices are still spacebar only
-**~~Make custom variable to detect screen rotation~~**
-**Private Github repositories**
-- Front end
-- Server
-**Match rest of UI to Google Drive designs**
-mobile
-- title screen
-- title positioning
-- ~~swap out reference image~~
-- game over
-  - ~~add logo~~
-desktop
-- title screen
-  - ~~text~~
-  - ~~swap out reference image~~
-  - ~~color~~
-- game over
-  - container position
-**Custom score text for mobile**
-- ~~make score dissapear on sides on mobile~~
-- ~~make score appear on sides for desktop~~
-- ~~make score appear in column on mobile~~
-- ~~make score dissapear in colum on desktop~~
-**~~Customize "Tap to start" text for mobile~~**
-**Bug: when mobile is horizontal the search bar cuts off intro sequence**
-- Hide search bar
-- Screen needs to ignore sidebars
-Bug: refreshing mobile title screen almost always randomizes speed and scroll distance
+## Remaining design pool:
 Bug: there's a 300ms space after dying where pause can be activated
-~~Bug: Refreshing screen on vertical mobile locks screen position~~
 Stop objects from spawning back to back
 Stop apples from spawning on top of obstacles
-
-
-## ALL remaining designs:
-**Gameplay:**
 Allow player to jump slightly before touching the ground for better response time (Celeste game keeps track of jump inputs and activates once you actually hit the ground)
 Better worm jump response
 Add custom coin sound and "lunch money" text
@@ -59,13 +24,14 @@ Make coins 50 points
 Parallax opening sequence
 Add "+100" text over player's head when he collects an apple
 Screen flash and sound effect when player enters school (similar to classic pokemon when player enters a building)
-**Bugs:**
+Mobile horizontal needs to ignore side bars
+Private frontend repo
+Env variables for frontend
 introScene script still runs after intro scene (console log textScroller to see bug)
-**Optimizations:**
 Look into keeping animation images loaded in 
 Foreach movement functions in obstacles.js are the longest runtime (lets try adding them to a div and just moving that div (maybe even add them to the ground div))
 Offload intense JS onto web workers/multi-threading
-JavaScript Optimizations: https://web.dev/optimize-javascript-execution/
+requesting an element’s offsetTop is faster than computing getBoundingClientRect()
 Moving both grounds in one div may increase performance
 Set up GZip compression and look into Minify
 We're calling querySelectorAll twice every frame for apples (in update and getRects)
@@ -73,13 +39,17 @@ Potential loading screen for bad internet
 Potential safeguard for if database doesnt load properly
 
 
+## Update v1-6 - The ACTUAL Launch Update
+**Bug Fixes**
+- refreshing title screen locks up screen
+
 ## Update v1-5 - The Launch Update
 - Added "Lazy Loading"
 - Centralized all variables
 - Centralized all font sizes
 - Added Leaderboard Music
 - Made opening title sequence fullscreen
-- Tons of other stuff - no longer updating logs here
+- Tons of other stuff - mostly visual - couldnt keep up
 
 ---
 
