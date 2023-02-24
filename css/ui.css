@@ -41,12 +41,9 @@
   z-index: 10;
 }
 
-/* might be the same as home screen */
-/* .space-to-start {
-  font-size: 1.2vw;
-} */
 
-.home-screen,
+
+.space-to-start,
 .pause-screen {
   position: absolute;
   text-align: center;
@@ -57,9 +54,13 @@
   font-size: 1vw;
 }
 
+.space-to-start {
+  top: 20vw;
+}
+
 
 @media (orientation: portrait) {
-    .home-screen,
+    .space-to-start,
     .pause-screen {
       font-size: 2vw;   
       top: 72vw;
