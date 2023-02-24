@@ -9,7 +9,7 @@ import { variableHolder } from "./variableHandler.js";
 import { collectSound } from "./audioManager.js";
 import { windowElements } from "./variableHandler.js";
 
-// Ending Max: 500  Begining Max 2500:
+// Ending Max: 500  Beginning Max 2500:
 let CACTUS_INTERVAL_MIN = 600;
 let CACTUS_INTERVAL_MAX = 2000; // speed of obstacles appearing in milliseconds
 
@@ -211,14 +211,8 @@ export function createApple() {
 
   const randNum = randomNumberBetween(1, 10);
 
-  // Makes coins rarer
-  if (randNum >= 9) {
-    apple.src = "imgs/coin.png"; // selects the correct image from files
-    apple.classList.add("coin"); // adds CSS styles to apple
-  } else {
-    apple.src = "imgs/apple-v02.png"; // selects the correct image from files
-    apple.classList.add("apple"); // adds CSS styles to apple
-  }
+  apple.src = "imgs/apple-v02.png"; // selects the correct image from files
+  apple.classList.add("apple"); // adds CSS styles to apple
 
   setCustomProperty(apple, "--bottom", randomNumberBetween(45, 64)); // sets apple height
 

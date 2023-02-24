@@ -58,7 +58,7 @@ export function setupGame() {
   windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title elements
   windowElements.worldElem.classList.remove("hide");
   windowElements.mainUIElem.innerHTML = `<div class="home-screen space-to-start text-blink">SPACEBAR TO JUMP</div>`;
-  document.body.style.backgroundColor = "#BF92FF";
+  document.body.style.backgroundColor = "#00C142";
 
   windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
   showPlayer(); // show player

@@ -1,10 +1,10 @@
 /* Environments used to change colors per level, not really needed anymore except for .black-screen*/
 
 :root {
-  --outside-top-color: #fe5000;
-  --outside-bottom-color: #BF92FF;
-  --hallway-top-color: #BF92FF;
-  --hallway-bottom-color: #BF92FF;
+  --outside-top-color: #00C142;
+  --outside-bottom-color: #00C142;
+  --hallway-top-color: #00C142;
+  --hallway-bottom-color: #00C142;
   --library-top-color: #BB5E4A;
   --library-bottom-color: #3C4043;
   --lab-top-color: #61A9FF;
@@ -14,55 +14,5 @@
 }
 
 .black-screen {
-  background-color: #BF92FF;
-}
-
-.outside {
-  background: linear-gradient(
-    to bottom,
-    var(--outside-top-color) 0%,
-    var(--outside-top-color) 50%,
-    var(--outside-bottom-color) 50%,
-    var(--outside-bottom-color) 100%
-  );
-}
-
-.hallway {
-  background: linear-gradient(
-    to bottom,
-    var(--hallway-top-color) 0%,
-    var(--hallway-top-color) 50%,
-    var(--hallway-bottom-color) 50%,
-    var(--hallway-bottom-color) 100%
-  );
-}
-
-.library {
-  background: linear-gradient(
-    to bottom,
-    var(--library-top-color) 0%,
-    var(--library-top-color) 50%,
-    var(--library-bottom-color) 50%,
-    var(--library-bottom-color) 100%
-  );
-}
-
-.lab {
-  background: linear-gradient(
-    to bottom,
-    var(--lab-top-color) 0%,
-    var(--lab-top-color) 50%,
-    var(--lab-bottom-color) 50%,
-    var(--lab-bottom-color) 100%
-  );
-}
-
-.gym {
-    background: linear-gradient(
-    to bottom,
-    var(--gym-top-color) 0%,
-    var(--gym-top-color) 50%,
-    var(--gym-bottom-color) 50%,
-    var(--gym-bottom-color) 100%
-  );
+  background-color: #00C142;
 }

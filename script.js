@@ -14,10 +14,10 @@ const WORLD_HEIGHT = 65;
 
 
 // web worker test
-const myWorker = new Worker("web-workers/simple-worker.js")
-myWorker.onmessage = ({message}) => {
-  console.log("Recieved Message: ", message.data)
-}
+// const myWorker = new Worker("web-workers/simple-worker.js")
+// myWorker.onmessage = ({message}) => {
+//   console.log("Received Message: ", message.data)
+// }
 
 export const touchDevice = ('ontouchstart' in document.documentElement);
 if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"

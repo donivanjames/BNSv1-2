@@ -12,7 +12,7 @@ const JUMP_SPEED = 0.3;
 const GRAVITY = 0.0015;
 const PET_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
-const heightFromGround = 40.5; // also change css --bottom to match
+const heightFromGround = 40.6; // also change css --bottom to match
 
 // PET SETUP
 let isJumping;

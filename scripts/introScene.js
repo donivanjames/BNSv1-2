@@ -56,13 +56,13 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 setupIntro();
 function setupIntro() {
 
-  // could never get mobile working right so half this code doesnt work, needs to be experimented with
+  // could never get mobile working right so half this code doesn't work, needs to be experimented with
 
     // Horizontal ui positioning
     if (window.matchMedia("(orientation: landscape)").matches) {
       horizontalScreen = true;
       console.log("you're in LANDSCAPE mode", "horizontal: ", horizontalScreen);
-      bigImg.src = "imgs/landing-page-v13.png";
+      //bigImg.src = "imgs/landing-page-v14.png";
     }
     // Vertical ui positioning
     if (window.matchMedia("(orientation: portrait)").matches) {

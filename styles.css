@@ -27,17 +27,18 @@ body {
     /* max-height: -webkit-fill-available; */
 
     font-family: 'Press Start 2P', cursive;
-    color: #CEFFDE;
+    color: #FFF0CC;
     background-color: #FF3D00;
   }
 
+  /* BG color is set in gameSetup.js */
   .world {
     position: relative;
     top: 50%;
-    background-color: #BF92FF;
+    background-color: #00C142;
     overflow: hidden;
     width: 100%;
-    color: #CEFFDE;
+    color: #FFF0CC;
     padding-top: (16 / 9 * 100);
     transform: translate(0, 30%);
 }
@@ -79,7 +80,7 @@ body {
     position: absolute;
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
     /* width is 1% bigger to cover boundary glitches */
-    width: 295%;
+    width: 202%;
     height: auto;
 
     top: 10.4%;
@@ -101,7 +102,7 @@ body {
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 
-    /* Scale Pixel Art!! Doesnt work on Safari :( */
+    /* Scale Pixel Art!! Doesn't work on Safari :( */
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
@@ -123,7 +124,7 @@ body {
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 
-    /* Scale Pixel Art!! Doesnt work on Safari :( */
+    /* Scale Pixel Art!! Doesn't work on Safari :( */
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
