@@ -2,7 +2,7 @@
     --bottom = object height from ground  */
 
 .apple {
-    height: 7%;
+    height: 8%;
     --bottom: 70;
 }
 
