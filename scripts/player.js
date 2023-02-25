@@ -5,12 +5,12 @@ import { jumpSound, loseSound } from "./audioManager.js";
 import { wormJump } from "./pet.js";
 import { windowElements } from "./variableHandler.js";
 
-const JUMP_SPEED = 0.28; // how high
+const JUMP_HEIGHT = 0.32;
 const GRAVITY = 0.0014;  // how heavy
 const PLAYER_FRAME_COUNT = 7; // amount of run animation frames
 const FRAME_TIME = 75; // how long each animation frame should last (in milliseconds)
 
-const heightFromGround = 40.5 // also change css --bottom to match
+const heightFromGround = 17.9 // also change css --bottom to match
 const jumpableHeight = 20 // planning on implementing a jump buffer from the ground
 const player = windowElements.player;
 
@@ -114,6 +114,6 @@ export function onJump(event) {
   jumpSound()
   wormJump()
  
-  yVelocity = JUMP_SPEED;
+  yVelocity = JUMP_HEIGHT;
   isJumping = true;
 }

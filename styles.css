@@ -80,7 +80,7 @@ body {
     position: absolute;
     /* when updating width: make sure to change ground width value of second ground piece in setupGround() in ground.js */
     /* width is 1% bigger to cover boundary glitches */
-    width: 202%;
+    width: 295%;
     height: auto;
 
     top: 10.4%;
@@ -92,13 +92,12 @@ body {
 .player {
     position: absolute;
     left: 20%;
-    /* height: 14%; Player size */
-    max-height: 18%;
-    max-width: 6%;
+    max-height: 21%; /* Player size */
+    max-width: 7%;   /* Player size */
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 40.5; 
+    --bottom: 17.9; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 
@@ -120,7 +119,7 @@ body {
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */
-    --bottom: 40.5; 
+    --bottom: 17.9; 
     bottom: calc(var(--bottom) * 1%);
     will-change: transform;
 

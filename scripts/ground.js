@@ -21,7 +21,7 @@ export function hideGround() {
   });
 }
 
-const groundWidth = 201; // if you change this make sure to change .ground width in css
+const groundWidth = 294; // if you change this make sure to change .ground width in css
 export function resetGround() {
   setCustomProperty(groundElems[0], "--left", 0);
   setCustomProperty(groundElems[1], "--left", groundWidth); //we have our width at 300% so 300 is what we set our starting value as for the second ground piece

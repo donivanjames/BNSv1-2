@@ -13,38 +13,38 @@
 
 /* Trash */
 .obstacle1 {
-    height: 12%;
-    --bottom: 34.5;
+    height: 13%;
+    --bottom: 11.5;
 }
 
 /* Puddle */
 .obstacle2 {
-    height: 12%;
-    --bottom: 35.8;
+    height: 10%;
+    --bottom: 13.9;
 }
 
 /* Backpack */
 .obstacle3 {
-    height: 10%;
-    --bottom: 39;
+    height: 9%;
+    --bottom: 16.6;
 }
 
 /* Book Stack */
 .obstacle4 {
-    height: 7%;
-    --bottom: 40.4;
+    height: 6%;
+    --bottom: 17.9
 }
 
 /* Werewolf */
 .werewolf {
-    height: 12%;
-    --bottom: 40.4;
+    height: 13%;
+    --bottom: 18;
 }
 
 /* UFO */
 .ufo {
-    height: 13%;
-    --bottom: 40.6;
+    height: 11%;
+    --bottom: 25;
 }
 
 /* Some CSS that covers everything */

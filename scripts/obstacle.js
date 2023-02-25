@@ -171,7 +171,7 @@ export function createCactus() {
   // Harder obstacles as the score gets higher
   const score = variableHolder.score;
   let randNum = 4;
-  if (score > 1500) {
+  if (score > 1500) { // 1500
     if(!easterEggs.ufoCalled) {
       // call wolf
       addSpecialObstacle("ufo", cactus)
@@ -180,7 +180,7 @@ export function createCactus() {
     }
     CACTUS_INTERVAL_MAX = 1500;
     CACTUS_INTERVAL_MIN = 600;
-  } else if (score > 800) { 
+  } else if (score > 800) { // 800
     if(!easterEggs.wolfCalled) {
       // call wolf
       addSpecialObstacle("werewolf", cactus)
