@@ -214,7 +214,7 @@ export function createApple() {
   apple.src = "imgs/apple-v02.png"; // selects the correct image from files
   apple.classList.add("apple"); // adds CSS styles to apple
 
-  setCustomProperty(apple, "--bottom", randomNumberBetween(45, 64)); // sets apple height
+  setCustomProperty(apple, "--bottom", randomNumberBetween(22, 55)); // sets apple height  // 22 //
 
   apple.classList.add(`base-obstacle`);
   setCustomProperty(apple, "--left", 100); // sets our apple position 100% left, which puts it all the way on the right side of the screen
