@@ -13,6 +13,10 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 
 ---
 
+To Do:
+- Make start button border round
+- Colorize game over screen 
+
 ## Remaining design pool:
 Bug: there's a 300ms space after dying where pause can be activated
 Stop objects from spawning back to back

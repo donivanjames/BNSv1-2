@@ -11,7 +11,7 @@ let scoreColumn = `{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE}<br>{SCORE
 getLeaderboardData()
 export const resetLeaderboardLimiter = () => { leaderboardLimiter = 0 }
 
-let colors = ["630331", "EC472B", "FFC700", "CEFFDE", "003399"];
+let colors = ["00450F", "FFCCCC", "FFC700", "CEFFDE", "CCE3FF"];
 export let leaderboardLimiter
 
 export function setupLeaderboard2() {
@@ -51,6 +51,7 @@ export function setupLeaderboard2() {
       num++;
     }
   } else {
+    console.log("Nothing here")
     getLeaderboardData()
   }
 }
@@ -109,7 +110,7 @@ export function returnLeaderboard() {
             <div class="column" style="width:30%">${scoreColumn}</div>
           </div>
           <div>
-              <div id="play-again" class="text-blink"class="game-over-font">PLAY AGAIN!</div>
+              <div id="play-again" class="text-blink game-over-font">PLAY AGAIN!</div>
 
               <a
                 href="https://brandnewschool.com/"

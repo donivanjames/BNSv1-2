@@ -9,13 +9,13 @@
   }
 
   .game-over-title {
-    color:#EC472B; 
+    color:#00450F; 
     font-size: 3vw;
     margin-bottom: 8vh;
   }
   
   .game-over-font {
-    color: #CEFFDE;
+    color: #00450F;
     white-space: nowrap;
     margin: 0 auto;
     font-size: 0.8vw;

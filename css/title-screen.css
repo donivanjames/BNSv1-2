@@ -5,7 +5,7 @@
   font-style: normal;
 }
 :root {
-  --title-color-light: #FFF1CC;
+  --title-color-light: #003399;
 }
 
 .start-screen {
@@ -69,15 +69,15 @@
   position: absolute;
   top: 2vh;
   right: 2vw;
-  height: 5vh;
+  height: 8vh;
   margin-bottom: 6vh;
 }
 
 .start-screen-logo-img {
   height: 41vh;
   margin: 0 auto;
-  margin-top: 9.5vh;
-  margin-bottom: 8.5vh;
+  margin-top: 7vh;
+  margin-bottom: 8vh;
 }
 
 .title-text {
@@ -87,8 +87,8 @@
   white-space: nowrap;
   z-index: 3;
   border: none;
-  font-size: 2.6vh;
-  letter-spacing: normal;
+  font-size: 3vh;
+  letter-spacing: 1px;
   line-height: 3.65vh;
   margin: 0 auto;
   color: var(--title-color-light);
@@ -101,14 +101,26 @@
   line-height: 5.5vh;
 }
 
-
+.space-to-start-title-button {
+  border: 1.5px;  
+  border-style: solid;
+  border-radius: 75px 75px;
+  /* width: auto;
+  height: 2.5rem; */
+  padding-top: 6px;
+  padding-bottom: 7px;
+  padding-left: 11px;
+  padding-right: 11px;
+  color: white;
+  margin-bottom: 3vh;
+}
 
 .tut-text {
   position: absolute;
   font-size: 2vh;
   line-height: 3.7vh;
   white-space: nowrap;
-  color: var(--title-color-light);
+  color: #FFFDD0;
   
   text-align: center;
   transform: translate(0%, 0%);
@@ -146,6 +158,10 @@ a:link a:visited a:active {
     overflow: visible;
   }
 
+  .start-screen-logo-button {
+    height: 5vh;
+  }
+
   .start-screen-logo-button-leaderboard {
     position: absolute;;
     top: 1.5vh;
@@ -157,16 +173,12 @@ a:link a:visited a:active {
 
   .start-screen-logo-img {
     height: 27vh;
-    /* margin-top:    15vw;
-    margin-bottom: 15vw; */
     
     margin-top: 7vh;
     margin-bottom: 7vh;
   }
 
   .title-text {
-    /* font-size: 6vh;
-    line-height: 8vh; */
     font-size: 2.8vh;
     line-height: 4vh;
     margin: 0 auto;
