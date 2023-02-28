@@ -108,7 +108,7 @@
   /* width: auto;
   height: 2.5rem; */
   padding-top: 6px;
-  padding-bottom: 7px;
+  padding-bottom: 6px;
   padding-left: 11px;
   padding-right: 11px;
   color: white;
@@ -171,6 +171,7 @@ a:link a:visited a:active {
     margin-bottom: 0 auto;
   }
 
+ 
   .start-screen-logo-img {
     height: 27vh;
     
