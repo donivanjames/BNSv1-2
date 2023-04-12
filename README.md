@@ -18,29 +18,29 @@ To Do:
 - Colorize game over screen 
 
 ## Remaining design pool:
-Bug: there's a 300ms space after dying where pause can be activated
-Stop objects from spawning back to back
-Stop apples from spawning on top of obstacles
-Allow player to jump slightly before touching the ground for better response time (Celeste game keeps track of jump inputs and activates once you actually hit the ground)
-Better worm jump response
-Add custom coin sound and "lunch money" text
-Make coins 50 points
-Parallax opening sequence
-Add "+100" text over player's head when he collects an apple
-Screen flash and sound effect when player enters school (similar to classic pokemon when player enters a building)
-Mobile horizontal needs to ignore side bars
-Private frontend repo
-Env variables for frontend
-introScene script still runs after intro scene (console log textScroller to see bug)
-Look into keeping animation images loaded in 
-Foreach movement functions in obstacles.js are the longest runtime (lets try adding them to a div and just moving that div (maybe even add them to the ground div))
-Offload intense JS onto web workers/multi-threading
-requesting an element’s offsetTop is faster than computing getBoundingClientRect()
-Moving both grounds in one div may increase performance
-Set up GZip compression and look into Minify
-We're calling querySelectorAll twice every frame for apples (in update and getRects)
-Potential loading screen for bad internet
-Potential safeguard for if database doesnt load properly
+- Bug: there's a 300ms space after dying where pause can be activated
+- Stop objects from spawning back to back
+- Stop apples from spawning on top of obstacles
+- Allow player to jump slightly before touching the ground for better response time (Celeste game keeps track of jump inputs and activates once you - actually hit the ground)
+- Better worm jump response
+- Add custom coin sound and "lunch money" text
+- Make coins 50 points
+- Parallax opening sequence
+- Add "+100" text over player's head when he collects an apple
+- Screen flash and sound effect when player enters school (similar to classic pokemon when player enters a building)
+- Mobile horizontal needs to ignore side bars
+- Private frontend repo
+- Env variables for frontend
+- introScene script still runs after intro scene (console log textScroller to see bug)
+- Look into keeping animation images loaded in 
+- Foreach movement functions in obstacles.js are the longest runtime (lets try adding them to a div and just moving that div (maybe even add them to the ground div))
+- Offload intense JS onto web workers/multi-threading
+- requesting an element’s offsetTop is faster than computing getBoundingClientRect()
+- Moving both grounds in one div may increase performance
+- Set up GZip compression and look into Minify
+- We're calling querySelectorAll twice every frame for apples (in update and getRects)
+- Potential loading screen for bad internet
+- Potential safeguard for if database doesnt load properly
 
 
 ## Update v1-6 - The ACTUAL Launch Update
