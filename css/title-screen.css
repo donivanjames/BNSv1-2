@@ -101,19 +101,17 @@
   line-height: 5.5vh;
 }
 
-.space-to-start-title-button {
+/* .space-to-start-title-button {
   border: 1.5px;  
   border-style: solid;
   border-radius: 75px 75px;
-  /* width: auto;
-  height: 2.5rem; */
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 11px;
   padding-right: 11px;
   color: white;
   margin-bottom: 3vh;
-}
+} */
 
 .tut-text {
   position: absolute;
