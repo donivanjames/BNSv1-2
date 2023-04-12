@@ -83,7 +83,7 @@
 .title-text {
   display: block;
   text-decoration: none;
-  font-family: 'neuehaas';
+  /* font-family: 'neuehaas'; */
   white-space: nowrap;
   z-index: 3;
   border: none;
