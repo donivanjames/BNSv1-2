@@ -62,7 +62,6 @@ function setupIntro() {
     if (window.matchMedia("(orientation: landscape)").matches) {
       horizontalScreen = true;
       console.log("you're in LANDSCAPE mode", "horizontal: ", horizontalScreen);
-      //bigImg.src = "imgs/landing-page-v14.png";
     }
     // Vertical ui positioning
     if (window.matchMedia("(orientation: portrait)").matches) {
