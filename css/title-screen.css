@@ -5,7 +5,7 @@
   font-style: normal;
 }
 :root {
-  --title-color-light: #e7db00;
+  --title-color-light: #003399;
 }
 
 .start-screen {
@@ -58,7 +58,7 @@
   position: absolute;
   text-align: center;
   margin: 0 auto;
-  margin-top: 8vh;
+  margin-top: 12vh;
   top: 1vh;
   /* border: 2px solid red; */
   /* transform: translate(50%, 50%); */
@@ -74,10 +74,10 @@
 }
 
 .start-screen-logo-img {
-  height: 41vh;
+  height: 36vh;
   margin: 0 auto;
-  margin-top: 7vh;
-  margin-bottom: 8vh;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
 }
 
 .title-text {
@@ -87,10 +87,10 @@
   white-space: nowrap;
   z-index: 3;
   border: none;
-  font-size: 3vh;
+  font-size: 1.7vh;
   letter-spacing: 1px;
   line-height: 3.65vh;
-  margin: 0 auto;
+  margin: 2rem auto 2rem;
   color: var(--title-color-light);
 }
 
@@ -122,6 +122,10 @@
   
   text-align: center;
   transform: translate(0%, 0%);
+}
+
+.sound-button {
+  max-width: 10rem;
 }
 
 a:link a:visited a:active { 

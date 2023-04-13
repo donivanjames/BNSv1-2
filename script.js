@@ -2,15 +2,18 @@
 
 import { handleAllInput } from "./scripts/playerInput.js";
 import { windowElements, resetVariables } from "./scripts/variableHandler.js";
+import { getLeaderboardData } from "./xhr.js";
 
-// google stuff
+// === google tag === //
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'UA-178389882-1');
 
+
 const WORLD_WIDTH = 200;
 const WORLD_HEIGHT = 65;
+getLeaderboardData()
 
 
 // web worker test
