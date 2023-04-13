@@ -160,8 +160,12 @@ a:link a:visited a:active {
     overflow: visible;
   }
 
+  .title-text-container {
+    margin-top: 17vh;
+  }
+
   .start-screen-logo-button {
-    height: 5vh;
+    height: 8vh;
   }
 
   .start-screen-logo-button-leaderboard {
@@ -172,7 +176,6 @@ a:link a:visited a:active {
     transform: translate(0%, 0%);
     margin-bottom: 0 auto;
   }
-
  
   .start-screen-logo-img {
     height: 27vh;
@@ -197,5 +200,41 @@ a:link a:visited a:active {
     line-height: 2vw;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .sound-button {
+    margin-top: 10vh;
+    max-width: 1.5rem;
+  }
+}
+
+
+
+/* ==============  MEDIA QUERIES (VERTICAL PHONE)  =============== */
+@media screen and (max-width: 600px) {
+  
+  .title-text-container {
+    margin-top: 22vh;
+  }
+  
+  .start-screen-logo-img {
+    height: 20vh;
+    margin: 0 auto;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+
+  .start-screen-logo-button {
+    height: 5vh;
+    margin-right: 1vh;
+  }
+  
+  .title-text {
+    font-size: 1.5vh;
+  }
+  
+  .sound-button {
+    margin-top: 5vh;
+    max-width: 2rem;
   }
 }

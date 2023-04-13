@@ -23,7 +23,7 @@ getLeaderboardData()
 // }
 
 export const touchDevice = ('ontouchstart' in document.documentElement);
-if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "Tap To Start"
+if(touchDevice) document.querySelector("[data-space-to-start]").innerHTML = "TAP TO START"
 
 // Have to destroy all title elements on page reload or else it makes a nasty placing bug
 window.onbeforeunload = function(){
