@@ -1,11 +1,7 @@
 ﻿# Brand-New-Game
 Hey Team! This is the code repository for Brand New Game
 
-This is the current working documentation for Brand New Game, or maybe Worm Dash. The name is still being decided.
-
-The game is a fairly simple browser runner. You jump over obstacles and collect apples. Despite that the game is still fairly intensive, especially with all the high res art involved. CSS rendering is currently the most expensive task and I'm looking into solutions to render faster. It's still a little too heavy for mobile browsers to run.
-
-The game starts in **index.html** which leads to **styles.css** and **script.js**.
+Open index.html with a live server to playtest the game from your editor
 
 1. **script.js** sets up the initial game, which leads to introScene.js 
 2. **introScene.js** handles the long scrolling intro at the beggining of the game - it leads to playerInput.js which then kicks off update.js
@@ -13,9 +9,6 @@ The game starts in **index.html** which leads to **styles.css** and **script.js*
 
 ---
 
-To Do:
-- Make start button border round
-- Colorize game over screen 
 
 ## Remaining design pool:
 - Bug: there's a 300ms space after dying where pause can be activated
@@ -43,9 +36,7 @@ To Do:
 - Potential safeguard for if database doesnt load properly
 
 
-## Update v1-6 - The ACTUAL Launch Update
-**Bug Fixes**
-- refreshing title screen locks up screen
+## Update v1-6
 
 ## Update v1-5 - The Launch Update
 - Added "Lazy Loading"

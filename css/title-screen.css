@@ -58,7 +58,7 @@
   position: absolute;
   text-align: center;
   margin: 0 auto;
-  margin-top: 8vh;
+  margin-top: 12vh;
   top: 1vh;
   /* border: 2px solid red; */
   /* transform: translate(50%, 50%); */
@@ -74,23 +74,23 @@
 }
 
 .start-screen-logo-img {
-  height: 41vh;
+  height: 36vh;
   margin: 0 auto;
-  margin-top: 7vh;
-  margin-bottom: 8vh;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
 }
 
 .title-text {
   display: block;
   text-decoration: none;
-  font-family: 'neuehaas';
+  /* font-family: 'neuehaas'; */
   white-space: nowrap;
   z-index: 3;
   border: none;
-  font-size: 3vh;
+  font-size: 1.7vh;
   letter-spacing: 1px;
   line-height: 3.65vh;
-  margin: 0 auto;
+  margin: 2rem auto 2rem;
   color: var(--title-color-light);
 }
 
@@ -101,19 +101,17 @@
   line-height: 5.5vh;
 }
 
-.space-to-start-title-button {
+/* .space-to-start-title-button {
   border: 1.5px;  
   border-style: solid;
   border-radius: 75px 75px;
-  /* width: auto;
-  height: 2.5rem; */
   padding-top: 6px;
   padding-bottom: 6px;
   padding-left: 11px;
   padding-right: 11px;
   color: white;
   margin-bottom: 3vh;
-}
+} */
 
 .tut-text {
   position: absolute;
@@ -124,6 +122,10 @@
   
   text-align: center;
   transform: translate(0%, 0%);
+}
+
+.sound-button {
+  max-width: 10rem;
 }
 
 a:link a:visited a:active { 

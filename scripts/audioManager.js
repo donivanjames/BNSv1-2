@@ -5,14 +5,20 @@ let soundOn = true
 // TITLE SONG //
 
 let titleSong = new Audio("sounds/Music/title-song-3.mp3");
+let soundImg
 titleSong.volume = 0.07;
 titleSong.loop = false;
 
 export function soundToggle(soundButton){
-  soundOn = !soundOn
+  if (!soundImg) soundImg = document.querySelector("[data-sound-toggle]") // find soundimg
 
-  if(!soundOn) soundButton.innerHTML = "Sound <u>off</u>"
-  else soundButton.innerHTML = "Sound <u>on</u>"
+  soundOn = !soundOn
+  console.log(soundImg)
+  soundOn ? soundImg.src = 'imgs/Sound On.png' : soundImg.src = 'imgs/Sound Off.png'
+  
+  // Old sound text swap
+  //if(!soundOn) soundButton.innerHTML = "Sound <u>off</u>"
+  //else soundButton.innerHTML = "Sound <u>on</u>"
 }
 
 export function playTitleSong() {
@@ -76,7 +82,7 @@ export function collectSound() {
 
 // GAME OVER SONG
 
-let gameOverSong = new Audio("sounds/Music/game-over-theme-2.mp3");
+let gameOverSong = new Audio("sounds/Music/game-over-theme-3.mp3");
 gameOverSong.volume = 0.6;
 gameOverSong.loop = false;
 
