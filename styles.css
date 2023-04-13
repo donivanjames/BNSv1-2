@@ -106,6 +106,16 @@ body {
     image-rendering: crisp-edges;
 }
 
+/* the +100 score popup */
+.collect-popup {
+  position: absolute;
+  left: 21.5%;
+  --bottom: 40; 
+  bottom: calc(var(--bottom) * 1%);
+  will-change: transform;
+  color: rgb(0, 110, 40);
+}
+
 /* is this needed? */
 .player::after {
     clear: both;

@@ -8,6 +8,7 @@ import {
 import { variableHolder } from "./variableHandler.js";
 import { collectSound } from "./audioManager.js";
 import { windowElements } from "./variableHandler.js";
+import { showScorePopup } from "./player.js";
 
 // Ending Max: 500  Beginning Max 2500:
 let CACTUS_INTERVAL_MIN = 600;
@@ -50,8 +51,9 @@ export function gameOverObstacles() {
 }
 
 export function collect() {
-  // push apple off screen
+  // push apple off screen instead of generating new apple (maybe)
   removeCollectedApple();
+  showScorePopup();
   collectSound();
 }
 
