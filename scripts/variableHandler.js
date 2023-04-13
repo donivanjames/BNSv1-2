@@ -7,6 +7,7 @@ export const windowElements = {
     
     preGameScreen: document.querySelectorAll("[data-start-screen]"),
     player: document.querySelector("[data-player]"),
+    scorePopup: document.querySelector("[data-score-popup]"),
     pet: document.querySelector("[data-pet]"),
 }
 

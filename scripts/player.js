@@ -11,8 +11,10 @@ const PLAYER_FRAME_COUNT = 7; // amount of run animation frames
 const FRAME_TIME = 75; // how long each animation frame should last (in milliseconds)
 
 const heightFromGround = 17.9 // also change css --bottom to match
+const scorePopupHeightFromGround = 40
 const jumpableHeight = 20 // planning on implementing a jump buffer from the ground
 const player = windowElements.player;
+const scorePopup = windowElements.scorePopup;
 
 
 // PLAYER SETUP
@@ -89,18 +91,26 @@ function handleRun(delta, speedScale) {
   currentFrameTime += delta * speedScale; // animation will play faster as the level speeds up
 }
 
+export function showScorePopup() {
+  scorePopup.classList.remove("hide");
+  setTimeout(() => {
+    scorePopup.classList.add("hide");
+  }, 500);
+}
+
 // HANDLE JUMP
 function handleJump(delta) {
   if (!isJumping) return; // if not jumping then exit out
 
-  
   incrementCustomProperty(player, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
+  incrementCustomProperty(scorePopup, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
 
   //if (getCustomProperty(player, "--bottom") <= jumpableHeight) {
     // allow jumping here
     if (getCustomProperty(player, "--bottom") <= heightFromGround) {
     // if player is back on the ground: continue running
     setCustomProperty(player, "--bottom", heightFromGround); // make sure player position is zero
+    setCustomProperty(scorePopup, "--bottom", scorePopupHeightFromGround);
     isJumping = false
     playerFrame = 1
   //}
