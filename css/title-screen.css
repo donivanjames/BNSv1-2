@@ -210,6 +210,10 @@ a:link a:visited a:active {
     margin-top: 6vh;
     max-width: 1.5rem;
   }
+
+  .start-screen-player {
+    display: none;
+  }
 }
 
 /* ==============  MEDIA QUERIES (VERTICAL PHONE)  =============== */
