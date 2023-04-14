@@ -161,7 +161,7 @@ a:link a:visited a:active {
   }
 
   .title-text-container {
-    margin-top: 17vh;
+    margin-top: 5vh;
   }
 
   .start-screen-logo-button {
@@ -179,9 +179,8 @@ a:link a:visited a:active {
  
   .start-screen-logo-img {
     height: 27vh;
-    
-    margin-top: 7vh;
-    margin-bottom: 7vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
   }
 
   .title-text {
@@ -194,8 +193,6 @@ a:link a:visited a:active {
     height: 100%;
   }
 
-  
-
   .tut-text {
     text-align: center;
     font-size: 1.8vw;
@@ -205,7 +202,7 @@ a:link a:visited a:active {
   }
 
   .sound-button {
-    margin-top: 10vh;
+    margin-top: 6vh;
     max-width: 1.5rem;
   }
 }
