@@ -17,10 +17,6 @@
   text-decoration: none;   
 }
 
-.clickable:hover {
-  color: #CEFFDE;
-}
-
 .score-ui {
   position: absolute;
   color: #00450F;
