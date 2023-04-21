@@ -43,20 +43,6 @@ body {
     transform: translate(0, 30%);
 }
 
-@media (max-width: 1000px) {
-  .world {
-    transform: translate(0, 30%);
-  }
-}
-
-@media (orientation: portrait) {
-  .world {
-    left: 22%;
-    transform: translate(0%, 200%) scale(2) translateZ(0);
-    backface-visibility: hidden;
-  }
-}
-
   .game-container {
     width: 100%;
     height: 100%;
@@ -138,5 +124,28 @@ body {
     image-rendering: crisp-edges;
 }
 
+
+@media (max-width: 1000px) {
+  .world {
+    transform: translate(0, 30%);
+  }
+
+  .collect-popup {
+    /* left: 22%; */
+    font-size: 6px;
+  }
+}
+
+@media (orientation: portrait) {
+  .world {
+    left: 22%;
+    transform: translate(0%, 200%) scale(2) translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .collect-popup {
+    font-size: 4px;
+  }
+}
 
 
