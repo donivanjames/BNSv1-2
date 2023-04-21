@@ -37,8 +37,6 @@
   z-index: 10;
 }
 
-
-
 .space-to-start,
 .pause-screen {
   position: absolute;
@@ -53,7 +51,6 @@
 .space-to-start {
   top: 20vw;
 }
-
 
 @media (orientation: portrait) {
     .space-to-start,
