@@ -1,6 +1,6 @@
 // handles the setup functions of the game
 
-import { skipIntro, updateIntroScene, horizontalScreen } from "./introScene.js";
+import { skipIntro, updateIntroScene, horizontalScreen, finishInroScene } from "./introScene.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -36,7 +36,7 @@ export function sequence2() {
 
 // Skip first scene or setup first level
 export function sequence3() {
-  window.cancelAnimationFrame(updateIntroScene);
+  finishInroScene();
   setupGame();
   variableHolder.inputNum = 4;
 }

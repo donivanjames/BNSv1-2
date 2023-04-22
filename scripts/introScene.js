@@ -9,6 +9,12 @@ import {
 import { soundToggle } from "./audioManager.js";
 import { sequence1, sequence3 } from "./gameSetup.js";
 
+let sceneCompleted; // cancelAnimationFrame wasn't working
+export const finishInroScene = () => {
+  sceneCompleted = true
+  window.cancelAnimationFrame(updateIntroScene);
+}
+
 let lastTime = null;
 let waitAtEnd = 1000;
 const PLAYER_FRAME_COUNT = 7; // amount of animation frames
@@ -136,7 +142,7 @@ export function updateIntroScene(time) {
   scrollIntroScene(delta, scrollSpeed);
   lastTime = time;
 
-  window.requestAnimationFrame(updateIntroScene);
+  if(!sceneCompleted) window.requestAnimationFrame(updateIntroScene);
 }
 
 function scrollIntroScene(delta, scrollSpeed) {
@@ -150,6 +156,7 @@ function scrollIntroScene(delta, scrollSpeed) {
     } else waitAtEnd -= 1 * delta;
   }
   else sequence3()
+
 }
 
 function scrollItems(delta, scrollSpeed) {
