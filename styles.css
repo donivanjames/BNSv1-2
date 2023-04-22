@@ -140,7 +140,10 @@ body {
   .world {
     left: 22%;
     will-change: auto;
-    transform: translate(0%, 200%) scale(2) translateZ(0);
+    /* transform: translate(0%, 200%) scale(2) translateZ(0); */
+
+    translate: 28% 200%;
+    scale: 2;
 
     /* ===== Potential Zoom Blur Fixes ====== */
     /* backface-visibility: hidden; */
