@@ -35,8 +35,7 @@ setPixelToWorldScale();
 
 window.addEventListener("resize", setPixelToWorldScale());
 
-
-console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
+// console.log("WORLD_WIDTH ", WORLD_WIDTH, "WORLD_HEIGHT ", WORLD_HEIGHT)
 
 window.addEventListener("resize", setPixelToWorldScale);
 document.addEventListener("keydown", handleAllInput); // this adds a listener to the player that waits for any key press, then it executes the onJump function

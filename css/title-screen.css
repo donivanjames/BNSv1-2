@@ -59,7 +59,7 @@
   position: absolute;
   text-align: center;
   margin: 0 auto;
-  margin-top: 12vh;
+  margin-top: 16vh;
   top: 1vh;
   /* border: 2px solid red; */
   /* transform: translate(50%, 50%); */
@@ -102,24 +102,10 @@
 
 }
 
-/* Not used now that title is an image */
-/* .title-text h2 {
-  color: var(--title-color-light);
-  font-size: 7vh;
-  line-height: 5.5vh;
-} */
-
-/* .space-to-start-title-button {
-  border: 1.5px;  
-  border-style: solid;
-  border-radius: 75px 75px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 11px;
-  padding-right: 11px;
-  color: white;
-  margin-bottom: 3vh;
-} */
+.sound-button {
+  /* image rendering doesnt help with blurriness */
+  max-width: 5vh;
+}
 
 .tut-text {
   position: absolute;
@@ -129,14 +115,8 @@
   color: #ffffff;
 
   text-align: center;
-  --left: 40;
-  --bottom: -100;
-  /* transform: translate(50%, 0%); */
-}
-
-.sound-button {
-  /* image rendering doesnt help with blurriness */
-  max-width: 5vh;
+  --left: 39;
+  --bottom: 80; /* set in introScene.js, shows "Loading" before turning into tutorial text */
 }
 
 a:link a:visited a:active {
@@ -148,11 +128,18 @@ a:link a:visited a:active {
   height: 5vw;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  --left: 13;
-  --top: 136.6;
-  --bottom: -100;
+  --left: 27;
+  --bottom: 2000; /* set in introScene.js, here so it doesn't flash at the top on game load */
 }
 
+.office-window-tint {
+  width: 25vw;
+  --left: 70.4;
+  --bottom: 2000; /* set in introScene.js, here so it doesn't flash at the top on game load */
+
+}
+
+/* Any Landing Page Item That Requires An Absolute Position */
 .positioned-item {
   position: absolute;
 
@@ -256,3 +243,5 @@ a:link a:visited a:active {
     max-width: 2rem;
   }
 }
+
+
