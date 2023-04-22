@@ -72,6 +72,8 @@
   left: 2vw;
   height: 8vh;
   margin-bottom: 6vh;
+  /* image-rendering: pixelated;
+  image-rendering: crisp-edges; */
 }
 
 /* The big BRAND NEW GAME title */
