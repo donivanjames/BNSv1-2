@@ -140,7 +140,12 @@ body {
   .world {
     left: 22%;
     transform: translate(0%, 200%) scale(2) translateZ(0);
-    backface-visibility: hidden;
+
+    /* ===== Potential Zoom Blur Fix ====== */
+    /* backface-visibility: hidden; */
+    -webkit-font-smoothing: subpixel-antialiased;
+    /* image-rendering: pixelated;
+    image-rendering: crisp-edges; */
   }
 
   .collect-popup {
