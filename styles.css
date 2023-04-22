@@ -144,10 +144,8 @@ body {
     translate: 0% 150%;
 
     /* ===== Potential Zoom Blur Fixes ====== */
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
     -webkit-font-smoothing: subpixel-antialiased;
-    /*image-rendering: pixelated;
-    image-rendering: crisp-edges; */
   }
 
   .collect-popup {
