@@ -13,7 +13,7 @@ let sceneCompleted; // cancelAnimationFrame wasn't working
 export const finishInroScene = () => {
   sceneCompleted = true
   window.cancelAnimationFrame(updateIntroScene);
-  container.classList.remove("moveable-item"); // stops browser from trying to render the 'will-change' in the landing page
+  container.classList.remove("moveable-item"); // stops browser from trying to render the 'will-change' in the landing page, it gets deleted but it's just a precaution
 }
 
 let lastTime = null;
