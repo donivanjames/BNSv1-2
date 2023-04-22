@@ -140,12 +140,13 @@ body {
   .world {
     left: 22%;
     will-change: auto;
-    transform: translate(0%, 200%) scale(2) translateZ(0);
+    transform: translate(-11%, 100%) scale(1) translateZ(0);
 
     /* ===== Potential Zoom Blur Fixes ====== */
-    /* backface-visibility: hidden;
+    zoom: 2;
+    /* backface-visibility: hidden; */
     -webkit-font-smoothing: subpixel-antialiased;
-    image-rendering: pixelated;
+    /* image-rendering: pixelated;
     image-rendering: crisp-edges; */
   }
 
