@@ -60,6 +60,10 @@
       left: 33vw;
   }
 
+  .space-to-start {
+    top: 78vw;
+  }
+
   .score-ui {
     font-size: 1.5vw;
     top: 0vw;
