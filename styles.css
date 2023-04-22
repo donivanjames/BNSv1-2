@@ -71,7 +71,6 @@ body {
 
     top: 10.4%;
     left: calc(var(--left) * 1%);
-    /* will-change: transform; */
     object-fit: cover;
 }
 
@@ -85,11 +84,6 @@ body {
     /* Height Setup, Also Change player.js heightFromGround to match */
     --bottom: 17.9; 
     bottom: calc(var(--bottom) * 1%);
-    /* will-change: transform; */
-
-    /* Scale Pixel Art!! Doesn't work on Safari :( */
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
 }
 
 /* the +100 score popup */
@@ -98,7 +92,6 @@ body {
   left: 21.5%;
   --bottom: 40; 
   bottom: calc(var(--bottom) * 1%);
-  /* will-change: transform; */
   color: #FE5000;
 }
 
@@ -117,11 +110,6 @@ body {
     /* Height Setup, Also Change player.js heightFromGround to match */
     --bottom: 17.9; 
     bottom: calc(var(--bottom) * 1%);
-    /* will-change: transform; */
-
-    /* Scale Pixel Art!! Doesn't work on Safari :( */
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
 }
 
 
@@ -146,6 +134,7 @@ body {
     /* ===== Potential Zoom Blur Fixes ====== */
     backface-visibility: hidden;
     -webkit-font-smoothing: subpixel-antialiased;
+    /* Pixelated image rendering seemed to really help mobile performance for some reason */
     image-rendering: pixelated;
     image-rendering: crisp-edges;
   }
