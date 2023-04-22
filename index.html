@@ -1,129 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0"
-    />
-    <title>Brand New Game</title>
 
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/png" href="imgs/apple-v02.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      /* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"); */
-    </style>
-    <!-- Google Tag -->
-    <script async src="[https://www.googletagmanager.com/gtag/js?id=UA-178389882-1](https://www.googletagmanager.com/gtag/js?id=UA-178389882-1)"></script>
-    <script src="script.js" type="module"></script>
-    
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+  <title>Brand New Game</title>
 
-  <body>
-    <!-- TITLE SCREEN -->
-    <div class="start-screen" data-start-screen>
-      <div class="title-container moveable-item">
-        <img
-          src="imgs/landing-page-v15.png"
-          class="start-screen-img"
-        />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="imgs/apple-v02.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    /* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"); */
+  </style>
+  <!-- Google Tag -->
+  <script async
+    src="[https://www.googletagmanager.com/gtag/js?id=UA-178389882-1](https://www.googletagmanager.com/gtag/js?id=UA-178389882-1)"></script>
+  <script src="script.js" type="module"></script>
 
-        <a href="https://brandnewschool.com/"
-            ><img
-              class="clickable start-screen-logo-button"
-              src="imgs/bns-leaf-2.png"
-          /></a>
+</head>
 
-        <div class="ui-container">
-          <div class="title-text-container">
+<body>
+  <!-- TITLE SCREEN -->
+  <div class="start-screen" data-start-screen>
+    <div class="title-container moveable-item">
+      <img src="imgs/landing-page-v15.png" class="start-screen-img" />
 
-            
-            <div class="title-text">
-              <br />
-              NEW WEBSITE COMING SOON! <br />
+      <a href="https://brandnewschool.com/"><img class="clickable start-screen-logo-button"
+          src="imgs/bns-leaf-2.png" /></a>
 
-              <!-- BIG BNS LOGO -->
-              <img
-                src="imgs/bns-title-logo-4.png"
-                class="start-screen-logo-img"
-              />
+      <div class="ui-container">
+        <div class="title-text-container">
 
-              <!-- SPACE TO START -->
-              <button
-                class="clickable title-text text-blink"
-                data-space-to-start
-              >
-                SPACEBAR TO START
-              </button>
-
-              <!-- SOUND BUTTON -->
-              <!-- <button class="clickable title-text" > -->
-                <img src="imgs/Sound On.png" class="clickable sound-button" data-sound-toggle alt="sound button">
-              <!-- </button> -->
-            </div>
-
-            <!-- Tut text HAS to be in this div or it wont center -->
-            <div class="positioned-item tut-text" data-tutorial-text>
-              LOADING...
-            </div>
+          <!-- Upper Text -->
+          <div class="title-text title-text-upper">
+            <br />
+            NEW WEBSITE COMING SOON! <br />
+            STAY AND PLAY <br>
           </div>
 
-          
+          <!-- BIG BNS LOGO -->
+          <img src="imgs/bns-title-logo-5.png" class="start-screen-logo-img" />
+
+          <!-- SPACE TO START -->
+          <div class="title-text title-text-lower">
+            <button class="clickable title-text text-blink" data-space-to-start>
+              SPACEBAR TO START
+            </button>
+          </div>
+
+          <!-- SOUND BUTTON -->
+          <img src="imgs/Sound On.png" class="clickable sound-button" data-sound-toggle alt="sound button">
+          <!-- </button> -->
         </div>
 
-        <img
-          src="imgs/kid-idle.png"
-          class="start-screen-player positioned-item"
-        />
+        
       </div>
+      <!-- Tut text HAS to be in this div or it wont center -->
+      <div class="positioned-item tut-text" data-tutorial-text>
+        LOADING...
+      </div>
+
     </div>
 
-    <!-- The Game Screen -->
-    <div class="world hide" data-world>
+    <img src="imgs/kid-idle.png" class="start-screen-player positioned-item" />
+  </div>
+  </div>
 
-      <div class="game-container">
-        <!-- 2 ground sprites for the endless effect -->
-        <img
-          loading="lazy"
-          src="imgs/background-1.png"
-          class="ground hide-img"
-          data-ground
-        />
-        <img
-          loading="lazy"
-          src="imgs/background-3.png"
-          class="ground hide-img"
-          data-ground
-        />
+  <!-- The Game Screen -->
+  <div class="world hide" data-world>
 
-        <!-- Score Text -->
-        <div class="score-ui score hide" data-score>SCORE 0</div>
-        <div class="score-ui high-score hide" data-score>HI SCORE 0</div>
+    <div class="game-container">
+      <!-- 2 ground sprites for the endless effect -->
+      <img loading="lazy" src="imgs/background-1.png" class="ground hide-img" data-ground />
+      <img loading="lazy" src="imgs/background-3.png" class="ground hide-img" data-ground />
 
-        <div class="collect-popup hide" data-score-popup>+100</div>
+      <!-- Score Text -->
+      <div class="score-ui score hide" data-score>SCORE 0</div>
+      <div class="score-ui high-score hide" data-score>HI SCORE 0</div>
 
-        <!-- Sprites -->
-        <img
-          loading="lazy"
-          src="imgs/kid-idle.png"
-          class="player hide-img"
-          data-player
-        />
-        <img
-          loading="lazy"
-          src="imgs/worm-idle.png"
-          class="pet hide-img"
-          data-pet
-        />
-      </div>
+      <div class="collect-popup hide" data-score-popup>+100</div>
+
+      <!-- Sprites -->
+      <img loading="lazy" src="imgs/kid-idle.png" class="player hide-img" data-player />
+      <img loading="lazy" src="imgs/worm-idle.png" class="pet hide-img" data-pet />
     </div>
+  </div>
 
-    <!-- All the other UI -->
-    <div class="text-container" data-main-ui></div>
-  </body>
+  <!-- All the other UI -->
+  <div class="text-container" data-main-ui></div>
+</body>
+
 </html>

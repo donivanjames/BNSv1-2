@@ -76,10 +76,8 @@
 
 /* The big BRAND NEW GAME title */
 .start-screen-logo-img {
-  height: 36vh;
+  height: 50vh;
   margin: 0 auto;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
 }
 
 .title-text {
@@ -92,8 +90,16 @@
   font-size: 1.7vh;
   letter-spacing: 1px;
   line-height: 3.65vh;
-  margin: 2rem auto 2rem;
+  margin: 0rem auto 2rem;
   color: var(--title-color-light);
+}
+
+.title-text-upper {
+  margin-bottom: -5vh;
+}
+
+.title-text-lower {
+
 }
 
 /* Not used now that title is an image */
@@ -123,7 +129,9 @@
   color: #ffffff;
 
   text-align: center;
-  transform: translate(0%, 0%);
+  --left: 40;
+  --bottom: -100;
+  /* transform: translate(50%, 0%); */
 }
 
 .sound-button {

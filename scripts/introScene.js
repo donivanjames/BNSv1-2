@@ -17,7 +17,7 @@ let playerFrame = 0;
 let currentFrameTime = 0;
 
 let outputTutText = ""; // the empty string for the scrolling tutorial text
-let fullTutText = "COLLECT APPLES TO SCORE.<br>WATCH OUT FOR OBSTACLES!";
+let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES";
 
 let allDivs = document.querySelectorAll("[data-start-screen]");
 let startScreen = document.querySelector(".start-screen");
