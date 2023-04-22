@@ -139,7 +139,9 @@ body {
 @media (orientation: portrait) {
   .world {
     left: 22%;
-    transform: translate(0%, 200%) scale(2) translateZ(0);
+    /* transform: translate(0%, 200%) scale(2) translateZ(0); */
+    scale: 2;
+    translate: 0% 200%;
 
     /* ===== Potential Zoom Blur Fixes ====== */
     backface-visibility: hidden;
