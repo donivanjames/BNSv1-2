@@ -224,6 +224,12 @@ a:link a:visited a:active {
     margin-top: 22vh;
   }
 
+  /* Hide these on vertical mobile */
+  .start-screen-img, .office-window-tint, .start-screen-player {
+    display: none;
+  }
+
+
   .start-screen-logo-img {
     height: 20vh;
     margin: 0 auto;

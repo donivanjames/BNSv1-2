@@ -112,6 +112,11 @@ body {
     bottom: calc(var(--bottom) * 1%);
 }
 
+@media screen and (min-width: 1920px) {
+  .collect-popup {
+    font-size: 22px;
+  }
+}
 
 @media (max-width: 1000px) {
   .world {
@@ -119,7 +124,6 @@ body {
   }
 
   .collect-popup {
-    /* left: 22%; */
     font-size: 6px;
   }
 }
