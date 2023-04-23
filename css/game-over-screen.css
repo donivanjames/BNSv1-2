@@ -54,6 +54,13 @@
     display: inline-block;
   }
 
+  /* Horizontal Mobile */
+  @media (max-width: 1000px) {
+    .game-over-font {
+      margin-bottom: 2vw;
+    }
+  }
+
   @media (orientation: portrait) {
 
     .game-over-screen {
@@ -69,6 +76,7 @@
     .game-over-font {
       font-size: 3vw;
       line-height: 6vw;
+      margin-bottom: 5vw;
     }
 
     .row {

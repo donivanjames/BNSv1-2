@@ -161,7 +161,7 @@ a:link a:visited a:active {
   }
 
   .title-text-container {
-    margin-top: 5vh;
+    margin-top: 15vh;
   }
 
   /* The back to BNS icon */
@@ -171,15 +171,15 @@ a:link a:visited a:active {
 
   /* The big BRAND NEW GAME title */
   .start-screen-logo-img {
-    height: 27vh;
-    margin-top: 4vh;
-    margin-bottom: 3vh;
+    height: 32vh;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
   }
 
   .title-text {
-    font-size: 2.8vh;
+    font-size: 2.2vh;
     line-height: 4vh;
-    margin: 1rem auto 1rem;
+    margin: 0rem auto 0rem;
   }
 
   .ui-container {
