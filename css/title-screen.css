@@ -14,7 +14,7 @@
   /* height: 100vh; */
   width: 100%;
   aspect-ratio: auto 16 / 9;
-  overflow: hidden; /* overflow needs to go here and not in container */
+  overflow: visible; /* overflow needs to go here and not in container, if you remove it title screen will dissapear on vertical mobile */
 }
 
 .title-container {
@@ -100,11 +100,12 @@
 }
 
 .title-text-lower {
-  
+  margin-top: 2vh;
 }
 
 .sound-button {
   /* image rendering doesnt help with blurriness */
+  margin-top: 1vh;
   max-width: 5vh;
 }
 
@@ -202,20 +203,17 @@ a:link a:visited a:active {
     display: none;
   }
 
-  .office-window-tint {
+  /* Hide these on mobile */
+  .start-screen-img, .office-window-tint, .start-screen-player {
     display: none;
   }
 }
 
 /* ==============  MEDIA QUERIES (VERTICAL PHONE)  =============== */
 @media screen and (max-width: 600px) {
+
   .title-text-container {
     margin-top: 16vh;
-  }
-
-  /* Hide these on vertical mobile */
-  .start-screen-img, .office-window-tint, .start-screen-player {
-    display: none;
   }
 
   .start-screen-logo-img {
