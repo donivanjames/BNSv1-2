@@ -14,8 +14,7 @@
   /* height: 100vh; */
   width: 100%;
   aspect-ratio: auto 16 / 9;
-
-  overflow: visible; /* hidden needs to go here and not in container */
+  overflow: visible; /* overflow needs to go here and not in container */
 }
 
 .title-container {
@@ -211,7 +210,7 @@ a:link a:visited a:active {
 /* ==============  MEDIA QUERIES (VERTICAL PHONE)  =============== */
 @media screen and (max-width: 600px) {
   .title-text-container {
-    margin-top: 22vh;
+    margin-top: 16vh;
   }
 
   /* Hide these on vertical mobile */

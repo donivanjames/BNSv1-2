@@ -104,6 +104,10 @@ body {
     transform: translate(0, 20%);
     overflow: visible;
   }
+
+  .game-container {
+    overflow: visible;
+  }
 }
 
 @media (orientation: portrait) {
