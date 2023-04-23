@@ -15,11 +15,20 @@
     margin: 0;
 }
 
+/* ======== Hide scrollbar ======== */
+body {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
 body {
     display: flex;
     flex-direction: column;
 
-    overflow: hidden; /* has to be here or a scrollbar appears */
+    /* overflow: hidden; /* has to be here or a scrollbar appears */
     background-size: cover;
 
     min-height: 100vh;
@@ -100,18 +109,8 @@ body {
 
 
 @media (max-width: 1000px) {
-  body {
-    height: auto;
-    width: 100vw;
-  }
-  
   .world {
     transform: translate(0, 20%);
-    overflow: visible;
-  }
-
-  .game-container {
-    overflow: visible;
   }
 }
 
