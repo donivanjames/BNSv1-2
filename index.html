@@ -5,101 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0"
-    />
+      content="width=device-width, user-scalable=no, initial-scale=1.0" />
     <title>Brand New Game</title>
 
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="imgs/apple-v02.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <style>
       /* @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"); */
     </style>
     <!-- Google Tag -->
-    <script async src="[https://www.googletagmanager.com/gtag/js?id=UA-178389882-1](https://www.googletagmanager.com/gtag/js?id=UA-178389882-1)"></script>
+    <script
+      async
+      src="[https://www.googletagmanager.com/gtag/js?id=UA-178389882-1](https://www.googletagmanager.com/gtag/js?id=UA-178389882-1)"></script>
     <script src="script.js" type="module"></script>
-    
   </head>
 
   <body>
     <!-- TITLE SCREEN -->
     <div class="start-screen" data-start-screen>
       <div class="title-container moveable-item">
-        <img
-          src="imgs/landing-page-v15.png"
-          class="start-screen-img"
-        />
+        <img src="imgs/landing-page-v15.png" class="start-screen-img" />
 
         <a href="https://brandnewschool.com/"
-            ><img
-              class="clickable start-screen-logo-button"
-              src="imgs/bns-leaf-2.png"
-          /></a>
+          ><img
+            class="clickable start-screen-logo-button"
+            src="imgs/bns-leaf-2.png"
+        /></a>
 
         <div class="ui-container">
           <div class="title-text-container">
-
-            
-            <div class="title-text">
+            <!-- Upper Text -->
+            <div class="title-text title-text-upper">
               <br />
               NEW WEBSITE COMING SOON! <br />
+              STAY AND PLAY <br />
+            </div>
 
-              <!-- BIG BNS LOGO -->
-              <img
-                src="imgs/bns-title-logo-4.png"
-                class="start-screen-logo-img"
-              />
+            <!-- BIG BNS LOGO -->
+            <img
+              src="imgs/bns-title-logo-5.png"
+              class="start-screen-logo-img" />
 
-              <!-- SPACE TO START -->
+            <!-- SPACE TO START -->
+            <div class="title-text title-text-lower">
               <button
                 class="clickable title-text text-blink"
-                data-space-to-start
-              >
+                data-space-to-start>
                 SPACEBAR TO START
               </button>
-
-              <!-- SOUND BUTTON -->
-              <!-- <button class="clickable title-text" > -->
-                <img src="imgs/Sound On.png" class="clickable sound-button" data-sound-toggle alt="sound button">
-              <!-- </button> -->
             </div>
 
-            <!-- Tut text HAS to be in this div or it wont center -->
-            <div class="positioned-item tut-text" data-tutorial-text>
-              LOADING...
-            </div>
+            <!-- SOUND BUTTON -->
+            <img
+              src="imgs/Sound On.png"
+              class="clickable sound-button"
+              data-sound-toggle
+              alt="sound button" />
+            <!-- </button> -->
           </div>
-
-          
+        </div>
+        <!-- Tut text HAS to be in this div or it wont center -->
+        <div class="positioned-item tut-text" data-tutorial-text>
+          LOADING...
         </div>
 
         <img
-          src="imgs/kid-idle.png"
-          class="start-screen-player positioned-item"
-        />
+        src="imgs/kid-idle.png"
+        class="start-screen-player positioned-item" />
+
+        <img src="imgs/office-glass-tint.png" class="office-window-tint positioned-item" />
+
       </div>
+
+
     </div>
 
     <!-- The Game Screen -->
     <div class="world hide" data-world>
-
       <div class="game-container">
         <!-- 2 ground sprites for the endless effect -->
         <img
           loading="lazy"
           src="imgs/background-1.png"
-          class="ground hide-img"
-          data-ground
-        />
+          class="ground"
+          data-ground />
         <img
           loading="lazy"
           src="imgs/background-3.png"
-          class="ground hide-img"
-          data-ground
-        />
+          class="ground"
+          data-ground />
 
         <!-- Score Text -->
         <div class="score-ui score hide" data-score>SCORE 0</div>
@@ -111,15 +108,13 @@
         <img
           loading="lazy"
           src="imgs/kid-idle.png"
-          class="player hide-img"
-          data-player
-        />
+          class="player"
+          data-player />
         <img
           loading="lazy"
           src="imgs/worm-idle.png"
-          class="pet hide-img"
-          data-pet
-        />
+          class="pet"
+          data-pet />
       </div>
     </div>
 

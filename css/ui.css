@@ -49,7 +49,33 @@
 }
 
 .space-to-start {
-  top: 20vw;
+  top: 24.5vw;
+}
+
+/* the +100 score popup */
+.collect-popup {
+  position: absolute;
+  left: 21.5%;
+  --bottom: 40; 
+  bottom: calc(var(--bottom) * 1%);
+  color: #FE5000;
+}
+
+/* Ultrawide */ 
+@media screen and (min-width: 1921px) {
+  .collect-popup {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .collect-popup {
+    font-size: 6px;
+  }
+
+  .space-to-start {
+    top: 21vw;
+  }
 }
 
 @media (orientation: portrait) {
@@ -58,6 +84,10 @@
       font-size: 2vw;   
       top: 72vw;
       left: 33vw;
+  }
+
+  .space-to-start {
+    top: 1vw;
   }
 
   .score-ui {

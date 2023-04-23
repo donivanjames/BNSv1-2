@@ -14,8 +14,7 @@
   /* height: 100vh; */
   width: 100%;
   aspect-ratio: auto 16 / 9;
-
-  overflow: visible; /* hidden needs to go here and not in container */
+  overflow: visible; /* overflow needs to go here and not in container, if you remove it title screen will dissapear on vertical mobile */
 }
 
 .title-container {
@@ -59,7 +58,7 @@
   position: absolute;
   text-align: center;
   margin: 0 auto;
-  margin-top: 12vh;
+  margin-top: 16vh;
   top: 1vh;
   /* border: 2px solid red; */
   /* transform: translate(50%, 50%); */
@@ -72,14 +71,14 @@
   left: 2vw;
   height: 8vh;
   margin-bottom: 6vh;
+  /* image-rendering: pixelated;
+  image-rendering: crisp-edges; */
 }
 
 /* The big BRAND NEW GAME title */
 .start-screen-logo-img {
-  height: 36vh;
+  height: 50vh;
   margin: 0 auto;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
 }
 
 .title-text {
@@ -92,28 +91,23 @@
   font-size: 1.7vh;
   letter-spacing: 1px;
   line-height: 3.65vh;
-  margin: 2rem auto 2rem;
+  margin: 0rem auto 2rem;
   color: var(--title-color-light);
 }
 
-/* Not used now that title is an image */
-/* .title-text h2 {
-  color: var(--title-color-light);
-  font-size: 7vh;
-  line-height: 5.5vh;
-} */
+.title-text-upper {
+  margin-bottom: -5vh;
+}
 
-/* .space-to-start-title-button {
-  border: 1.5px;  
-  border-style: solid;
-  border-radius: 75px 75px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-left: 11px;
-  padding-right: 11px;
-  color: white;
-  margin-bottom: 3vh;
-} */
+.title-text-lower {
+  margin-top: 2vh;
+}
+
+.sound-button {
+  /* image rendering doesnt help with blurriness */
+  margin-top: 1vh;
+  max-width: 5vh;
+}
 
 .tut-text {
   position: absolute;
@@ -123,12 +117,8 @@
   color: #ffffff;
 
   text-align: center;
-  transform: translate(0%, 0%);
-}
-
-.sound-button {
-  /* image rendering doesnt help with blurriness */
-  max-width: 5vh;
+  --left: 39;
+  --bottom: 80; /* set in introScene.js, shows "Loading" before turning into tutorial text */
 }
 
 a:link a:visited a:active {
@@ -140,11 +130,18 @@ a:link a:visited a:active {
   height: 5vw;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  --left: 13;
-  --top: 136.6;
-  --bottom: -100;
+  --left: 27;
+  --bottom: 2000; /* set in introScene.js, here so it doesn't flash at the top on game load */
 }
 
+.office-window-tint {
+  width: 25vw;
+  --left: 70.4;
+  --bottom: 2000; /* set in introScene.js, here so it doesn't flash at the top on game load */
+
+}
+
+/* Any Landing Page Item That Requires An Absolute Position */
 .positioned-item {
   position: absolute;
 
@@ -153,18 +150,14 @@ a:link a:visited a:active {
   left: calc(var(--left) * 1%);
 }
 
-/* for horizontal iphone screens only, just to match logo icon to BNS website */
+/* for horizontal iphone screens */
 @media only screen and (max-width: 1000px) {
   body {
     justify-content: flex-start;
   }
 
-  .start-screen {
-    overflow: visible;
-  }
-
   .title-text-container {
-    margin-top: 5vh;
+    margin-top: 15vh;
   }
 
   /* The back to BNS icon */
@@ -172,27 +165,17 @@ a:link a:visited a:active {
     height: 8vh;
   }
 
-  /* The logo on the leaderboard, might not be needed anymore */
-  /* .start-screen-logo-button-leaderboard {
-    position: absolute;
-    top: 1.5vh;
-    left: 3vw;
-    height: 5vh;
-    transform: translate(0%, 0%);
-    margin-bottom: 0 auto;
-  } */
-
   /* The big BRAND NEW GAME title */
   .start-screen-logo-img {
-    height: 27vh;
-    margin-top: 9vh;
+    height: 32vh;
+    margin-top: 2vh;
     margin-bottom: 4vh;
   }
 
   .title-text {
-    font-size: 2.8vh;
+    font-size: 2.2vh;
     line-height: 4vh;
-    margin: 1rem auto 1rem;
+    margin: 0rem auto 0rem;
   }
 
   .ui-container {
@@ -212,19 +195,25 @@ a:link a:visited a:active {
   }
 
   .sound-button {
-    margin-top: 6vh;
+    margin-top: 4vh;
     max-width: 1.5rem;
   }
 
   .start-screen-player {
     display: none;
   }
+
+  /* Hide these on mobile */
+  .start-screen-img, .office-window-tint, .start-screen-player {
+    display: none;
+  }
 }
 
 /* ==============  MEDIA QUERIES (VERTICAL PHONE)  =============== */
 @media screen and (max-width: 600px) {
+
   .title-text-container {
-    margin-top: 22vh;
+    margin-top: 16vh;
   }
 
   .start-screen-logo-img {
@@ -248,3 +237,5 @@ a:link a:visited a:active {
     max-width: 2rem;
   }
 }
+
+

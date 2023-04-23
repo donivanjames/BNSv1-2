@@ -35,6 +35,7 @@ const sendHttpRequest = (method, url, data) => {
 
 export const getLeaderboardData = () => {
   sendHttpRequest('GET', "https://bns-knex-leaderboard-1.onrender.com/").then(responseData => {
+    console.log("=================\nLeaderboard Data:");
     console.log(responseData);
     leaderboardData = responseData;
   });
@@ -49,7 +50,6 @@ export const sendLeaderboardData = (name, score) => {
           }
   })
     .then(responseData => {
-      //console.log(responseData);
       getLeaderboardData()
     })
     .catch(err => {

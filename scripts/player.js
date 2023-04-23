@@ -33,7 +33,7 @@ export function setupPlayer() {
 }
 
 export function showPlayer(){
-  player.classList.remove("hide-img")
+  player.classList.remove("hide")
 }
 
 // UPDATE PLAYER

@@ -1,6 +1,6 @@
 // handles the setup functions of the game
 
-import { skipIntro, updateIntroScene, horizontalScreen } from "./introScene.js";
+import { skipIntro, updateIntroScene, horizontalScreen, finishInroScene } from "./introScene.js";
 import {
   playTitleSong,
   stopTitleSong,
@@ -36,7 +36,7 @@ export function sequence2() {
 
 // Skip first scene or setup first level
 export function sequence3() {
-  window.cancelAnimationFrame(updateIntroScene);
+  finishInroScene();
   setupGame();
   variableHolder.inputNum = 4;
 }
@@ -56,14 +56,14 @@ function startIntroScene() {
 export function setupGame() {
   stopTitleSong();
   windowElements.preGameScreen.forEach((item) => item.remove()); // get rid of all title elements
-  windowElements.worldElem.classList.remove("hide");
+  windowElements.worldElem.classList.remove("hide"); // show game world
   windowElements.mainUIElem.innerHTML = `<div class="space-to-start text-blink">SPACEBAR TO JUMP</div>`;
   document.body.style.backgroundColor = "#00C142";
 
-  windowElements.scoreElem.forEach((item) => item.classList.remove("hide"));
-  showPlayer(); // show player
+  windowElements.scoreElem.forEach((item) => item.classList.remove("hide")); // show UI
+  showPlayer();
   showPet();
-  showGround(); // show scene
+  showGround();
 }
 
 // HANDLES GAME START WHEN SPACE IS PRESSED

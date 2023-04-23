@@ -53,7 +53,7 @@
     --left: 0;
     left: calc(var(--left) * 1%);
     bottom: calc(var(--bottom) * 1%);
-    will-change: transform;
+    /* will-change: transform; */
     z-index: 0;
 }
 

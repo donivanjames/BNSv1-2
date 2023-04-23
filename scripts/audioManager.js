@@ -13,7 +13,6 @@ export function soundToggle(soundButton){
   if (!soundImg) soundImg = document.querySelector("[data-sound-toggle]") // find soundimg
 
   soundOn = !soundOn
-  console.log(soundImg)
   soundOn ? soundImg.src = 'imgs/Sound On.png' : soundImg.src = 'imgs/Sound Off.png'
   
   // Old sound text swap

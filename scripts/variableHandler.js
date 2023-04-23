@@ -24,5 +24,4 @@ export let variableHolder = {}
 
 export const resetVariables = () => {
     variableHolder = Object.assign(variableHolder, newVariables)
-    console.log(variableHolder)
 }
