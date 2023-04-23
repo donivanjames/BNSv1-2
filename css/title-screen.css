@@ -150,7 +150,7 @@ a:link a:visited a:active {
   left: calc(var(--left) * 1%);
 }
 
-/* for horizontal iphone screens only, just to match logo icon to BNS website */
+/* for horizontal iphone screens */
 @media only screen and (max-width: 1000px) {
   body {
     justify-content: flex-start;
@@ -169,21 +169,11 @@ a:link a:visited a:active {
     height: 8vh;
   }
 
-  /* The logo on the leaderboard, might not be needed anymore */
-  /* .start-screen-logo-button-leaderboard {
-    position: absolute;
-    top: 1.5vh;
-    left: 3vw;
-    height: 5vh;
-    transform: translate(0%, 0%);
-    margin-bottom: 0 auto;
-  } */
-
   /* The big BRAND NEW GAME title */
   .start-screen-logo-img {
     height: 27vh;
-    margin-top: 9vh;
-    margin-bottom: 4vh;
+    margin-top: 4vh;
+    margin-bottom: 3vh;
   }
 
   .title-text {
@@ -209,7 +199,7 @@ a:link a:visited a:active {
   }
 
   .sound-button {
-    margin-top: 6vh;
+    margin-top: 4vh;
     max-width: 1.5rem;
   }
 
@@ -228,7 +218,6 @@ a:link a:visited a:active {
   .start-screen-img, .office-window-tint, .start-screen-player {
     display: none;
   }
-
 
   .start-screen-logo-img {
     height: 20vh;

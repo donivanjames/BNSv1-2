@@ -51,11 +51,6 @@ body {
     margin: 0;
   }
 
-.hide-img {
-    opacity: 0.0;
-    pointer-events: none;
-}
-
 .hide {
     display: none;
     pointer-events: none;
@@ -106,7 +101,7 @@ body {
 
 @media (max-width: 1000px) {
   .world {
-    transform: translate(0, 30%);
+    transform: translate(0, 20%);
   }
 }
 

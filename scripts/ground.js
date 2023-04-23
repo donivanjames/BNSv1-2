@@ -11,13 +11,13 @@ const totalBackgroundImages = 3 // for randomizing background
 
 export function showGround() {
   groundElems.forEach((ground) => {
-    ground.classList.remove("hide-img");
+    ground.classList.remove("hide");
   });
 }
 
 export function hideGround() {
   groundElems.forEach((ground) => {
-    ground.classList.add("hide-img");
+    ground.classList.add("hide");
   });
 }
 

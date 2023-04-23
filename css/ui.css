@@ -72,6 +72,10 @@
   .collect-popup {
     font-size: 6px;
   }
+
+  .space-to-start {
+    top: 21vw;
+  }
 }
 
 @media (orientation: portrait) {
@@ -83,7 +87,7 @@
   }
 
   .space-to-start {
-    top: 82vw;
+    top: 1vw;
   }
 
   .score-ui {

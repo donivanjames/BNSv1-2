@@ -52,13 +52,6 @@ let customTutTextPost;
 let customOfficeWindowTintPos;
 export let horizontalScreen = true;
 
-getResolution();
-function getResolution() {
-  console.log(
-    "Your screen resolution is: " + screen.width + "x" + screen.height
-  );
-}
-
 window.addEventListener("resize", setupIntro); // to protect screen resizes
 
 setupIntro();
@@ -88,9 +81,6 @@ function setupIntro() {
   startScreenHeight = window.innerHeight; // startScreen.offsetHeight;
   imgHeight = bigImg.offsetHeight;
 
-  console.log("screen height: ", startScreenHeight);
-  console.log("img height: ", imgHeight);
-
   // These need to come after imgHeight, hence why they're not in window.matchMedia
   if (horizontalScreen) {
     scrollSpeed = imgHeight * 0.00006;
@@ -106,24 +96,26 @@ function setupIntro() {
     scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5;
   }
 
-  // Tutorial Text Position:
-  let tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
-  setCustomProperty(tutText, "--bottom", tutTextPos);
+  if (horizontalScreen) {
+    // Tutorial Text Position:
+    let tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
+    setCustomProperty(tutText, "--bottom", tutTextPos);
 
-  // Player Position:
-  let playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
-  setCustomProperty(player, "--bottom", playerPos);
+    // Player Position:
+    let playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
+    setCustomProperty(player, "--bottom", playerPos);
 
-  // Office Window Tint Position:
-  let officeWindowTintPos = 0 + startScreenHeight - imgHeight * customOfficeWindowTintPos;
-  setCustomProperty(officeWindowTint, "--bottom", officeWindowTintPos);
+    // Office Window Tint Position:
+    let officeWindowTintPos = 0 + startScreenHeight - imgHeight * customOfficeWindowTintPos;
+    setCustomProperty(officeWindowTint, "--bottom", officeWindowTintPos);
+  }
 
   allDivs.forEach((item) => {
     setCustomProperty(item, "--top", 0);
   });
 
   window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
-  }
+}
 
 export function skipIntro() {
   //scrollSpeed = 2;
@@ -143,7 +135,7 @@ export function updateIntroScene(time) {
   scrollIntroScene(delta, scrollSpeed);
   lastTime = time;
 
-  if(!sceneCompleted) window.requestAnimationFrame(updateIntroScene);
+  if (!sceneCompleted) window.requestAnimationFrame(updateIntroScene);
 }
 
 function scrollIntroScene(delta, scrollSpeed) {

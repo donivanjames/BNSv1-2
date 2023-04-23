@@ -35,7 +35,7 @@ export function setupPet() {
 }
 
 export function showPet() {
-  pet.classList.remove("hide-img");
+  pet.classList.remove("hide");
 }
 
 // UPDATE PET
