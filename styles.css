@@ -102,6 +102,7 @@ body {
 @media (max-width: 1000px) {
   .world {
     transform: translate(0, 20%);
+    overflow: visible;
   }
 }
 
