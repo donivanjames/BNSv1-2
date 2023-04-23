@@ -86,15 +86,6 @@ body {
     bottom: calc(var(--bottom) * 1%);
 }
 
-/* the +100 score popup */
-.collect-popup {
-  position: absolute;
-  left: 21.5%;
-  --bottom: 40; 
-  bottom: calc(var(--bottom) * 1%);
-  color: #FE5000;
-}
-
 /* is this needed? */
 .player::after {
     clear: both;
@@ -112,19 +103,10 @@ body {
     bottom: calc(var(--bottom) * 1%);
 }
 
-@media screen and (min-width: 1920px) {
-  .collect-popup {
-    font-size: 22px;
-  }
-}
 
 @media (max-width: 1000px) {
   .world {
     transform: translate(0, 30%);
-  }
-
-  .collect-popup {
-    font-size: 6px;
   }
 }
 
