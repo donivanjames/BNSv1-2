@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    overflow: hidden;
+    overflow: hidden; /* has to be here or a scrollbar appears */
     background-size: cover;
 
     min-height: 100vh;
@@ -36,7 +36,7 @@ body {
     position: relative;
     top: 50%;
     background-color: #00C142;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     color: #FFF0CC;
     padding-top: (16 / 9 * 100);
