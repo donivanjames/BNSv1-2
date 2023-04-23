@@ -155,10 +155,6 @@ a:link a:visited a:active {
     justify-content: flex-start;
   }
 
-  .start-screen {
-    overflow: visible;
-  }
-
   .title-text-container {
     margin-top: 15vh;
   }
@@ -203,6 +199,10 @@ a:link a:visited a:active {
   }
 
   .start-screen-player {
+    display: none;
+  }
+
+  .office-window-tint {
     display: none;
   }
 }

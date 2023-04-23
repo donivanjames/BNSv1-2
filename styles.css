@@ -24,7 +24,6 @@ body {
 
     min-height: 100vh;
     max-height: 100vh; /* these need to stay in body */
-    /* max-height: -webkit-fill-available; */
 
     font-family: 'Press Start 2P', cursive;
     color: #FFF0CC;
@@ -63,7 +62,6 @@ body {
     /* width is 1% bigger to cover boundary glitches */
     width: 295%;
     height: auto;
-    overflow:visible;
 
     top: 10.4%;
     left: calc(var(--left) * 1%);
