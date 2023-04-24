@@ -13,6 +13,7 @@ const GRAVITY = 0.0015;
 const PET_FRAME_COUNT = 3; // amount of animation frames
 const FRAME_TIME = 100; // how long each animation frame should last (in milliseconds)
 const heightFromGround = 18; // also change css --bottom to match
+const defaultPetSize = '3%'
 
 // PET SETUP
 let isJumping;
@@ -31,6 +32,7 @@ export function setupPet() {
   yVelocity = 0;
   pet.src = `imgs/worm-idle.png`;
 
+  setCustomProperty(pet, 'width', defaultPetSize) // width changes on death so we reset it here
   setCustomProperty(pet, "--bottom", heightFromGround);
 }
 
@@ -42,6 +44,19 @@ export function showPet() {
 export function updatePet(delta) {
   handlePetRun(delta, pet);
   handlePetJump(delta);
+}
+
+export function petDeath() {
+  setCustomProperty(pet, 'width', '5%')
+  pet.src = `imgs/worm-lose.png`;
+  fallToGround();
+}
+
+function fallToGround() {
+  if (getCustomProperty(pet, "--bottom") > heightFromGround + 1) {
+    incrementCustomProperty(pet, "--bottom", -3.5);
+    window.requestAnimationFrame(fallToGround)
+  }
 }
 
 // HANDLE RUN - also used in introScene.js
@@ -56,6 +71,7 @@ function handlePetRun(delta) {
     // swaps animation frames when currentFrameTime is above frameTime
     petFrame = (petFrame + 1) % PET_FRAME_COUNT; // will cycle animation frames no matter how many there are
     pet.src = `imgs/worm-walk${petFrame}.png`; // picks an image from the current pet frame
+    setCustomProperty(pet, 'width', defaultPetSize)
     currentFrameTime = 0; // reset currentFrameTime back to 0
   }
 
@@ -68,15 +84,14 @@ export function handlePetJump(delta) {
 
   if (jumpDelay >= maxJumpDelay) {
     incrementCustomProperty(pet, "--bottom", yVelocity * delta); // jump/increment into the air based on yVelocity
+    setCustomProperty(pet, 'width', '2.3%')
 
-    //if (getCustomProperty(pet, "--bottom") <= jumpableHeight) {
-    // allow jumping here
     if (getCustomProperty(pet, "--bottom") <= heightFromGround) {
       // if pet is back on the ground: continue running
       setCustomProperty(pet, "--bottom", heightFromGround); // make sure pet position is zero
+
       isJumping = false;
       petFrame = 1;
-      //setCustomProperty(pet, "width", walkingSize)
       jumpDelay = 0;
     }
     yVelocity -= GRAVITY * delta; // jump velovity slows down and goes negative while in the air to pull pet back to ground

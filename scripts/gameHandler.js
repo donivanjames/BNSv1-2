@@ -78,8 +78,8 @@ function isCollision(rect1, rect2) {
 }
 
 // HANDLE LOSE
-export function handleLose() {
-  setPlayerLose(); // set player to losing sprite
+export function handleLose(delta) {
+  setPlayerLose(delta); // set player to losing sprite
   stopRunSong();
   hideGround();
   gameOverObstacles();

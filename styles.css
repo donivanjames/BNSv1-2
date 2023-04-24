@@ -89,7 +89,7 @@ body {
 .pet {
     position: absolute;
     left: 15%;
-    width: 3%;
+    width: 3%; /* width is now set dynamically in pet.js */
     z-index: 2;
     
     /* Height Setup, Also Change player.js heightFromGround to match */

@@ -2,7 +2,7 @@
 
 import { getCustomProperty, setCustomProperty, incrementCustomProperty } from "./updateCustomProperty.js";
 import { jumpSound, loseSound } from "./audioManager.js";
-import { wormJump } from "./pet.js";
+import { wormJump, petDeath } from "./pet.js";
 import { windowElements } from "./variableHandler.js";
 
 const JUMP_HEIGHT = 0.32;
@@ -69,8 +69,8 @@ export function getPlayerRect() {
 // SET LOSING SPRITE
 export function setPlayerLose() {
     loseSound()
-    // set the sprite of the player do the loss image
-    player.src = "imgs/kid-lose.png" 
+    player.src = "imgs/kid-lose.png"
+    petDeath();
 }
 
 // HANDLE RUN - also used in introScene.js
