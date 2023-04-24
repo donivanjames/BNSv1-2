@@ -57,6 +57,10 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 setupIntro();
 function setupIntro() {
 
+  let currentUrl = window.location.href;
+  if(currentUrl.includes('404')) console.log("this is the 404 page")
+  else console.log("This is the main page")
+
   // could never get the mobile intro scene working right so half this code is skipped over, needs to be experimented with
 
   // Horizontal ui positioning
