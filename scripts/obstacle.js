@@ -194,9 +194,9 @@ export function createCactus() {
     CACTUS_INTERVAL_MIN = 700;
   }
 
+  // keep objects from spawning back to back
   const callRandomNum = () => {
     let tempRand = randomNumberBetween(1, randNum);
-    console.log("rand called")
     if(tempRand == lastObstacle) return callRandomNum();
     else return tempRand;
   }
