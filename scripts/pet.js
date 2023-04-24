@@ -47,8 +47,8 @@ export function updatePet(delta) {
 }
 
 export function petDeath() {
-  setCustomProperty(pet, 'width', '5%')
   pet.src = `imgs/worm-lose.png`;
+  setCustomProperty(pet, 'width', '5%')
   fallToGround();
 }
 
