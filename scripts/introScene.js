@@ -64,6 +64,7 @@ function setupIntro() {
     console.log("this is the 404 page")
     upperText.innerText = '404'
     lowerText.innerText = '404'
+    bigImg.style.transform = 'rotate(180deg)';
   }
   else {
     console.log("This is the main page")
