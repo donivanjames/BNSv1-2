@@ -194,12 +194,20 @@ export function createCactus() {
     CACTUS_INTERVAL_MIN = 700;
   }
 
-  // keep objects from spawning back to back
+  // keep objects from spawning back to back // originally used a recursive function but it caused lag 
   const callRandomNum = () => {
     let tempRand = randomNumberBetween(1, randNum);
-    if(tempRand == lastObstacle) return callRandomNum();
-    else return tempRand;
+    if(tempRand == lastObstacle && tempRand > 1) tempRand -= 1;
+    else if (tempRand == lastObstacle) tempRand += 1;
+    return tempRand;
   }
+
+  // The original recursive function
+  // const callRandomNum = () => {
+  //   let tempRand = randomNumberBetween(1, randNum);
+  //   if(tempRand == lastObstacle) return callRandomNum();
+  //   else return tempRand;
+  // }
 
   // Set obstacle based on random number
   const objNum = callRandomNum();
