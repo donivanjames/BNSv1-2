@@ -32,6 +32,8 @@ let container = document.querySelector(".title-container");
 let bigImg = document.querySelector(".start-screen-img");
 let player = document.querySelector(".start-screen-player");
 let officeWindowTint = document.querySelector(".office-window-tint")
+let upperText = document.querySelector(".title-text-upper")
+let lowerText = document.querySelector("[data-space-to-start]")
 let tutText = document.querySelector("[data-tutorial-text]");
 
 let startButton = document.querySelector("[data-space-to-start]");
@@ -58,8 +60,14 @@ setupIntro();
 function setupIntro() {
 
   let currentUrl = window.location.href;
-  if(currentUrl.includes('404')) console.log("this is the 404 page")
-  else console.log("This is the main page")
+  if(currentUrl.includes('404')) {
+    console.log("this is the 404 page")
+    upperText.innerText = '404'
+    lowerText.innerText = '404'
+  }
+  else {
+    console.log("This is the main page")
+  }
 
   // could never get the mobile intro scene working right so half this code is skipped over, needs to be experimented with
 
