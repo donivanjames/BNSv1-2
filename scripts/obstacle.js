@@ -164,7 +164,8 @@ function addSpecialObstacle(obstacleName, cactus){
   cactusList.push(cactus);
 }
 
-// CREATE CACTUS
+// CREATE OBSTACLES
+let lastObstacle; // stop things from spawning back-to-back
 export function createCactus() {
   const cactus = document.createElement("img"); // this creates a new image on the page that will become an obstacle
   cactus.dataset.cactus = true; // adds "data-cactus" to obstacle object so we can interact with it
@@ -193,8 +194,16 @@ export function createCactus() {
     CACTUS_INTERVAL_MIN = 700;
   }
 
+  const callRandomNum = () => {
+    let tempRand = randomNumberBetween(1, randNum);
+    console.log("rand called")
+    if(tempRand == lastObstacle) return callRandomNum();
+    else return tempRand;
+  }
+
   // Set obstacle based on random number
-  const objNum = randomNumberBetween(1, randNum);
+  const objNum = callRandomNum();
+  lastObstacle = objNum;
   cactus.src = `imgs/obstacle-${objNum}.png`; // selects the correct image from files
   cactus.classList.add(`obstacle${objNum}`); // adds CSS styles to obstacle
   cactus.classList.add(`base-obstacle`);
