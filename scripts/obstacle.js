@@ -193,6 +193,13 @@ export function createCactus() {
     CACTUS_INTERVAL_MIN = 700;
   }
 
+  // keep objects from spawning back to back
+  const callRandomNum = () => {
+    let tempRand = randomNumberBetween(1, randNum);
+    if(tempRand == lastObstacle) return callRandomNum();
+    else return tempRand;
+  }
+
   // Set obstacle based on random number
   const objNum = randomNumberBetween(1, randNum);
   cactus.src = `imgs/obstacle-${objNum}.png`; // selects the correct image from files
