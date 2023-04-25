@@ -96,7 +96,7 @@ function setupIntro() {
 
 
   // Get Screen Heights:
-  if(!isChrome) startScreenHeight = screen.height; // startScreen.offsetHeight;
+  if(!isChrome) startScreenHeight = document.documentElement.clientHeight;
   else startScreenHeight = window.innerHeight
   
   imgHeight = bigImg.offsetHeight;
