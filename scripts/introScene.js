@@ -103,8 +103,8 @@ function setupIntro() {
 
   // Rest of code needs to come after imgHeight, hence why they're not in window.matchMedia
 
-  if(isChrome) console.log("using chrome v2")
-  else console.log("Not chrome v2")
+  if(isChrome) console.log("using chrome v3")
+  else console.log("Not chrome v3")
   scrollSpeed = imgHeight * 0.00106;
   customPlayerPos = 0.867;
   customTutTextPost = 0.81;
