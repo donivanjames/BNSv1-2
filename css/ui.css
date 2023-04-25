@@ -61,7 +61,7 @@
   color: #FE5000;
 }
 
-/* Ultrawide */ 
+/* === Ultrawide === */ 
 @media screen and (min-width: 1921px) {
   .collect-popup {
     font-size: 22px;
@@ -78,16 +78,13 @@
   }
 }
 
+/* === All Vertical Screens === */
 @media (orientation: portrait) {
     .space-to-start,
     .pause-screen {
       font-size: 2vw;   
       top: 72vw;
       left: 33vw;
-  }
-
-  .space-to-start {
-    /* top: 1vw; */
   }
 
   .score-ui {
