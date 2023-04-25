@@ -105,7 +105,7 @@ function setupIntro() {
 
   if(isChrome) console.log("using chrome v3")
   else console.log("Not chrome v3")
-  scrollSpeed = imgHeight * 0.00006;
+  scrollSpeed = imgHeight * 0.00106;
   customPlayerPos = 0.867;
   customTutTextPost = 0.81;
   customOfficeWindowTintPos = 0.867;
@@ -128,6 +128,9 @@ function setupIntro() {
   allDivs.forEach((item) => {
     setCustomProperty(item, "--top", 0);
   });
+
+
+  // double check playerPos and if top is zero run again
 
   window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
 }
