@@ -105,25 +105,25 @@ function setupIntro() {
 
   if(isChrome) console.log("using chrome v2")
   else console.log("Not chrome v2")
-  scrollSpeed = imgHeight * 0.00006;
-  customPlayerPos = 0.894; // higher num = lower position
-  customTutTextPost = 0.826;
-  customOfficeWindowTintPos = 0.9073;
+  scrollSpeed = imgHeight * 0.00106;
+  customPlayerPos = 0.867;
+  customTutTextPost = 0.81;
+  customOfficeWindowTintPos = 0.867;
 
   if(!isChrome) scrollDistance = -imgHeight * 1 + startScreenHeight + 5;
   else scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
  
   // Tutorial Text Position:
-  let tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
-  setCustomProperty(tutText, "--bottom", tutTextPos);
+  let tutTextPos = imgHeight * customTutTextPost;
+  setCustomProperty(tutText, "--top", tutTextPos);
 
   // Player Position:
-  let playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
-  setCustomProperty(player, "--bottom", playerPos);
+  let playerPos = imgHeight * customPlayerPos;
+  setCustomProperty(player, "--top", playerPos);
 
   // Office Window Tint Position:
-  let officeWindowTintPos = 0 + startScreenHeight - imgHeight * customOfficeWindowTintPos;
-  setCustomProperty(officeWindowTint, "--bottom", officeWindowTintPos);
+  let officeWindowTintPos = imgHeight * customOfficeWindowTintPos;
+  setCustomProperty(officeWindowTint, "--top", officeWindowTintPos);
 
   allDivs.forEach((item) => {
     setCustomProperty(item, "--top", 0);

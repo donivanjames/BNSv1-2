@@ -131,22 +131,21 @@ a:link a:visited a:active {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 27;
-  --bottom: 2000; /* set in introScene.js, here so it doesn't flash at the top on game load */
+  --top: 2000px; /* set in introScene.js, here so it doesn't flash at the top on game load */
 }
 
 .office-window-tint {
   width: 25vw;
   --left: 70.4;
-  --bottom: 2000; /* set in introScene.js, here so it doesn't flash at the top on game load */
+  --top: 2000px; /* set in introScene.js, here so it doesn't flash at the top on game load */
 
 }
 
 /* Any Landing Page Item That Requires An Absolute Position */
 .positioned-item {
   position: absolute;
-
   z-index: 10;
-  bottom: calc(var(--bottom) * 1px);
+  top: calc(var(--top) * 1px);
   left: calc(var(--left) * 1%);
 }
 
