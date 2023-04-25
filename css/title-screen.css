@@ -58,19 +58,19 @@
   position: absolute;
   text-align: center;
   margin: 0 auto;
-  margin-top: 16vh;
-  top: 1vh;
+  margin-top: 10vh;
+  /* top: 1vh; */
   /* border: 2px solid red; */
   /* transform: translate(50%, 50%); */
 }
 
  /* The back to BNS icon */
 .start-screen-logo-button {
-  position: absolute;
-  top: 2vh;
-  left: 2vw;
-  height: 8vh;
-  margin-bottom: 6vh;
+  /* position: relative; */
+  /* top: 2vh; */
+  /* left: 2vw; */
+  height: 10vh;
+  margin-bottom: 0vh;
   /* image-rendering: pixelated;
   image-rendering: crisp-edges; */
 }
@@ -150,8 +150,68 @@ a:link a:visited a:active {
   left: calc(var(--left) * 1%);
 }
 
-/* for horizontal iphone screens */
-@media only screen and (max-width: 1000px) {
+
+  /* ============= Vertical Ipad / Some Vertical Mobile ============== */
+
+  /* for vertical ipad screens and some vertical mobile */
+  @media only screen 
+  and (max-width : 1500px) 
+  and (orientation : portrait) { 
+    .sound-button {
+      margin-top: 4vh;
+      max-width: 5vh;
+    }
+
+    .title-text-container {
+      margin-top: 16vh;
+    }
+  
+    .start-screen-logo-img {
+      height: 30vh;
+      margin: 0 auto;
+      margin-top: 3vh;
+      margin-bottom: 3vh;
+    }
+  
+    .start-screen-logo-button {
+      height: 5vh;
+      margin-right: 1vh;
+    }
+  
+    .title-text {
+      font-size: 1.5vh;
+    }
+  
+    .sound-button {
+      margin-top: 5vh;
+      max-width: 4rem;
+    }
+  }
+
+
+  /* ======== Vertical Mobile ========= */
+  @media only screen 
+  and (max-width : 600px) 
+  and (orientation : portrait) { 
+    .start-screen-logo-img {
+      height: 22vh;
+      margin: 0 auto;
+      margin-top: 3vh;
+      margin-bottom: 3vh;
+    }
+
+    .sound-button {
+      margin-top: 5vh;
+      max-width: 2rem;
+    }
+  }
+
+
+/* =========== Horizontal Iphone Screens ============= */
+@media only screen 
+and (max-width : 1000px) 
+and (orientation : landscape) { 
+
   body {
     justify-content: flex-start;
   }
@@ -195,7 +255,7 @@ a:link a:visited a:active {
   }
 
   .sound-button {
-    margin-top: 4vh;
+    margin-top: 5vh;
     max-width: 1.5rem;
   }
 
@@ -209,33 +269,5 @@ a:link a:visited a:active {
   }
 }
 
-/* ==============  MEDIA QUERIES (VERTICAL PHONE)  =============== */
-@media screen and (max-width: 600px) {
-
-  .title-text-container {
-    margin-top: 16vh;
-  }
-
-  .start-screen-logo-img {
-    height: 20vh;
-    margin: 0 auto;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-  }
-
-  .start-screen-logo-button {
-    height: 5vh;
-    margin-right: 1vh;
-  }
-
-  .title-text {
-    font-size: 1.5vh;
-  }
-
-  .sound-button {
-    margin-top: 5vh;
-    max-width: 2rem;
-  }
-}
 
 

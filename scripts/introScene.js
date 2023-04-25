@@ -59,16 +59,14 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 setupIntro();
 function setupIntro() {
 
-  let currentUrl = window.location.href;
-  if(currentUrl.includes('404')) {
-    console.log("this is the 404 page")
-    upperText.innerText = '404'
-    lowerText.innerText = '404'
-    bigImg.style.transform = 'rotate(180deg)';
-  }
-  else {
-    console.log("This is the main page")
-  }
+  // === Code for later === //
+  // let currentUrl = window.location.href;
+  // if(currentUrl.includes('/game')) {
+  //   console.log("This is the alt game page")
+  // }
+  // else {
+  //   console.log("this is the default 404 page")
+  // }
 
   // could never get the mobile intro scene working right so half this code is skipped over, needs to be experimented with
 
