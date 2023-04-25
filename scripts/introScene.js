@@ -93,21 +93,15 @@ function setupIntro() {
   imgHeight = bigImg.offsetHeight;
 
   // These need to come after imgHeight, hence why they're not in window.matchMedia
-  if (horizontalScreen) {
+  // if (horizontalScreen) {
     scrollSpeed = imgHeight * 0.00006;
     customPlayerPos = 0.894; // higher num = lower position
     customTutTextPost = 0.826;
     customOfficeWindowTintPos = 0.9073;
 
     scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
-  } else { // might remove this since mobile is no longer supported
-    scrollSpeed = imgHeight * 0.0002;
-    customPlayerPos = 2.317;
-    customTutTextPost = 1.53;
-    scrollDistance = -imgHeight * 0.9 - startScreenHeight * 1.5;
-  }
+  // } 
 
-  if (horizontalScreen) {
     // Tutorial Text Position:
     let tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
     setCustomProperty(tutText, "--bottom", tutTextPos);
@@ -119,13 +113,12 @@ function setupIntro() {
     // Office Window Tint Position:
     let officeWindowTintPos = 0 + startScreenHeight - imgHeight * customOfficeWindowTintPos;
     setCustomProperty(officeWindowTint, "--bottom", officeWindowTintPos);
-  }
+  
+    allDivs.forEach((item) => {
+      setCustomProperty(item, "--top", 0);
+    });
 
-  allDivs.forEach((item) => {
-    setCustomProperty(item, "--top", 0);
-  });
-
-  window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
+    window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
 }
 
 export function skipIntro() {
