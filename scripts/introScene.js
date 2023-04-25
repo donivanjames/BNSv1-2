@@ -105,7 +105,7 @@ function setupIntro() {
 
   if(isChrome) console.log("using chrome v3")
   else console.log("Not chrome v3")
-  scrollSpeed = imgHeight * 0.00106;
+  scrollSpeed = imgHeight * 0.00006;
   customPlayerPos = 0.867;
   customTutTextPost = 0.81;
   customOfficeWindowTintPos = 0.867;
