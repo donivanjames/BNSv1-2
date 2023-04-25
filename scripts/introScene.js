@@ -88,37 +88,47 @@ function setupIntro() {
 
   if (window.innerWidth < 1200) bigImg.removeAttribute('src')
 
+    // === Detect Chrome === //
+  // Chrome screenHeight is different than other browsers, really annoying when designing intro scene
+  let isChrome
+  if(navigator.userAgent.indexOf("Chrome") != -1 )
+        isChrome = true;
+
+
   // Get Screen Heights:
-  startScreenHeight = window.innerHeight; // startScreen.offsetHeight;
+  if(!isChrome) startScreenHeight = screen.height; // startScreen.offsetHeight;
+  else startScreenHeight = window.innerHeight
+  
   imgHeight = bigImg.offsetHeight;
 
-  // These need to come after imgHeight, hence why they're not in window.matchMedia
-  // if (horizontalScreen) {
-    scrollSpeed = imgHeight * 0.00006;
-    customPlayerPos = 0.894; // higher num = lower position
-    customTutTextPost = 0.826;
-    customOfficeWindowTintPos = 0.9073;
+  // Rest of code needs to come after imgHeight, hence why they're not in window.matchMedia
 
-    scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
-  // } 
+  if(isChrome) console.log("using chrome")
+  scrollSpeed = imgHeight * 0.00006;
+  customPlayerPos = 0.894; // higher num = lower position
+  customTutTextPost = 0.826;
+  customOfficeWindowTintPos = 0.9073;
 
-    // Tutorial Text Position:
-    let tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
-    setCustomProperty(tutText, "--bottom", tutTextPos);
+  if(!isChrome) scrollDistance = -imgHeight * 1 + startScreenHeight + 5;
+  else scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
+ 
+  // Tutorial Text Position:
+  let tutTextPos = 0 + startScreenHeight - imgHeight * customTutTextPost;
+  setCustomProperty(tutText, "--bottom", tutTextPos);
 
-    // Player Position:
-    let playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
-    setCustomProperty(player, "--bottom", playerPos);
+  // Player Position:
+  let playerPos = 0 + startScreenHeight - imgHeight * customPlayerPos;
+  setCustomProperty(player, "--bottom", playerPos);
 
-    // Office Window Tint Position:
-    let officeWindowTintPos = 0 + startScreenHeight - imgHeight * customOfficeWindowTintPos;
-    setCustomProperty(officeWindowTint, "--bottom", officeWindowTintPos);
-  
-    allDivs.forEach((item) => {
-      setCustomProperty(item, "--top", 0);
-    });
+  // Office Window Tint Position:
+  let officeWindowTintPos = 0 + startScreenHeight - imgHeight * customOfficeWindowTintPos;
+  setCustomProperty(officeWindowTint, "--bottom", officeWindowTintPos);
 
-    window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
+  allDivs.forEach((item) => {
+    setCustomProperty(item, "--top", 0);
+  });
+
+  window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
 }
 
 export function skipIntro() {
