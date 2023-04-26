@@ -69,7 +69,7 @@
   /* position: relative; */
   /* top: 2vh; */
   /* left: 2vw; */
-  height: 10vh;
+  height: 8vh;
   margin-bottom: 0vh;
   /* image-rendering: pixelated;
   image-rendering: crisp-edges; */
@@ -131,12 +131,14 @@ a:link a:visited a:active {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   --left: 27;
+  top: 2000px;
   --top: 2000px; /* set in introScene.js, here so it doesn't flash at the top on game load */
 }
 
 .office-window-tint {
   width: 25vw;
   --left: 70.4;
+  top: 2000px;
   --top: 2000px; /* set in introScene.js, here so it doesn't flash at the top on game load */
 
 }
