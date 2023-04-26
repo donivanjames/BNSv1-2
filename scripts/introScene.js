@@ -68,7 +68,6 @@ function setupIntro() {
   //   console.log("this is the default 404 page")
   // }
 
-
   // Horizontal ui positioning
   if (window.matchMedia("(orientation: landscape)").matches) {
     horizontalScreen = true;
@@ -98,8 +97,6 @@ function setupIntro() {
 
   // Rest of code needs to come after imgHeight, hence why they're not in window.matchMedia
 
-  if (isChrome) console.log("using chrome v3")
-  else console.log("Not chrome v3")
   scrollSpeed = imgHeight * 0.00006;
   customPlayerPos = 0.867;
   customTutTextPost = 0.81;
@@ -116,13 +113,15 @@ function setupIntro() {
 function assignPlacements() {
 
   if (imgHeight === 0 || !horizontalScreen) {
-    // vertical screen, hide everything
-    player.classList.add("hide")
-    officeWindowTint.classList.add('hide')
-    if (bigImg) bigImg.classList.add('hide')
+      // vertical screen, hide everything
+      player.classList.add("hide")
+      officeWindowTint.classList.add('hide')
+      if (bigImg)
+        bigImg.classList.add('hide')
   } else {
     player.classList.remove("hide")
     officeWindowTint.classList.remove('hide')
+    bigImg.classList.remove('hide')
   }
 
   // Tutorial Text Position:
