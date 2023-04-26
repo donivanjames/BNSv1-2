@@ -72,58 +72,54 @@ function setupIntro() {
   // Horizontal ui positioning
   if (window.matchMedia("(orientation: landscape)").matches) {
     horizontalScreen = true;
-    console.log("you're in LANDSCAPE mode", "horizontal: ", horizontalScreen);
+    console.log("you're in LANDSCAPE mode");
   }
   // Vertical ui positioning
   if (window.matchMedia("(orientation: portrait)").matches) {
     horizontalScreen = false;
-    console.log(
-      "you're in PORTRAIT mode, ",
-      "horizontal: ",
-      horizontalScreen
-    );
+    console.log("you're in PORTRAIT mode");
     bigImg.removeAttribute('src') // remove landing page image for mobile
   }
 
-  if (window.innerWidth < 1200) bigImg.removeAttribute('src')
+  if (screen.width < 1200) bigImg.removeAttribute('src')
 
-    // === Detect Chrome === //
+  // === Detect Chrome === //
   // Chrome screenHeight is different than other browsers, really annoying when designing intro scene
   let isChrome
-  if(navigator.userAgent.indexOf("Chrome") != -1 )
-        isChrome = true;
+  if (navigator.userAgent.indexOf("Chrome") != -1)
+    isChrome = true;
 
 
   // Get Screen Heights:
-  if(!isChrome) startScreenHeight = screen.height;
+  if (!isChrome) startScreenHeight = screen.height;
   else startScreenHeight = window.innerHeight
-  
+
   imgHeight = bigImg.offsetHeight;
 
   // Rest of code needs to come after imgHeight, hence why they're not in window.matchMedia
 
-  if(isChrome) console.log("using chrome v3")
+  if (isChrome) console.log("using chrome v3")
   else console.log("Not chrome v3")
   scrollSpeed = imgHeight * 0.00006;
   customPlayerPos = 0.867;
   customTutTextPost = 0.81;
   customOfficeWindowTintPos = 0.867;
 
-  if(!isChrome) scrollDistance = -imgHeight * 1 + startScreenHeight + 5;
+  if (!isChrome) scrollDistance = -imgHeight * 1 + startScreenHeight + 5;
   else scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
- 
+
   assignPlacements();
 
   window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
 }
 
 function assignPlacements() {
-  
-  if(imgHeight === 0 || !horizontalScreen) {
+
+  if (imgHeight === 0 || !horizontalScreen) {
     // vertical screen, hide everything
     player.classList.add("hide")
     officeWindowTint.classList.add('hide')
-    if(bigImg) bigImg.classList.add('hide')
+    if (bigImg) bigImg.classList.add('hide')
   } else {
     player.classList.remove("hide")
     officeWindowTint.classList.remove('hide')
