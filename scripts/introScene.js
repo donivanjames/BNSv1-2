@@ -122,7 +122,11 @@ function assignPlacements() {
   
   if(imgHeight === 0) {
     // vertical screen, hide everything
-    imgHeight = 4000;
+    player.classList.add("hide")
+    officeWindowTint.classList.add('hide')
+  } else {
+    player.classList.remove("hide")
+    officeWindowTint.classList.remove('hide')
   }
 
   // Tutorial Text Position:
