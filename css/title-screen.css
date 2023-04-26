@@ -70,7 +70,8 @@
   /* top: 2vh; */
   /* left: 2vw; */
   height: 8vh;
-  margin-bottom: 0vh;
+  margin-bottom: 1.5vh;
+  margin-right: 1.5vh;
   /* image-rendering: pixelated;
   image-rendering: crisp-edges; */
 }
