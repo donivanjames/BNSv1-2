@@ -72,15 +72,16 @@ function setupIntro() {
   if (window.matchMedia("(orientation: landscape)").matches) {
     horizontalScreen = true;
     console.log("you're in LANDSCAPE mode");
+    bigImg.classList.remove('hide')
   }
   // Vertical ui positioning
   if (window.matchMedia("(orientation: portrait)").matches) {
     horizontalScreen = false;
     console.log("you're in PORTRAIT mode");
-    bigImg.removeAttribute('src') // remove landing page image for mobile
+    bigImg.classList.add('hide') // remove landing page image for mobile
   }
 
-  if (screen.width < 1200) bigImg.removeAttribute('src')
+  if (screen.width < 900) bigImg.removeAttribute('src')
 
   // === Detect Chrome === //
   // Chrome screenHeight is different than other browsers, really annoying when designing intro scene
@@ -111,18 +112,18 @@ function setupIntro() {
 }
 
 function assignPlacements() {
-
   if (imgHeight === 0 || !horizontalScreen) {
       // vertical screen, hide everything
       player.classList.add("hide")
       officeWindowTint.classList.add('hide')
-      if (bigImg)
-        bigImg.classList.add('hide')
   } else {
     player.classList.remove("hide")
     officeWindowTint.classList.remove('hide')
-    bigImg.classList.remove('hide')
   }
+
+  //if(bigImg.style.display) console.log("Landing image hidden, intro scene wont load")
+  if(bigImg.classList.contains('hide')) console.log('landing image hidden')
+  console.log("Landing Page Height: ", imgHeight)
 
   // Tutorial Text Position:
   let tutTextPos = imgHeight * customTutTextPost;
