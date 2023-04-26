@@ -113,6 +113,18 @@ function setupIntro() {
   if(!isChrome) scrollDistance = -imgHeight * 1 + startScreenHeight + 5;
   else scrollDistance = -imgHeight * 0.95 + startScreenHeight + 5;
  
+  assignPlacements();
+
+  window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
+}
+
+function assignPlacements() {
+  
+  if(imgHeight === 0) {
+    // vertical screen, hide everything
+    imgHeight = 4000;
+  }
+
   // Tutorial Text Position:
   let tutTextPos = imgHeight * customTutTextPost;
   setCustomProperty(tutText, "--top", tutTextPos);
@@ -128,11 +140,6 @@ function setupIntro() {
   allDivs.forEach((item) => {
     setCustomProperty(item, "--top", 0);
   });
-
-
-  // double check playerPos and if top is zero run again
-
-  window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
 }
 
 export function skipIntro() {
