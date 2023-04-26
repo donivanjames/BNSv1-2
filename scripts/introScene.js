@@ -120,7 +120,7 @@ function setupIntro() {
 
 function assignPlacements() {
   
-  if(imgHeight === 0) {
+  if(imgHeight === 0 || !horizontalScreen) {
     // vertical screen, hide everything
     player.classList.add("hide")
     officeWindowTint.classList.add('hide')
