@@ -68,7 +68,6 @@ function setupIntro() {
   //   console.log("this is the default 404 page")
   // }
 
-  // could never get the mobile intro scene working right so half this code is skipped over, needs to be experimented with
 
   // Horizontal ui positioning
   if (window.matchMedia("(orientation: landscape)").matches) {
@@ -124,6 +123,7 @@ function assignPlacements() {
     // vertical screen, hide everything
     player.classList.add("hide")
     officeWindowTint.classList.add('hide')
+    if(bigImg) bigImg.classList.add('hide')
   } else {
     player.classList.remove("hide")
     officeWindowTint.classList.remove('hide')
