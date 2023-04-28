@@ -60,13 +60,15 @@ setupIntro();
 function setupIntro() {
 
   // === Code for later === //
-  // let currentUrl = window.location.href;
-  // if(currentUrl.includes('/game')) {
-  //   console.log("This is the alt game page")
-  // }
-  // else {
-  //   console.log("this is the default 404 page")
-  // }
+  let currentUrl = window.location.href;
+  if(currentUrl.includes('/game')) {
+    console.log("This is the main game page")
+    bigImg.src = 'imgs/bns-title-logo-5.png'
+  }
+  else {
+    console.log("this is the default 404 page")
+    bigImg.src = 'imgs/bns-title-logo-404-1.png'
+  }
 
   // Horizontal ui positioning
   if (window.matchMedia("(orientation: landscape)").matches) {
