@@ -4,7 +4,7 @@ export const GameTitleMain = `
     src="imgs/title-screen-caution-sign.png"
     class="upper-image-404" 
     />
-
+    <br />
     <!-- BIG BNS LOGO -->
     <img
         src="imgs/bns-title-logo-5.png"
