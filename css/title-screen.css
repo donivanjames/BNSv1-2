@@ -25,6 +25,7 @@
   top: 0%;
 }
 
+/* Any item on the screen that moves, currently just the title-container */
 .moveable-item {
   position: absolute;
   /* Set up positioning */
@@ -32,7 +33,7 @@
   will-change: transform;
 }
 
-.start-screen-img {
+.landing-page-background-img {
   position: absolute;
   width: 100%;
   /* height: 280%; */
@@ -54,6 +55,7 @@
   max-width: 1920px;
 }
 
+/* Holds all title text */
 .title-text-container {
   position: absolute;
   text-align: center;
@@ -76,13 +78,11 @@
   image-rendering: crisp-edges; */
 }
 
+/* The '404 ERROR' message*/
 .upper-image-404 {
   width: 33vh;
   margin-bottom: -80px;
 }
-
-
-/* === BNS Title Image === */
 
 /* The big BRAND NEW GAME title */
 .start-screen-title-img {
@@ -289,7 +289,7 @@ and (orientation : landscape) {
   }
 
   /* Hide these on mobile */
-  .start-screen-img, .office-window-tint, .start-screen-player {
+  .landing-page-background-img, .office-window-tint, .start-screen-player {
     display: none;
   }
 }
