@@ -16,6 +16,35 @@ export const finishInroScene = () => {
   container.classList.remove("moveable-item"); // stops browser from trying to render the 'will-change' in the landing page, it gets deleted but it's just a precaution
 }
 
+const GameTitleMain = ` 
+<!-- Upper Text -->
+<div class="title-text title-text-upper">
+  <br />
+  NEW WEBSITE COMING SOON! <br />
+  <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
+  <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />
+</div>
+
+<!-- BIG BNS LOGO -->
+<img
+  src="imgs/bns-title-logo-5.png"
+  class="start-screen-logo-img" />`
+
+const GameTitle404 = `
+  <!-- Upper Text -->
+<div class="title-text title-text-upper">
+  <br />
+  NEW WEBSITE COMING SOON! <br />
+</div>
+
+<!-- BIG BNS LOGO -->
+<img
+  src="imgs/bns-title-logo-404-1.png"
+  class="start-screen-logo-img" />
+  
+  <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
+  <div class="title-text" style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />`
+
 let lastTime = null;
 let waitAtEnd = 1000;
 const PLAYER_FRAME_COUNT = 7; // amount of animation frames
@@ -28,6 +57,7 @@ let fullTutText = "COLLECT APPLES TO SCORE<br>WATCH OUT FOR OBSTACLES";
 
 let allDivs = document.querySelectorAll("[data-start-screen]");
 let startScreen = document.querySelector(".start-screen");
+let titleScreen = document.querySelector('[data-title]')
 let container = document.querySelector(".title-container");
 let bigImg = document.querySelector(".start-screen-img");
 let titleLogo = document.querySelector('.start-screen-logo-img')
@@ -62,13 +92,15 @@ function setupIntro() {
 
   // === Code for later === //
   let currentUrl = window.location.href;
-  if(currentUrl.includes('/game')) {
+  if (currentUrl.includes('404')) {
     console.log("This is the main game page")
-    titleLogo.src = 'imgs/bns-title-logo-5.png'
+    //titleLogo.src = 'imgs/bns-title-logo-5.png'
+    titleScreen.outerHTML = GameTitle404
   }
   else {
     console.log("this is the default 404 page")
-    titleLogo.src = 'imgs/bns-title-logo-404-1.png'
+    // titleLogo.src = 'imgs/bns-title-logo-404-1.png'
+    titleScreen.outerHTML = GameTitleMain
   }
 
   // Horizontal ui positioning
@@ -116,16 +148,16 @@ function setupIntro() {
 
 function assignPlacements() {
   if (imgHeight === 0 || !horizontalScreen) {
-      // vertical screen, hide everything
-      player.classList.add("hide")
-      officeWindowTint.classList.add('hide')
+    // vertical screen, hide everything
+    player.classList.add("hide")
+    officeWindowTint.classList.add('hide')
   } else {
     player.classList.remove("hide")
     officeWindowTint.classList.remove('hide')
   }
 
   //if(bigImg.style.display) console.log("Landing image hidden, intro scene wont load")
-  if(bigImg.classList.contains('hide')) console.log('landing image hidden')
+  if (bigImg.classList.contains('hide')) console.log('landing image hidden')
   console.log("Landing Page Height: ", imgHeight)
 
   // Tutorial Text Position:
