@@ -120,7 +120,7 @@ function setupIntro() {
   
   setTimeout(() => {
     document.querySelector('.loading-screen').remove();  
-  }, 1500);
+  }, 1000);
 }
 
 function assignPlacements() {
