@@ -9,6 +9,12 @@ let soundImg
 titleSong.volume = 0.07;
 titleSong.loop = false;
 
+document.addEventListener("visibilitychange", function() {
+  stopTitleSong();
+  stopRunSong();
+  stopGameOverSong();
+});
+
 export function soundToggle(soundButton){
   if (!soundImg) soundImg = document.querySelector("[data-sound-toggle]") // find soundimg
 

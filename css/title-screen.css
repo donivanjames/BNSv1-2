@@ -10,17 +10,14 @@
 }
 
 .loading-screen {
- 
   min-height: 100vh;
   min-width: 100%;
   background-color: #04ABE0;
 }
 
 .loading-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 45vh;  
+  margin: auto;
+  margin-top: 45vh; 
   font-size:large;
   color: var(--title-color-light);
 }
