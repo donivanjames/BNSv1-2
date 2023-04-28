@@ -65,7 +65,7 @@ function setupIntro() {
 
   // === Code for later === //
   let currentUrl = window.location.href;
-  if (!currentUrl.includes('404')) {
+  if (currentUrl.includes('404')) {
     console.log("This is the main game page")
     //titleLogo.src = 'imgs/bns-title-logo-5.png'
     titleScreen.innerHTML = GameTitle404
