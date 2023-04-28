@@ -117,7 +117,10 @@ function setupIntro() {
   assignPlacements();
 
   window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
-  document.querySelector('.loading-screen').remove();  
+  
+  setTimeout(() => {
+    document.querySelector('.loading-screen').remove();  
+  }, 1500);
 }
 
 function assignPlacements() {
