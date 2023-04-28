@@ -19,8 +19,9 @@
 }
 
 .loading-text {
-  margin: auto;
-  margin-top: 45vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size:large;
   color: var(--title-color-light);
 }
