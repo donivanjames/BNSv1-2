@@ -32,10 +32,6 @@ const GameTitleMain = `
 
 const GameTitle404 = `
   <!-- Upper Text -->
-<div class="title-text title-text-upper">
-  <br />
-  NEW WEBSITE COMING SOON! <br />
-</div>
 
 <!-- BIG BNS LOGO -->
 <img
