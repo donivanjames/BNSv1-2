@@ -9,6 +9,22 @@
   --title-color-light: #003399;
 }
 
+.loading-screen {
+ 
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: #04ABE0;
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45vh;  
+  font-size:xx-large;
+  color: var(--title-color-light);
+}
+
 .start-screen {
   position: relative;
   /* height: 100vh; */

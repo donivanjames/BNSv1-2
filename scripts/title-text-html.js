@@ -8,7 +8,7 @@ export const GameTitleMain = `
     <!-- BIG BNS LOGO -->
     <img
         src="imgs/bns-title-logo-5.png"
-        class="start-screen-title-img" 
+        class="start-screen-title-img"
     />
   `
 
