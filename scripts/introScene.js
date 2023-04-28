@@ -30,6 +30,7 @@ let allDivs = document.querySelectorAll("[data-start-screen]");
 let startScreen = document.querySelector(".start-screen");
 let container = document.querySelector(".title-container");
 let bigImg = document.querySelector(".start-screen-img");
+let titleLogo = document.querySelector('.start-screen-logo-img')
 let player = document.querySelector(".start-screen-player");
 let officeWindowTint = document.querySelector(".office-window-tint")
 let upperText = document.querySelector(".title-text-upper")
@@ -63,11 +64,11 @@ function setupIntro() {
   let currentUrl = window.location.href;
   if(currentUrl.includes('/game')) {
     console.log("This is the main game page")
-    bigImg.src = 'imgs/bns-title-logo-5.png'
+    titleLogo.src = 'imgs/bns-title-logo-5.png'
   }
   else {
     console.log("this is the default 404 page")
-    bigImg.src = 'imgs/bns-title-logo-404-1.png'
+    titleLogo.src = 'imgs/bns-title-logo-404-1.png'
   }
 
   // Horizontal ui positioning
