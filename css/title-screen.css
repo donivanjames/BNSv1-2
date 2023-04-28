@@ -76,6 +76,14 @@
   image-rendering: crisp-edges; */
 }
 
+.upper-image-404 {
+  width: 33vh;
+  margin-bottom: -80px;
+}
+
+
+/* === BNS Title Image === */
+
 /* The big BRAND NEW GAME title */
 .start-screen-title-img {
   height: 50vh;
@@ -169,7 +177,12 @@ a:link a:visited a:active {
     }
 
     .title-text-container {
-      margin-top: 16vh;
+      margin-top: 20vh;
+    }
+
+    .upper-image-404 {
+      width: 25vh;
+      margin-bottom: -28px;
     }
   
     .start-screen-title-img {
@@ -229,6 +242,12 @@ and (orientation : landscape) {
   /* The back to BNS icon */
   .start-screen-logo-button {
     height: 8vh;
+  }
+
+
+  .upper-image-404 {
+    width: 33vh;
+    margin-bottom: -20px;
   }
 
   /* The big BRAND NEW GAME title */

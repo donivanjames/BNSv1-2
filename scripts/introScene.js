@@ -8,6 +8,7 @@ import {
 } from "./updateCustomProperty.js";
 import { soundToggle } from "./audioManager.js";
 import { sequence1, sequence3 } from "./gameSetup.js";
+import { GameTitleMain, GameTitle404 } from "./title-text-html.js";
 
 let sceneCompleted; // cancelAnimationFrame wasn't working
 export const finishInroScene = () => {
@@ -16,34 +17,7 @@ export const finishInroScene = () => {
   container.classList.remove("moveable-item"); // stops browser from trying to render the 'will-change' in the landing page, it gets deleted but it's just a precaution
 }
 
-const GameTitleMain = ` 
-  <!-- Upper Text -->
-  <div class="title-text title-text-upper">
-    <br />
-    NEW WEBSITE COMING SOON! <br />
-    <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
-    <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />
-  </div>
 
-  <!-- BIG BNS LOGO -->
-  <img
-    src="imgs/bns-title-logo-5.png"
-    class="start-screen-title-img" />
-  `
-
-const GameTitle404 = `
-  <!-- Upper Text -->
-
-  <!-- BIG BNS LOGO -->
-  <img
-    src="imgs/bns-title-logo-404-1.png"
-    class="start-screen-title-img" />
-    
-  <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
-  <div class=title-text>
-    <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />
-  </div>
-`
 
 let lastTime = null;
 let waitAtEnd = 1000;
@@ -91,15 +65,15 @@ function setupIntro() {
 
   // === Code for later === //
   let currentUrl = window.location.href;
-  if (currentUrl.includes('404')) {
+  if (!currentUrl.includes('404')) {
     console.log("This is the main game page")
     //titleLogo.src = 'imgs/bns-title-logo-5.png'
-    titleScreen.outerHTML = GameTitle404
+    titleScreen.innerHTML = GameTitle404
   }
   else {
     console.log("this is the default 404 page")
     // titleLogo.src = 'imgs/bns-title-logo-404-1.png'
-    titleScreen.outerHTML = GameTitleMain
+    titleScreen.innerHTML = GameTitleMain
   }
 
   // Horizontal ui positioning
