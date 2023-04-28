@@ -29,6 +29,6 @@ export const GameTitle404 = `
     <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
     <div class='title-text'>
         <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> 
-        <br />
     </div>
+    <br />
 `

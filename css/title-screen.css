@@ -16,6 +16,7 @@
   min-height: 100vh;
   min-width: 100%;
   background-color: #04ABE0;
+  font-size: 2vh;
 }
 
 .loading-text {
@@ -121,7 +122,7 @@
   font-size: 1.7vh;
   letter-spacing: 1px;
   line-height: 3.65vh;
-  margin: 0rem auto 2rem;
+  margin: 0rem auto 0;
   color: var(--title-color-light);
 }
 
@@ -194,7 +195,7 @@ a:link a:visited a:active {
     }
 
     .loading-text {
-      font-size: medium;
+      font-size: 1.5vh;
       margin-left: 3vh;
     }
 
