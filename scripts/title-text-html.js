@@ -24,7 +24,7 @@ export const GameTitle404 = `
         />
         <br />
         <img
-            src="imgs/bns-title-logo-5.png"
+            src="imgs/bns-title-logo-404-1.png"
             class="start-screen-title-img"
         />
     </div>
