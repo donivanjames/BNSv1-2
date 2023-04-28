@@ -77,9 +77,13 @@
 }
 
 /* The big BRAND NEW GAME title */
-.start-screen-logo-img {
+.start-screen-title-img {
   height: 50vh;
   margin: 0 auto;
+}
+
+.start-screen-title-img-404 {
+  height: 50vh;
 }
 
 .title-text {
@@ -168,7 +172,7 @@ a:link a:visited a:active {
       margin-top: 16vh;
     }
   
-    .start-screen-logo-img {
+    .start-screen-title-img {
       height: 30vh;
       margin: 0 auto;
       margin-top: 3vh;
@@ -195,7 +199,7 @@ a:link a:visited a:active {
   @media only screen 
   and (max-width : 600px) 
   and (orientation : portrait) { 
-    .start-screen-logo-img {
+    .start-screen-title-img {
       height: 22vh;
       margin: 0 auto;
       margin-top: 3vh;
@@ -228,7 +232,7 @@ and (orientation : landscape) {
   }
 
   /* The big BRAND NEW GAME title */
-  .start-screen-logo-img {
+  .start-screen-title-img {
     height: 32vh;
     margin-top: 2vh;
     margin-bottom: 4vh;

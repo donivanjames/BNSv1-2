@@ -17,29 +17,33 @@ export const finishInroScene = () => {
 }
 
 const GameTitleMain = ` 
-<!-- Upper Text -->
-<div class="title-text title-text-upper">
-  <br />
-  NEW WEBSITE COMING SOON! <br />
-  <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
-  <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />
-</div>
+  <!-- Upper Text -->
+  <div class="title-text title-text-upper">
+    <br />
+    NEW WEBSITE COMING SOON! <br />
+    <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
+    <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />
+  </div>
 
-<!-- BIG BNS LOGO -->
-<img
-  src="imgs/bns-title-logo-5.png"
-  class="start-screen-logo-img" />`
+  <!-- BIG BNS LOGO -->
+  <img
+    src="imgs/bns-title-logo-5.png"
+    class="start-screen-title-img" />
+  `
 
 const GameTitle404 = `
   <!-- Upper Text -->
 
-<!-- BIG BNS LOGO -->
-<img
-  src="imgs/bns-title-logo-404-1.png"
-  class="start-screen-logo-img" />
-  
+  <!-- BIG BNS LOGO -->
+  <img
+    src="imgs/bns-title-logo-404-1.png"
+    class="start-screen-title-img" />
+    
   <!-- Had to tighten up the letter spacing for the words 'Stay' and 'Play'-->
-  <div class="title-text" style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />`
+  <div class=title-text>
+    <div style="display: inline; letter-spacing: -.1rem;">STAY</div> AND <div style="display: inline; letter-spacing: -.06rem;">PLAY</div> <br />
+  </div>
+`
 
 let lastTime = null;
 let waitAtEnd = 1000;
@@ -56,7 +60,6 @@ let startScreen = document.querySelector(".start-screen");
 let titleScreen = document.querySelector('[data-title]')
 let container = document.querySelector(".title-container");
 let bigImg = document.querySelector(".start-screen-img");
-let titleLogo = document.querySelector('.start-screen-logo-img')
 let player = document.querySelector(".start-screen-player");
 let officeWindowTint = document.querySelector(".office-window-tint")
 let upperText = document.querySelector(".title-text-upper")
