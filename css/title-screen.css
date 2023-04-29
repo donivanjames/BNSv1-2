@@ -9,6 +9,24 @@
   --title-color-light: #003399;
 }
 
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100%;
+  background-color: #04ABE0;
+  font-size: 2vh;
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size:large;
+  color: var(--title-color-light);
+}
+
 .start-screen {
   position: relative;
   /* height: 100vh; */
@@ -174,6 +192,10 @@ a:link a:visited a:active {
     .sound-button {
       margin-top: 4vh;
       max-width: 5vh;
+    }
+
+    .loading-text {
+      font-size: 1.5vh;
     }
 
     .title-text-container {

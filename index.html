@@ -24,12 +24,15 @@
   </head>
 
   <body>
+    <!-- Loading Screen-->
+    <div class="loading-screen">
+      <div class="loading-text">LOADING...</div>
+    </div>
+
     <!-- TITLE SCREEN -->
     <div class="start-screen" data-start-screen>
       <div class="title-container moveable-item">
         <img src="imgs/landing-page-v15.png" class="landing-page-background-img" />
-
-        
 
         <div class="ui-container">
           <div class="title-text-container">
@@ -65,28 +68,21 @@
         <div class="positioned-item tut-text" data-tutorial-text></div>
 
         <img
-        src="imgs/kid-idle.png"
-        class="start-screen-player positioned-item" />
+          src="imgs/kid-idle.png"
+          class="start-screen-player positioned-item" />
 
-        <img src="imgs/office-glass-tint.png" class="office-window-tint positioned-item" />
-
+        <img
+          src="imgs/office-glass-tint.png"
+          class="office-window-tint positioned-item" />
       </div>
-
-
     </div>
 
     <!-- The Game Screen -->
     <div class="world hide" data-world>
       <div class="game-container">
         <!-- 2 ground sprites for the endless effect -->
-        <img
-          src="imgs/background-1.png"
-          class="ground"
-          data-ground />
-        <img
-          src="imgs/background-3.png"
-          class="ground"
-          data-ground />
+        <img src="imgs/background-1.png" class="ground" data-ground />
+        <img src="imgs/background-3.png" class="ground" data-ground />
 
         <!-- Score Text -->
         <div class="score-ui score hide" data-score>SCORE 0</div>
@@ -95,14 +91,8 @@
         <div class="collect-popup hide" data-score-popup>+100</div>
 
         <!-- Sprites -->
-        <img
-          src="imgs/kid-idle.png"
-          class="player"
-          data-player />
-        <img
-          src="imgs/worm-idle.png"
-          class="pet"
-          data-pet />
+        <img src="imgs/kid-idle.png" class="player" data-player />
+        <img src="imgs/worm-idle.png" class="pet" data-pet />
       </div>
     </div>
 
