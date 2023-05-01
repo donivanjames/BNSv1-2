@@ -62,18 +62,15 @@ window.addEventListener("resize", setupIntro); // to protect screen resizes
 
 setupIntro();
 function setupIntro() {
-
-  // === Code for later === //
+  // === Code for 404 page === //
   let currentUrl = window.location.href;
-  if (currentUrl.includes('404')) {
+  if (currentUrl.includes('/game')) {
+    titleScreen.innerHTML = GameTitleMain
     console.log("This is the main game page")
-    //titleLogo.src = 'imgs/bns-title-logo-5.png'
-    titleScreen.innerHTML = GameTitle404
   }
   else {
+    titleScreen.innerHTML = GameTitle404
     console.log("this is the default 404 page")
-    // titleLogo.src = 'imgs/bns-title-logo-404-1.png'
-    titleScreen.innerHTML = GameTitleMain
   }
 
   // Horizontal ui positioning
