@@ -58,15 +58,20 @@ let customTutTextPost;
 let customOfficeWindowTintPos;
 export let horizontalScreen = true;
 
+let introSceneCalls = 0
+
 window.addEventListener("resize", setupIntro); // to protect screen resizes
 
 setupIntro();
 function setupIntro() {
+  introSceneCalls++
+  console.log("introSceneCalls: ", introSceneCalls) // testing for a permanent loop
+
   // === Code for 404 page === //
-  let currentUrl = window.location.href;
+  const currentUrl = window.location.href;
   if (currentUrl.includes('/game')) {
     titleScreen.innerHTML = GameTitleMain
-    console.log("This is the main game page")
+    console.log("This is the regular game page")
   }
   else {
     titleScreen.innerHTML = GameTitle404
@@ -86,7 +91,7 @@ function setupIntro() {
     bigImg.classList.add('hide') // remove landing page image for mobile
   }
 
-  if (screen.width < 900) bigImg.removeAttribute('src')
+  if (screen.width < 900) bigImg.classList.add('hide')
 
   // === Detect Chrome === //
   // Chrome screenHeight is different than other browsers, really annoying when designing intro scene
@@ -113,10 +118,8 @@ function setupIntro() {
 
   assignPlacements();
 
-  window.scrollTo(0, 1); // possible mobile fix to the bug where screen gets stuck halfway down
-
   setTimeout(() => {
-    document.querySelector('.loading-screen').remove();
+    if(introSceneCalls <= 1) document.querySelector('.loading-screen').remove();
   }, 1300);
 }
 
