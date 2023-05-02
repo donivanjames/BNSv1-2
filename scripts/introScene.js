@@ -69,7 +69,7 @@ function setupIntro() {
 
   // === Code for 404 page === //
   const currentUrl = window.location.href;
-  if (currentUrl.includes('/game')) {
+  if (currentUrl.includes('game')) {
     titleScreen.innerHTML = GameTitleMain
     console.log("This is the regular game page")
   }
